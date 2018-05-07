@@ -24,13 +24,91 @@
       "eng": "fish market",
       "chn": "鱼市场",
       "lesson_order": 1,
-      "video_path": "",
-      "pic_path": "",
+      "video_path": "video/20180507/7gSu8yTrFgdXCZeBzQujc0DyQmO4uIFiwmNTyc3P.mp4",
+      "pic_path": "thumb/20180507/nd1GjrsWs4nnxoeQ9MJ1XI1FnrgJPTmYQdmIEZAy.jpeg",
       "created_at": "2018-05-04 10:49:05",
-      "updated_at": "2018-05-04 10:49:05",
-      "items": [
-        
-      ]
+      "updated_at": "2018-05-07 17:23:08",
+      "items": {
+        "Day20180501": [
+          {
+            "id": 7,
+            "commodity_lesson_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 0,
+            "chn": "课程视频",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "video/20180507/7C5JohXvuJBcooOxoOc4BemOvyXtD7S4R4VoIr32.mp4",
+            "pic_path": "thumb/20180507/A0XqDgiNNRseZiNWo0pw8LPyvVrrJKuFNLRDbbVU.png",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:44:11",
+            "updated_at": "2018-05-07 17:34:48",
+            "subtitle": ""
+          },
+          {
+            "id": 8,
+            "commodity_lesson_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 0,
+            "chn": "讲解视频-1",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "video/20180507/rIYqPYKPKnigTbO9nNF7pmguXOe62LfM2z369iPp.mp4",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:46:39",
+            "updated_at": "2018-05-07 17:22:30",
+            "subtitle": ""
+          },
+          {
+            "id": 9,
+            "commodity_lesson_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 1,
+            "chn": "巩固练习",
+            "eng": null,
+            "inorder": 3,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:47:38",
+            "updated_at": "2018-05-07 16:47:38",
+            "subtitle": ""
+          }
+        ],
+        "Day20180502": [
+          {
+            "id": 10,
+            "commodity_lesson_id": 1,
+            "learn_at": "2018-05-02 00:00:00",
+            "type": 2,
+            "chn": "讲解视频-2",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 2320,
+            "created_at": "2018-05-07 16:48:37",
+            "updated_at": "2018-05-07 17:14:22",
+            "subtitle": ""
+          },
+          {
+            "id": 11,
+            "commodity_lesson_id": 1,
+            "learn_at": "2018-05-02 00:00:00",
+            "type": 1,
+            "chn": "巩固练习-2",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:50:38",
+            "updated_at": "2018-05-07 16:50:38",
+            "subtitle": ""
+          }
+        ]
+      }
     },
     {
       "id": 2,
@@ -38,10 +116,10 @@
       "eng": "art drawing",
       "chn": "绘画",
       "lesson_order": 2,
-      "video_path": "/tmp/phpyWDeKL",
+      "video_path": "video/20180507/LU4pBel7hM4cdevvQaORwN9iIZA14nj0h9QTMIcH.mp4",
       "pic_path": "thumb/20180507/uy6IFPhPW88v6HvjUqmkoe8iOGCbqKmQdgpQvT7Z.jpeg",
       "created_at": "2018-05-04 11:07:36",
-      "updated_at": "2018-05-07 14:52:08",
+      "updated_at": "2018-05-07 15:25:22",
       "items": {
         "Day20180504": [
           {
@@ -63,15 +141,15 @@
             "id": 4,
             "commodity_lesson_id": 2,
             "learn_at": "2018-05-04 00:00:00",
-            "type": 0,
+            "type": 2,
             "chn": "讲解视频-1",
             "eng": null,
             "inorder": 2,
             "video_path": "",
             "pic_path": "",
-            "v_id": 0,
+            "v_id": 2319,
             "created_at": "2018-05-04 11:50:33",
-            "updated_at": "2018-05-04 11:58:23",
+            "updated_at": "2018-05-07 17:07:41",
             "subtitle": ""
           },
           {
@@ -110,7 +188,7 @@
             "id": 6,
             "commodity_lesson_id": 2,
             "learn_at": "2018-05-05 00:00:00",
-            "type": 0,
+            "type": 1,
             "chn": "巩固练习-2",
             "eng": null,
             "inorder": 2,
@@ -118,7 +196,7 @@
             "pic_path": "",
             "v_id": 0,
             "created_at": "2018-05-04 12:03:40",
-            "updated_at": "2018-05-04 12:03:40",
+            "updated_at": "2018-05-07 16:44:37",
             "subtitle": ""
           }
         ]
