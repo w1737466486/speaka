@@ -3,8 +3,8 @@ $(function(){
    $.ajax({
    	type:"get",
    	async:true,
-   	//url:"../js/speaka.json", 
-   	url:'http://api.speaka.cn/api/team/77/commodity',
+   	url:"../js/speaka.json", 
+   	//url:'http://api.speaka.cn/api/team/77/commodity',
    	success:function(data){
    		/*$('.main .main_f1').click(function(){
    			data=eval(data)
