@@ -53,7 +53,6 @@ $(function(){
    			data=eval(data)
    			//console.log(data.lessons[1].items.Day20180504.length)
    			var txt1=$(this).find('p').html();
-   			//console.log(txt1)
    			var day1=data.lessons[1].items.Day20180505;
    			for(var i=0;i<day1.length;i++){
 	   			if(day1[i].chn==txt1){
