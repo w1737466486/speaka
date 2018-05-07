@@ -18,6 +18,7 @@
  	$.ajax({
  		type:"get",
  		url:"http://api.speaka.cn/api/team/77/commodity",
+ 		//url:"../js/speaka.json",
  		async:true,
  		success:function(data){
  			//console.log(JSON.stringify(data.lessons[1].items.length))
@@ -34,16 +35,23 @@
  			}
  		}
  	});
- 	
- 	
- 	
    /* $('.main .imgall').click(function(){
     	//console.log($(this).attr('src'))
     	$(this).attr('src','../img/'+$(this).index()+'.png')
     })*/
-    $('.main .img1').click(function(){
+   /* $('.main .img1').click(function(){
     	console.log(1)
-    	window.location.href = "../html/course.html";
-    })  
+    	window.location.href = "../html/course.html?1";
+    }) */ 
+    $('.main .imgall').click(function(){
+    	console.log($(this).attr('src').substr(7,6))
+    	if($(this).attr('src').substr(7,6)=='locked'){
+    		console.log($(this).index())
+    	}else{
+    		window.location.href = '../html/course.html?'+$(this).index();
+    	}
+    	
+    })
+    
 });  
   
