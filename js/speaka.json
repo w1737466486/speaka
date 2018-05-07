@@ -1,175 +1,212 @@
 {
-	"id": 1,
-	"limit_num": 450,
-	"is_charge": 0,
-	"price": 1,
-	"type": 0,
-	"eng": "Ocean",
-	"chn": "Sign Post Kids 海洋课",
-	"begin_time": "2018-05-10 00:00:00",
-	"groupon_num": 3,
-	"last_team_id": 0,
-	"team_num": 0,
-	"updated_at": "2018-05-04 10:44:49",
-	"created_at": "2018-05-04 10:44:49",
-	"pic_path": "thumb\/7GHCUiqQyUbrJoR5Rs4xyqnLXuijU1THMBur4yE2.jpeg",
-	"default_uid": 1,
-	"pages": [],
-	"lessons": [{
-		"id": 1,
-		"commodity_id": 1,
-		"eng": "fish market",
-		"chn": "鱼市场",
-		"lesson_order": 1,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 10:49:05",
-		"updated_at": "2018-05-04 10:49:05",
-		"items": []
-	}, {
-		"id": 2,
-		"commodity_id": 1,
-		"eng": "art drawing",
-		"chn": "绘画",
-		"lesson_order": 2,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:07:36",
-		"updated_at": "2018-05-04 11:07:36",
-		"items": {
-			"Day20180504": [{
-				"id": 1,
-				"commodity_lesson_id": 2,
-				"learn_at": "2018-05-04 00:00:00",
-				"type": 0,
-				"chn": "课程视频",
-				"eng": null,
-				"inorder": 1,
-				"video_path": "",
-				"pic_path": "",
-				"v_id": 0,
-				"created_at": "2018-05-04 11:32:53",
-				"updated_at": "2018-05-04 11:32:53"
-			}, {
-				"id": 4,
-				"commodity_lesson_id": 2,
-				"learn_at": "2018-05-04 00:00:00",
-				"type": 0,
-				"chn": "讲解视频-1",
-				"eng": null,
-				"inorder": 2,
-				"video_path": "",
-				"pic_path": "",
-				"v_id": 0,
-				"created_at": "2018-05-04 11:50:33",
-				"updated_at": "2018-05-04 11:58:23"
-			}, {
-				"id": 2,
-				"commodity_lesson_id": 2,
-				"learn_at": "2018-05-04 00:00:00",
-				"type": 1,
-				"chn": "巩固练习",
-				"eng": null,
-				"inorder": 3,
-				"video_path": "",
-				"pic_path": "",
-				"v_id": 0,
-				"created_at": "2018-05-04 11:46:48",
-				"updated_at": "2018-05-04 11:51:00"
-			}],
-			"Day20180505": [{
-				"id": 5,
-				"commodity_lesson_id": 2,
-				"learn_at": "2018-05-05 00:00:00",
-				"type": 0,
-				"chn": "讲解视频-2",
-				"eng": null,
-				"inorder": 1,
-				"video_path": "",
-				"pic_path": "",
-				"v_id": 0,
-				"created_at": "2018-05-04 11:59:07",
-				"updated_at": "2018-05-04 11:59:07"
-			}, {
-				"id": 6,
-				"commodity_lesson_id": 2,
-				"learn_at": "2018-05-05 00:00:00",
-				"type": 0,
-				"chn": "巩固练习-2",
-				"eng": null,
-				"inorder": 2,
-				"video_path": "",
-				"pic_path": "",
-				"v_id": 0,
-				"created_at": "2018-05-04 12:03:40",
-				"updated_at": "2018-05-04 12:03:40"
-			}]
-		}
-	}, {
-		"id": 3,
-		"commodity_id": 1,
-		"eng": "beach side finding Lyle",
-		"chn": "海边寻找Lyle船长",
-		"lesson_order": 3,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:09:05",
-		"updated_at": "2018-05-04 11:09:05",
-		"items": []
-	}, {
-		"id": 4,
-		"commodity_id": 1,
-		"eng": "ocean layer",
-		"chn": "海洋分层",
-		"lesson_order": 4,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:12:13",
-		"updated_at": "2018-05-04 11:12:27",
-		"items": []
-	}, {
-		"id": 5,
-		"commodity_id": 1,
-		"eng": "volcano",
-		"chn": "海底火山",
-		"lesson_order": 5,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:15:34",
-		"updated_at": "2018-05-04 11:15:34",
-		"items": []
-	}, {
-		"id": 6,
-		"commodity_id": 1,
-		"eng": "pollution",
-		"chn": "海洋污染",
-		"lesson_order": 6,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:17:14",
-		"updated_at": "2018-05-04 11:17:14",
-		"items": []
-	}, {
-		"id": 7,
-		"commodity_id": 1,
-		"eng": "sand castle",
-		"chn": "堆沙堡",
-		"lesson_order": 7,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:21:38",
-		"updated_at": "2018-05-04 11:21:38",
-		"items": []
-	}, {
-		"id": 8,
-		"commodity_id": 1,
-		"eng": "tongue twister",
-		"chn": "绕口令",
-		"lesson_order": 8,
-		"video_path": "",
-		"pic_path": "",
-		"created_at": "2018-05-04 11:22:03",
-		"updated_at": "2018-05-04 11:22:03",
-		"items": []
-	}]
+  "id": 1,
+  "limit_num": 450,
+  "is_charge": 0,
+  "price": 1,
+  "type": 0,
+  "eng": "Ocean",
+  "chn": "Sign Post Kids 海洋课",
+  "begin_time": "2018-05-10 00:00:00",
+  "groupon_num": 3,
+  "last_team_id": 0,
+  "team_num": 0,
+  "updated_at": "2018-05-04 10:44:49",
+  "created_at": "2018-05-04 10:44:49",
+  "pic_path": "thumb/7GHCUiqQyUbrJoR5Rs4xyqnLXuijU1THMBur4yE2.jpeg",
+  "default_uid": 1,
+  "pages": [
+    
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "commodity_id": 1,
+      "eng": "fish market",
+      "chn": "鱼市场",
+      "lesson_order": 1,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 10:49:05",
+      "updated_at": "2018-05-04 10:49:05",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 2,
+      "commodity_id": 1,
+      "eng": "art drawing",
+      "chn": "绘画",
+      "lesson_order": 2,
+      "video_path": "/tmp/phpyWDeKL",
+      "pic_path": "thumb/20180507/uy6IFPhPW88v6HvjUqmkoe8iOGCbqKmQdgpQvT7Z.jpeg",
+      "created_at": "2018-05-04 11:07:36",
+      "updated_at": "2018-05-07 14:52:08",
+      "items": {
+        "Day20180504": [
+          {
+            "id": 1,
+            "commodity_lesson_id": 2,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 0,
+            "chn": "课程视频",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:32:53",
+            "updated_at": "2018-05-04 11:32:53",
+            "subtitle": ""
+          },
+          {
+            "id": 4,
+            "commodity_lesson_id": 2,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 0,
+            "chn": "讲解视频-1",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:50:33",
+            "updated_at": "2018-05-04 11:58:23",
+            "subtitle": ""
+          },
+          {
+            "id": 2,
+            "commodity_lesson_id": 2,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 1,
+            "chn": "巩固练习",
+            "eng": null,
+            "inorder": 3,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:46:48",
+            "updated_at": "2018-05-04 11:51:00",
+            "subtitle": ""
+          }
+        ],
+        "Day20180505": [
+          {
+            "id": 5,
+            "commodity_lesson_id": 2,
+            "learn_at": "2018-05-05 00:00:00",
+            "type": 0,
+            "chn": "讲解视频-2",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:59:07",
+            "updated_at": "2018-05-04 11:59:07",
+            "subtitle": ""
+          },
+          {
+            "id": 6,
+            "commodity_lesson_id": 2,
+            "learn_at": "2018-05-05 00:00:00",
+            "type": 0,
+            "chn": "巩固练习-2",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 12:03:40",
+            "updated_at": "2018-05-04 12:03:40",
+            "subtitle": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "commodity_id": 1,
+      "eng": "beach side finding Lyle",
+      "chn": "海边寻找Lyle船长",
+      "lesson_order": 3,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:09:05",
+      "updated_at": "2018-05-04 11:09:05",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 4,
+      "commodity_id": 1,
+      "eng": "ocean layer",
+      "chn": "海洋分层",
+      "lesson_order": 4,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:12:13",
+      "updated_at": "2018-05-04 11:12:27",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 5,
+      "commodity_id": 1,
+      "eng": "volcano",
+      "chn": "海底火山",
+      "lesson_order": 5,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:15:34",
+      "updated_at": "2018-05-04 11:15:34",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 6,
+      "commodity_id": 1,
+      "eng": "pollution",
+      "chn": "海洋污染",
+      "lesson_order": 6,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:17:14",
+      "updated_at": "2018-05-04 11:17:14",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 7,
+      "commodity_id": 1,
+      "eng": "sand castle",
+      "chn": "堆沙堡",
+      "lesson_order": 7,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:21:38",
+      "updated_at": "2018-05-04 11:21:38",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 8,
+      "commodity_id": 1,
+      "eng": "tongue twister",
+      "chn": "绕口令",
+      "lesson_order": 8,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:22:03",
+      "updated_at": "2018-05-04 11:22:03",
+      "items": [
+        
+      ]
+    }
+  ]
 }
