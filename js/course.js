@@ -23,7 +23,13 @@ $(function(){
 			obj.video_path=data.lessons[1].video_path;
 			obj.v_id=0
 			console.log(obj)
-   			curson.punchCurson(JSON.stringify(obj))
+   			
+	   				if (window.webkit) {
+				      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+				    } else {
+				      curson.punchCurson(JSON.stringify(obj));
+				    }
+	   				
    		})
    		
    		//day 1视频获取
@@ -42,7 +48,14 @@ $(function(){
 	   				obj.video_path=day1[i].video_path;
 	   				obj.v_id=day1[i].v_id;
 	   				console.log(obj)
-	   				curson.punchCurson(JSON.stringify(obj))
+	   				//curson.punchCurson(JSON.stringify(obj))
+	   				
+	   				if (window.webkit) {
+				      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+				    } else {
+				      curson.punchCurson(JSON.stringify(obj));
+				    }
+	   				
 	   			}
    			}
    			
@@ -61,7 +74,13 @@ $(function(){
 	   				obj.video_path=day1[i].video_path;
 	   				obj.v_id=day1[i].v_id;
 	   				console.log(obj)
-	   				curson.punchCurson(JSON.stringify(obj))
+	   				
+	   				if (window.webkit) {
+				      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+				    } else {
+				      curson.punchCurson(JSON.stringify(obj));
+				    }
+	   				
 	   			}
    			}
    			
