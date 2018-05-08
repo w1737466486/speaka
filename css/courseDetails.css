@@ -23,7 +23,7 @@ body{
 }
 .v_nav .v_s1{
 	display: block;
-	font-size: 120px;
+	font-size: 128px;
 	width: 55%;
 	height: 9.4%;
 	position: absolute;
@@ -33,7 +33,7 @@ body{
 }
 .v_nav .v_s2{
 	display: block;
-	font-size: 120px;
+	font-size: 96px;
 	width: 25%;
 	height: 8.4%;
 	position: absolute;
