@@ -17,8 +17,8 @@
  	console.log(getNowFormatDate())
  	$.ajax({
  		type:"get",
- 		//url:"http://api.speaka.cn/api/team/77/commodity",
- 		url:"../js/speaka.json",
+ 		url:"http://api.speaka.cn/api/team/77/commodity",
+ 		//url:"../js/speaka.json",
  		async:true,
  		success:function(data){
  			//console.log(JSON.stringify(data.lessons[1].items.length))
