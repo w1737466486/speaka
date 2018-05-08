@@ -19,9 +19,6 @@ $(function(){
 	});
 	
 	
-	
-	
-	
 	setInterval(function(){
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
