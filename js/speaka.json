@@ -5,12 +5,12 @@
   "price": 1,
   "type": 0,
   "eng": "Ocean",
-  "chn": "Sign Post Kids 海洋课",
+  "chn": "Sign Post Kids 的海洋课",
   "begin_time": "2018-05-10 00:00:00",
   "groupon_num": 3,
   "last_team_id": 0,
   "team_num": 0,
-  "updated_at": "2018-05-04 10:44:49",
+  "updated_at": "2018-05-08 10:22:17",
   "created_at": "2018-05-04 10:44:49",
   "pic_path": "thumb/7GHCUiqQyUbrJoR5Rs4xyqnLXuijU1THMBur4yE2.jpeg",
   "default_uid": 1,
@@ -43,7 +43,8 @@
             "v_id": 0,
             "created_at": "2018-05-07 16:44:11",
             "updated_at": "2018-05-07 17:34:48",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 8,
@@ -58,7 +59,8 @@
             "v_id": 0,
             "created_at": "2018-05-07 16:46:39",
             "updated_at": "2018-05-07 18:28:17",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 9,
@@ -73,7 +75,8 @@
             "v_id": 0,
             "created_at": "2018-05-07 16:47:38",
             "updated_at": "2018-05-07 16:47:38",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           }
         ],
         "Day20180502": [
@@ -90,7 +93,8 @@
             "v_id": 2320,
             "created_at": "2018-05-07 16:48:37",
             "updated_at": "2018-05-07 17:14:22",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 11,
@@ -105,7 +109,8 @@
             "v_id": 0,
             "created_at": "2018-05-07 16:50:38",
             "updated_at": "2018-05-07 16:50:38",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           }
         ]
       }
@@ -135,7 +140,8 @@
             "v_id": 0,
             "created_at": "2018-05-04 11:32:53",
             "updated_at": "2018-05-04 11:32:53",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 4,
@@ -150,7 +156,8 @@
             "v_id": 2319,
             "created_at": "2018-05-04 11:50:33",
             "updated_at": "2018-05-07 17:07:41",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 2,
@@ -165,7 +172,8 @@
             "v_id": 0,
             "created_at": "2018-05-04 11:46:48",
             "updated_at": "2018-05-04 11:51:00",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           }
         ],
         "Day20180505": [
@@ -182,7 +190,8 @@
             "v_id": 0,
             "created_at": "2018-05-04 11:59:07",
             "updated_at": "2018-05-04 11:59:07",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           },
           {
             "id": 6,
@@ -197,7 +206,8 @@
             "v_id": 0,
             "created_at": "2018-05-04 12:03:40",
             "updated_at": "2018-05-07 16:44:37",
-            "subtitle": ""
+            "subtitle_en": "",
+            "subtitle_ch": ""
           }
         ]
       }
