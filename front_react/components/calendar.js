@@ -200,6 +200,9 @@ class Calendar extends Component {
 			    }
 			  }
 			 
+			 //添加图标
+			// $('.calendar .next-month').css({'background':'url(./public/images/right.png) no-repeat','background-size': '14px 24px;'})
+			 
 			  /**
 			   * 点击上个月图标触发
 			   */
@@ -248,6 +251,8 @@ class Calendar extends Component {
 				  	$(this).css({'background':'#EF5064','border-radius':'50%','color':'#FFFFFF'})
 			  	}
 			  })
+			  
+			  
 			})();
 
   }
