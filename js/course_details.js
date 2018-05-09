@@ -14,7 +14,7 @@ $(function(){
 			$('.v_img img').eq(2).attr('src','http://s.speaka.cn/'+data.pages[2].pic_path)
 			$('.v_det .v_det_s1').html('开课时间：'+data.begin_time.substr(0,10))
 			$('.v_det .v_det_s2').html('课程时长：'+data.last_days+'天')
-			$('.v_footer .v_pay').html(data.price/100+'元购买')
+			$('.v_footer .v_pay span').html(data.price/100+'元购买')
 			$('.course_pay p span').eq(0).html(data.eng+' '+data.chn+' '+'微课')
 			$('.course_pay p span').eq(1).html('￥'+data.price/100+'元')
 			$('.course_pay p span').eq(2).html('暂无可用')
