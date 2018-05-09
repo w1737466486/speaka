@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import $ from 'jquery'
+require ('../public/css/calendar.css')
 class Calendar extends Component {
 
-  state = {
-
-  };
+ 
 
   render() {
 
     return (
       <div>
-        <div className='calendar' id='calendar'></div>
+        <div className='calendar' id='calendar' style={{background:'url(./public/images/top.png) no-repeat',backgroundSize: '100% auto'}}>
+        
+        </div>
       </div>
     )
   }
@@ -49,7 +50,7 @@ class Calendar extends Component {
 			 
 			    // 设置标题盒子中的html
 			    titleBox.className = 'calendar-title-box';
-			    titleBox.innerHTML = "<span class='prev-month' id='prevMonth'><</span>" +
+			    titleBox.innerHTML = "<span class='prev-month' id='prevMonth'></span>" +
 			      "<span class='calendar-title' id='calendarTitle'></span>" +
 			      "<span id='nextMonth' class='next-month'></span>";
 			    calendar.appendChild(titleBox);    // 添加到calendar div中
@@ -163,7 +164,7 @@ class Calendar extends Component {
 			    }
 			    //console.log(_thisDay)
 			     var other=document.getElementsByClassName('otherMonth');
-					  console.log(other.length)
+					  //console.log(other.length)
 					  for(var j=0;j<other.length;j++){
 					  	//console.log(other[i])
 					  	other[j].innerHTML=''
@@ -206,6 +207,8 @@ class Calendar extends Component {
 			    var date = dateObj.getDate();
 			    dateObj.setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
 			    showCalendarData();
+			    //点击上个月图标清除被选择的tr
+			    $('.calendar-table td').css({'background':'','border-radius':''})
 			  }
 			 
 			  /**
@@ -215,6 +218,8 @@ class Calendar extends Component {
 			    var date = dateObj.getDate();
 			    dateObj.setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
 			    showCalendarData();
+			    //点击下个月图标清除被选择的tr
+			    $('.calendar-table td').css({'background':'','border-radius':''})
 			  }
 			 
 			  /**
@@ -229,15 +234,21 @@ class Calendar extends Component {
 			    _d = (_d > 9) ? ("" + _d) : ("0" + _d);
 			    return _year + _month + _d;
 			  }
-			  
-			  
+			 
 			  //点击日期下方显示detail
 			  $('.calendar-table td').click(function(){
 			  	
-			  	$(this).css({'background':'blue','border-radius':'50%'})
+			  //	console.log($(this).html())
+			  	if($(this).html()!=''){
+			  		//其余颜色设为黑色
+				  	$('.calendar-table td').css({'background':'','border-radius':'','color':'black'})
+				  	//当天日期设为红色
+				  	$('.currentDay').css({'color':'red'})
+				  	//点击日期添加背景色
+				  	$(this).css({'background':'#EF5064','border-radius':'50%','color':'#FFFFFF'})
+			  	}
 			  })
 			})();
-			
 
   }
 
