@@ -3,7 +3,12 @@ import $ from 'jquery'
 require ('../public/css/calendar.css')
 class Calendar extends Component {
 
- 
+ constructor(props){
+		super(props)
+		this.state={
+			
+		}
+	}
 
   render() {
 

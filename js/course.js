@@ -4,7 +4,7 @@ $(function(){
    	type:"get",
    	async:true,
    	//url:"../js/speaka.json", 
-   	url:'http://api.speaka.cn/api/team/77/commodity',
+    url:'http://api.speaka.cn/api/team/77/commodity',
    	success:function(data){
    		/*$('.main .main_f1').click(function(){
    			data=eval(data)
@@ -58,6 +58,7 @@ $(function(){
    				for(let i=1;i<=arrlessons.length;i++){
    					$('.main').append("<div class='main_d"+i+"'><span></span></div>")
    					$('.main_d'+i+'>span').html(arrlessons[i-1])
+   					$('.main_d'+i+'>span').css({'width': '50px','height': '21px','font-size': '18px','color':' #333333'})
    					$('.main_d'+i).css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 	
    					for(let j=1;j<=data.lessons[k].items[arrlessons[i-1]].length;j++){
@@ -73,7 +74,6 @@ $(function(){
    				}
    				//console.log($('.main').find('p').length)
    				
-   				console.log(obj2)
    					
    				$('.main .y1').click(function(){
    					let day_index=$(this).parent().find('span').html()

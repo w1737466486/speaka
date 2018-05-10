@@ -100,24 +100,7 @@ html,body{
 	visibility:hidden;
 	height:0;
 }
-.main_d1{
 
-}
-.main_d1>span{
-	width: 50px;
-	height: 21px;
-	font-size: 18px;
-    color: #333333;
-}
-.main_d2{
-
-}
-.main_d2>span{
-	width: 50px;
-	height: 21px;
-	font-size: 18px;
-    color: #333333;
-}
 .main p{
 	font-size: 18px;
 	color: #FFFFFF;
