@@ -43,12 +43,13 @@
     	console.log(1)
     	window.location.href = "../html/course.html?1";
     }) */ 
+    
     $('.main .imgall').click(function(){
     	console.log($(this).attr('src').substr(7,6))
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index())
     	}else{
-    		window.location.href = '../html/course.html?'+$(this).index();
+    		window.location.href = '../html/course.html?'+($(this).index()-1);
     	}
     	
     })

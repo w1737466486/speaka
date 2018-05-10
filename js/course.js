@@ -17,7 +17,7 @@ $(function(){
    			
    		})*/
    		var lessonId=location.href.split('?')[1];
-   		//console.log(data.lessons[0].id) 
+   		console.log(data.lessons[0].id) 
    		for(var k=0;k<data.lessons.length;k++){
    			//判断是第几天的课程
    			if(data.lessons[k].id==lessonId){

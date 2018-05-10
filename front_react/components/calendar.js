@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {hashHistory} from 'react-router'
 import $ from 'jquery'
 require ('../public/css/calendar.css')
 class Calendar extends Component {
@@ -6,26 +7,35 @@ class Calendar extends Component {
  constructor(props){
 		super(props)
 		this.state={
-			
+	
 		}
 	}
 
   render() {
 
     return (
-      <div>
         <div className='calendar' id='calendar' style={{background:'url(./public/images/top.png) no-repeat',backgroundSize: '100% auto'}}>
         
         </div>
-      </div>
     )
   }
+componentWillMount(){  
+    //console.info(this.props.location.query.name)  
+    hashHistory.listen(location => {
+          //获取传递的数据，对象、值....    
+            console.log(location.query);
+          // 获取路径
+        console.log(location.pathname);
+    
+})
+}
 
   componentDidMount() {
 			(function(){
 			  /*
 			   * 用于记录日期，显示的时候，根据dateObj中的日期的年月显示
 			   */
+			  
 			  var dateObj = (function(){
 			    var _date = new Date();    // 默认为当前系统时间
 			    return {
