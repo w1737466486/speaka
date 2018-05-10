@@ -27,8 +27,7 @@ $(function(){
    				$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
    				//导读视频预览图获取
    		       $('.nav_v .nav_img').attr('src','http://s.speaka.cn/'+data.lessons[k].pic_path)
-   				$('.main_d1>span').html(JSON.stringify(data.lessons[k].items).substr(2,11));
-   				var obj1=JSON.stringify(data.lessons[k].items).substr(2,11)
+   				//var obj1=JSON.stringify(data.lessons[k].items).substr(2,11)
    				/*for( let i in data.lessons[k].items){
    					if(i==obj1){
    						console.log(i)
@@ -36,24 +35,9 @@ $(function(){
    						$('.main_f1 p').html(data.lessons[k].items[i][0].chn)
    					}
    				}*/
-   				var arr=[];
-   				$('.main_d1 .main_f1 p').html(data.lessons[k].items[obj1][0].chn)
-   				$('.main_d1 .main_f2 p').html(data.lessons[k].items[obj1][1].chn)
-   				$('.main_d1 .main_f3 p').html(data.lessons[k].items[obj1][2].chn)
-   				for( let i in data.lessons[k].items){
-   					
-   					arr.push(i);
-   				}
-   				
-   				$('.main_d2>span').html(arr[1]);
-   				var obj2=arr[1]
-   				//console.log(obj2)
-   				
-   				$('.main_d2 .main_f1 p').html(data.lessons[k].items[obj2][0].chn)
-   				$('.main_d2 .main_f2 p').html(data.lessons[k].items[obj2][1].chn)
-   				
-   				
-   				$('.nav_v div').click(function(){
+   				var obj={};
+   				//点击获取导读视频
+   				$('.nav_v').click(function(){
 	   			obj.id=data.lessons[lessonId-1].id;
 				obj.type=0;
 				obj.video_path=data.lessons[lessonId-1].video_path;
@@ -66,27 +50,47 @@ $(function(){
 					      curson.punchCurson(JSON.stringify(obj));
 					    }
 		   				
-	   		})
-	   				
+	   		})   	
+			   		
+			   		//判断有几个课时，就添加几个课程盒子
+   				var  arrlessons= Object.keys(data.lessons[k].items); 
+   				//console.log(arrlessons.length)
+   				for(let i=1;i<=arrlessons.length;i++){
+   					$('.main').append("<div class='main_d"+i+"'><span></span></div>")
+   					$('.main_d'+i+'>span').html(arrlessons[i-1])
+   					$('.main_d'+i).css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
+	
+   					for(let j=1;j<=data.lessons[k].items[arrlessons[i-1]].length;j++){
+   						$('.main .main_d'+i).append("<div class='main_f"+j+"'><span class='d1'></span><p></p></div>")
+   						$('.main_d'+i+'>div').addClass('y1')	
+   						//console.log($('.main_d'+i).find('p').length)
+   						$('.main_d'+i).find('p').eq($('.main_d'+i).find('p').length-1).html(data.lessons[k].items[arrlessons[i-1]][j-1].chn)
+   						$('.main_d'+i).find('p').eq($('.main_d'+i).find('p').length-1).attr('chnId',data.lessons[k].items[arrlessons[i-1]][j-1].id)
+   						console.log(data.lessons[k].items[arrlessons[i-1]][j-1].chn)
+   						//console.log(data.lessons[k].items[arrlessons[i-1]])
+   					}
+   					//console.log(data.lessons[k].items[arrlessons[i]])
+   				}
+   				//console.log($('.main').find('p').length)
    				
-   					//day 1视频获取
-			   		var obj={};
-			   		$('.main .main_d1 .y1').click(function(){
-			             //console.log('2')
-			   			data=eval(data)
-			   			//console.log(data.lessons[1].items.Day20180504.length)
-			   			var txt1=$(this).find('p').html();
-			   			console.log(data.lessons[lessonId-1])
-			   			var day1=data.lessons[lessonId-1].items[obj1];
-			   			
+   				console.log(obj2)
+   					
+   				$('.main .y1').click(function(){
+   					let day_index=$(this).parent().find('span').html()
+   					console.log(day_index)
+   					console.log(arrlessons.indexOf(day_index))
+   					data=eval(data)
+			   			let txt1=$(this).find('p').html();
+			   			let day1=data.lessons[lessonId-1].items[day_index];
+			   			let txtId=$(this).find('p').attr('chnid');
+			   			console.log(txtId)
 			   			for(let i=0;i<day1.length;i++){
-				   			if(day1[i].chn==txt1){
+				   			if(day1[i].chn==txt1&&day1[i].id==txtId){
 				   				obj.id=day1[i].id;
 				   				obj.type=day1[i].type;
 				   				obj.video_path=day1[i].video_path;
 				   				obj.v_id=day1[i].v_id;
 				   				console.log(obj)
-				   				//curson.punchCurson(JSON.stringify(obj))
 				   				
 				   				if (window.webkit) {
 							      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
@@ -96,35 +100,9 @@ $(function(){
 				   				
 				   			}
 			   			}
-			   			
-			   		})
-			   		//day 2视频获取
-			   		$('.main .main_d2 .y1').click(function(){
-			             console.log('2')
-			   			data=eval(data)
-			   			//console.log(data.lessons[1].items.Day20180504.length)
-			   			var txt1=$(this).find('p').html();
-			   			var day1=data.lessons[lessonId-1].items[obj2];
-			   			for(let i=0;i<day1.length;i++){
-				   			if(day1[i].chn==txt1){
-				   				obj.id=day1[i].id;
-				   				obj.type=day1[i].type;
-				   				obj.video_path=day1[i].video_path;
-				   				obj.v_id=day1[i].v_id;
-				   				console.log(obj)
-				   				
-				   				if (window.webkit) {
-							      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
-							    } else {
-							      curson.punchCurson(JSON.stringify(obj));
-							    }
-				   				
-				   			}
-			   			}
-			   			
-			   		})
-   				
-   				
+   					
+   					
+   				})
    			}
    		}
    		

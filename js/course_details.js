@@ -26,7 +26,7 @@ $(function(){
 	setInterval(function(){
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
-			if(sTop>750){
+			if(sTop>100){
 				$('.v_footer').css({'height':'13.1%'})
 			}else{
 				$('.v_footer').css({'height':'0%'})
