@@ -81,9 +81,7 @@ $(function(){
 	    
 	    //Math.random().toString(36).substr(2);
 	    if(data.status==1){
-	    	
-	    $('.course_pay').css({'display':'block'})
-	    	  //微信支付
+	    	 //微信支付
 			  //通过config接口注入权限验证配置
 			   wx.config({
 			    debug: data.config.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -111,11 +109,14 @@ $(function(){
 				    // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
 				    }
 				});
+	    	
+	            $('.course_pay').css({'display':'block'})
+	    	 
 			    
 			    $('.course_pay div b').eq(1).click(function(){
 					
 					
-					 wx.chooseWXPay({
+					wx.chooseWXPay({
 		
 					timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
 					
