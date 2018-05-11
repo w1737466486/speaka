@@ -39,9 +39,9 @@ $(function(){
 		//获取当前url
 	var current_url=location.href
 	//var current_url='http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
-    current_url=current_url.split('?')[1].split('&').join().replace('=',':').replace('=',':').replace('=',':').split(',')
+    current_url=current_url.split('?')[1].split('&').join().replace('=',',').replace('=',',').replace('=',',').split(',')
     console.log(current_url)
-    var arrurl=[]
+   /* var arrurl=[]
     for(let k=0;k<current_url.length;k++){
     	if(k!=0){
     	  arrurl.push(current_url[k])
@@ -49,11 +49,16 @@ $(function(){
     }
     console.log(strurl)
     var strurl=JSON.stringify(arrurl.join(','))
-      console.log(strurl)
-      $.post("http://api.speaka.cn/api/pay",strurl,
+      console.log(strurl)*/
+     var objurl={}
+     objurl[current_url[0]]=current_url[1];
+     objurl[current_url[2]]=current_url[3];
+     objurl[current_url[4]]=current_url[5];
+     console.log(objurl.code)
+      $.post("http://api.speaka.cn/api/pay",{code:objurl.code,state:objurl.state},
 	   function(data){
 	    //alert("Data Loaded: " + data);  
-	  /*  var data={
+	     /* var data={
 		    "status": 1,
 		    "order_no": "2018051118065256229",
 		    "prepay_id": "wx11180652597696856feb0f581358570244",
