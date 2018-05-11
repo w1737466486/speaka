@@ -24,7 +24,9 @@ $(function(){
    				//console.log(k)
    				//替换文字内容
    				$('.header .header_s2').html('Lesson'+' '+data.lessons[k].id)
-   				$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
+   				
+   				$('.describe span').html('<b class="b_eng">'+data.lessons[k].eng+'</b>'+'<br/>'+'<b>'+data.lessons[k].chn+'</b>')
+   				//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
    				//导读视频预览图获取
    		       $('.nav_v .nav_img').attr('src','http://s.speaka.cn/'+data.lessons[k].pic_path)
    				//var obj1=JSON.stringify(data.lessons[k].items).substr(2,11)
@@ -57,10 +59,10 @@ $(function(){
    				//console.log(arrlessons.length)
    				for(let i=1;i<=arrlessons.length;i++){
    					$('.main').append("<div class='main_d"+i+"'><span></span></div>")
-   					$('.main_d'+i+'>span').html(arrlessons[i-1])
-   					$('.main_d'+i+'>span').css({'width': '50px','height': '21px','font-size': '18px','color':' #333333'})
+   					$('.main_d'+i+'>span').html('Day'+' '+i)
+   					$('.main_d'+i+'>span').css({'width': '50px','height': '21px','font-size': '16px','color':' #333333'})
    					$('.main_d'+i).css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
-	
+	                console.log(arrlessons[i-1])
    					for(let j=1;j<=data.lessons[k].items[arrlessons[i-1]].length;j++){
    						$('.main .main_d'+i).append("<div class='main_f"+j+"'><span class='d1'></span><p></p></div>")
    						$('.main_d'+i+'>div').addClass('y1')	
