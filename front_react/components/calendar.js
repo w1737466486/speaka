@@ -5,7 +5,7 @@ require ('../public/css/calendar.css')
 class Calendar extends Component {
 
  constructor(props){
-		super(props)
+		super(props);
 		this.state={
 	
 		}
@@ -19,16 +19,9 @@ class Calendar extends Component {
         </div>
     )
   }
-componentWillMount(){  
-    //console.info(this.props.location.query.name)  
-    hashHistory.listen(location => {
-          //获取传递的数据，对象、值....    
-            console.log(location.query);
-          // 获取路径
-        console.log(location.pathname);
-    
-})
-}
+  componentWillReceiveProps(a){
+		console.log(a.location.query.id)		
+	}
 
   componentDidMount() {
 			(function(){

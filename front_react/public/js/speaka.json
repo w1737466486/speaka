@@ -1,0 +1,317 @@
+{
+  "id": 1,
+  "limit_num": 450,
+  "is_charge": 0,
+  "price": 1,
+  "type": 0,
+  "eng": "Ocean",
+  "chn": "海洋",
+  "begin_time": "2018-05-10 00:00:00",
+  "groupon_num": 3,
+  "last_team_id": 0,
+  "team_num": 0,
+  "updated_at": "2018-05-08 15:06:36",
+  "created_at": "2018-05-04 10:44:49",
+  "pic_path": "thumb/20180508/OvfOPLT0y7jAo8WViuD5uT7BKG2W8v4HYpjM8MtX.gif",
+  "default_uid": 1,
+  "last_days": 28,
+  "pages": [
+    {
+      "id": 1,
+      "commodity_id": 1,
+      "inorder": 1,
+      "pic_path": "thumb/20180508/RotnKAGMyN3d7C1qTMxQLrCPTrqCwv3ZLlqpHmk1.png",
+      "video_path": "",
+      "is_head": 0,
+      "updated_at": "2018-05-08 16:20:52",
+      "created_at": "2018-05-08 16:20:52",
+      "type": 0
+    },
+    {
+      "id": 3,
+      "commodity_id": 1,
+      "inorder": 2,
+      "pic_path": "thumb/20180508/jb76gScvt34uTlOnzzPp0nS8wzCQaojLj4AOai2U.png",
+      "video_path": "",
+      "is_head": 0,
+      "updated_at": "2018-05-08 16:26:16",
+      "created_at": "2018-05-08 16:26:16",
+      "type": 0
+    },
+    {
+      "id": 5,
+      "commodity_id": 1,
+      "inorder": 3,
+      "pic_path": "thumb/20180508/uQp6EVSuDGB7DmBRI5fOQHRCuS5vBGtFAcap0Xy1.png",
+      "video_path": "",
+      "is_head": 0,
+      "updated_at": "2018-05-08 16:29:08",
+      "created_at": "2018-05-08 16:29:08",
+      "type": 0
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "commodity_id": 1,
+      "eng": "fish market",
+      "chn": "鱼市场",
+      "lesson_order": 1,
+      "video_path": "video/20180507/AjgH3tDtLw3XVCbuQdW76oxFwWzfJcrs44c8TUNf.mp4",
+      "pic_path": "thumb/20180507/N5Hm5u0DwU9r2vRvr8IB2A0zIOvjC95ik2thrCE5.png",
+      "created_at": "2018-05-04 10:49:05",
+      "updated_at": "2018-05-07 17:59:56",
+      "items": {
+        "Day20180501": [
+          {
+            "id": 7,
+            "commodity_day_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 0,
+            "chn": "课程视频",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "video/20180507/7C5JohXvuJBcooOxoOc4BemOvyXtD7S4R4VoIr32.mp4",
+            "pic_path": "thumb/20180507/A0XqDgiNNRseZiNWo0pw8LPyvVrrJKuFNLRDbbVU.png",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:44:11",
+            "updated_at": "2018-05-07 17:34:48",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          },
+          {
+            "id": 8,
+            "commodity_day_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 0,
+            "chn": "讲解视频-1",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "video/20180507/xTNg2udzkZXQddcD56humJE9HRtNcdsn7uQPcXh9.mp4",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:46:39",
+            "updated_at": "2018-05-07 18:28:17",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          },
+          {
+            "id": 9,
+            "commodity_day_id": 1,
+            "learn_at": "2018-05-01 00:00:00",
+            "type": 1,
+            "chn": "巩固练习",
+            "eng": null,
+            "inorder": 3,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:47:38",
+            "updated_at": "2018-05-09 19:09:52",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          }
+        ],
+        "Day20180502": [
+          {
+            "id": 6,
+            "commodity_day_id": 2,
+            "learn_at": "2018-05-05 00:00:00",
+            "type": 1,
+            "chn": "巩固练习-2",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 12:03:40",
+            "updated_at": "2018-05-09 19:16:17",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          },
+          {
+            "id": 11,
+            "commodity_day_id": 2,
+            "learn_at": "2018-05-02 00:00:00",
+            "type": 1,
+            "chn": "巩固练习-2",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-07 16:50:38",
+            "updated_at": "2018-05-09 12:03:31",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "commodity_id": 1,
+      "eng": "art drawing",
+      "chn": "绘画",
+      "lesson_order": 2,
+      "video_path": "video/20180507/LU4pBel7hM4cdevvQaORwN9iIZA14nj0h9QTMIcH.mp4",
+      "pic_path": "thumb/20180507/uy6IFPhPW88v6HvjUqmkoe8iOGCbqKmQdgpQvT7Z.jpeg",
+      "created_at": "2018-05-04 11:07:36",
+      "updated_at": "2018-05-07 15:25:22",
+      "items": {
+        "Day20180507": [
+          {
+            "id": 1,
+            "commodity_day_id": 3,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 0,
+            "chn": "课程视频",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:32:53",
+            "updated_at": "2018-05-09 12:04:18",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          },
+          {
+            "id": 4,
+            "commodity_day_id": 3,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 2,
+            "chn": "讲解视频-1",
+            "eng": null,
+            "inorder": 2,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 2319,
+            "created_at": "2018-05-04 11:50:33",
+            "updated_at": "2018-05-09 12:04:47",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          },
+          {
+            "id": 2,
+            "commodity_day_id": 3,
+            "learn_at": "2018-05-04 00:00:00",
+            "type": 1,
+            "chn": "巩固练习",
+            "eng": null,
+            "inorder": 3,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:46:48",
+            "updated_at": "2018-05-09 12:05:31",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          }
+        ],
+        "Day20180508": [
+          {
+            "id": 5,
+            "commodity_day_id": 4,
+            "learn_at": "2018-05-05 00:00:00",
+            "type": 0,
+            "chn": "讲解视频-2",
+            "eng": null,
+            "inorder": 1,
+            "video_path": "",
+            "pic_path": "",
+            "v_id": 0,
+            "created_at": "2018-05-04 11:59:07",
+            "updated_at": "2018-05-09 12:05:59",
+            "subtitle_en": "",
+            "subtitle_ch": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "commodity_id": 1,
+      "eng": "beach side finding Lyle",
+      "chn": "海边寻找Lyle船长",
+      "lesson_order": 3,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:09:05",
+      "updated_at": "2018-05-04 11:09:05",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 4,
+      "commodity_id": 1,
+      "eng": "ocean layer",
+      "chn": "海洋分层",
+      "lesson_order": 4,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:12:13",
+      "updated_at": "2018-05-04 11:12:27",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 5,
+      "commodity_id": 1,
+      "eng": "volcano",
+      "chn": "海底火山",
+      "lesson_order": 5,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:15:34",
+      "updated_at": "2018-05-04 11:15:34",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 6,
+      "commodity_id": 1,
+      "eng": "pollution",
+      "chn": "海洋污染",
+      "lesson_order": 6,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:17:14",
+      "updated_at": "2018-05-04 11:17:14",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 7,
+      "commodity_id": 1,
+      "eng": "sand castle",
+      "chn": "堆沙堡",
+      "lesson_order": 7,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:21:38",
+      "updated_at": "2018-05-04 11:21:38",
+      "items": [
+        
+      ]
+    },
+    {
+      "id": 8,
+      "commodity_id": 1,
+      "eng": "tongue twister",
+      "chn": "绕口令",
+      "lesson_order": 8,
+      "video_path": "",
+      "pic_path": "",
+      "created_at": "2018-05-04 11:22:03",
+      "updated_at": "2018-05-04 11:22:03",
+      "items": [
+        
+      ]
+    }
+  ]
+}
