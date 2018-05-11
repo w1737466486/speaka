@@ -60,6 +60,7 @@ $(function(){
    				for(let i=1;i<=arrlessons.length;i++){
    					$('.main').append("<div class='main_d"+i+"'><span></span></div>")
    					$('.main_d'+i+'>span').html('Day'+' '+i)
+   					$('.main_d'+i+'>span').attr('data_day',arrlessons[i-1])
    					$('.main_d'+i+'>span').css({'width': '50px','height': '21px','font-size': '16px','color':' #333333'})
    					$('.main_d'+i).css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 	                console.log(arrlessons[i-1])
@@ -78,7 +79,9 @@ $(function(){
    				
    					
    				$('.main .y1').click(function(){
-   					let day_index=$(this).parent().find('span').html()
+   					let day_index=$(this).parent().find('span').attr('data_day')
+   					let v_day=$(this).parent().find('span').html()
+   					console.log(arrlessons)
    					console.log(day_index)
    					console.log(arrlessons.indexOf(day_index))
    					data=eval(data)
@@ -92,6 +95,8 @@ $(function(){
 				   				obj.type=day1[i].type;
 				   				obj.video_path=day1[i].video_path;
 				   				obj.v_id=day1[i].v_id;
+				   				obj.v_day=v_day
+				   				obj.v_text=txt1
 				   				console.log(obj)
 				   				
 				   				if (window.webkit) {
