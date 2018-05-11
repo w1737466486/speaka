@@ -36,7 +36,7 @@ $(function(){
 	
 	$('.v_pay').click(function(){
 		
-		//获取当前url
+	//获取当前url
 	var current_url=location.href
 	//var current_url='http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
     current_url=current_url.split('?')[1].split('&').join().replace('=',':').replace('=',':').replace('=',':').split(',')
@@ -77,10 +77,10 @@ $(function(){
 		        "timestamp": "1526033212"
 		    }
 		}*/
-	    console.log(data.config)
+	    alert(data)
 	    
 	    //Math.random().toString(36).substr(2);
-	    if(data.status==1){
+/*	    if(data.status==1){
 	    	 //微信支付
 			  //通过config接口注入权限验证配置
 			   wx.config({
@@ -143,7 +143,7 @@ $(function(){
 	    	
 	    }else{
 	    	alert('授权失败，请重试')
-	    }
+	    }*/
 	      
 	   });
 	
