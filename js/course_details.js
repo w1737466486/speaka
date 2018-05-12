@@ -55,7 +55,7 @@ $(function(){
      objurl[current_url[2]]=current_url[3];
      objurl[current_url[4]]=current_url[5];
      console.log(objurl.code)
-      $.post("http://api.speaka.cn/api/pay",{code:objurl.code,state:objurl.state},
+      $.post("http://api.speaka.cn/api/pay",{code:objurl.code,state:objurl.state,location:window.location.href},
 	   function(data){
 	    //alert("Data Loaded: " + data);  
 	     /* var data={
