@@ -36,28 +36,34 @@ $(function(){
 	
 	$('.v_pay').click(function(){
 		
+		//将url参数转对象
+		
+		function queryURL(url){
+		    var arr1 = url.split("?");
+		    var params = arr1[1].split("&");//进行分割成数组
+		    var obj = {};
+		    for(var i=0;i<params.length;i++){
+		        var param = params[i].split("=");//进行分割成数组
+		        obj[param[0]] = param[1];//为对象赋值
+		    }
+		
+		    return obj;
+		}
+		
 		//获取当前url
-	var current_url=location.href
-	//var current_url='http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
-    current_url=current_url.split('?')[1].split('&').join().replace('=',',').replace('=',',').replace('=',',').split(',')
-    console.log(current_url)
-   /* var arrurl=[]
-    for(let k=0;k<current_url.length;k++){
-    	if(k!=0){
-    	  arrurl.push(current_url[k])
-    	}
-    }
-    console.log(strurl)
-    var strurl=JSON.stringify(arrurl.join(','))
-      console.log(strurl)*/
-     var objurl={}
-     objurl[current_url[0]]=current_url[1];
-     objurl[current_url[2]]=current_url[3];
-     objurl[current_url[4]]=current_url[5];
-     console.log(objurl.code)
+		var current_url=location.href
+		//测试url
+		//var current_url='http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
+		
+		console.log(current_url)
+		var objurl=queryURL(current_url)
+		console.log(objurl)
+	
+   
       $.post("http://api.speaka.cn/api/pay",{code:objurl.code,state:objurl.state,location:window.location.href},
 	   function(data){
 	    //alert("Data Loaded: " + data);  
+	    //测试数据
 	     /* var data={
 		    "status": 1,
 		    "order_no": "2018051118065256229",
@@ -84,7 +90,7 @@ $(function(){
 		    }
 		}*/
 	    console.log(data.config)
-	    
+	    //随机数函数
 	    //Math.random().toString(36).substr(2);
 	    if(data.status==1){
 	    	 //微信支付
@@ -143,12 +149,7 @@ $(function(){
 				});
 	    	
 	            
-	    	 
-			    
-			  
-			    
-			    
-			   
+	    	 	  	   
 	    	
 	    }else{
 	    	alert('授权失败，请重试')
