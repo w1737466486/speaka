@@ -3,19 +3,10 @@ $(function(){
    $.ajax({
    	type:"get",
    	async:true,
-   	//url:"../js/speaka.json", 
+   	//surl:"../js/speaka.json", 
     url:'http://api.speaka.cn/api/team/77/commodity',
    	success:function(data){
-   		/*$('.main .main_f1').click(function(){
-   			data=eval(data)
-   			var obj={}
-   			//console.log(data.lessons[1].items.Day20180504[0].video_path)
-   			obj.video_path=data.lessons[1].items.Day20180504[0].video_path
-   			obj.pic_path=data.lessons[1].items.Day20180504[0].pic_path
-   			console.log(JSON.stringify(obj))
-   			//curson.punchCurson(JSON.stringify(obj))
-   			
-   		})*/
+   		
    		var lessonId=location.href.split('?')[1];
    		console.log(data.lessons[0].id) 
    		for(var k=0;k<data.lessons.length;k++){
@@ -29,21 +20,19 @@ $(function(){
    				//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
    				//导读视频预览图获取
    		       $('.nav_v .nav_img').attr('src','http://s.speaka.cn/'+data.lessons[k].pic_path)
-   				//var obj1=JSON.stringify(data.lessons[k].items).substr(2,11)
-   				/*for( let i in data.lessons[k].items){
-   					if(i==obj1){
-   						console.log(i)
-   						console.log(data.lessons[k].items[i])
-   						$('.main_f1 p').html(data.lessons[k].items[i][0].chn)
-   					}
-   				}*/
+   				
    				var obj={};
    				//点击获取导读视频
    				$('.nav_v').click(function(){
+   				let v_tit='Lesson'+' '+lessonId
+   				let txt1=$('.nav span').html();
 	   			obj.id=data.lessons[lessonId-1].id;
 				obj.type=0;
 				obj.video_path=data.lessons[lessonId-1].video_path;
 				obj.v_id=0
+				obj.v_tit=v_tit
+				obj.v_text=txt1
+				
 				console.log(obj)
 	   			
 		   				if (window.webkit) {
@@ -80,7 +69,7 @@ $(function(){
    					
    				$('.main .y1').click(function(){
    					let day_index=$(this).parent().find('span').attr('data_day')
-   					let v_day=$(this).parent().find('span').html()
+   					let v_tit='Lesson'+' '+lessonId
    					console.log(arrlessons)
    					console.log(day_index)
    					console.log(arrlessons.indexOf(day_index))
@@ -95,7 +84,7 @@ $(function(){
 				   				obj.type=day1[i].type;
 				   				obj.video_path=day1[i].video_path;
 				   				obj.v_id=day1[i].v_id;
-				   				obj.v_day=v_day
+				   				obj.v_tit=v_tit
 				   				obj.v_text=txt1
 				   				console.log(obj)
 				   				
