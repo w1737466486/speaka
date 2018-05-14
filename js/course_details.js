@@ -61,8 +61,9 @@ $(function(){
    
       $.post("http://api.speaka.cn/api/pay",{code:objurl.code,state:objurl.state,location:window.location.href},
 	   function(data){
+	   	var data=data;
 	    //alert("Data Loaded: " + data);  
-	    //测试数据
+	    //测试数据  ~商户id===1500516481
 	     /* var data={
 		    "status": 1,
 		    "order_no": "2018051118065256229",
@@ -88,6 +89,8 @@ $(function(){
 		        "timestamp": "1526033212"
 		    }
 		}*/
+		
+		
 	    console.log(data.config)
 	    //随机数函数
 	    //Math.random().toString(36).substr(2);
@@ -124,7 +127,18 @@ $(function(){
 						paySign: data.pay_config.paySign, // 支付签名
 						
 						success: function (res) {
-							
+							let objpay={}
+							objpay.partnerid=1500516481;
+							objpay.prepayid=data.prepay_id;
+							objpay.package=data.pay_config.package;
+							objpay.nonceStr=data.pay_config.nonceStr;
+							objpay.timestamp=data.pay_config.timestamp;
+							objpay.paySign=data.pay_config.paySign
+							if (window.webkit) {
+							      window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(objpay));
+							    } else {
+							      curson.punchCurson(JSON.stringify(objpay));
+							    }
 							
 						// 支付成功后的回调函数
 						console.log(res)
