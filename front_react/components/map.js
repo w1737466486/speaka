@@ -16,6 +16,7 @@ class Map extends Component {
 
 		return(
 			<div className="main">
+			<img className="backImgPlaceHolder" src="./public/images/bg.png"/>
 			<img className="bg" src="./public/images/bg.png"/>
 			<Link to={{pathname:'/calendar',query:{id:1}}}><img className="img1 imgall" src="./public/images/1.png"/></Link>
 			<img className="img2 imgall" src="./public/images/locked.png"/>
