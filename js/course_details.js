@@ -27,12 +27,11 @@ $(function(){
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
 			if(sTop>100){
-				$('.v_footer').css({'height':'13.1%'})
+				$('.v_footer').css({'height':'17.1%'})
 			}else{
 				$('.v_footer').css({'height':'0%'})
 			}
 		},50)
-	
 	
 	$('.v_pay').click(function(){
 		
@@ -125,6 +124,8 @@ $(function(){
 						paySign: data.pay_config.paySign, // 支付签名
 						
 						success: function (res) {
+							
+							
 						// 支付成功后的回调函数
 						console.log(res)
 							}
