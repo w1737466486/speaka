@@ -32,9 +32,9 @@ $(function() {
 
 		// 设置标题盒子中的html
 		titleBox.className = 'calendar-title-box';
-		titleBox.innerHTML = "<span class='prev-month' id='prevMonth'></span>" +
+		titleBox.innerHTML = "<span class='prev-month' id='prevMonth'><em></em></span>" +
 			"<span class='calendar-title' id='calendarTitle'></span>" +
-			"<span id='nextMonth' class='next-month'></span>";
+			"<span id='nextMonth' class='next-month'><em></em></span>";
 		calendar.appendChild(titleBox); // 添加到calendar div中
 
 		// 设置表格区的html结构
@@ -53,13 +53,13 @@ $(function() {
 		// 一个月最多31天，所以一个月最多占6行表格
 		for(var i = 0; i < 6; i++) {
 			_bodyHtml += "<tr>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
+				"<td><span></span></td>" +
 				"</tr>";
 		}
 		bodyBox.innerHTML = "<table id='calendarTable' class='calendar-table'>" +
@@ -127,7 +127,7 @@ $(function() {
 
 		// 设置表格中的日期数据
 		var _table = document.getElementById("calendarTable");
-		var _tds = _table.getElementsByTagName("td");
+		var _tds = _table.querySelectorAll("td span");
 		var _firstDay = new Date(_year, _month - 1, 1); // 当前月第一天
 		for(var i = 0; i < _tds.length; i++) {
 			var _thisDay = new Date(_year, _month - 1, i + 1 - _firstDay.getDay());
@@ -192,10 +192,15 @@ $(function() {
 		var date = dateObj.getDate();
 		dateObj.setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
 		showCalendarData();
+		
+		$('#calendarTable .currentDay').css({
+				'color': 'red'
+			})
 		//点击上个月图标清除被选择的tr
-		$('.calendar-table td').css({
+		$('.calendar-table td').find('span').css({
 			'background': '',
-			'border-radius': ''
+			'border-radius': '',
+			'color': 'black'
 		})
 	}
 
@@ -206,10 +211,15 @@ $(function() {
 		var date = dateObj.getDate();
 		dateObj.setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
 		showCalendarData();
+		
+		$('#calendarTable .currentDay').css({
+				'color': 'red'
+			})
 		//点击下个月图标清除被选择的tr
-		$('.calendar-table td').css({
+		$('.calendar-table td').find('span').css({
 			'background': '',
-			'border-radius': ''
+			'border-radius': '',
+			'color': 'black'
 		})
 	}
 
@@ -230,24 +240,66 @@ $(function() {
 	$('.calendar-table td').click(function() {
 
 		//	console.log($(this).html())
-		if($(this).html() != '') {
+		if($(this).find('span').html() != '') {
 			//其余颜色设为黑色
-			$('.calendar-table td').css({
+			$('.calendar-table td').find('span').css({
 				'background': '',
 				'border-radius': '',
 				'color': 'black'
 			})
 			//当天日期设为红色
-			$('.currentDay').css({
-				'color': 'red'
+			$('#calendarTable .currentDay').css({
+				'color': 'blue'
+			})
+			$(this).css({
+			'position': 'relative',
+			'color': '#000000'
 			})
 			//点击日期添加背景色
-			$(this).css({
+			$(this).find('span').css({
+				'text-align': 'center',
 				'background': '#EF5064',
 				'border-radius': '50%',
-				'color': '#FFFFFF'
+				 'position': 'absolute',
+				 'top': '50%',
+				 'left':'50%' ,
+				'display':'inline-block',
+				'color': '#FFFFFF',
+				'width':'35px',
+				'height':'35px',
+			   'line-height':'35px',
+			    'transform':'translate(-50%,-50%)'
 			})
+			
+			
+			
 		}
 	})
+
+	
+	
+	function get_token(_results){
+		//console.log(_results)
+		return _results
+	}
+	
+	var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
+	//http://192.168.2.63:8080/api/lesson/day
+		 $.ajax({
+	        url: 'http://http://api.speaka.cn/api/lesson/day',
+	        
+	        beforeSend: function(request) {
+	            request.setRequestHeader("Authorization", token);
+	        },
+	        dataType: 'JSON',
+	        async: false,//请求是否异步，默认为异步
+	        type: 'GET',
+	        success: function (data) {
+	        	console.log(data)
+	         },
+	        error: function (data) {
+	        	console.log(data)
+	         }
+	  })
 
 })
