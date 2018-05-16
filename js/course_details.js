@@ -63,6 +63,7 @@ $(function() {
 			dataType: 'JSON',
 			async: false,
 			success: function(data) {
+				alert(data);
 				var obj_pay = {}
 				obj_pay.paytypeId = 2;
 				obj_pay.partnerid = data.pay_config.partnerid;
