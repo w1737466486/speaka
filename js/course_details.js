@@ -81,6 +81,7 @@ $(function() {
 
 		});
 	}
+	window.get_token=get_token;
 	$('.v_pay').click(function() {
 
 		if(window.webkit) {
