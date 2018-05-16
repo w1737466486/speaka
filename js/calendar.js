@@ -433,32 +433,6 @@ $(function() {
 			
 		}
 	})
-}
-	
-	
-	/*function get_token(_results){
-		//console.log(_results)
-		token=_results
-	}*/
-	
-	//var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
-	//http://192.168.2.63:8080/api/lesson/day
-		/* $.ajax({
-	        url: 'http://http://api.speaka.cn/api/lesson/day',
-	        
-	        beforeSend: function(request) {
-	            request.setRequestHeader("Authorization", token);
-	        },
-	        dataType: 'JSON',
-	        async: false,//请求是否异步，默认为异步
-	        type: 'GET',
-	        success: function (data) {
-	        	console.log(data)
-	         },
-	        error: function (data) {
-	        	console.log(data)
-	         }
-	  })*/
-	
+}	
 
 })

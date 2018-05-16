@@ -151,9 +151,6 @@ $(function() {
 					}*/
 
 					console.log(data.config)
-
-					//随机数函数
-					//Math.random().toString(36).substr(2);
 					if(data.status == 1) {
 						//微信支付
 						//通过config接口注入权限验证配置

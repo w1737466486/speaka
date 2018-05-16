@@ -106,14 +106,8 @@ th{
    width: 13.8%;
    font-size: 12px;
  }
- .calendar-table tr td{
-   
- }
- 
+
 /* 本月 文字颜色 */
-.currentMonth {
- 
-}
 
 /* 其他月颜色 */
 .otherMonth{
