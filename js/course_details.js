@@ -70,6 +70,8 @@ $(function() {
 				obj_pay.nonceStr  = data.pay_config.nonceStr;
 				obj_pay.timestamp = data.pay_config.timestamp;
 				obj_pay.sign = data.pay_config.sign;
+				alert(token);
+				alert(JSON.stringify(obj_pay));
 				if(isAndroid_ios()) {
 					//安卓  
 					 androidpay.androidWechatPay(JSON.stringify(obj_pay));
