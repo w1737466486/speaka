@@ -99,7 +99,7 @@ th{
 }
 /* 当前天 颜色特殊显示 */
 .currentDay {
-  color: blue!important;
+ 
 }
 
  .calendar-table tr th{
@@ -120,3 +120,47 @@ th{
   color: #ccc;
 }
 
+.calendar_detail p{
+	font-size: 14px;
+    color: #666666;
+    margin-top: 10px;
+    text-indent: 16px;
+}
+.calendar_detail div{
+	padding: 10px 0;
+	box-shadow: 0 8px 12px -6px rgba(0,0,0,0.20);
+	border-radius: 4px;
+}
+.calendar_detail div p{
+	text-indent: 38px;
+	color: white;
+}
+.calendar_detail div:nth-of-type(2n+1){
+	background: #EF5064;
+}
+.calendar_detail div:nth-of-type(2n){
+	background: #FEB326;
+}
+.calendar_detail div:nth-of-type(3n){
+	background: #64C5EB;
+}
+.calendar_detail div span:nth-of-type(1){
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: 48%;
+	left: 15px;
+	border-radius: 50%;
+	background: #FFFFFF;
+}
+.calendar_detail div span:nth-of-type(2){
+	background: url(../img/right.png);
+	background-size: 100% auto;
+	display: block;
+	width: 7px;
+	height: 12px;
+	position: absolute;
+	top: 48%;
+	right: 15px;
+}

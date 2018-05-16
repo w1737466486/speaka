@@ -1,0 +1,33 @@
+{
+    "status": 1,
+    "info": {
+        "lessons": [
+            {
+                "lesson_id": 2,
+                "name": "How To Cover Your Tracks",
+                "begin_at": "23:00",
+                "end_at": "23:01"
+            },
+            {
+                "lesson_id": 2,
+                "name": "How To Cover Your Tracks",
+                "begin_at": "23:00",
+                "end_at": "23:01"
+            },
+            {
+                "lesson_id": 2,
+                "name": "How To Cover Your Tracks",
+                "begin_at": "23:00",
+                "end_at": "23:01"
+            }
+        ],
+        "has_lesson_days": [
+            "01",
+            "02",
+            "08",
+            "09",
+            "15",
+            "16"
+        ]
+    }
+}
