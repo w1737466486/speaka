@@ -65,9 +65,9 @@ $(function() {
 				var ob_jpay = {}
 				objpay.paytypeId = 2;
 				obj_pay.partnerid = data.pay_config.partnerid;
-				obj_pay.prepayid = data.pay_config.prepayid;
-				obj_pay.package = package;
-				obj_pay.nonceStr = data.pay_config.nonceStr;
+				obj_pay.prepayid  = data.pay_config.prepayid;
+				obj_pay.package   = data.pay_config.package;
+				obj_pay.nonceStr  = data.pay_config.nonceStr;
 				obj_pay.timestamp = data.pay_config.timestamp;
 				obj_pay.sign = data.pay_config.sign;
 				if(isAndroid_ios()) {
