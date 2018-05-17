@@ -61,7 +61,7 @@ $(function() {
 			dataType: 'JSON',
 			async: false,
 			success: function(data) {
-				console.log(data);
+				alert(data);
 				if(data.status==1){
 					var obj_pay = {}
 					obj_pay.paytypeId = 2;
@@ -84,6 +84,9 @@ $(function() {
 					alert('请求失败，请重试！')
 				}
 			
+			},
+			error:function(res){
+				alert(res)
 			}
 
 		});
