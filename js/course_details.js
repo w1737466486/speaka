@@ -1,6 +1,6 @@
 $(function() {
 	var commodity_id = 1
-
+    window.get_token=get_token;
 	$.ajax({
 		type: "get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
@@ -50,42 +50,49 @@ $(function() {
 	function get_token(_results) {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
-		alert(token);
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
 			data: {
 				commodity_id: commodity_id
 			},
+			 headers: {
+            "X-Requested-Accept": 'json'
+            },
 			beforeSend: function(request) {
 				request.setRequestHeader("Authorization", token);
 			},
 			dataType: 'JSON',
 			async: false,
 			success: function(data) {
-				alert(data);
-				var obj_pay = {}
-				obj_pay.paytypeId = 2;
-				obj_pay.partnerid = data.pay_config.partnerid;
-				obj_pay.prepayid  = data.pay_config.prepayid;
-				obj_pay.package   = data.pay_config.package;
-				obj_pay.nonceStr  = data.pay_config.nonceStr;
-				obj_pay.timestamp = data.pay_config.timestamp;
-				obj_pay.sign = data.pay_config.sign;
-				
-				alert(JSON.stringify(obj_pay));
-				if(isAndroid_ios()) {
-					//安卓  
-					 androidpay.androidWechatPay(JSON.stringify(obj_pay));
-				} else {
-					//ios  
-					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
+				console.log(data);
+				if(data.status==1){
+					var obj_pay = {}
+					obj_pay.paytypeId = 2;
+					obj_pay.partnerid = data.pay_config.partnerid;
+					obj_pay.prepayid  = data.pay_config.prepayid;
+					obj_pay.package   = data.pay_config.package;
+					obj_pay.nonceStr  = data.pay_config.nonceStr;
+					obj_pay.timestamp = data.pay_config.timestamp;
+					obj_pay.sign = data.pay_config.sign;
+					
+					alert(JSON.stringify(obj_pay));
+					if(isAndroid_ios()) {
+						//安卓  
+						 androidpay.androidWechatPay(JSON.stringify(obj_pay));
+					} else {
+						//ios  
+						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
+					}
+				}else{
+					alert('请求失败，请重试！')
 				}
+			
 			}
 
 		});
 	}
-	window.get_token=get_token;
+	
 	$('.v_pay').click(function() {
 
 		if(window.webkit) {
