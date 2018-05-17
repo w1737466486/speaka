@@ -56,9 +56,6 @@ $(function() {
 			data: {
 				commodity_id: commodity_id
 			},
-			 headers: {
-            "X-Requested-Accept": 'json'
-            },
 			beforeSend: function(request) {
 				request.setRequestHeader("Authorization", token);
 			},
