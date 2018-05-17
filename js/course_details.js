@@ -86,7 +86,7 @@ $(function() {
 			
 			},
 			error:function(res){
-				alert(res)
+				alert(JSON.stringify(res))
 			}
 
 		});
