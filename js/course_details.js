@@ -44,12 +44,11 @@ $(function() {
 		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端  
 		return isAndroid == true ? true : false;
 	}
-
 	var token = null;
-
 	function get_token(_results) {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
+		alert(token)
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
