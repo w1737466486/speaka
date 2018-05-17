@@ -59,7 +59,7 @@ $(function() {
 				request.setRequestHeader("Authorization", token);
 			},
 			dataType: 'JSON',
-			async: false,
+			async: true,
 			success: function(data) {
 				alert(data);
 				if(data.status==1){
