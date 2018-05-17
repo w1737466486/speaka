@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+	</body>
+	<script type="text/javascript">
+		token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
+		console.log(token);
+		
+		
+		$.ajax({
+			type: "post",
+			url: "http://api.speaka.cn/api/apppay",
+			data: {
+				commodity_id: 1
+			},
+			beforeSend: function(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			dataType: 'JSON',
+			async: false,
+			success: function(data) {
+				console.log(data);
+				var obj_pay = {}
+				obj_pay.paytypeId = 2;
+				obj_pay.partnerid = data.pay_config.partnerid;
+				obj_pay.prepayid  = data.pay_config.prepayid;
+				obj_pay.package   = data.pay_config.package;
+				obj_pay.nonceStr  = data.pay_config.nonceStr;
+				obj_pay.timestamp = data.pay_config.timestamp;
+				obj_pay.sign = data.pay_config.sign;
+				
+				console.log(JSON.stringify(obj_pay));
+				if(isAndroid_ios()) {
+					//安卓  
+					 androidpay.androidWechatPay(JSON.stringify(obj_pay));
+				} else {
+					//ios  
+					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
+				}
+			}
+
+		});
+	</script>
+</html>
