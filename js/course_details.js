@@ -48,7 +48,7 @@ $(function() {
 	function get_token(_results) {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
-		alert(token)
+		//alert(token)
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
@@ -61,7 +61,7 @@ $(function() {
 			dataType: 'JSON',
 			async: true,
 			success: function(data) {
-				alert(data);
+				//alert(data);
 				if(data.status==1){
 					var obj_pay = {}
 					obj_pay.paytypeId = 2;
