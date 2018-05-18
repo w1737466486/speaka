@@ -44,6 +44,15 @@ $(function() {
 		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端  
 		return isAndroid == true ? true : false;
 	}
+	//判断是否是微信浏览器
+	function isWeiXin(){
+	    var ua = window.navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
 	var token = null;
 	function get_token(_results) {
 		//console.log(_results)
@@ -94,19 +103,8 @@ $(function() {
 	
 	$('.v_pay').click(function() {
 
-		if(window.webkit) {
-			alert('ios')
-			let objpay = {}
-			objpay.paytypeId = 1;
-			objpay.paycallback = 'get_token'
-			window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
-		} else if(isAndroid_ios()) {
-			alert('android')
-			let objpay = {}
-			objpay.paytypeId = 1
-			objpay.paycallback = 'get_token'
-			 androidpay.androidWechatPay(JSON.stringify(objpay));
-		} else {
+		if(isWeiXin()) {
+			
 			
           alert('weixin')
 			//将url参数转对象
@@ -228,6 +226,19 @@ $(function() {
 
 				}, 'json');
 
+			
+		} else if(isAndroid_ios()) {
+			alert('android')
+			let objpay = {}
+			objpay.paytypeId = 1
+			objpay.paycallback = 'get_token'
+			 androidpay.androidWechatPay(JSON.stringify(objpay));
+		} else {
+			alert('ios')
+			let objpay = {}
+			objpay.paytypeId = 1;
+			objpay.paycallback = 'get_token'
+			window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
 		}
 		$('.course_pay div b').eq(0).click(function() {
 			$('.course_pay').css({
