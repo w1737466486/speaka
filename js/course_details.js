@@ -107,6 +107,7 @@ $(function() {
 			objpay.paycallback = 'get_token'
 			 androidpay.androidWechatPay(JSON.stringify(objpay));
 		} else {
+			
           alert('weixin')
 			//将url参数转对象
 			function queryURL(url) {
