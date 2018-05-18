@@ -95,17 +95,19 @@ $(function() {
 	$('.v_pay').click(function() {
 
 		if(window.webkit) {
+			alert('ios')
 			let objpay = {}
 			objpay.paytypeId = 1;
 			objpay.paycallback = 'get_token'
 			window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
 		} else if(isAndroid_ios()) {
+			alert('android')
 			let objpay = {}
 			objpay.paytypeId = 1
 			objpay.paycallback = 'get_token'
 			 androidpay.androidWechatPay(JSON.stringify(objpay));
 		} else {
-
+          alert('weixin')
 			//将url参数转对象
 			function queryURL(url) {
 				var arr1 = url.split("?");
