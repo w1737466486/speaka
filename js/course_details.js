@@ -4,7 +4,7 @@ $(function() {
 	$.ajax({
 		type: "get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
-		//url: "../js/ocean.json",
+		//url: "../json/ocean.json",
 		async: true,
 		success: function(data) {
 			//console.log(data)
@@ -130,6 +130,7 @@ $(function() {
 			$.post("http://api.speaka.cn/api/pay", {
 					code: objurl.code,
 					state: objurl.state,
+					commodity_id:commodity_id,
 					location: window.location.href
 				},
 				function(data) {

@@ -7,6 +7,8 @@
   "eng": "Ocean",
   "chn": "海洋",
   "begin_time": "2018-05-10 00:00:00",
+  "last_days": 28,
+  "groupon_price": 1,
   "groupon_num": 3,
   "last_team_id": 0,
   "team_num": 0,
@@ -14,7 +16,8 @@
   "created_at": "2018-05-04 10:44:49",
   "pic_path": "thumb/20180508/OvfOPLT0y7jAo8WViuD5uT7BKG2W8v4HYpjM8MtX.gif",
   "default_uid": 1,
-  "last_days": 28,
+  "alloc_type": 0,
+  "alloc_at": null,
   "pages": [
     {
       "id": 1,
