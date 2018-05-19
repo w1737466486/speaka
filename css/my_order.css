@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:#f5f5f5;
+    font-size: 14px;
+    color: #333;
+}
+em{
+    font-style: normal;
+}
+.orders{
+    width: 100%;
+    height:auto;
+}
+
+.orders li p{
+    display: flex;
+    margin-top: 2.5%;
+}
+.price{
+    color: #FF7867;;
+}
+.orders li{
+    background: #fff;
+    margin-top: 4.5%;
+    padding: 2.5% 0 2.5% 5.3%;
+    position: relative;
+}
+/*团购标签*/
+.group{
+    width:26px;
+    height:16px;
+    margin-top: 3px;
+    margin-left: 2.7%;
+}
+/*占位价格*/
+.zhanwei{
+    visibility: hidden;
+}
+/*右上角的显示已支付或未支付*/
+.mark{
+    width:13.5%;
+    position: absolute;
+    top:0;
+    right: 0;
+}
