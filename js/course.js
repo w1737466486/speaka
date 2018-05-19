@@ -86,6 +86,8 @@ $(function(){
 				   				obj.v_id=day1[i].v_id;
 				   				obj.v_tit=v_tit
 				   				obj.v_text=txt1
+				   				obj.subtitle_en=day1[i].subtitle_en
+				   				obj.subtitle_ch=day1[i].subtitle_ch
 				   				console.log(obj)
 				   				
 				   				if (window.webkit) {
