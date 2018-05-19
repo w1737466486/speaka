@@ -4,7 +4,6 @@ $(function(){
 	function get_token(_results) {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
-	
 	    $.ajax({
 	       type:'POST',
 	       dataType:'JSON',
