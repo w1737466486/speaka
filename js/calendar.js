@@ -238,7 +238,7 @@ $(function() {
 		return _year + _month + _d;
 	}
 	//接收token
-	
+	window.get_token=get_token;
 	 //var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
 	 var token=null;
      function get_token(_results){
