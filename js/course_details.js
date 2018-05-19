@@ -102,11 +102,11 @@ $(function() {
 	}
 	
 	$('.v_pay').click(function() {
-
+		/*$('.course_pay').css({
+			'display': 'block'
+		})*/
 		if(isWeiXin()) {
-			
-			
-          alert('weixin')
+          //alert('weixin')
 			//将url参数转对象
 			function queryURL(url) {
 				var arr1 = url.split("?");
@@ -197,7 +197,7 @@ $(function() {
 									paySign: data.pay_config.paySign, // 支付签名
 
 									success: function(res) {
-
+										window.location.href = '../html/course_details.html'
 										// 支付成功后的回调函数
 										console.log(res)
 									}
@@ -228,13 +228,13 @@ $(function() {
 
 			
 		} else if(isAndroid_ios()) {
-			alert('android')
+			//alert('android')
 			let objpay = {}
 			objpay.paytypeId = 1
 			objpay.paycallback = 'get_token'
 			 androidpay.androidWechatPay(JSON.stringify(objpay));
 		} else {
-			alert('ios')
+			//alert('ios')
 			let objpay = {}
 			objpay.paytypeId = 1;
 			objpay.paycallback = 'get_token'
