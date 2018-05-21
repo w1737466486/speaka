@@ -207,6 +207,7 @@ $(function(){
 						//通过error接口处理失败验证
 						wx.error(function(res) {
 							// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+							window.location.href = '../html/course_details.html?'+0
 							console.log(res)
 						});
 						//判断当前客户端版本是否支持指定JS接口
@@ -219,7 +220,7 @@ $(function(){
 						});
 
 					} else {
-						window.location.href = '../html/course_details.html?'+0
+						alert('验证信息已失效，请重新获取订单信息！')
 					}
 
 				}, 'json');
