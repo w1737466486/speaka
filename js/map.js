@@ -31,16 +31,18 @@
  		async:true,
  		success:function(data){
  			//console.log(JSON.stringify(data.lessons[1].items.length))
- 			for(var j=0;j<data.lessons.length;j++){
- 				//课程存在长度为undefined，未创建为0
- 				/*if(JSON.stringify(data.lessons[j].items.length)==undefined){
- 					console.log('222')
- 				}*/
- 				if(JSON.stringify(data.lessons[j].items).substr(5,8)<=getNowFormatDate()&&JSON.stringify(data.lessons[j].items.length)==undefined){
- 					var k=j+1
- 					$('.main .imgall').eq(j).attr('src','../img/'+k+'.png')
- 					//console.log(j)
- 				}
+ 			if(data.lessons.length>0){
+	 			for(var j=0;j<data.lessons.length;j++){
+	 				//课程存在长度为undefined，未创建为0
+	 				/*if(JSON.stringify(data.lessons[j].items.length)==undefined){
+	 					console.log('222')
+	 				}*/
+	 				if(JSON.stringify(data.lessons[j].items).substr(5,8)<=getNowFormatDate()&&JSON.stringify(data.lessons[j].items.length)==undefined){
+	 					var k=j+1
+	 					$('.main .imgall').eq(j).attr('src','../img/'+k+'.png')
+	 					//console.log(j)
+	 				}
+	 			}
  			}
  		}
  	});
