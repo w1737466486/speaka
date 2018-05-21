@@ -18,8 +18,9 @@
  	
  	var mapurl=location.href.split('?')[1]
  	var url_map=null
- 	console.log(mapurl.substr(8))
+ 	
  	if(mapurl.substr(8)){
+ 		console.log(mapurl.substr(8))
  		url_map="http://api.speaka.cn/api/team/"+mapurl.substr(8)+"/commodity"
  	}else{
  		url_map="http://api.speaka.cn/api/team/77/commodity"
@@ -31,7 +32,7 @@
  		async:true,
  		success:function(data){
  			//console.log(JSON.stringify(data.lessons[1].items.length))
- 			if(data){
+ 			if(data.length){
 	 			for(var j=0;j<data.lessons.length;j++){
 	 				//课程存在长度为undefined，未创建为0
 	 				/*if(JSON.stringify(data.lessons[j].items.length)==undefined){
