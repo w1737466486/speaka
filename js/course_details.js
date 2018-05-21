@@ -3,8 +3,8 @@ $(function() {
 	var pay_status=location.href.split('?')[1]
 	$.ajax({
 		type: "get",
-		//url: "http://api.speaka.cn/api/commodity/" + commodity_id,
-		url: "../json/ocean.json",
+		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		//url: "../json/ocean.json",
 		async: true,
 		success: function(data) {
 			//console.log(data)
@@ -50,7 +50,7 @@ $(function() {
 		//console.log(sTop)
 		if(sTop > 100) {
 			$('.v_footer').css({
-				'height': '9.9%'
+				'height': '11.9%'
 			})
 		} else {
 			$('.v_footer').css({
@@ -58,7 +58,7 @@ $(function() {
 			})
 		}
 	}, 50)
-	
+
 	//判断是否是安卓还是ios  
 	function isAndroid_ios() {
 		var u = navigator.userAgent,app = navigator.appVersion;
