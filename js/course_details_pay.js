@@ -1,8 +1,26 @@
 $(function(){
 	var commodity_id = 1
     window.get_token=get_token;
-	var pay_type=location.href.split('?')[1]
-	console.log(pay_type)
+	//将url参数转对象
+	function queryURL(url) {
+		var arr1 = url.split("?");
+		var params = arr1[1].split("&"); //进行分割成数组
+		var obj = {};
+		for(var i = 0; i < params.length; i++) {
+			var param = params[i].split("="); //进行分割成数组
+			obj[param[0]] = param[1]; //为对象赋值
+		}
+		return obj;
+	}
+
+	//获取当前url
+	var current_url = location.href
+	//测试url
+	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
+
+	console.log(current_url)
+	var objurl = queryURL(current_url)
+	console.log(objurl)
 	$.ajax({
 		type:"get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
@@ -13,19 +31,19 @@ $(function(){
 			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课')
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元')
 			$('.course_pay p span').eq(2).html('￥' + data.groupon_price / 100 + '元')
-			if(pay_type==11||pay_type==21){
+			if(objurl.type_id==11||objurl.type_id==21){
 				$('.course_pay p span').eq(3).html('实付： ￥' + data.price / 100 + '元')
 			}
-			if(pay_type==12||pay_type==22){
+			if(objurl.type_id==12||objurl.type_id==22){
 				$('.course_pay p span').eq(3).html('实付： ￥' + data.groupon_price / 100 + '元')
 			}
 			
-		    if(pay_type==11||pay_type==21){
+		    if(objurl.type_id==11||objurl.type_id==21){
 			    $('.course_pay p').eq(2).css({
 			    	'display':'none'
 			    })
 		    }
-		    if(pay_type==11||pay_type==12){
+		    if(objurl.type_id==11||objurl.type_id==12){
 			    $('.wx_stutas').css({
 			    	'display':'none'
 			    })
@@ -97,36 +115,16 @@ $(function(){
 		});
 	}
 	//微信购买，配置微信环境参数设置
-	if(pay_type==11||pay_type==12){
+	if(objurl.type_id==11||objurl.type_id==12){
 		
-          //alert('weixin')
-			//将url参数转对象
-			function queryURL(url) {
-				var arr1 = url.split("?");
-				var params = arr1[1].split("&"); //进行分割成数组
-				var obj = {};
-				for(var i = 0; i < params.length; i++) {
-					var param = params[i].split("="); //进行分割成数组
-					obj[param[0]] = param[1]; //为对象赋值
-				}
-				return obj;
-			}
-
-			//获取当前url
-			var current_url = location.href
-			//测试url
-			//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
-
-			console.log(current_url)
-			var objurl = queryURL(current_url)
-			console.log(objurl)
+         
 			var typeId=null
 			//微信单人购买
-				if(pay_type==11){
+				if(objurl.type_id==11){
 					typeId=0
 				}
 				//微信团购
-				if(pay_type==12){
+				if(objurl.type_id==12){
 					typeId=1
 				}
 
@@ -231,7 +229,7 @@ $(function(){
 	}else{
 		$('.wx_pay span').eq(1).click(function() {
 			
-			if(pay_type==21){
+			if(objurl.type_id==21){
 				 if(isAndroid_ios()) {
 					//alert('android')
 					let objpay = {}
@@ -248,7 +246,7 @@ $(function(){
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
 				}
 				//App团购
-			}else if(pay_type==22){
+			}else if(objurl.type_id==22){
 				 if(isAndroid_ios()) {
 					//alert('android')
 					let objpay = {}

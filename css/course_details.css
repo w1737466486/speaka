@@ -83,12 +83,14 @@ body{
 .v_footer .v_pay{
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 .v_footer .v_pay p{
 	display: inline-block;
 	text-align: center;
 	position: absolute;
 	top: 16.4%;
+	overflow: hidden;
 }
 .v_footer .v_pay span{
 	display: inline-block;
@@ -105,6 +107,7 @@ body{
 .v_footer .v_pay p:nth-of-type(2) span{
 	font-size: 18px;
 	color: #FFFFFF;
+	
 }
 .v_footer .v_pay p:nth-of-type(1) span b{
 	font-size: 12px;

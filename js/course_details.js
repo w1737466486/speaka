@@ -3,8 +3,8 @@ $(function() {
 	var pay_status=location.href.split('?')[1]
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
-		//url: "../json/ocean.json",
+		//url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		url: "../json/ocean.json",
 		async: true,
 		success: function(data) {
 			//console.log(data)
@@ -16,8 +16,8 @@ $(function() {
 			$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10))
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天')
-			$('.v_footer .v_pay span').eq(0).html('￥' +data.price / 100 + '<br><b>单人购</b>')
-			$('.v_footer .v_pay span').eq(1).html('￥' +data.groupon_price / 100 + '<br><b>'+data.groupon_num+'人起购</b>')
+			$('.v_footer .v_pay span').eq(0).html('<div>￥' +data.price / 100 + '</div><b>单人购</b>')
+			$('.v_footer .v_pay span').eq(1).html('<div>￥' +data.groupon_price / 100 + '</div><b>'+data.groupon_num+'人起购</b>')
 			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课')
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元')
 			$('.course_pay p span').eq(2).html('暂无可用')
@@ -78,16 +78,17 @@ $(function() {
 	//参数：1微信/单人购买     2App/团购   11微信单人12微信团购21App单人22App团购
 	$('.v_pay p').eq(0).click(function() {
 		if(isWeiXin()) {
-			window.location.href = '../html/course_details_pay.html?'+11;
+			//http://api.speaka.cn/api/buy/1?type_id=11
+			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+11;
 		}else{
-			window.location.href = '../html/course_details_pay.html?'+21;
+			window.location.href = '../html/course_details_pay.html?type_id='+21;
 		}		
 	})
 	$('.v_pay p').eq(1).click(function() {
     		if(isWeiXin()) {
-			window.location.href = '../html/course_details_pay.html?'+12;
+			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12;
 		}else{
-			window.location.href = '../html/course_details_pay.html?'+22;
+			window.location.href = '../html/course_details_pay.html?type_id='+22;
 		}
 	})
 })
