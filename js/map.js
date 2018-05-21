@@ -31,7 +31,7 @@
  		async:true,
  		success:function(data){
  			//console.log(JSON.stringify(data.lessons[1].items.length))
- 			if(data.lessons.length>0){
+ 			if(data){
 	 			for(var j=0;j<data.lessons.length;j++){
 	 				//课程存在长度为undefined，未创建为0
 	 				/*if(JSON.stringify(data.lessons[j].items.length)==undefined){
