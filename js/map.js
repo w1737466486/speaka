@@ -26,7 +26,7 @@
  	}
  	$.ajax({
  		type:"get",
- 		url:"http://api.speaka.cn/api/team/77/commodity",
+ 		url:url_map,
  		//url:"../js/speaka.json",
  		async:true,
  		success:function(data){
