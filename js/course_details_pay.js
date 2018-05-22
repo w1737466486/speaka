@@ -1,5 +1,13 @@
 $(function(){
-	var commodity_id = 1
+	//获取当前url
+	var current_url = location.href
+	//测试url
+	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
+
+	console.log(current_url)
+	var objurl = queryURL(current_url)
+	console.log(objurl)
+	var commodity_id =objurl.commodity_id
     window.get_token=get_token;
 	//将url参数转对象
 	function queryURL(url) {
@@ -13,14 +21,7 @@ $(function(){
 		return obj;
 	}
 
-	//获取当前url
-	var current_url = location.href
-	//测试url
-	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
 
-	console.log(current_url)
-	var objurl = queryURL(current_url)
-	console.log(objurl)
 	$.ajax({
 		type:"get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
@@ -195,7 +196,10 @@ $(function(){
 									paySign: data.pay_config.paySign, // 支付签名
 
 									success: function(res) {
-										window.location.href = '../html/course_details.html?'+1
+											$('.course_pay_success').css({
+												'display':'block'
+											})
+										window.location.href = '../html/course_details.html?'+commodity_id
 										// 支付成功后的回调函数
 										console.log(res)
 									}
@@ -207,7 +211,10 @@ $(function(){
 						//通过error接口处理失败验证
 						wx.error(function(res) {
 							// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-							window.location.href = '../html/course_details.html?'+0
+							$('.course_pay_error').css({
+								'display':'block'
+							})
+							window.location.href = '../html/course_details.html?'+commodity_id
 							console.log(res)
 						});
 						//判断当前客户端版本是否支持指定JS接口
@@ -269,8 +276,19 @@ $(function(){
 		
 	}
 	
+	$('.pay_success p span').click(function(){
+		$('.course_pay_success').css({
+			'display':'none'
+		})
+	})
+	$('.pay_error p span').click(function(){
+		$('.course_pay_error').css({
+			'display':'none'
+		})
+	})
+	
 	$('.wx_pay span').eq(0).click(function(){
-		window.location.href = '../html/course_details.html'
+		window.location.href = '../html/course_details.html'+commodity_id
 	})
 	
 	

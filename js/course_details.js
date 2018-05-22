@@ -1,9 +1,17 @@
 $(function() {
-	var commodity_id = 1
-	var pay_status=location.href.split('?')[1]
+	var commodity_id = location.href.split('?')[1]
+ 	var url_course=null
+
+ 	if(commodity_id){
+ 		console.log(mapurl.substr(8))
+ 		url_course="http://api.speaka.cn/api/commodity/" + commodity_id
+ 	}else{
+ 		commodity_id=1
+ 		url_course="http://api.speaka.cn/api/commodity/" + commodity_id
+ 	}
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		url: url_course,
 		//url: "../json/ocean.json",
 		async: true,
 		success: function(data) {
@@ -24,27 +32,6 @@ $(function() {
 			$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元')
 		}
 	});
-	if(pay_status==0){
-		$('.course_pay_error').css({
-			'display':'block'
-		})
-	}
-	if(pay_status==1){
-		$('.course_pay_success').css({
-			'display':'block'
-		})
-	}
-	$('.pay_success p span').click(function(){
-		$('.course_pay_success').css({
-			'display':'none'
-		})
-	})
-	$('.pay_error p span').click(function(){
-		$('.course_pay_error').css({
-			'display':'none'
-		})
-	})
-
 	setInterval(function() {
 		var sTop = document.documentElement.scrollTop || document.body.scrollTop;
 		//console.log(sTop)
@@ -79,16 +66,16 @@ $(function() {
 	$('.v_pay p').eq(0).click(function() {
 		if(isWeiXin()) {
 			//http://api.speaka.cn/api/buy/1?type_id=11
-			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+11;
+			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+11+'&commodity_id='+commodity_id;
 		}else{
-			window.location.href = '../html/course_details_pay.html?type_id='+21;
+			window.location.href = '../html/course_details_pay.html?type_id='+21+'&commodity_id='+commodity_id;
 		}		
 	})
 	$('.v_pay p').eq(1).click(function() {
     		if(isWeiXin()) {
-			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12;
+			window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id;
 		}else{
-			window.location.href = '../html/course_details_pay.html?type_id='+22;
+			window.location.href = '../html/course_details_pay.html?type_id='+22+'&commodity_id='+commodity_id;
 		}
 	})
 })
