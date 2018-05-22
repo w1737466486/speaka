@@ -25,14 +25,16 @@
  	}else{
  		url_map="http://api.speaka.cn/api/team/77/commodity"
  	}
+ 	var obj={}
  	$.ajax({
  		type:"get",
  		url:url_map,
- 		//url:"../js/speaka.json",
+ 		//url:"../json/speaka.json",
  		async:true,
  		success:function(data){
+ 			console.log(data)
  			//console.log(JSON.stringify(data.lessons[1].items.length))
- 			if(data.length){
+ 			if(JSON.stringify(data) != "{}"){
 	 			for(var j=0;j<data.lessons.length;j++){
 	 				//课程存在长度为undefined，未创建为0
 	 				/*if(JSON.stringify(data.lessons[j].items.length)==undefined){
