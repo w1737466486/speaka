@@ -19,7 +19,7 @@
  	var mapurl=location.href.split('?')[1]
  	var url_map=null
  	
- 	if(mapurl.substr(8)){
+ 	if(mapurl){
  		console.log(mapurl.substr(8))
  		url_map="http://api.speaka.cn/api/team/"+mapurl.substr(8)+"/commodity"
  	}else{
