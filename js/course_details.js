@@ -3,7 +3,6 @@ $(function() {
  	var url_course=null
 
  	if(commodity_id){
- 		console.log(mapurl.substr(8))
  		url_course="http://api.speaka.cn/api/commodity/" + commodity_id
  	}else{
  		commodity_id=1
