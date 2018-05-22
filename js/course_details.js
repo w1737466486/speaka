@@ -15,23 +15,23 @@ $(function() {
 		async: true,
 		success: function(data) {
 			if(JSON.stringify(data) != "{}"){
-				alert('该商品不存在，请重试！')
+				//console.log(data)
+				$('.v_nav .v_s1').html(data.eng)
+				$('.v_nav .v_s2').html(data.chn)
+				$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path)
+				$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
+				$('.v_img img').eq(1).attr('src', 'http://s.speaka.cn/' + data.pages[1].pic_path)
+				$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)
+				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10))
+				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天')
+				$('.v_footer .v_pay span').eq(0).html('<div>￥' +data.price / 100 + '</div><b>单人购</b>')
+				$('.v_footer .v_pay span').eq(1).html('<div>￥' +data.groupon_price / 100 + '</div><b>'+data.groupon_num+'人起购</b>')
+				$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课')
+				$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元')
+				$('.course_pay p span').eq(2).html('暂无可用')
+				$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元')	
 			}else{
-			//console.log(data)
-			$('.v_nav .v_s1').html(data.eng)
-			$('.v_nav .v_s2').html(data.chn)
-			$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path)
-			$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
-			$('.v_img img').eq(1).attr('src', 'http://s.speaka.cn/' + data.pages[1].pic_path)
-			$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)
-			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10))
-			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天')
-			$('.v_footer .v_pay span').eq(0).html('<div>￥' +data.price / 100 + '</div><b>单人购</b>')
-			$('.v_footer .v_pay span').eq(1).html('<div>￥' +data.groupon_price / 100 + '</div><b>'+data.groupon_num+'人起购</b>')
-			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课')
-			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元')
-			$('.course_pay p span').eq(2).html('暂无可用')
-			$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元')
+			   alert('该商品不存在，请重试！')
 			}	
 		}
 	});
