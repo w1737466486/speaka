@@ -14,6 +14,9 @@ $(function() {
 		//url: "../json/ocean.json",
 		async: true,
 		success: function(data) {
+			if(JSON.stringify(data) != "{}"){
+				alert('该商品不存在，请重试！')
+			}else{
 			//console.log(data)
 			$('.v_nav .v_s1').html(data.eng)
 			$('.v_nav .v_s2').html(data.chn)
@@ -29,6 +32,7 @@ $(function() {
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元')
 			$('.course_pay p span').eq(2).html('暂无可用')
 			$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元')
+			}	
 		}
 	});
 	setInterval(function() {
