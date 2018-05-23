@@ -122,11 +122,13 @@ $(function(){
 			var typeId=null
 			//微信单人购买
 				if(objurl.type_id==11){
-					typeId=0
+					typeId=0;
+					$('.pay_success p').eq(3).html('分享得优惠')
 				}
 				//微信团购
 				if(objurl.type_id==12){
-					typeId=1
+					typeId=1;
+					$('.pay_success p').eq(3).html('邀请好友参团')
 				}
 
 			$.post("http://api.speaka.cn/api/pay", {
@@ -199,7 +201,82 @@ $(function(){
 											$('.course_pay_success').css({
 												'display':'block'
 											})
-										window.location.href = '../html/course_details.html?'+commodity_id
+											//微信单人
+											if(objurl.type_id==11){
+													$('.pay_success div').eq(0).click(function(){
+													wx.onMenuShareAppMessage({    
+													    title: '课程详情', // 分享标题    
+													    desc: '', // 分享描述    
+													    link: 'http://h5.speaka.cn/front/html/course_details.html', // 分享链接    
+													    imgUrl: '', // 分享图标    
+													    type: '', // 分享类型,music、video或link，不填默认为link    
+													    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
+													    success: function () {     
+													        // 用户确认分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    },    
+													    cancel: function () {     
+													        // 用户取消分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    }    
+													}); 
+												})
+												$('.pay_success div').eq(1).click(function(){
+													wx.onMenuShareTimeline({    
+													    title: '课程详情', // 分享标题    
+													    link: 'http://h5.speaka.cn/front/html/course_details.html', // 分享链接    
+													    imgUrl: '', // 分享图标    
+													    success: function () {     
+													        // 用户确认分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    },    
+													    cancel: function () {     
+													        // 用户取消分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    }    
+													});  
+												})
+											}
+											//微信团购
+											if(objurl.type_id==12){
+												$('.pay_success div').eq(0).click(function(){
+													wx.onMenuShareAppMessage({    
+													    title: '课程详情', // 分享标题    
+													    desc: '', // 分享描述    
+													    link: 'http://h5.speaka.cn/front/html/group_pay.html', // 分享链接    
+													    imgUrl: '', // 分享图标    
+													    type: '', // 分享类型,music、video或link，不填默认为link    
+													    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
+													    success: function () {     
+													        // 用户确认分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    },    
+													    cancel: function () {     
+													        // 用户取消分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    }    
+													}); 
+												})
+												$('.pay_success div').eq(1).click(function(){
+													wx.onMenuShareTimeline({    
+													    title: '课程详情', // 分享标题    
+													    link: 'http://h5.speaka.cn/front/html/group_pay.html', // 分享链接    
+													    imgUrl: '', // 分享图标    
+													    success: function () {     
+													        // 用户确认分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    },    
+													    cancel: function () {     
+													        // 用户取消分享后执行的回调函数    
+													        window.location.href = '../html/course_details.html?'+commodity_id
+													    }    
+													});  
+												})
+											}
+											
+										
+											
+										
 										// 支付成功后的回调函数
 										console.log(res)
 									}
