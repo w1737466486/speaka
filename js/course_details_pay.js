@@ -140,6 +140,7 @@ $(function(){
 				},
 				function(data) {
 					var data = data;
+					objurl.order_no=data.order_no;
 					//测试数据  ~商户id===1500516481
 					/*var data = {
 						"status": 1,
@@ -252,7 +253,7 @@ $(function(){
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
-										    link: 'http://h5.speaka.cn/front/html/group_pay.html?'+commodity_id, // 分享链接    
+										    link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no, // 分享链接    
 										    imgUrl: '', // 分享图标    
 										    type: '', // 分享类型,music、video或link，不填默认为link    
 										    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
