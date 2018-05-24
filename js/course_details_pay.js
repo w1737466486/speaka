@@ -211,6 +211,9 @@ $(function(){
 										
 									}
 								})
+							
+
+							})
 								//微信单人
 								if(objurl.type_id==11){
 										$('.pay_success div').eq(0).click(function(){
@@ -284,9 +287,7 @@ $(function(){
 									})
 								}
 
-
-							})
-
+ 
 						});
 						//通过error接口处理失败验证
 						wx.error(function(res) {
