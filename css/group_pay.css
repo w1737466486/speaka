@@ -86,6 +86,7 @@ html,body{
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	border-radius: 50%;
 	z-index: 20;
 }
 .group_member ul li span img:nth-of-type(3){
@@ -100,8 +101,23 @@ html,body{
 	left: 0px;
 	z-index: 30;
 }
-
-
+.eng_chn{
+	margin-top: 40%;
+	color: #FFFFFF;
+}
+.eng_chn em{
+	margin-left: 4%;
+	font-size: 48px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.50);
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+.eng_chn span{
+	margin-left: 4%;
+	font-size: 36px;
+	text-shadow: 0 2px 6px rgba(0,0,0,0.50);
+    color: #FFFFFF;
+}
 .group_foot{
 	position: fixed;
 	bottom: 0;
