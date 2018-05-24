@@ -136,6 +136,7 @@ $(function(){
 					state: objurl.state,
 					commodity_id:commodity_id,
 					typeId:typeId,
+					order_no:objurl.order_no,
 					location: window.location.href
 				},
 				function(data) {
