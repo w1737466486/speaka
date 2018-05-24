@@ -198,6 +198,8 @@ $(function(){
 									paySign: data.pay_config.paySign, // 支付签名
 
 									success: function(res) {
+										// 支付成功后的回调函数
+										alert(JSON.stringify(res))
 											$('.course_pay_success').css({
 												'display':'block'
 											})
@@ -205,8 +207,7 @@ $(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
 											})
 											
-										// 支付成功后的回调函数
-										console.log(res)
+										
 									}
 								})
 								//微信单人
