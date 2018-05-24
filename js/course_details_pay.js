@@ -217,6 +217,7 @@ $(function(){
 								//微信单人
 								if(objurl.type_id==11){
 										$('.pay_success div').eq(0).click(function(){
+											alert('微信单人')
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
@@ -235,6 +236,7 @@ $(function(){
 										}); 
 									})
 									$('.pay_success div').eq(1).click(function(){
+										alert('微信单人')
 										wx.onMenuShareTimeline({    
 										    title: '课程详情', // 分享标题    
 										    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
@@ -253,6 +255,7 @@ $(function(){
 								//微信团购
 								if(objurl.type_id==12){
 									$('.pay_success div').eq(0).click(function(){
+										alert('微信团购')
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
