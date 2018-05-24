@@ -65,7 +65,7 @@ $(function() {
 	        return false;
 	    }
 	}
-	//参数：1微信/单人购买     2App/团购   11微信单人12微信团购21App单人22App团购
+	//参数：1微信/单人购买     2App/团购   11微信单人  12微信团购  21App单人   22App团购
 	$('.v_pay p').eq(0).click(function() {
 		if(isWeiXin()) {
 			//http://api.speaka.cn/api/buy/1?type_id=11
