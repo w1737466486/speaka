@@ -149,6 +149,7 @@ $(function(){
 	$('.group_foot p').eq(0).click(function(){
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 	})
+	
 	$('.group_foot p').eq(1).click(function(){
 		window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id;
 	})
