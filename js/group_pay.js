@@ -8,7 +8,6 @@ $(function(){
 	var groupurl = queryURL(group_url)
 	console.log(groupurl)
 	var commodity_id =groupurl.commodity_id
-	
 		//将url参数转对象
 	function queryURL(url) {
 		var arr1 = url.split("?");
@@ -23,12 +22,12 @@ $(function(){
 	
 	$.ajax({
 		type:"get",
-		//url: url_course,
+		//url: "http://api.speaka.cn/api/commodity/" + commodity_id,
 		url:"../json/ocean.json",
 		async:true,
 		success:function(data){
 			console.log(data)
-			$('.group_foot p').eq(1).find('span').html('<div><s>￥98</s>￥49</div><b>我要参团</b>')
+			$('.group_foot p').eq(1).find('span').html('<div><s>'+data.price/100+'</s>'+data.groupon_price/100+'</div><b>我要参团</b>')
 		},
 		error:function(error){
 			console.log(error)

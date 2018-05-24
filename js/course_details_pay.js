@@ -204,17 +204,32 @@ $(function(){
 											$('.course_pay_success').css({
 												'display':'block'
 											})
+											
+										//微信单人
+										if(objurl.type_id==11){
 											$('.pay_success p').eq(0).find('span').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 											})
 											
-										
+											setInterval(function(){
+												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+											},1000)
+										}
+										//微信团购
+								        if(objurl.type_id==12){
+								        	$('.pay_success p').eq(0).find('span').click(function(){
+												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
+											})
+								        	setInterval(function(){
+												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
+											},1000)
+								        }
 									}
 								})
 							
 
 							})
-								//微信单人
+								/*//微信单人
 								if(objurl.type_id==11){
 										$('.pay_success div').eq(0).click(function(){
 											alert('微信单人')
@@ -255,7 +270,8 @@ $(function(){
 								//微信团购
 								if(objurl.type_id==12){
 									$('.pay_success div').eq(0).click(function(){
-										alert('微信团购')
+										alert('微信团购
+										')
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
@@ -289,7 +305,7 @@ $(function(){
 										});  
 									})
 								}
-
+*/
  
 						});
 						//通过error接口处理失败验证
