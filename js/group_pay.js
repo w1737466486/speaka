@@ -151,7 +151,7 @@ $(function(){
 	})
 	
 	$('.group_foot p').eq(1).click(function(){
-		window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id;
+		window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id+'&order_no='+groupurl.order_no;
 	})
 	
 })
