@@ -103,7 +103,7 @@ left:50%;
 transform:translate(-50%,-50%);
 }
 .course_pay_success{
-	/*display: none;*/
+	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100%;

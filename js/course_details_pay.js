@@ -204,7 +204,7 @@ $(function(){
 												'display':'block'
 											})
 											$('.pay_success p').eq(0).find('span').click(function(){
-												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 											})
 											
 										
@@ -216,32 +216,32 @@ $(function(){
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
-										    link: 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id, // 分享链接    
+										    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
 										    imgUrl: '', // 分享图标    
 										    type: '', // 分享类型,music、video或link，不填默认为link    
 										    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 										    success: function () {     
 										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    },    
 										    cancel: function () {     
 										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    }    
 										}); 
 									})
 									$('.pay_success div').eq(1).click(function(){
 										wx.onMenuShareTimeline({    
 										    title: '课程详情', // 分享标题    
-										    link: 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id, // 分享链接    
+										    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
 										    imgUrl: '', // 分享图标    
 										    success: function () {     
 										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    },    
 										    cancel: function () {     
 										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    }    
 										});  
 									})
@@ -252,32 +252,32 @@ $(function(){
 										wx.onMenuShareAppMessage({    
 										    title: '课程详情', // 分享标题    
 										    desc: '', // 分享描述    
-										    link: 'http://h5.speaka.cn/front/html/group_pay.html', // 分享链接    
+										    link: 'http://h5.speaka.cn/front/html/group_pay.html?'+commodity_id, // 分享链接    
 										    imgUrl: '', // 分享图标    
 										    type: '', // 分享类型,music、video或link，不填默认为link    
 										    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 										    success: function () {     
 										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    },    
 										    cancel: function () {     
 										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    }    
 										}); 
 									})
 									$('.pay_success div').eq(1).click(function(){
 										wx.onMenuShareTimeline({    
 										    title: '课程详情', // 分享标题    
-										    link: 'http://h5.speaka.cn/front/html/group_pay.html', // 分享链接    
+										    link: 'http://h5.speaka.cn/front/html/group_pay.html?'+commodity_id, // 分享链接    
 										    imgUrl: '', // 分享图标    
 										    success: function () {     
 										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    },    
 										    cancel: function () {     
 										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html'+commodity_id
+										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 										    }    
 										});  
 									})
