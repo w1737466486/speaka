@@ -23,8 +23,8 @@ $(function(){
 	
 	$.ajax({
 		type:"get",
-		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
-		//url:"../json/ocean.json",
+		//url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		url:"../json/ocean.json",
 		async:true,
 		success:function(data){
 			console.log(data)
@@ -71,8 +71,8 @@ $(function(){
 	//获取微信头像
 	$.ajax({
 		type:"get",
-		url: "http://api.speaka.cn/api/order_group/" + groupurl.order_no,
-		//url:"../json/order.json",
+		//url: "http://api.speaka.cn/api/order_group/" + groupurl.order_no,
+		url:"../json/order.json",
 		async:true,
 		success:function(data){
 			console.log(data)
@@ -83,6 +83,8 @@ $(function(){
 				    $('.group_member li').eq(i).find('b').html(data.group[i].user_info.name)
 				}
 			}
+			
+			
 			    let curr_time=getNowFormatDate();
 				let last_time=data.limit_at;
 				let curr_day=curr_time.substr(8, 2)
@@ -108,6 +110,43 @@ $(function(){
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours)
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min)
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec)
+				
+				if(remain_time>0&&data.group.length>=3&&data.group.length<=10){
+					$('.group_head p').eq(0).html('该拼团已成功！')
+				}
+				if(data.group.length>10){
+					$('.group_head p').eq(0).html('该拼团人数已满！')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				if(remain_time<=0){
+					$('.group_head p').eq(0).html('该拼团已结束')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				if(remain_time<=0&&data.group.length<3){
+					$('.group_head p').eq(0).html('拼团失败！')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				
+				
+				
 				
 				//设置定时器
 			setInterval(function(){
@@ -136,10 +175,51 @@ $(function(){
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours)
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min)
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec)
-			},1000)
+				
+				//remain_time=0
+				
 			
-
-			
+				
+				if(remain_time>0&&data.group.length>=3&&data.group.length<=10){
+					$('.group_head p').eq(0).html('该拼团已成功！')
+				}
+				if(data.group.length>10){
+					$('.group_head p').eq(0).html('该拼团人数已满！')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				if(remain_time<=0){
+					$('.group_head p').eq(0).html('该拼团已结束')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				if(remain_time<=0&&data.group.length<3){
+					$('.group_head p').eq(0).html('拼团失败！')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}
+				if(remain_time>0&&data.group.length<=10){
+					$('.group_foot p').eq(1).click(function(){
+						window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id+'&order_no='+groupurl.order_no+'&env='+1;
+					})
+				}
+				
+			},1000)	
 		},
 		error:function(error){
 			console.log(error)
@@ -150,8 +230,6 @@ $(function(){
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 	})
 	
-	$('.group_foot p').eq(1).click(function(){
-		window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id+'&order_no='+groupurl.order_no+'&env='+1;
-	})
+	
 	
 })
