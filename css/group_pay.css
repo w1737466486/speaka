@@ -60,7 +60,7 @@ html,body{
 }
 .group_member ul li{
 	width: 20%;
-	/*height: 50%;*/
+	height: 50%;
 	float: left;
 	position: relative;
 	text-align: center;
