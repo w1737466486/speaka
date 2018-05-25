@@ -23,8 +23,8 @@ $(function(){
 	
 	$.ajax({
 		type:"get",
-		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
-		//url:"../json/ocean.json",
+		//url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		url:"../json/ocean.json",
 		async:true,
 		success:function(data){
 			console.log(data)
@@ -71,8 +71,8 @@ $(function(){
 	//获取微信头像
 	$.ajax({
 		type:"get",
-		url: "http://api.speaka.cn/api/order_group/" + groupurl.order_no,
-		//url:"../json/order.json",
+		//url: "http://api.speaka.cn/api/order_group/" + groupurl.order_no,
+		url:"../json/order.json",
 		async:true,
 		success:function(data){
 			console.log(data)

@@ -48,21 +48,28 @@ html,body{
 .group_member{
 	width: 100%;
 	height: 30%;
+	/*height: 220px;*/
+}
+.clear{
+	clear: both;
 }
 .group_member ul {
 	width: 100%;
 	height: 100%;
-	background: #ccc;
+	background: #FFFFFF;
 }
 .group_member ul li{
 	width: 20%;
-	height: 50%;
+	/*height: 50%;*/
 	float: left;
 	position: relative;
 	text-align: center;
 }
 .group_member ul li span{
 	display: inline-block;
+	margin: 10%;
+	border: 1px solid #EEEEEE;
+	border-radius: 50%;
 }
 .group_member ul li b{
 	display: inline-block;
