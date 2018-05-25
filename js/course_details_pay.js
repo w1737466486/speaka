@@ -201,7 +201,7 @@ $(function(){
 
 									success: function(res) {
 										// 支付成功后的回调函数
-										alert(JSON.stringify(res))
+										//alert(JSON.stringify(res))
 											$('.course_pay_success').css({
 												'display':'block'
 											})
