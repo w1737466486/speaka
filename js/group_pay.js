@@ -1,6 +1,10 @@
 $(function(){
 	//获取当前url
 	var group_url = location.href
+    var protocol = window.location.protocol;
+    var host = window.location.host;
+    console.log(protocol)
+    console.log(host)
 	//测试url
 	//var group_url = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
 
@@ -21,6 +25,7 @@ $(function(){
 	}
 	
 	
+	
 	$.ajax({
 		type:"get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
@@ -28,9 +33,16 @@ $(function(){
 		async:true,
 		success:function(data){
 			console.log(data)
+			$('.v_nav .v_s1').html(data.eng)
+			$('.v_nav .v_s2').html(data.chn)
+			$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path)
+			$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
+			$('.v_img img').eq(1).attr('src', 'http://s.speaka.cn/' + data.pages[1].pic_path)
+			$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)
+			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10))
+			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天')
 			$('.group_foot p').eq(1).find('span').html('<div><s>￥'+data.price/100+'</s>&nbsp￥'+data.groupon_price/100+'</div><b>我要参团</b>')
-		    $('.group_main .eng_chn em').html(data.eng)
-		    $('.group_main .eng_chn span').html(data.chn)
+
 		},
 		error:function(error){
 			console.log(error)
@@ -225,6 +237,81 @@ $(function(){
 			console.log(error)
 		}
 	});
+		//微信配置
+	
+	$.post("http://api.speaka.cn/api/wxconfig", {
+		location: window.location.href
+	},
+	function(data) {
+		console.log(data)
+			if(data.status == 1) {
+			//微信支付
+			//通过config接口注入权限验证配置
+			wx.config({
+				debug: data.config.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: data.config.appId, // 必填，公众号的唯一标识
+				timestamp: data.config.timestamp, // 必填，生成签名的时间戳
+				nonceStr: data.config.nonceStr, // 必填，生成签名的随机串
+				signature: data.config.signature, // 必填，签名
+				jsApiList: data.config.jsApiList // 必填，需要使用的JS接口列表
+			});
+			//通过ready接口处理成功验证
+			wx.ready(function() {
+				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+		        wx.onMenuShareAppMessage({    
+				    title: '课程详情', // 分享标题    
+				    desc: '', // 分享描述    
+				    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
+				    imgUrl: '', // 分享图标    
+				    type: '', // 分享类型,music、video或link，不填默认为link    
+				    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
+				    success: function () {     
+				        // 用户确认分享后执行的回调函数    
+				        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+				    },    
+				    cancel: function () {     
+				        // 用户取消分享后执行的回调函数    
+				        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+				    }    
+				});
+				wx.onMenuShareTimeline({    
+				    title: '课程详情', // 分享标题    
+				    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
+				    imgUrl: '', // 分享图标    
+				    success: function () {     
+				        // 用户确认分享后执行的回调函数    
+				        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+				    },    
+				    cancel: function () {     
+				        // 用户取消分享后执行的回调函数    
+				        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+				    }    
+				});					
+ 
+			});
+			//通过error接口处理失败验证
+			wx.error(function(res) {
+				// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+	
+			});
+			//判断当前客户端版本是否支持指定JS接口
+			wx.checkJsApi({
+				jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				success: function(res) {
+					// 以键值对的形式返回，可用的api值true，不可用为false
+					// 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+				}
+			});
+	
+		} else {
+			alert('验证信息已失效，请重新获取订单信息！')
+		}
+		
+	},'json');
+	
+	
+	
+	
 	
 	$('.group_foot p').eq(0).click(function(){
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
