@@ -165,8 +165,8 @@ $(function() {
 				wx.ready(function() {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 			        wx.onMenuShareAppMessage({    
-					    title: '课程详情', // 分享标题    
-					    desc: '', // 分享描述    
+					    title: '超有趣的少儿互动英文课！', // 分享标题    
+					    desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
 					    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
 					    imgUrl: '', // 分享图标    
 					    type: '', // 分享类型,music、video或link，不填默认为link    
@@ -181,7 +181,7 @@ $(function() {
 					    }    
 					});
 					wx.onMenuShareTimeline({    
-					    title: '课程详情', // 分享标题    
+					    title: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享标题    
 					    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
 					    imgUrl: '', // 分享图标    
 					    success: function () {     
