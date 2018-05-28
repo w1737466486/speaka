@@ -269,11 +269,11 @@ $(function(){
 						    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 						    success: function () {     
 						        // 用户确认分享后执行的回调函数    
-						        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+						        window.location.href = group_url
 						    },    
 						    cancel: function () {     
 						        // 用户取消分享后执行的回调函数    
-						        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+						        window.location.href = group_url
 						    }    
 						});
 						wx.onMenuShareTimeline({    
@@ -282,11 +282,11 @@ $(function(){
 						    imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 						    success: function () {     
 						        // 用户确认分享后执行的回调函数    
-						        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+						        window.location.href = group_url
 						    },    
 						    cancel: function () {     
 						        // 用户取消分享后执行的回调函数    
-						        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+						        window.location.href = group_url
 						    }    
 						});					
 		 

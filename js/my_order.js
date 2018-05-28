@@ -9,7 +9,7 @@ $(function(){
 	       dataType:'JSON',
 	       async:true,
 	       //url:"../json/my_order.json",
-	       url:'http://api.speaka.cn/api/u/orders',
+            url:'http://api.speaka.cn/api/u/orders',
 	       beforeSend: function (request) {
 		        request.setRequestHeader("Authorization", token);
 		    },
@@ -32,8 +32,9 @@ $(function(){
 	                        <span class="order_time">${data.info[i].created_at}</span>
 	                    </p>
 	                    <p>
-	                        <span>价<span class="zhanwei">价格</span>格：</span>
+	                        <span>价<span class="zhanwei">占位</span>格：</span>
 	                        <span class="price"><em>￥</em>${data.info[i].price}</span>  
+	                        <img class="group" src="../img/group.png" alt="">
 	                    </p>
 	                    <img  class="mark" src="" alt="">
 	                </li>
@@ -43,6 +44,11 @@ $(function(){
 	               }else{
 	                   $('.mark').eq(i).attr('src','../img/pay_no.png')
 	               }
+	               if(data.info[i].type_id===0){
+						$(".group").eq(i).hide()
+				   }else{
+                       $(".group").eq(i).show()
+				   }
 	           }
 	       },
 	       error:function(res){
