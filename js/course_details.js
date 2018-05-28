@@ -110,7 +110,7 @@ $(function() {
 			}	
 		}
 	});
-	setInterval(function() {
+/*	setInterval(function() {
 		var sTop = document.documentElement.scrollTop || document.body.scrollTop;
 		//console.log(sTop)
 		if(sTop > 100) {
@@ -122,9 +122,11 @@ $(function() {
 				'height': '0%'
 			})
 		}
-	}, 50)
+	}, 50)*/
 
-
+   $('.v_footer').css({
+		'height': '11.9%'
+	})
 
 	//判断是否是安卓还是ios  
 	function isAndroid_ios() {
