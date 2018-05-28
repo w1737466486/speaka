@@ -152,6 +152,30 @@ $(function() {
 		},
 		function(data) {
 			console.log(data)
+			if(data.status == 0&&data.code==403){
+				$('.v_pay p').eq(0).click(function() {
+					alert('亲！你已经购买过该商品了，请勿重复购买！')	
+				})
+				$('.v_pay p').eq(1).click(function() {
+			    	alert('亲！你已经购买过该商品了，请勿重复购买！')
+				})
+			}
+			if(data.status == 0&&data.code==401){
+				$('.v_pay p').eq(0).click(function() {
+					alert('该商品团购已被取消！')	
+				})
+				$('.v_pay p').eq(1).click(function() {
+			    	alert('该商品团购已被取消')
+				})
+			}
+			if(data.status == 0&&data.code==402){
+				$('.v_pay p').eq(0).click(function() {
+					alert('未知用户分享！')	
+				})
+				$('.v_pay p').eq(1).click(function() {
+			    	alert('未知用户分享')
+				})
+			}
 				if(data.status == 1) {
 				//微信支付
 				//通过config接口注入权限验证配置
