@@ -170,6 +170,22 @@ $(function(){
 					}*/
 
 					console.log(data.config)
+					if(data.status == 0&&data.code==403){
+						$('.wx_pay span').eq(1).click(function() {
+							alert('亲！你已经购买过该商品了，请勿重复购买！')	
+						})
+					}
+					if(data.status == 0&&data.code==401){
+						$('.wx_pay span').eq(1).click(function() {
+							alert('该商品团购已被取消！')	
+						})
+					}
+					if(data.status == 0&&data.code==402){
+						$('.wx_pay span').eq(1).click(function() {
+							alert('未知用户分享！')	
+						})
+					}
+					
 					if(data.status == 1) {
 						//微信支付
 						//通过config接口注入权限验证配置
@@ -230,84 +246,6 @@ $(function(){
 							
 
 							})
-								/*//微信单人
-								if(objurl.type_id==11){
-										$('.pay_success div').eq(0).click(function(){
-											alert('微信单人')
-										wx.onMenuShareAppMessage({    
-										    title: '课程详情', // 分享标题    
-										    desc: '', // 分享描述    
-										    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
-										    imgUrl: '', // 分享图标    
-										    type: '', // 分享类型,music、video或link，不填默认为link    
-										    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
-										    success: function () {     
-										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    },    
-										    cancel: function () {     
-										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    }    
-										}); 
-									})
-									$('.pay_success div').eq(1).click(function(){
-										alert('微信单人')
-										wx.onMenuShareTimeline({    
-										    title: '课程详情', // 分享标题    
-										    link: 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id, // 分享链接    
-										    imgUrl: '', // 分享图标    
-										    success: function () {     
-										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    },    
-										    cancel: function () {     
-										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    }    
-										});  
-									})
-								}
-								//微信团购
-								if(objurl.type_id==12){
-									$('.pay_success div').eq(0).click(function(){
-										alert('微信团购
-										')
-										wx.onMenuShareAppMessage({    
-										    title: '课程详情', // 分享标题    
-										    desc: '', // 分享描述    
-										    link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no, // 分享链接    
-										    imgUrl: '', // 分享图标    
-										    type: '', // 分享类型,music、video或link，不填默认为link    
-										    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
-										    success: function () {     
-										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    },    
-										    cancel: function () {     
-										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    }    
-										}); 
-									})
-									$('.pay_success div').eq(1).click(function(){
-										wx.onMenuShareTimeline({    
-										    title: '课程详情', // 分享标题    
-										    link: 'http://h5.speaka.cn/front/html/group_pay.html?'+commodity_id, // 分享链接    
-										    imgUrl: '', // 分享图标    
-										    success: function () {     
-										        // 用户确认分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    },    
-										    cancel: function () {     
-										        // 用户取消分享后执行的回调函数    
-										        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-										    }    
-										});  
-									})
-								}
-*/
- 
 						});
 						//通过error接口处理失败验证
 						wx.error(function(res) {
@@ -329,6 +267,9 @@ $(function(){
 
 					} else {
 						alert('验证信息已失效，请重新获取订单信息！')
+						$('.wx_pay span').eq(1).click(function() {
+							alert('验证信息已失效，请重新获取订单信息！')	
+						})
 					}
 
 				}, 'json');

@@ -241,8 +241,8 @@ $(function(){
 		}
 	});
 
-				$.post("http://api.speaka.cn/api/wxconfig", {
-				location: window.location.href
+		$.post("http://api.speaka.cn/api/wxconfig", {
+		location: window.location.href
 			},
 			function(data) {
 				console.log(data)
@@ -261,7 +261,7 @@ $(function(){
 					wx.ready(function() {
 						// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 				        wx.onMenuShareAppMessage({    
-						    title: '参团立减'+discount_amount+'元！超有趣的少儿互动英文课！', // 分享标题    
+						    title: '参团立享优惠！超有趣的少儿互动英文课！', // 分享标题    
 						    desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
 						    link: group_url, // 分享链接    
 						    imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
@@ -277,7 +277,7 @@ $(function(){
 						    }    
 						});
 						wx.onMenuShareTimeline({    
-						    title: '参团立减'+discount_amount+'元！超有趣的少儿互动英文课！', // 分享标题    
+						    title: '参团立享优惠！超有趣的少儿互动英文课！', // 分享标题    
 						    link: group_url, // 分享链接    
 						    imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 						    success: function () {     
