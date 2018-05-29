@@ -141,7 +141,6 @@ $(function(){
 					location: window.location.href
 				},
 				function(data) {
-					let data = data;
 					objurl.order_no=data.order_no;
 					//测试数据  ~商户id===1500516481
 					/*var data = {
