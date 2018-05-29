@@ -278,9 +278,11 @@ $(function(){
 				}, 'json');
 
 			
-	//App单人购买	
+	
 	}else{
 		$('.wx_pay span').eq(1).click(function() {
+			alert(objurl.type_id)
+			//App单人购买	
 			if(objurl.type_id==21){
 				 if(isAndroid_ios()) {
 					//alert('android')
