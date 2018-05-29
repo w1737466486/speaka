@@ -345,7 +345,7 @@ $(function(){
 	})
 	
 	$('.wx_pay span').eq(0).click(function(){
-		window.location.href = '../html/course_details.html?'+commodity_id
+		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 	})
 
 	

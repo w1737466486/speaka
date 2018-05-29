@@ -63,7 +63,7 @@
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index())
     	}else{
-    		window.location.href = '../html/course.html?'+($(this).index()-1);
+    		window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+($(this).index()-1);
     	}
     	
     })
