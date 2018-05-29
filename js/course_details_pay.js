@@ -82,6 +82,7 @@ $(function(){
 		if(objurl.type_id==12){
 			typeId=1;
 		}
+		alert(typeId)
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
