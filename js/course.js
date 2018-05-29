@@ -88,6 +88,11 @@ $(function(){
 				   				obj.v_text=txt1
 				   				obj.subtitle_en=day1[i].subtitle_en
 				   				obj.subtitle_ch=day1[i].subtitle_ch
+				   				if(day1[i].which_page){
+				   					obj.which_page=day1[i].which_page
+				   				}else{
+				   					obj.which_page=1
+				   				}
 				   				console.log(obj)
 				   				
 				   				if (window.webkit) {
