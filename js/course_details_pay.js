@@ -77,7 +77,8 @@ $(function(){
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
 			data: {
-				commodity_id: commodity_id
+				commodity_id: commodity_id,
+				typeId:objurl.type_id
 			},
 			beforeSend: function(request) {
 				request.setRequestHeader("Authorization", token);
