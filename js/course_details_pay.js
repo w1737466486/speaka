@@ -107,7 +107,7 @@ $(function(){
 					obj_pay.timestamp = data.pay_config.timestamp;
 					obj_pay.sign = data.pay_config.sign;
 					obj_pay.order_no=data.order_no;
-					alert(JSON.stringify(obj_pay));
+					//alert(JSON.stringify(obj_pay));
 					if(isAndroid_ios()) {
 						//安卓  
 						 androidpay.androidWechatPay(JSON.stringify(obj_pay));
