@@ -95,7 +95,7 @@ $(function(){
 					obj_pay.noncestr  = data.pay_config.noncestr;
 					obj_pay.timestamp = data.pay_config.timestamp;
 					obj_pay.sign = data.pay_config.sign;
-					
+					objurl.order_no=data.order_no;
 					alert(JSON.stringify(obj_pay));
 					if(isAndroid_ios()) {
 						//安卓  
@@ -281,19 +281,6 @@ $(function(){
 	//App单人购买	
 	}else{
 		$('.wx_pay span').eq(1).click(function() {
-			$.post("http://api.speaka.cn/api/pay", {
-					code: objurl.code,
-					state: objurl.state,
-					commodity_id:commodity_id,
-					typeId:typeId,
-					order_no:objurl.order_no,
-					location: window.location.href
-				},
-				function(data) {
-					let data = data;
-					objurl.order_no=data.order_no;
-			},'json');
-			
 			if(objurl.type_id==21){
 				 if(isAndroid_ios()) {
 					//alert('android')
