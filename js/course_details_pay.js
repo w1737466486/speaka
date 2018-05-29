@@ -238,7 +238,7 @@ $(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 											})
 								        	$('.pay_success .pay_share').click(function(){
-												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
+												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no+'&is_share='+1
 											})
 								        	/*setInterval(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no

@@ -12,7 +12,13 @@ $(function(){
 	var groupurl = queryURL(group_url)
 	console.log(groupurl)
 	var commodity_id =groupurl.commodity_id
+	if(groupurl.is_share==1){
+		$('.group_share').css({
+			'display':'block'
+		})
+	}
 		//将url参数转对象
+		
 	function queryURL(url) {
 		var arr1 = url.split("?");
 		var params = arr1[1].split("&"); //进行分割成数组
