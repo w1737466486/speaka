@@ -51,6 +51,10 @@ $(function(){
 				   }
 	           }
 	       },
+	       
+	       
+	       
+	       
 	       error:function(res){
 	       	alert(err)
 	       }
