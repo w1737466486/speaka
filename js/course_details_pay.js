@@ -256,7 +256,7 @@ $(function(){
 							$('.course_pay_error').css({
 								'display':'block'
 							})
-							window.location.href = '../html/course_details.html?'+commodity_id
+							window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 							console.log(res)
 						});
 						//判断当前客户端版本是否支持指定JS接口
@@ -289,6 +289,7 @@ $(function(){
 					objpay.typeId=0
 					objpay.paytypeId = 1
 					objpay.paycallback = 'get_token'
+					objpay.share_url='http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 					 androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
 					//alert('ios')
@@ -296,6 +297,7 @@ $(function(){
 					objpay.typeId=0
 					objpay.paytypeId = 1;
 					objpay.paycallback = 'get_token'
+					objpay.share_url='http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
 				}
 				//App团购
@@ -306,6 +308,7 @@ $(function(){
 					objpay.typeId=1
 					objpay.paytypeId = 1
 					objpay.paycallback = 'get_token'
+					objpay.share_url='http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 					 androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
 					//alert('ios')
@@ -313,6 +316,7 @@ $(function(){
 					objpay.typeId=1
 					objpay.paytypeId = 1;
 					objpay.paycallback = 'get_token'
+					objpay.share_url='http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
 				}
 			}
