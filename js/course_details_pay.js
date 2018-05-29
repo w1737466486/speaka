@@ -82,6 +82,7 @@ $(function(){
 		if(objurl.type_id==12){
 			typeId=1;
 		}
+		alert(objurl.type_id)
 		alert(typeId)
 		$.ajax({
 			type: "post",
