@@ -75,15 +75,14 @@ $(function(){
 		//alert(token)
 		var typeId=null
 		//微信单人购买
-		if(objurl.type_id==11){
+		if(objurl.type_id==21){
 			typeId=0;
 		}
 		//微信团购
-		if(objurl.type_id==12){
+		if(objurl.type_id==22){
 			typeId=1;
 		}
-		alert(objurl.type_id)
-		alert(typeId)
+		
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
