@@ -136,11 +136,13 @@ $(function() {
 			//_tds[i].data = _thisDayStr;
 			_tds[i].setAttribute('data', _thisDayStr);
 			if(_thisDayStr === getDateStr(new Date())) { // 当前天
-				_tds[i].className = 'currentDay';
+				//_tds[i].className = 'currentDay';
+				$(_tds[i]).addClass('currentDay')
 			} else if(_thisDayStr.substr(0, 6) === getDateStr(_firstDay).substr(0, 6)) {
 				_tds[i].className = 'currentMonth'; // 当前月
 			} else { // 其他月
-				_tds[i].className = 'otherMonth';
+				//_tds[i].className = 'otherMonth';
+				$(_tds[i]).addClass('otherMonth')
 
 			}
 		}
@@ -203,6 +205,12 @@ $(function() {
 			'color': 'black'
 		})
 		$('.calendar_detail').empty().append('<p></p>')
+ 	   	$('.calendar-table td').find('em').remove()
+   		for(let i=0;i<$('.calendar-table td').length;i++){
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')){
+				console.log($('.calendar-table td').eq(i).find('span').html(''))
+			}
+		}
 	}
 
 	/**
@@ -212,7 +220,6 @@ $(function() {
 		var date = dateObj.getDate();
 		dateObj.setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
 		showCalendarData();
-		
 		$('#calendarTable .currentDay').css({
 				'color': 'red'
 			})
@@ -223,6 +230,14 @@ $(function() {
 			'color': 'black'
 		})
 		$('.calendar_detail').empty().append('<p></p>')
+		$('.calendar-table td').find('em').remove()
+		for(let i=0;i<$('.calendar-table td').length;i++){
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')){
+				console.log($('.calendar-table td').eq(i).find('span').html(''))
+			}
+		}
+		//var _currentDay=$('.calendar-table td').find('span').hasClass('currentMonth currentDay')
+		//console.log(_currentDay)
 	}
 
 	/**
@@ -241,12 +256,13 @@ $(function() {
 	window.get_token=get_token;
 	 //var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
 	 var token=null;
-     function get_token(_results){
-		     //console.log(_results)
-				token='Bearer ' +_results
+	//get_token();
+    function get_token(_results){
+    //console.log(_results)
+	token='Bearer ' +_results
 			
 				
-    console.log(token)
+    //console.log(token)
     function current_course(){
      	 //当天课程默认显示  获取当前日期，日期格式为YYYY-MM-DD
 	     var currentdate = new Date();
@@ -283,7 +299,7 @@ $(function() {
 		
 		  $.ajax({
 			 	type:"get",
-			 	//url:"../js/calendar.json",
+			 	//url:"../json/calendar.json",
 			 	url:'http://api.speaka.cn/api/lesson/day?day='+current_day,
 			    beforeSend: function(request) {
 		            request.setRequestHeader("Authorization", token);
@@ -381,7 +397,7 @@ $(function() {
 			$('.calendar_detail').empty().append('<p></p>')
 			 $.ajax({
 			 	type:"get",
-			 	//url:"../js/calendar.json",
+			 	//url:"../json/calendar.json",
 			 	url:'http://api.speaka.cn/api/lesson/day?day='+click_day,
 			 	 beforeSend: function(request) {
 		            request.setRequestHeader("Authorization", token);

@@ -129,6 +129,7 @@ $(function(){
 				if(objurl.type_id==12){
 					typeId=1;
 					$('.pay_success p').eq(3).html('邀请好友参团')
+					$('.pay_success div span').html('去分享邀请')
 				}
 
 			$.post("http://api.speaka.cn/api/pay", {
@@ -227,19 +228,21 @@ $(function(){
 											$('.pay_success p').eq(0).find('span').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 											})
-											
-											setInterval(function(){
+											$('.pay_success .pay_share').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-											},1000)
+											})
 										}
 										//微信团购
 								        if(objurl.type_id==12){
 								        	$('.pay_success p').eq(0).find('span').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 											})
-								        	setInterval(function(){
+								        	$('.pay_success .pay_share').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
-											},1000)
+											})
+								        	/*setInterval(function(){
+												window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
+											},1000)*/
 								        }
 									}
 								})
