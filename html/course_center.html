@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
     <title></title>
 </head>
+<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 <style>
     *{
         margin: 0;
@@ -29,10 +30,7 @@
         height:100%;
         width: 100%;
     }
-    .course_show a{
-        display: block;
-    }
-    .course_show a img{
+    .course_show img{
         width:100%;
         border-radius: 10px 10px 0 0;
         display: block;
@@ -61,23 +59,29 @@
 <body>
     <div class="course_list">
         <div class="course_show">
-            <a href="#" class="course_link">
-                <img src="../img/ocean.png" alt="">
-                <div class="course_title">
-                     <h3>Ocean & Beach</h3>
-                    <p>一起探索奇妙的海洋世界...</p>
-                </div>
-            </a>
+            <img src="../img/ocean.png" alt="">
+            <div class="course_title">
+                 <h3>Ocean & Beach</h3>
+                <p>一起探索奇妙的海洋世界...</p>
+            </div>
         </div>
-        <div class="course_show">
-            <a href="#" class="course_link">
-                <img src="../img/picnic.png" alt="">
-                <div class="course_title">
-                    <h3>Picnic</h3>
-                    <p>敬请期待…</p>
-                </div>
-            </a>
+        <div class="course_show tip">
+            <img src="../img/picnic.png" alt="">
+            <div class="course_title">
+                <h3>Picnic</h3>
+                <p>敬请期待…</p>
+            </div>
         </div>
+
     </div>
 </body>
+<script>
+    $(".course_show").eq(0).click(function () {
+        //console.log(course_nu);
+        window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+1
+    });
+    $(".tip").click(function () {
+        alert("该课程暂未开放，敬请期待！")
+    })
+</script>
 </html>
