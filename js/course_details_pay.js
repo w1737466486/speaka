@@ -86,7 +86,7 @@ $(function(){
 			dataType: 'JSON',
 			async: true,
 			success: function(data) {
-				//alert(data);
+				alert(data);
 				if(data.status==1){
 					var obj_pay = {}
 					obj_pay.paytypeId = 2;
