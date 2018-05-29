@@ -73,12 +73,21 @@ $(function(){
 		//console.log(_results)
 		token = 'Bearer ' + _results;
 		//alert(token)
+		var typeId=null
+		//微信单人购买
+		if(objurl.type_id==11){
+			typeId=0;
+		}
+		//微信团购
+		if(objurl.type_id==12){
+			typeId=1;
+		}
 		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
 			data: {
 				commodity_id: commodity_id,
-				typeId:objurl.type_id
+				typeId:typeId
 			},
 			beforeSend: function(request) {
 				request.setRequestHeader("Authorization", token);
@@ -86,7 +95,8 @@ $(function(){
 			dataType: 'JSON',
 			async: true,
 			success: function(data) {
-				alert(JSON.stringify(data));
+				//alert(JSON.stringify(data));
+
 				if(data.status==1){
 					var obj_pay = {}
 					obj_pay.paytypeId = 2;
@@ -118,8 +128,6 @@ $(function(){
 	}
 	//微信购买，配置微信环境参数设置
 	if(objurl.type_id==11||objurl.type_id==12){
-		
-         
 			var typeId=null
 			//微信单人购买
 				if(objurl.type_id==11){
@@ -281,7 +289,7 @@ $(function(){
 	
 	}else{
 		$('.wx_pay span').eq(1).click(function() {
-			alert(objurl.type_id)
+			//alert(objurl.type_id)
 			//App单人购买	
 			if(objurl.type_id==21){
 				 if(isAndroid_ios()) {
