@@ -117,7 +117,7 @@ $(function(){
 				last_time=new Date(last_time).valueOf()
 				//剩余总时间
 				let remain_time=last_time/1000-curr_time/1000
-				alert(remain_time)
+				console.log(remain_time)
 				//剩余时
 				let remain_hours=Math.floor(remain_time/3600)
 				console.log(remain_hours)
@@ -170,6 +170,7 @@ $(function(){
 				let last_time=data.limit_at;
 				curr_time=new Date(curr_time).valueOf()
 				last_time=new Date(last_time).valueOf()
+				
 				//剩余总时间
 				let remain_time=last_time/1000-curr_time/1000
 				//剩余时
