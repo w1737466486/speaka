@@ -178,6 +178,8 @@ $(function(){
 			setInterval(function(){
 				let curr_time=getNowFormatDate();
 				let last_time=data.limit_at;
+				let curr_mon=curr_time.substr(5, 2)
+				let last_mon=last_time.substr(5, 2)
 				let curr_day=curr_time.substr(8, 2)
 				let last_day=last_time.substr(8, 2)
 				let curr_hours=curr_time.substr(11, 2)
@@ -187,7 +189,7 @@ $(function(){
 				let curr_sec=curr_time.substr(17, 2)
 				let last_sec=last_time.substr(17, 2)
 				//剩余总时间
-				let remain_time=(last_day-curr_day)*24*60*60+(last_hours-curr_hours)*60*60+(last_min-curr_min)*60+(last_sec-curr_sec)
+				let remain_time=(last_mon-curr_mon)*30*24*60*60+(last_day-curr_day)*24*60*60+(last_hours-curr_hours)*60*60+(last_min-curr_min)*60+(last_sec-curr_sec)
 				//console.log(remain_time)
 				//剩余时
 				let remain_hours=Math.floor(remain_time/3600)
