@@ -162,8 +162,6 @@ $(function(){
 					})
 				}
 				
-				
-				
 				//设置定时器
 			setInterval(function(){
 				let curr_time=getNowFormatDate();
@@ -218,6 +216,11 @@ $(function(){
 					$('.group_foot p').eq(1).css({
 						'cursor': 'default',
 						'opacity': '0.2'
+					})
+				}
+				if(remain_time>0&&data.group.length<=10){
+					$('.group_foot p').eq(1).click(function(){
+						window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id+'&order_no='+groupurl.order_no+'&env='+1;
 					})
 				}
 				
@@ -305,9 +308,5 @@ $(function(){
 	$('.group_foot p').eq(0).click(function(){
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 	})
-	$('.group_foot p').eq(1).click(function(){
-		window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?commodity_id='+commodity_id+'&order_no='+groupurl.order_no
-	})
-	//'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 	
 })
