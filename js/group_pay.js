@@ -305,7 +305,9 @@ $(function(){
 	$('.group_foot p').eq(0).click(function(){
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
 	})
-	
-	
+	$('.group_foot p').eq(1).click(function(){
+		window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?commodity_id='+commodity_id+'&order_no='+groupurl.order_no
+	})
+	//'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
 	
 })
