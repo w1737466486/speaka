@@ -116,8 +116,8 @@ $(function(){
 				curr_time=new Date(curr_time).valueOf()
 				last_time=new Date(last_time).valueOf()
 				//剩余总时间
-				let remain_time=(last_time-curr_time)/1000
-				console.log(remain_time)
+				let remain_time=last_time/1000-curr_time/1000
+				alert(remain_time)
 				//剩余时
 				let remain_hours=Math.floor(remain_time/3600)
 				console.log(remain_hours)
@@ -133,8 +133,7 @@ $(function(){
 				
 				if(remain_time>0&&data.group.length>=3&&data.group.length<=10){
 					$('.group_head p').eq(0).html('该拼团已成功！')
-				}
-				if(data.group.length>10){
+				}else if(data.group.length>10){
 					$('.group_head p').eq(0).html('该拼团人数已满！')
 					$('.group_head p').eq(1).find('span').eq(0).html('00')
 					$('.group_head p').eq(1).find('span').eq(1).html('00')
@@ -143,8 +142,16 @@ $(function(){
 						'cursor': 'default',
 						'opacity': '0.2'
 					})
-				}
-				if(remain_time<=0){
+				}else if(remain_time<=0&&data.group.length<3){
+					$('.group_head p').eq(0).html('拼团失败！')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
+					})
+				}else if(remain_time<=0){
 					$('.group_head p').eq(0).html('该拼团已结束')
 					$('.group_head p').eq(1).find('span').eq(0).html('00')
 					$('.group_head p').eq(1).find('span').eq(1).html('00')
@@ -154,17 +161,6 @@ $(function(){
 						'opacity': '0.2'
 					})
 				}
-				if(remain_time<=0&&data.group.length<3){
-					$('.group_head p').eq(0).html('拼团失败！')
-					$('.group_head p').eq(1).find('span').eq(0).html('00')
-					$('.group_head p').eq(1).find('span').eq(1).html('00')
-					$('.group_head p').eq(1).find('span').eq(2).html('00')
-					$('.group_foot p').eq(1).css({
-						'cursor': 'default',
-						'opacity': '0.2'
-					})
-				}
-				
 				
 				
 				
@@ -175,7 +171,7 @@ $(function(){
 				curr_time=new Date(curr_time).valueOf()
 				last_time=new Date(last_time).valueOf()
 				//剩余总时间
-				let remain_time=(last_time-curr_time)/1000
+				let remain_time=last_time/1000-curr_time/1000
 				//剩余时
 				let remain_hours=Math.floor(remain_time/3600)
 				//console.log(remain_hours)
@@ -195,8 +191,7 @@ $(function(){
 				
 				if(remain_time>0&&data.group.length>=3&&data.group.length<=10){
 					$('.group_head p').eq(0).html('该拼团已成功！')
-				}
-				if(data.group.length>10){
+				}else if(data.group.length>10){
 					$('.group_head p').eq(0).html('该拼团人数已满！')
 					$('.group_head p').eq(1).find('span').eq(0).html('00')
 					$('.group_head p').eq(1).find('span').eq(1).html('00')
@@ -205,18 +200,7 @@ $(function(){
 						'cursor': 'default',
 						'opacity': '0.2'
 					})
-				}
-				if(remain_time<=0){
-					$('.group_head p').eq(0).html('该拼团已结束')
-					$('.group_head p').eq(1).find('span').eq(0).html('00')
-					$('.group_head p').eq(1).find('span').eq(1).html('00')
-					$('.group_head p').eq(1).find('span').eq(2).html('00')
-					$('.group_foot p').eq(1).css({
-						'cursor': 'default',
-						'opacity': '0.2'
-					})
-				}
-				if(remain_time<=0&&data.group.length<3){
+				}else if(remain_time<=0&&data.group.length<3){
 					$('.group_head p').eq(0).html('拼团失败！')
 					$('.group_head p').eq(1).find('span').eq(0).html('00')
 					$('.group_head p').eq(1).find('span').eq(1).html('00')
@@ -225,10 +209,14 @@ $(function(){
 						'cursor': 'default',
 						'opacity': '0.2'
 					})
-				}
-				if(remain_time>0&&data.group.length<=10){
-					$('.group_foot p').eq(1).click(function(){
-						window.location.href = 'http://api.speaka.cn/api/buy/1?type_id='+12+'&commodity_id='+commodity_id+'&order_no='+groupurl.order_no+'&env='+1;
+				}else if(remain_time<=0){
+					$('.group_head p').eq(0).html('该拼团已结束')
+					$('.group_head p').eq(1).find('span').eq(0).html('00')
+					$('.group_head p').eq(1).find('span').eq(1).html('00')
+					$('.group_head p').eq(1).find('span').eq(2).html('00')
+					$('.group_foot p').eq(1).css({
+						'cursor': 'default',
+						'opacity': '0.2'
 					})
 				}
 				
