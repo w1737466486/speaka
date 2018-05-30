@@ -64,19 +64,10 @@ $(function() {
 				$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元')
 				let curr_time=getNowFormatDate();
 				let last_time=data.alloc_at;
-				let curr_mon=curr_time.substr(5, 2)
-				let last_mon=last_time.substr(5, 2)
-				let curr_day=curr_time.substr(8, 2)
-				let last_day=last_time.substr(8, 2)
-				let curr_hours=curr_time.substr(11, 2)
-				let last_hours=last_time.substr(11, 2)
-				let curr_min=curr_time.substr(14, 2)
-				let last_min=last_time.substr(14, 2)
-				let curr_sec=curr_time.substr(17, 2)
-				let last_sec=last_time.substr(17, 2)
+				curr_time=new Date(curr_time).valueOf()
+				last_time=new Date(last_time).valueOf()
 				//剩余总时间
-				let remain_time=(last_mon-curr_mon)*30*24*60*60+(last_day-curr_day)*24*60*60+(last_hours-curr_hours)*60*60+(last_min-curr_min)*60+(last_sec-curr_sec)
-				console.log(remain_time)
+				let remain_time=(last_time-curr_time)/1000
 				if(remain_time<=0){
 					$('.v_pay p').eq(0).click(function() {
 							alert('记得来早点，亲！购买时间已经过了哦！')	
