@@ -10,7 +10,7 @@ b{
 	font-weight:normal
 }
 .course_pay{
-	background: #F5F5F5;
+	background: #FAFAFA;
 }
 .course_pay div:nth-of-type(1){
 	width: 100%;
@@ -36,7 +36,7 @@ b{
 .course_pay div:nth-of-type(2){
 	width: 100%;
 	height: 44px;
-	padding-bottom: 20px;
+	margin-bottom: 20px;
     border-top: 1px solid #ccc;
 	background: rgba(255,255,255,1);
    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.20);
@@ -56,6 +56,10 @@ b{
 	padding-left: 4%;
 	background: #FFFFFF;
    box-shadow: 0 0 1px 0 rgba(0,0,0,0.20); 
+}
+.wx_stutas img{
+	display: block;
+	height: 22px;
 }
 .wx_stutas b:nth-of-type(1){
 	position: absolute;
