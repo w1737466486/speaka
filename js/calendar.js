@@ -254,8 +254,8 @@ $(function() {
 	}
 	//接收token
 	window.get_token=get_token;
-	 //var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
-	 var token=null;
+	var token=null;
+	//var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
 	//get_token();
     function get_token(_results){
     //console.log(_results)
@@ -285,14 +285,14 @@ $(function() {
 				'text-align': 'center',
 				'background': '#EF5064',
 				'border-radius': '50%',
-				 'position': 'absolute',
-				 'top': '50%',
-				 'left':'50%' ,
+				'position': 'absolute',
+				'top': '50%',
+				'left':'50%' ,
 				'display':'inline-block',
 				'color': '#FFFFFF',
 				'width':'35px',
 				'height':'35px',
-			   'line-height':'35px',
+			    'line-height':'35px',
 			    'transform':'translate(-50%,-50%)'
 			})
 		 
@@ -311,12 +311,14 @@ $(function() {
 			 		
 			 		$('.calendar_detail>p').html('详情')
 			 		for(let i=0;i<data.info.lessons.length;i++){
-			 			$('.calendar_detail').append('<div><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
+			 			$('.calendar_detail').append('<div lesson_id='+data.info.lessons[i].lesson_id+'><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
 			 		}
 			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 			 	    //点击跳转课程详情
 			 	   $('.calendar_detail div').click(function(){
-					 	console.log('111')
+					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
+					 	//console.log(lesson_id)
+					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
 					 })
 			 	    let less_days=data.info.has_lesson_days
 			 	   console.log(less_days)
@@ -336,16 +338,16 @@ $(function() {
 			 	   			$('.calendar-table span').eq(i).parent().find('em').css({
 			 	   				'background': '#3AAB87',
 								'border-radius': '50%',
-								 'position': 'absolute',
-								 'bottom': '10%',
-								 'left':'50%' ,
+								'position': 'absolute',
+								'bottom': '10%',
+								'left':'50%' ,
 								'display':'inline-block',
 								'width':'4px',
 								'height':'4px',
 								'transform':'translate(-50%,-50%)'
 			 	   			})
 			 	   		}
-			 	   	}
+			 	    }
 			 	   }
 			 	   
 			 	}
@@ -379,14 +381,14 @@ $(function() {
 				'text-align': 'center',
 				'background': '#EF5064',
 				'border-radius': '50%',
-				 'position': 'absolute',
-				 'top': '50%',
-				 'left':'50%' ,
+				'position': 'absolute',
+				'top': '50%',
+				'left':'50%' ,
 				'display':'inline-block',
 				'color': '#FFFFFF',
 				'width':'35px',
 				'height':'35px',
-			   'line-height':'35px',
+			    'line-height':'35px',
 			    'transform':'translate(-50%,-50%)'
 			})
 			var click_day=$(this).find('span').attr('data')
@@ -433,9 +435,9 @@ $(function() {
 			 	   			$('.calendar-table span').eq(i).parent().find('em').css({
 			 	   				'background': '#3AAB87',
 								'border-radius': '50%',
-								 'position': 'absolute',
-								 'bottom': '10%',
-								 'left':'50%' ,
+								'position': 'absolute',
+								'bottom': '10%',
+								'left':'50%' ,
 								'display':'inline-block',
 								'width':'4px',
 								'height':'4px',
