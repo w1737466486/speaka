@@ -1,0 +1,22 @@
+{
+  "status": 1,
+  "info": [{
+    "type": 1,
+    "price": 0.12,
+    "required_price": 0.12,
+    "usable_start_at": "2018-06-01 17:27:01",
+    "usable_end_at": "2018-06-22 17:27:03",
+    "status": 1,
+    "coupon_no": "eqweqweqweqwe"
+  },
+    {
+      "type": 1,
+      "price": 0.12,
+      "required_price": 0.12,
+      "usable_start_at": "2018-06-01 17:27:01",
+      "usable_end_at": "2018-06-22 17:27:03",
+      "status": 1,
+      "coupon_no": "eqweqweqweqwe"
+    }
+  ]
+}

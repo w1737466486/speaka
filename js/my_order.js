@@ -51,12 +51,8 @@ $(function(){
 				   }
 	           }
 	       },
-	       
-	       
-	       
-	       
 	       error:function(res){
-	       	alert(err)
+	       	alert(res)
 	       }
 	    })
     }
