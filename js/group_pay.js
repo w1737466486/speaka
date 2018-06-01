@@ -66,7 +66,7 @@ $(function(){
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 	    var date = new Date();
-	    var seperator1 = "/";
+	    var seperator1 = "-";
 	    var seperator2 = ":";
 	    var month = date.getMonth() + 1;
 	    var strDate = date.getDate();
@@ -113,8 +113,12 @@ $(function(){
 			
 			    let curr_time=getNowFormatDate();
 				let last_time=data.limit_at;
+				curr_time=curr_time.substr(0,4)+'/'+curr_time.substr(5,2)+'/'+curr_time.substr(8,2)+' '+curr_time.substr(11)
+				last_time=last_time.substr(0,4)+'/'+last_time.substr(5,2)+'/'+last_time.substr(8,2)+' '+last_time.substr(11)
+				//console.log(last_time)
 				curr_time=new Date(curr_time).valueOf()
 				last_time=new Date(last_time).valueOf()
+				
 				//剩余总时间
 				let remain_time=last_time/1000-curr_time/1000
 				console.log(remain_time)
@@ -166,6 +170,8 @@ $(function(){
 			setInterval(function(){
 				let curr_time=getNowFormatDate();
 				let last_time=data.limit_at;
+				curr_time=curr_time.substr(0,4)+'/'+curr_time.substr(5,2)+'/'+curr_time.substr(8,2)+' '+curr_time.substr(11)
+				last_time=last_time.substr(0,4)+'/'+last_time.substr(5,2)+'/'+last_time.substr(8,2)+' '+last_time.substr(11)
 				curr_time=new Date(curr_time).valueOf()
 				last_time=new Date(last_time).valueOf()
 				
