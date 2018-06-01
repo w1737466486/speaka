@@ -66,7 +66,7 @@ $(function(){
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 	    var date = new Date();
-	    var seperator1 = "-";
+	    var seperator1 = "/";
 	    var seperator2 = ":";
 	    var month = date.getMonth() + 1;
 	    var strDate = date.getDate();
