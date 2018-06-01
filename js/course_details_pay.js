@@ -321,7 +321,7 @@ $(function(){
 					objpay.typeId=1
 					objpay.paytypeId = 1
 					objpay.paycallback = 'get_token'
-					objpay.title='参团立享优惠！超有趣的少儿互动英文课！'
+					objpay.title='【三人成团】！超有趣的少儿互动英文课！'
 					objpay.desc= 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!'
 					objpay.share_url='http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id
 					androidpay.androidWechatPay(JSON.stringify(objpay));
@@ -331,7 +331,7 @@ $(function(){
 					objpay.typeId=1
 					objpay.paytypeId = 1;
 					objpay.paycallback = 'get_token'
-					objpay.title='参团立享优惠！超有趣的少儿互动英文课！'
+					objpay.title='【三人成团】！超有趣的少儿互动英文课！'
 					objpay.desc= 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!'
 					objpay.share_url='http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(objpay));
