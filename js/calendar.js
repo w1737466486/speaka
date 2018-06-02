@@ -206,9 +206,47 @@ $(function() {
 		})
 		$('.calendar_detail').empty().append('<p></p>')
  	   	$('.calendar-table td').find('em').remove()
+ 	   	let day_clean=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data').substr(4,2)
    		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')){
-				console.log($('.calendar-table td').eq(i).find('span').html(''))
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')&&$('.calendar-table td').eq(i).find('span').attr('data').substr(4,2)!=day_clean){
+				$('.calendar-table td').eq(i).find('span').html('')
+			}
+		}
+   		for(let i=0;i<$('.calendar-table td').length;i++){
+			if($('.calendar-table td').eq(i).find('span').html() != ''){
+				console.log($('.calendar-table td').eq(i).find('span').html());
+				//其余颜色设为黑色
+				$('.calendar-table td').find('span').css({
+					'background': '',
+					'border-radius': '',
+					'color': 'black'
+				})
+				//当天日期设为红色
+				$('#calendarTable .currentDay').css({
+					'color': 'red'
+				})
+				$('.calendar-table td').eq(i).css({
+				'position': 'relative',
+				'color': '#000000'
+				})
+				//点击日期添加背景色
+				$('.calendar-table td').eq(i).find('span').css({
+					'text-align': 'center',
+					'background': '#EF5064',
+					'border-radius': '50%',
+					'position': 'absolute',
+					'top': '50%',
+					'left':'50%' ,
+					'display':'inline-block',
+					'color': '#FFFFFF',
+					'width':'35px',
+					'height':'35px',
+				    'line-height':'35px',
+				    'transform':'translate(-50%,-50%)'
+				})
+				break;
+			}else{
+				continue;
 			}
 		}
 	}
@@ -231,13 +269,49 @@ $(function() {
 		})
 		$('.calendar_detail').empty().append('<p></p>')
 		$('.calendar-table td').find('em').remove()
+		let day_clean=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data').substr(4,2)
 		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')){
-				console.log($('.calendar-table td').eq(i).find('span').html(''))
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')&&$('.calendar-table td').eq(i).find('span').attr('data').substr(4,2)!=day_clean){
+				$('.calendar-table td').eq(i).find('span').html('')
 			}
 		}
-		//var _currentDay=$('.calendar-table td').find('span').hasClass('currentMonth currentDay')
-		//console.log(_currentDay)
+		for(let i=0;i<$('.calendar-table td').length;i++){
+			if($('.calendar-table td').eq(i).find('span').html() != ''){
+				console.log($('.calendar-table td').eq(i).find('span').html());
+				//其余颜色设为黑色
+				$('.calendar-table td').find('span').css({
+					'background': '',
+					'border-radius': '',
+					'color': 'black'
+				})
+				//当天日期设为红色
+				$('#calendarTable .currentDay').css({
+					'color': 'red'
+				})
+				$('.calendar-table td').eq(i).css({
+				'position': 'relative',
+				'color': '#000000'
+				})
+				//点击日期添加背景色
+				$('.calendar-table td').eq(i).find('span').css({
+					'text-align': 'center',
+					'background': '#EF5064',
+					'border-radius': '50%',
+					'position': 'absolute',
+					'top': '50%',
+					'left':'50%' ,
+					'display':'inline-block',
+					'color': '#FFFFFF',
+					'width':'35px',
+					'height':'35px',
+				    'line-height':'35px',
+				    'transform':'translate(-50%,-50%)'
+				})
+				break;
+			}else{
+				continue;
+			}
+		}
 	}
 
 	/**
@@ -404,6 +478,7 @@ $(function() {
 			 			$('.calendar_detail').append('<div><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
 			 		}
 			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
+			 	   $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
 			 	   let less_days=data.info.has_lesson_days
 			 	   console.log(less_days)
 			 	   let arr_days=$('.calendar-table span')
