@@ -50,9 +50,15 @@ $(function() {
 				$('.v_nav .v_s1').html(data.eng)
 				$('.v_nav .v_s2').html(data.chn)
 				$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path)
-				$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
+				for(let i=0;i<data.pages.length;i++){
+					$('.v_img').append('<img src=""/>')
+				}
+				for(let i=0;i<data.pages.length;i++){
+					$('.v_img img').eq(i).attr('src', 'http://s.speaka.cn/' + data.pages[i].pic_path)
+				}
+/*				$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
 				$('.v_img img').eq(1).attr('src', 'http://s.speaka.cn/' + data.pages[1].pic_path)
-				$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)
+				$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)*/
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10))
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天')
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10))
