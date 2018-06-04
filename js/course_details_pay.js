@@ -132,7 +132,8 @@ $(function(){
 			//微信单人购买
 				if(objurl.type_id==11){
 					typeId=0;
-					$('.pay_success p').eq(3).html('分享得优惠')
+					$('.pay_success p').eq(3).html('')
+					$('.pay_success div span').html('下载APP去上课')
 				}
 				//微信团购
 				if(objurl.type_id==12){
@@ -233,11 +234,11 @@ $(function(){
 											
 										//微信单人
 										if(objurl.type_id==11){
-											$('.pay_success p').eq(0).find('span').click(function(){
+											/*$('.pay_success p').eq(0).find('span').click(function(){
 												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
-											})
+											})*/
 											$('.pay_success .pay_share').click(function(){
-												window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?'+commodity_id
+												window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU3ODQ3ODc5OA==&scene=124&#wechat_redirect'
 											})
 										}
 										//微信团购
