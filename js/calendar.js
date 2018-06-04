@@ -526,6 +526,7 @@ $(function() {
 			 		$('.calendar_detail>p').html('详情')
 			 		for(let i=0;i<data.info.lessons.length;i++){
 			 			$('.calendar_detail').append('<div lesson_id='+data.info.lessons[i].lesson_id+'><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
+			 		    $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
 			 		}
 			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 			 	    let less_days=data.info.has_lesson_days
