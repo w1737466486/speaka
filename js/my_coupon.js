@@ -1,17 +1,17 @@
 $(function(){
-    // window.get_token=get_token;
-    // var token = null;
-    // function get_token(_results) {
-    //     token = 'Bearer ' + _results;
+       window.get_token=get_token;
+       var token = null;
+       function get_token(_results) {
+           token = 'Bearer ' + _results;
         $.ajax({
             type:'GET',
             dataType:'JSON',
             async:true,
-            url:"../json/my_coupon.json",
-            //url:'http://api.speaka.cn/api/u/orders',
-            // beforeSend: function (request) {
-            //     request.setRequestHeader("Authorization", token);
-            // },
+           //url:"../json/my_coupon.json",
+	        url:'http://api.speaka.cn/api/u/orders',
+	         beforeSend: function (request) {
+	             request.setRequestHeader("Authorization", token);
+	         },
             success:function (data){
                 console.log("成功获取数据",data.info);
                 for(let i=0;i<data.info.length;i++){
@@ -45,5 +45,5 @@ ${data.info[i].usable_start_at.substr(0,4)+"年"+data.info[i].usable_start_at.su
                 console.log(res)
             }
         })
-    // }
+     }
 });
