@@ -3,7 +3,7 @@ $(function(){
    $.ajax({
    	type:"get",
    	async:true,
-   	//surl:"../js/speaka.json", 
+   	//url:"../json/speaka.json", 
     url:'http://api.speaka.cn/api/team/77/commodity',
    	success:function(data){
    		
@@ -116,10 +116,5 @@ $(function(){
    	}
    });
 });  
-
-//$('body .main .y1').click(function(){
-//	$('body .main .y1').removeClass('active');
-//	$(this).addClass('active')
-//})
 
 
