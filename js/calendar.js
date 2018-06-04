@@ -190,10 +190,10 @@ $(function() {
 		var date = dateObj.getDate();
 		dateObj.setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
 		showCalendarData();
-		
+
 		$('#calendarTable .currentDay').css({
-				'color': 'red'
-			})
+			'color': 'red'
+		})
 		//点击上个月图标清除被选择的tr
 		$('.calendar-table td').find('span').css({
 			'background': '',
@@ -201,15 +201,15 @@ $(function() {
 			'color': 'black'
 		})
 		$('.calendar_detail').empty().append('<p></p>')
- 	   	$('.calendar-table td').find('em').remove()
- 	   	let day_clean=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data').substr(4,2)
-   		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')&&$('.calendar-table td').eq(i).find('span').attr('data').substr(4,2)!=day_clean){
+		$('.calendar-table td').find('em').remove()
+		let day_clean = $('.calendar-table td').eq($('.calendar-table td').length / 2).find('span').attr('data').substr(4, 2)
+		for(let i = 0; i < $('.calendar-table td').length; i++) {
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay') && $('.calendar-table td').eq(i).find('span').attr('data').substr(4, 2) != day_clean) {
 				$('.calendar-table td').eq(i).find('span').html('')
 			}
 		}
-   		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').html() != ''){
+		for(let i = 0; i < $('.calendar-table td').length; i++) {
+			if($('.calendar-table td').eq(i).find('span').html() != '') {
 				console.log($('.calendar-table td').eq(i).find('span').html());
 				//其余颜色设为黑色
 				$('.calendar-table td').find('span').css({
@@ -222,8 +222,8 @@ $(function() {
 					'color': 'red'
 				})
 				$('.calendar-table td').eq(i).css({
-				'position': 'relative',
-				'color': '#000000'
+					'position': 'relative',
+					'color': '#000000'
 				})
 				//点击日期添加背景色
 				$('.calendar-table td').eq(i).find('span').css({
@@ -232,86 +232,92 @@ $(function() {
 					'border-radius': '50%',
 					'position': 'absolute',
 					'top': '50%',
-					'left':'50%' ,
-					'display':'inline-block',
+					'left': '50%',
+					'display': 'inline-block',
 					'color': '#FFFFFF',
-					'width':'35px',
-					'height':'35px',
-				    'line-height':'35px',
-				    'transform':'translate(-50%,-50%)'
+					'width': '35px',
+					'height': '35px',
+					'line-height': '35px',
+					'transform': 'translate(-50%,-50%)'
 				})
 				break;
-			}else{
+			} else {
 				continue;
 			}
 		}
-	let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data');
-		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2);
-		event_day=click_day;
-		event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
-		curr_day=new Date(curr_day).valueOf()
-		event_day=new Date(event_day).valueOf()
-		 $.ajax({
-		 	type:"get",
-		 	//url:"../json/calendar.json",
-		 	url:'http://api.speaka.cn/api/lesson/day?day='+click_day,
-		 	 beforeSend: function(request) {
-	            request.setRequestHeader("Authorization", token);
-	        },
-	        dataType: 'JSON',
-		 	async:false,
-		 	success:function(data){
-		 		console.log(data)
-		 		$('.calendar_detail>p').html('详情')
-		 		for(let i=0;i<data.info.lessons.length;i++){
-		 			$('.calendar_detail').append('<div><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
-		 		    $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
-		 		}
-		 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
-		 	   
-		 	        if((curr_day-event_day)>=0){
-					 //点击跳转课程详情
-					   $('.calendar_detail div').click(function(){
-					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-					 	//console.log(lesson_id)
-					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-					 })
-					}else{
-					 $('.calendar_detail div').click(function(){
-					    alert('亲，该课程还没到上课时间哦！')
-					 })				
+		let click_day = $('.calendar-table td').eq($('.calendar-table td').length / 2).find('span').attr('data');
+		click_day = click_day.substr(0, 4) + '-' + click_day.substr(4, 2) + '-' + click_day.substr(6, 2);
+		event_day = click_day;
+		event_day = event_day.substr(0, 4) + '/' + event_day.substr(5, 2) + '/' + event_day.substr(8, 2);
+		curr_day = new Date(curr_day).valueOf()
+		event_day = new Date(event_day).valueOf()
+		$.ajax({
+			type: "get",
+			//url:"../json/calendar.json",
+			url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+			beforeSend: function(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			dataType: 'JSON',
+			async: false,
+			success: function(data) {
+				console.log(data)
+				$('.calendar_detail>p').html('详情')
+				for(let i = 0; i < data.info.lessons.length; i++) {
+					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>')
+					$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id)
+				}
+				$('.calendar_detail div').css({
+					'position': 'relative',
+					'width': '92%',
+					'left': '3.7%',
+					'margin-top': '15px',
+					'margin-bottom': '15px'
+				})
+
+				if((curr_day - event_day) >= 0) {
+					//点击跳转课程详情
+					$('.calendar_detail div').click(function() {
+						let lesson_id = $('.calendar_detail div').attr('lesson_id')
+						//console.log(lesson_id)
+						window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+					})
+				} else {
+					$('.calendar_detail div').click(function() {
+						alert('亲，该课程还没到上课时间哦！')
+					})
+				}
+				let less_days = data.info.has_lesson_days
+
+				console.log(less_days)
+				let arr_days = $('.calendar-table span')
+				//console.log(arr_days)
+				for(let i = 0; i < arr_days.length; i++) {
+					for(let j = 0; j < less_days.length; j++) {
+						var has_days = (arr_days[i].innerHTML > 9) ? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
+						if(has_days == less_days[j]) {
+							//console.log(has_days,arr_days[i])
+							//console.log($('.calendar-table span').eq(i).parent())
+							$('.calendar-table span').eq(i).parent().css({
+								'position': 'relative',
+								'color': '#000000'
+							}).append('<em></em>')
+							$('.calendar-table span').eq(i).parent().find('em').css({
+								'background': '#3AAB87',
+								'border-radius': '50%',
+								'position': 'absolute',
+								'bottom': '10%',
+								'left': '50%',
+								'display': 'inline-block',
+								'width': '4px',
+								'height': '4px',
+								'transform': 'translate(-50%,-50%)'
+							})
+						}
 					}
-		 	   let less_days=data.info.has_lesson_days
-		 	   
-		 	   console.log(less_days)
-		 	   let arr_days=$('.calendar-table span')
-		 	   //console.log(arr_days)
-		 	   for(let i=0;i<arr_days.length;i++){
-		 	   	for(let j=0;j<less_days.length;j++){
-		 	   		var has_days=(arr_days[i].innerHTML> 9 )? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
-		 	   		if(has_days==less_days[j]){
-		 	   			//console.log(has_days,arr_days[i])
-		 	   			//console.log($('.calendar-table span').eq(i).parent())
-		 	   			$('.calendar-table span').eq(i).parent().css({
-		 	   				'position': 'relative',
-		                    'color': '#000000'
-		 	   			}).append('<em></em>')
-		 	   			$('.calendar-table span').eq(i).parent().find('em').css({
-		 	   				'background': '#3AAB87',
-							'border-radius': '50%',
-							'position': 'absolute',
-							'bottom': '10%',
-							'left':'50%' ,
-							'display':'inline-block',
-							'width':'4px',
-							'height':'4px',
-							'transform':'translate(-50%,-50%)'
-		 	   			})
-		 	   		}
-		 	   	}
-		 	   }
-		 	}
-		 });
+				}
+			}
+		});
 	}
 
 	/**
@@ -322,8 +328,8 @@ $(function() {
 		dateObj.setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
 		showCalendarData();
 		$('#calendarTable .currentDay').css({
-				'color': 'red'
-			})
+			'color': 'red'
+		})
 		//点击下个月图标清除被选择的tr
 		$('.calendar-table td').find('span').css({
 			'background': '',
@@ -332,14 +338,14 @@ $(function() {
 		})
 		$('.calendar_detail').empty().append('<p></p>')
 		$('.calendar-table td').find('em').remove()
-		let day_clean=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data').substr(4,2)
-		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay')&&$('.calendar-table td').eq(i).find('span').attr('data').substr(4,2)!=day_clean){
+		let day_clean = $('.calendar-table td').eq($('.calendar-table td').length / 2).find('span').attr('data').substr(4, 2)
+		for(let i = 0; i < $('.calendar-table td').length; i++) {
+			if($('.calendar-table td').eq(i).find('span').hasClass('currentMonth currentDay') && $('.calendar-table td').eq(i).find('span').attr('data').substr(4, 2) != day_clean) {
 				$('.calendar-table td').eq(i).find('span').html('')
 			}
 		}
-		for(let i=0;i<$('.calendar-table td').length;i++){
-			if($('.calendar-table td').eq(i).find('span').html() != ''){
+		for(let i = 0; i < $('.calendar-table td').length; i++) {
+			if($('.calendar-table td').eq(i).find('span').html() != '') {
 				console.log($('.calendar-table td').eq(i).find('span').html());
 				//其余颜色设为黑色
 				$('.calendar-table td').find('span').css({
@@ -352,8 +358,8 @@ $(function() {
 					'color': 'red'
 				})
 				$('.calendar-table td').eq(i).css({
-				'position': 'relative',
-				'color': '#000000'
+					'position': 'relative',
+					'color': '#000000'
 				})
 				//点击日期添加背景色
 				$('.calendar-table td').eq(i).find('span').css({
@@ -362,87 +368,93 @@ $(function() {
 					'border-radius': '50%',
 					'position': 'absolute',
 					'top': '50%',
-					'left':'50%' ,
-					'display':'inline-block',
+					'left': '50%',
+					'display': 'inline-block',
 					'color': '#FFFFFF',
-					'width':'35px',
-					'height':'35px',
-				    'line-height':'35px',
-				    'transform':'translate(-50%,-50%)'
+					'width': '35px',
+					'height': '35px',
+					'line-height': '35px',
+					'transform': 'translate(-50%,-50%)'
 				})
 				break;
-			}else{
+			} else {
 				continue;
 			}
 		}
-		let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data');
-		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2);
-		event_day=click_day;
-		event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
-		curr_day=new Date(curr_day).valueOf()
-		event_day=new Date(event_day).valueOf()
-		 $.ajax({
-		 	type:"get",
-		 	//url:"../json/calendar.json",
-		 	url:'http://api.speaka.cn/api/lesson/day?day='+click_day,
-		 	 beforeSend: function(request) {
-	            request.setRequestHeader("Authorization", token);
-	        },
-	        dataType: 'JSON',
-		 	async:false,
-		 	success:function(data){
-		 		console.log(data)
-		 		$('.calendar_detail>p').html('详情')
-		 		for(let i=0;i<data.info.lessons.length;i++){
-		 			$('.calendar_detail').append('<div><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
-		 		    $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
-		 		}
-		 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
-		 	   
-		 	         if((curr_day-event_day)>=0){
-					 //点击跳转课程详情
-					   $('.calendar_detail div').click(function(){
-					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-					 	//console.log(lesson_id)
-					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-					 })
-					}else{
-					 $('.calendar_detail div').click(function(){
-					    alert('亲，该课程还没到上课时间哦！')
-					 })				
+		let click_day = $('.calendar-table td').eq($('.calendar-table td').length / 2).find('span').attr('data');
+		click_day = click_day.substr(0, 4) + '-' + click_day.substr(4, 2) + '-' + click_day.substr(6, 2);
+		event_day = click_day;
+		event_day = event_day.substr(0, 4) + '/' + event_day.substr(5, 2) + '/' + event_day.substr(8, 2);
+		curr_day = new Date(curr_day).valueOf()
+		event_day = new Date(event_day).valueOf()
+		$.ajax({
+			type: "get",
+			//url:"../json/calendar.json",
+			url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+			beforeSend: function(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			dataType: 'JSON',
+			async: false,
+			success: function(data) {
+				console.log(data)
+				$('.calendar_detail>p').html('详情')
+				for(let i = 0; i < data.info.lessons.length; i++) {
+					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>')
+					$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id)
+				}
+				$('.calendar_detail div').css({
+					'position': 'relative',
+					'width': '92%',
+					'left': '3.7%',
+					'margin-top': '15px',
+					'margin-bottom': '15px'
+				})
+
+				if((curr_day - event_day) >= 0) {
+					//点击跳转课程详情
+					$('.calendar_detail div').click(function() {
+						let lesson_id = $('.calendar_detail div').attr('lesson_id')
+						//console.log(lesson_id)
+						window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+					})
+				} else {
+					$('.calendar_detail div').click(function() {
+						alert('亲，该课程还没到上课时间哦！')
+					})
+				}
+				let less_days = data.info.has_lesson_days
+
+				console.log(less_days)
+				let arr_days = $('.calendar-table span')
+				//console.log(arr_days)
+				for(let i = 0; i < arr_days.length; i++) {
+					for(let j = 0; j < less_days.length; j++) {
+						var has_days = (arr_days[i].innerHTML > 9) ? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
+						if(has_days == less_days[j]) {
+							//console.log(has_days,arr_days[i])
+							//console.log($('.calendar-table span').eq(i).parent())
+							$('.calendar-table span').eq(i).parent().css({
+								'position': 'relative',
+								'color': '#000000'
+							}).append('<em></em>')
+							$('.calendar-table span').eq(i).parent().find('em').css({
+								'background': '#3AAB87',
+								'border-radius': '50%',
+								'position': 'absolute',
+								'bottom': '10%',
+								'left': '50%',
+								'display': 'inline-block',
+								'width': '4px',
+								'height': '4px',
+								'transform': 'translate(-50%,-50%)'
+							})
+						}
 					}
-		 	   let less_days=data.info.has_lesson_days
-		 	   
-		 	   console.log(less_days)
-		 	   let arr_days=$('.calendar-table span')
-		 	   //console.log(arr_days)
-		 	   for(let i=0;i<arr_days.length;i++){
-		 	   	for(let j=0;j<less_days.length;j++){
-		 	   		var has_days=(arr_days[i].innerHTML> 9 )? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
-		 	   		if(has_days==less_days[j]){
-		 	   			//console.log(has_days,arr_days[i])
-		 	   			//console.log($('.calendar-table span').eq(i).parent())
-		 	   			$('.calendar-table span').eq(i).parent().css({
-		 	   				'position': 'relative',
-		                    'color': '#000000'
-		 	   			}).append('<em></em>')
-		 	   			$('.calendar-table span').eq(i).parent().find('em').css({
-		 	   				'background': '#3AAB87',
-							'border-radius': '50%',
-							'position': 'absolute',
-							'bottom': '10%',
-							'left':'50%' ,
-							'display':'inline-block',
-							'width':'4px',
-							'height':'4px',
-							'transform':'translate(-50%,-50%)'
-		 	   			})
-		 	   		}
-		 	   	}
-		 	   }
-		 	}
-		 });
-		
+				}
+			}
+		});
+
 	}
 
 	/**
@@ -457,232 +469,238 @@ $(function() {
 		_d = (_d > 9) ? ("" + _d) : ("0" + _d);
 		return _year + _month + _d;
 	}
-	var curr_day=null;
-	var event_day=null;
-	
-	
-	
-	
+	var curr_day = null;
+	var event_day = null;
+
 	//接收token
-	window.get_token=get_token;
-	var token=null;
+	window.get_token = get_token;
+	var token = null;
 	//var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
 	//get_token();
-    function get_token(_results){
-    //console.log(_results)
-	token='Bearer ' +_results
-			
-				
-    //console.log(token)
-    function current_course(){
-     	 //当天课程默认显示  获取当前日期，日期格式为YYYY-MM-DD
-	     var currentdate = new Date();
-		 currentdate.setTime(currentdate.getTime());
-		 var current_m=currentdate.getMonth()+1
-		 var current_d=currentdate.getDate()
-		 current_m = (current_m > 9) ? ("" + current_m) : ("0" + current_m);
-	     current_d = (current_d > 9) ? ("" + current_d) : ("0" + current_d);
-		 var current_day = currentdate.getFullYear()+"-" + current_m + "-" + current_d;
-		 console.log(current_day)
-         curr_day=current_day;
-         event_day=current_day;
-         curr_day=curr_day.substr(0, 4)+'/'+curr_day.substr(5, 2)+'/'+curr_day.substr(8, 2);
-	     event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2)
-	     curr_day=new Date(curr_day).valueOf()
-		 event_day=new Date(event_day).valueOf()
-		 $('#calendarTable .currentDay').parent().css({
-			'position': 'relative',
-			'color': '#000000'
+	function get_token(_results) {
+		//console.log(_results)
+		token = 'Bearer ' + _results
+
+		//console.log(token)
+		function current_course() {
+			//当天课程默认显示  获取当前日期，日期格式为YYYY-MM-DD
+			var currentdate = new Date();
+			currentdate.setTime(currentdate.getTime());
+			var current_m = currentdate.getMonth() + 1
+			var current_d = currentdate.getDate()
+			current_m = (current_m > 9) ? ("" + current_m) : ("0" + current_m);
+			current_d = (current_d > 9) ? ("" + current_d) : ("0" + current_d);
+			var current_day = currentdate.getFullYear() + "-" + current_m + "-" + current_d;
+			console.log(current_day)
+			curr_day = current_day;
+			event_day = current_day;
+			curr_day = curr_day.substr(0, 4) + '/' + curr_day.substr(5, 2) + '/' + curr_day.substr(8, 2);
+			event_day = event_day.substr(0, 4) + '/' + event_day.substr(5, 2) + '/' + event_day.substr(8, 2)
+			curr_day = new Date(curr_day).valueOf()
+			event_day = new Date(event_day).valueOf()
+			$('#calendarTable .currentDay').parent().css({
+				'position': 'relative',
+				'color': '#000000'
 			})
-		 
-		 $('#calendarTable .currentDay').css({
-				'text-align': 'center',
-				'background': '#EF5064',
-				'border-radius': '50%',
-				'position': 'absolute',
-				'top': '50%',
-				'left':'50%' ,
-				'display':'inline-block',
-				'color': '#FFFFFF',
-				'width':'35px',
-				'height':'35px',
-			    'line-height':'35px',
-			    'transform':'translate(-50%,-50%)'
-			})
-		 
-		
-		  $.ajax({
-			 	type:"get",
-			 	//url:"../json/calendar.json",
-			 	url:'http://api.speaka.cn/api/lesson/day?day='+current_day,
-			    beforeSend: function(request) {
-		            request.setRequestHeader("Authorization", token);
-		        },
-		        dataType: 'JSON',
-			 	async:false,
-			 	success:function(data){
-			 		console.log(data)
-			 		
-			 		$('.calendar_detail>p').html('详情')
-			 		for(let i=0;i<data.info.lessons.length;i++){
-			 			$('.calendar_detail').append('<div lesson_id='+data.info.lessons[i].lesson_id+'><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
-			 		    $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
-			 		}
-			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
-			 	    let less_days=data.info.has_lesson_days
-			 	   console.log(less_days)
-			 	   let arr_days=$('.calendar-table span')
-			 	   //console.log(arr_days)
-			 	   for(let i=0;i<arr_days.length;i++){
-			 	   	for(let j=0;j<less_days.length;j++){
-			 	   		var has_days=(arr_days[i].innerHTML> 9 )? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
-			 	   		
-			 	   		if(has_days==less_days[j]){
-			 	   			//console.log(has_days,arr_days[i])
-			 	   			//console.log($('.calendar-table span').eq(i).parent())
-			 	   			$('.calendar-table span').eq(i).parent().css({
-			 	   				'position': 'relative',
-			                    'color': '#000000'
-			 	   			}).append('<em></em>')
-			 	   			$('.calendar-table span').eq(i).parent().find('em').css({
-			 	   				'background': '#3AAB87',
-								'border-radius': '50%',
-								'position': 'absolute',
-								'bottom': '10%',
-								'left':'50%' ,
-								'display':'inline-block',
-								'width':'4px',
-								'height':'4px',
-								'transform':'translate(-50%,-50%)'
-			 	   			})
-			 	   		}
-			 	    }
-			 	   }
-			 	   
-			 	}
-			 });
-		 
-  		 }
-     current_course()   
-	//点击日期下方显示detail
-	$('.calendar-table td').click(function() {
-		//	console.log($(this).html())
-		if($(this).find('span').html() != '') {
-			//其余颜色设为黑色
-			$('.calendar-table td').find('span').css({
-				'background': '',
-				'border-radius': '',
-				'color': 'black'
-			})
-			//当天日期设为红色
+
 			$('#calendarTable .currentDay').css({
-				'color': 'red'
-			})
-			$(this).css({
-			'position': 'relative',
-			'color': '#000000'
-			})
-			//点击日期添加背景色
-			$(this).find('span').css({
 				'text-align': 'center',
 				'background': '#EF5064',
 				'border-radius': '50%',
 				'position': 'absolute',
 				'top': '50%',
-				'left':'50%' ,
-				'display':'inline-block',
+				'left': '50%',
+				'display': 'inline-block',
 				'color': '#FFFFFF',
-				'width':'35px',
-				'height':'35px',
-			    'line-height':'35px',
-			    'transform':'translate(-50%,-50%)'
+				'width': '35px',
+				'height': '35px',
+				'line-height': '35px',
+				'transform': 'translate(-50%,-50%)'
 			})
-			let click_day=$(this).find('span').attr('data')
-			click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2)
-			//console.log(click_day)
-			event_day=click_day;
-		    event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
-		    curr_day=new Date(curr_day).valueOf()
-		    event_day=new Date(event_day).valueOf()
-			$('.calendar_detail').empty().append('<p></p>')
-			 $.ajax({
-			 	type:"get",
-			 	//url:"../json/calendar.json",
-			 	url:'http://api.speaka.cn/api/lesson/day?day='+click_day,
-			 	 beforeSend: function(request) {
-		            request.setRequestHeader("Authorization", token);
-		        },
-		        dataType: 'JSON',
-			 	async:false,
-			 	success:function(data){
-			 		console.log(data)
-			 		$('.calendar_detail>p').html('详情')
-			 		for(let i=0;i<data.info.lessons.length;i++){
-			 			$('.calendar_detail').append('<div><span></span><p>'+data.info.lessons[i].name+'</p><p>'+data.info.lessons[i].begin_at+'~'+data.info.lessons[i].end_at+'</p><span></span></div>')
-			 		    $('.calendar_detail div').attr('lesson_id',data.info.lessons[i].lesson_id)
-			 		}
-			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
-			 	   
-			 	  	if((curr_day-event_day)>=0){
-					 //点击跳转课程详情
-					   $('.calendar_detail div').click(function(){
-					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-					 	//console.log(lesson_id)
-					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-					 })
-					}else{
-					 $('.calendar_detail div').click(function(){
-	                    alert('亲，该课程还没到上课时间哦！')
-					 })				
+
+			$.ajax({
+				type: "get",
+				//url:"../json/calendar.json",
+				url: 'http://api.speaka.cn/api/lesson/day?day=' + current_day,
+				beforeSend: function(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				dataType: 'JSON',
+				async: false,
+				success: function(data) {
+					console.log(data)
+
+					$('.calendar_detail>p').html('详情')
+					for(let i = 0; i < data.info.lessons.length; i++) {
+						$('.calendar_detail').append('<div lesson_id=' + data.info.lessons[i].lesson_id + '><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>')
+						$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id)
 					}
-			 	   let less_days=data.info.has_lesson_days
-			 	   
-			 	   console.log(less_days)
-			 	   let arr_days=$('.calendar-table span')
-			 	   //console.log(arr_days)
-			 	   for(let i=0;i<arr_days.length;i++){
-			 	   	for(let j=0;j<less_days.length;j++){
-			 	   		var has_days=(arr_days[i].innerHTML> 9 )? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
-			 	   		if(has_days==less_days[j]){
-			 	   			//console.log(has_days,arr_days[i])
-			 	   			//console.log($('.calendar-table span').eq(i).parent())
-			 	   			$('.calendar-table span').eq(i).parent().css({
-			 	   				'position': 'relative',
-			                    'color': '#000000'
-			 	   			}).append('<em></em>')
-			 	   			$('.calendar-table span').eq(i).parent().find('em').css({
-			 	   				'background': '#3AAB87',
-								'border-radius': '50%',
-								'position': 'absolute',
-								'bottom': '10%',
-								'left':'50%' ,
-								'display':'inline-block',
-								'width':'4px',
-								'height':'4px',
-								'transform':'translate(-50%,-50%)'
-			 	   			})
-			 	   		}
-			 	   	}
-			 	   }
-			 	}
-			 });
-			
+					$('.calendar_detail div').css({
+						'position': 'relative',
+						'width': '92%',
+						'left': '3.7%',
+						'margin-top': '15px',
+						'margin-bottom': '15px'
+					})
+					let less_days = data.info.has_lesson_days
+					console.log(less_days)
+					let arr_days = $('.calendar-table span')
+					//console.log(arr_days)
+					for(let i = 0; i < arr_days.length; i++) {
+						for(let j = 0; j < less_days.length; j++) {
+							var has_days = (arr_days[i].innerHTML > 9) ? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
+
+							if(has_days == less_days[j]) {
+								//console.log(has_days,arr_days[i])
+								//console.log($('.calendar-table span').eq(i).parent())
+								$('.calendar-table span').eq(i).parent().css({
+									'position': 'relative',
+									'color': '#000000'
+								}).append('<em></em>')
+								$('.calendar-table span').eq(i).parent().find('em').css({
+									'background': '#3AAB87',
+									'border-radius': '50%',
+									'position': 'absolute',
+									'bottom': '10%',
+									'left': '50%',
+									'display': 'inline-block',
+									'width': '4px',
+									'height': '4px',
+									'transform': 'translate(-50%,-50%)'
+								})
+							}
+						}
+					}
+
+				}
+			});
+
 		}
-	})
-     if((curr_day-event_day)>=0){
-	 //点击跳转课程详情
-	   $('.calendar_detail div').click(function(){
-	 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-	 	//console.log(lesson_id)
-	 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-	 })
-	}else{
-	 $('.calendar_detail div').click(function(){
-	    alert('亲，该课程还没到上课时间哦！')
-	 })				
+		current_course()
+		//点击日期下方显示detail
+		$('.calendar-table td').click(function() {
+			//	console.log($(this).html())
+			if($(this).find('span').html() != '') {
+				//其余颜色设为黑色
+				$('.calendar-table td').find('span').css({
+					'background': '',
+					'border-radius': '',
+					'color': 'black'
+				})
+				//当天日期设为红色
+				$('#calendarTable .currentDay').css({
+					'color': 'red'
+				})
+				$(this).css({
+					'position': 'relative',
+					'color': '#000000'
+				})
+				//点击日期添加背景色
+				$(this).find('span').css({
+					'text-align': 'center',
+					'background': '#EF5064',
+					'border-radius': '50%',
+					'position': 'absolute',
+					'top': '50%',
+					'left': '50%',
+					'display': 'inline-block',
+					'color': '#FFFFFF',
+					'width': '35px',
+					'height': '35px',
+					'line-height': '35px',
+					'transform': 'translate(-50%,-50%)'
+				})
+				let click_day = $(this).find('span').attr('data')
+				click_day = click_day.substr(0, 4) + '-' + click_day.substr(4, 2) + '-' + click_day.substr(6, 2)
+				//console.log(click_day)
+				event_day = click_day;
+				event_day = event_day.substr(0, 4) + '/' + event_day.substr(5, 2) + '/' + event_day.substr(8, 2);
+				curr_day = new Date(curr_day).valueOf()
+				event_day = new Date(event_day).valueOf()
+				$('.calendar_detail').empty().append('<p></p>')
+				$.ajax({
+					type: "get",
+					//url:"../json/calendar.json",
+					url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+					beforeSend: function(request) {
+						request.setRequestHeader("Authorization", token);
+					},
+					dataType: 'JSON',
+					async: false,
+					success: function(data) {
+						console.log(data)
+						$('.calendar_detail>p').html('详情')
+						for(let i = 0; i < data.info.lessons.length; i++) {
+							$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>')
+							$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id)
+						}
+						$('.calendar_detail div').css({
+							'position': 'relative',
+							'width': '92%',
+							'left': '3.7%',
+							'margin-top': '15px',
+							'margin-bottom': '15px'
+						})
+
+						if((curr_day - event_day) >= 0) {
+							//点击跳转课程详情
+							$('.calendar_detail div').click(function() {
+								let lesson_id = $('.calendar_detail div').attr('lesson_id')
+								//console.log(lesson_id)
+								window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+							})
+						} else {
+							$('.calendar_detail div').click(function() {
+								alert('亲，该课程还没到上课时间哦！')
+							})
+						}
+						let less_days = data.info.has_lesson_days
+
+						console.log(less_days)
+						let arr_days = $('.calendar-table span')
+						//console.log(arr_days)
+						for(let i = 0; i < arr_days.length; i++) {
+							for(let j = 0; j < less_days.length; j++) {
+								var has_days = (arr_days[i].innerHTML > 9) ? ("" + arr_days[i].innerHTML) : ("0" + arr_days[i].innerHTML);
+								if(has_days == less_days[j]) {
+									//console.log(has_days,arr_days[i])
+									//console.log($('.calendar-table span').eq(i).parent())
+									$('.calendar-table span').eq(i).parent().css({
+										'position': 'relative',
+										'color': '#000000'
+									}).append('<em></em>')
+									$('.calendar-table span').eq(i).parent().find('em').css({
+										'background': '#3AAB87',
+										'border-radius': '50%',
+										'position': 'absolute',
+										'bottom': '10%',
+										'left': '50%',
+										'display': 'inline-block',
+										'width': '4px',
+										'height': '4px',
+										'transform': 'translate(-50%,-50%)'
+									})
+								}
+							}
+						}
+					}
+				});
+
+			}
+		})
+		if((curr_day - event_day) >= 0) {
+			//点击跳转课程详情
+			$('.calendar_detail div').click(function() {
+				let lesson_id = $('.calendar_detail div').attr('lesson_id')
+				//console.log(lesson_id)
+				window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+			})
+		} else {
+			$('.calendar_detail div').click(function() {
+				alert('亲，该课程还没到上课时间哦！')
+			})
+		}
+
 	}
-
-
-}	
 
 })
