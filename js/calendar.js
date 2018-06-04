@@ -183,10 +183,6 @@ $(function() {
 			}
 		}
 	}
-
-	//添加图标
-	// $('.calendar .next-month').css({'background':'url(./public/images/right.png) no-repeat','background-size': '14px 24px;'})
-
 	/**
 	 * 点击上个月图标触发
 	 */
@@ -249,8 +245,12 @@ $(function() {
 				continue;
 			}
 		}
-	let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data')
-		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2)
+	let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data');
+		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2);
+		event_day=click_day;
+		event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
+		curr_day=new Date(curr_day).valueOf()
+		event_day=new Date(event_day).valueOf()
 		 $.ajax({
 		 	type:"get",
 		 	//url:"../json/calendar.json",
@@ -269,12 +269,18 @@ $(function() {
 		 		}
 		 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 		 	   
-		 	    //点击跳转课程详情
-				   $('.calendar_detail div').click(function(){
-				 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-				 	//console.log(lesson_id)
-				 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-				 })
+		 	        if((curr_day-event_day)>=0){
+					 //点击跳转课程详情
+					   $('.calendar_detail div').click(function(){
+					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
+					 	//console.log(lesson_id)
+					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
+					 })
+					}else{
+					 $('.calendar_detail div').click(function(){
+					    alert('亲，该课程还没到上课时间哦！')
+					 })				
+					}
 		 	   let less_days=data.info.has_lesson_days
 		 	   
 		 	   console.log(less_days)
@@ -369,8 +375,12 @@ $(function() {
 				continue;
 			}
 		}
-		let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data')
-		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2)
+		let click_day=$('.calendar-table td').eq($('.calendar-table td').length/2).find('span').attr('data');
+		click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2);
+		event_day=click_day;
+		event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
+		curr_day=new Date(curr_day).valueOf()
+		event_day=new Date(event_day).valueOf()
 		 $.ajax({
 		 	type:"get",
 		 	//url:"../json/calendar.json",
@@ -389,12 +399,18 @@ $(function() {
 		 		}
 		 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 		 	   
-		 	    //点击跳转课程详情
-				   $('.calendar_detail div').click(function(){
-				 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
-				 	//console.log(lesson_id)
-				 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
-				 })
+		 	         if((curr_day-event_day)>=0){
+					 //点击跳转课程详情
+					   $('.calendar_detail div').click(function(){
+					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
+					 	//console.log(lesson_id)
+					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
+					 })
+					}else{
+					 $('.calendar_detail div').click(function(){
+					    alert('亲，该课程还没到上课时间哦！')
+					 })				
+					}
 		 	   let less_days=data.info.has_lesson_days
 		 	   
 		 	   console.log(less_days)
@@ -441,6 +457,12 @@ $(function() {
 		_d = (_d > 9) ? ("" + _d) : ("0" + _d);
 		return _year + _month + _d;
 	}
+	var curr_day=null;
+	var event_day=null;
+	
+	
+	
+	
 	//接收token
 	window.get_token=get_token;
 	var token=null;
@@ -462,9 +484,12 @@ $(function() {
 	     current_d = (current_d > 9) ? ("" + current_d) : ("0" + current_d);
 		 var current_day = currentdate.getFullYear()+"-" + current_m + "-" + current_d;
 		 console.log(current_day)
-
-     
-     
+         curr_day=current_day;
+         event_day=current_day;
+         curr_day=curr_day.substr(0, 4)+'/'+curr_day.substr(5, 2)+'/'+curr_day.substr(8, 2);
+	     event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2)
+	     curr_day=new Date(curr_day).valueOf()
+		 event_day=new Date(event_day).valueOf()
 		 $('#calendarTable .currentDay').parent().css({
 			'position': 'relative',
 			'color': '#000000'
@@ -573,9 +598,11 @@ $(function() {
 			})
 			let click_day=$(this).find('span').attr('data')
 			click_day=click_day.substr(0, 4)+'-'+click_day.substr(4, 2)+'-'+click_day.substr(6, 2)
-			console.log(click_day)
-			
-			
+			//console.log(click_day)
+			event_day=click_day;
+		    event_day=event_day.substr(0, 4)+'/'+event_day.substr(5, 2)+'/'+event_day.substr(8, 2);
+		    curr_day=new Date(curr_day).valueOf()
+		    event_day=new Date(event_day).valueOf()
 			$('.calendar_detail').empty().append('<p></p>')
 			 $.ajax({
 			 	type:"get",
@@ -595,12 +622,18 @@ $(function() {
 			 		}
 			 		$('.calendar_detail div').css({'position': 'relative','width': '92%','left': '3.7%','margin-top': '15px','margin-bottom': '15px'})
 			 	   
-			 	    //点击跳转课程详情
+			 	  	if((curr_day-event_day)>=0){
+					 //点击跳转课程详情
 					   $('.calendar_detail div').click(function(){
 					 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
 					 	//console.log(lesson_id)
 					 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
 					 })
+					}else{
+					 $('.calendar_detail div').click(function(){
+	                    alert('亲，该课程还没到上课时间哦！')
+					 })				
+					}
 			 	   let less_days=data.info.has_lesson_days
 			 	   
 			 	   console.log(less_days)
@@ -635,13 +668,20 @@ $(function() {
 			
 		}
 	})
-	
- //点击跳转课程详情
-   $('.calendar_detail div').click(function(){
- 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
- 	//console.log(lesson_id)
- 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
- })
+     if((curr_day-event_day)>=0){
+	 //点击跳转课程详情
+	   $('.calendar_detail div').click(function(){
+	 	let lesson_id=$('.calendar_detail div').attr('lesson_id')
+	 	//console.log(lesson_id)
+	 	window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+lesson_id;
+	 })
+	}else{
+	 $('.calendar_detail div').click(function(){
+	    alert('亲，该课程还没到上课时间哦！')
+	 })				
+	}
+
+
 }	
 
 })
