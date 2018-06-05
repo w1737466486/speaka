@@ -132,8 +132,8 @@ $(function(){
 			//微信单人购买
 				if(objurl.type_id==11){
 					typeId=0;
-					$('.pay_success p').eq(3).html('')
-					$('.pay_success div span').html('下载APP去上课')
+					$('.pay_success p').eq(3).html('请用当前微信登陆App去上课')
+					$('.pay_success div span').html('去下载')
 				}
 				//微信团购
 				if(objurl.type_id==12){
