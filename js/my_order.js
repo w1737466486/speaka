@@ -63,6 +63,9 @@ $(function () {
 					if (data.info[i].state === 0) {
 						$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
 					}
+					if (data.info[i].state === 2) {
+						$('.mark').eq(i).html('已退款').css({ 'color': '#FD7C7C' });
+					}
 				}
 				$('.share_order b').click(function () {
 					var order_no = $(this).parent().parent().find('p').eq(0).children('span').eq(1).html();
