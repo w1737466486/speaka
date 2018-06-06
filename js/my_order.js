@@ -8,7 +8,7 @@ $(function () {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
 		$.ajax({
-			type: 'get',
+			type: 'post',
 			dataType: 'JSON',
 			async: true,
 			//url:"../json/my_order.json",
@@ -37,7 +37,7 @@ $(function () {
 		});
 		//团购订单
 		$.ajax({
-			type: 'get',
+			type: 'post',
 			dataType: 'JSON',
 			async: true,
 			//url:"../json/my_order.json",
