@@ -75,9 +75,9 @@ $(function () {
 					obj.share_url = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
 					console.log(obj);
 					if (window.webkit) {
-						window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj));
 					} else {
-						curson.punchCurson(JSON.stringify(obj));
+						androidpay.androidWechatPay(JSON.stringify(obj));
 					}
 				});
 			},
