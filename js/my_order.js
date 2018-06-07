@@ -30,23 +30,7 @@ $(function () {
 						$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
 					}
 				}
-			},
-			error: function error(res) {
-				console.log(res);
-			}
-		});
-		//团购订单
-		$.ajax({
-			type: 'post',
-			dataType: 'JSON',
-			async: true,
-			//url:"../json/my_order.json",
-			url: 'http://api.speaka.cn/api/u/orders',
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", token);
-			},
-			success: function success(data) {
-				//console.log("成功获取数据",data.info);
+				//团购订单
 				for (var i = 0; i < data.info.length; i++) {
 					//console.log(data.info[i].order_no);
 					if (data.info[i].type_id === 1) {
@@ -80,11 +64,13 @@ $(function () {
 						androidpay.androidWechatPay(JSON.stringify(obj));
 					}
 				});
+				
 			},
 			error: function error(res) {
 				console.log(res);
 			}
 		});
+
 	}
 	$('.order_nav p').eq(1).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'block' });
