@@ -18,18 +18,7 @@ $(function () {
 			},
 			success: function success(data) {
 				//console.log("成功获取数据",data.info);
-				for (var i = 0; i < data.info.length; i++) {
-					//console.log(data.info[i].order_no);
-					if (data.info[i].type_id == 0) {
-						$('.single_orders').append('\n\t\t                <li>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u7F16\u53F7\uFF1A</span>\n\t\t                        <span class="order_no">' + data.info[i].order_no + '</span>\n\t\t                        <em class=\'mark\'></em>\n\t\t                    </p>\n\t\t                    <p class=\'xuxian\'></p>\n\t\t                    <p>\n\t\t                        <span>\u5546\u54C1\u540D\u79F0\uFF1A</span>\n\t\t                        <span class="order_name">' + data.info[i].name + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u4E0B\u5355\u65F6\u95F4\uFF1A</span>\n\t\t                        <span class="order_time">' + data.info[i].created_at + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u91D1\u989D\uFF1A</span>\n\t\t                        <span class="price"><em>\uFFE5</em>' + data.info[i].price + '</span>  \n\t\t                    </p>\n\t\t                </li>\n\t\t               ');
-					}
-					if (data.info[i].state == 1) {
-						$('.mark').eq(i).html('已支付').css({ 'color': '#2FBBA9' });
-					}
-					if (data.info[i].state === 0) {
-						$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
-					}
-				}
+
 				//团购订单
 				for (var i = 0; i < data.info.length; i++) {
 					//console.log(data.info[i].order_no);
@@ -41,6 +30,22 @@ $(function () {
 						}
 					}
 					$('.group_state').css({ 'color': '#2FBBA9' });
+					if (data.info[i].state == 1) {
+						$('.mark').eq(i).html('已支付').css({ 'color': '#2FBBA9' });
+					}
+					if (data.info[i].state == 0&&data.info[i].type_id == 1) {
+						$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
+					}
+					if (data.info[i].state == 2) {
+						$('.mark').eq(i).html('已退款').css({ 'color': '#FD7C7C' });
+					}
+				}
+				
+				for (var i = 0; i < data.info.length; i++) {
+					//console.log(data.info[i].order_no);
+					if (data.info[i].type_id == 0) {
+						$('.single_orders').append('\n\t\t                <li>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u7F16\u53F7\uFF1A</span>\n\t\t                        <span class="order_no">' + data.info[i].order_no + '</span>\n\t\t                        <em class=\'mark\'></em>\n\t\t                    </p>\n\t\t                    <p class=\'xuxian\'></p>\n\t\t                    <p>\n\t\t                        <span>\u5546\u54C1\u540D\u79F0\uFF1A</span>\n\t\t                        <span class="order_name">' + data.info[i].name + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u4E0B\u5355\u65F6\u95F4\uFF1A</span>\n\t\t                        <span class="order_time">' + data.info[i].created_at + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u91D1\u989D\uFF1A</span>\n\t\t                        <span class="price"><em>\uFFE5</em>' + data.info[i].price + '</span>  \n\t\t                    </p>\n\t\t                </li>\n\t\t               ');
+					}
 					if (data.info[i].state == 1) {
 						$('.mark').eq(i).html('已支付').css({ 'color': '#2FBBA9' });
 					}
@@ -64,14 +69,22 @@ $(function () {
 						androidpay.androidWechatPay(JSON.stringify(obj));
 					}
 				});
-				
+               console.log($('.group_orders li').length)
+               for(var i=0;i<$('.group_orders li').length;i++){
+               	var pay_state=$('.group_orders li').eq(i).find('p').first().find('em').html();
+               	if(pay_state=='未支付'||pay_state=='已退款'){
+               		console.log(pay_state)
+               		$('.group_orders li').eq(i).find('p').last().find('b').css({'display':'none'})
+               	}
+               	
+               }
 			},
 			error: function error(res) {
 				console.log(res);
 			}
 		});
-
 	}
+	
 	$('.order_nav p').eq(1).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'block' });
 		$('.group_orders').css({ 'display': 'none' });
