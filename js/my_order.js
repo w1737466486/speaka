@@ -54,7 +54,7 @@ $(function () {
 				$('.share_order b').click(function () {
 					var order_no = $(this).parent().parent().find('p').eq(0).children('span').eq(1).html();
 					var obj = {};
-					obj.title = '超有趣的少儿互动英文课！';
+					obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
 					obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
 					obj.share_url = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
 					console.log(obj);
@@ -74,14 +74,14 @@ $(function () {
 	}
 	$('.order_nav p').eq(1).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'block' });
-		$('.group_orders').css({ 'display': 'block' });
+		$('.group_orders').css({ 'display': 'none' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'none' });
-		$('.single_orders').css({ 'display': 'none' });
+		$('.single_orders').css({ 'display': 'block' });
 	});
 	$('.order_nav p').eq(0).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'none' });
-		$('.group_orders').css({ 'display': 'none' });
+		$('.group_orders').css({ 'display': 'block' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'block' });
-		$('.single_orders').css({ 'display': 'block' });
+		$('.single_orders').css({ 'display': 'none' });
 	});
 });

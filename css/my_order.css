@@ -61,6 +61,7 @@ ul{
     border-radius: 2px;
 }
 .single_orders{
+	display: none;
 	position: relative;
 	left: 4%;
     width: 92%;
@@ -102,7 +103,6 @@ ul{
     right: 5px;
 }
 .group_orders{
-	display: none;
 	position: relative;
 	left: 4%;
     width: 92%;
@@ -136,6 +136,8 @@ ul{
 }
 .share_order span{
 	line-height: 44px;
+	font-size: 14px;
+    color: #2FBBA9;
 }
 .share_order b{
 	display: inline-block;
