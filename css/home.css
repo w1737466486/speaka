@@ -1,0 +1,30 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html,body{
+	width: 100%;
+	height: auto;
+}
+.form p{
+	width: 60%;
+	margin-top: 15px;
+	position: relative;
+}
+.form input{
+	border: 1px solid #ccc;
+	height: 32px;
+	width: 100%;
+}
+.form b{
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	background: #ccc;
+	position: absolute;
+	top: 0px;
+	right: -1px;
+}
+.form b img{
+	width: 100%;
+}
