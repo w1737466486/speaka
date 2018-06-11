@@ -44,6 +44,8 @@
 	 					var k=j+1
 	 					$('.main .imgall').eq(j).attr('src','../img/'+k+'.png')
 	 					//console.log(j)
+	 				}else{
+	 					$('.main .imgall').eq(j).attr('src','../img/locked.png')
 	 				}
 	 			}
  			}

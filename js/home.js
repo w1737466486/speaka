@@ -10,12 +10,15 @@ $(function() {
 		async:true,
 		success:function(data){
 			console.log(data)
+			
 			if(data.status==1){
 				$('.content p').eq(0).html(data.w.phonetic)
 				var rep=data.w.translation.replace(/\\n/g,'<br/>')
 				$('.content p').eq(1).html(rep)
 			}else{
 				alert('查无此词，请重新输入！')
+				$('.content p').eq(0).html('')
+				$('.content p').eq(1).html('')
 			}
 			
 		},
