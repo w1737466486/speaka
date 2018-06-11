@@ -9,7 +9,8 @@
       "state": 1,
       "type_id": 0,
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 0
     },
     {
       "order_no": "2018053017244251254",
@@ -19,7 +20,8 @@
       "state": 0,
       "type_id": 0,
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 0
     },
     {
       "order_no": "2018053017243141450",
@@ -29,7 +31,8 @@
       "state": 0,
       "type_id": "1",
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 1
     },
     {
       "order_no": "2018053015285030209",
@@ -39,7 +42,8 @@
       "state": 0,
       "type_id": 0,
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 0
     },
     {
       "order_no": "2018053015155459806",
@@ -49,7 +53,8 @@
       "state": 0,
       "type_id": "1",
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 1
     },
     {
       "order_no": "2018053013140780800",
@@ -59,7 +64,8 @@
       "state": 1,
       "type_id": "1",
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 1
     },
     {
       "order_no": "2018053012012512158",
@@ -69,7 +75,8 @@
       "state": 1,
       "type_id": "1",
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 1
     },
     {
       "order_no": "2018053012010339911",
@@ -79,7 +86,8 @@
       "state": 0,
       "type_id": "1",
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 1
     },
     {
       "order_no": "2018052215313768112",
@@ -89,7 +97,8 @@
       "state": 0,
       "type_id": 0,
       "commodity_id": 1,
-      "is_group_completed": 0
+      "is_group_completed": 0,
+      "is_group_failed": 0
     }
   ]
 }
