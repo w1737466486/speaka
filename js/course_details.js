@@ -4,6 +4,7 @@ $(function () {
 	var commodity_id = location.href.split('?')[1];
 	var url_course = null;
     window.get_share = get_share;
+    get_share();
 	function get_share(_results) {
 		var _obj = {};
 		_obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
