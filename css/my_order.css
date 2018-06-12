@@ -161,4 +161,14 @@ ul{
     position: absolute;
     top:6.5%;
     right: 5px;
+    
+}
+.mark{
+	color: #2FBBA9;
+}
+.nomark{
+    color: #999999;
+}
+.overmark{
+	color: #FD7C7C;
 }
