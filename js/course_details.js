@@ -3,6 +3,20 @@
 $(function () {
 	var commodity_id = location.href.split('?')[1];
 	var url_course = null;
+    window.get_share = get_share;
+	function get_share(_results) {
+		var _obj = {};
+		_obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
+		_obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
+		_obj.share_url =location.href
+		if (window.webkit) {
+			window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_obj));
+		} else {
+			androidpay.androidWechatPay(JSON.stringify(_obj));
+		}
+	}
+
+
 
 	if (commodity_id) {
 		url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
