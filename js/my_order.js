@@ -69,41 +69,46 @@ $(function () {
 						androidpay.androidWechatPay(JSON.stringify(obj));
 					}
 				});
-				console.log($('.group_orders li').length);
-				for (var i = 0; i < $('.group_orders li').length; i++) {
-					var pay_state = $('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).attr('state');
-					var is_group_failed = $('.group_orders li').eq(i).attr('is_group_failed');
-					console.log(pay_state);
-					console.log(is_group_failed);
-					if (pay_state == 0) {
-						$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
-						$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
-						if (is_group_failed == 'undefined') {
-							$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
-							$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('成团失败');
-						}
-					}
-					if (pay_state == 1) {
-						$('.mark').eq(i).html('已支付').css({ 'color': '#2FBBA9' });
-						if (is_group_failed == 2) {
-							$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
-							$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('成团失败');
-						}
-						if (is_group_failed == 1) {
-							$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('已成团');
-						}
-						if (is_group_failed == 3) {
-							$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
-							$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('未成团');
-						}
-					}
-				}
+
 			},
 			error: function error(res) {
 				console.log(res);
 			}
 		});
 	}
+	setTimeout(function(){
+		console.log($('.group_orders li').length);
+		for (var i = 0; i < $('.group_orders li').length; i++) {
+			var pay_state = $('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).attr('state');
+			var is_group_failed = $('.group_orders li').eq(i).attr('is_group_failed');
+			console.log(pay_state);
+			console.log(is_group_failed);
+			if (pay_state == 0) {
+				$('.mark').eq(i).html('未支付').css({ 'color': '#999999' });
+				$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
+				if (is_group_failed == 'undefined') {
+					$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
+					$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('成团失败');
+				}
+			}
+			if (pay_state == 1) {
+				$('.mark').eq(i).html('已支付').css({ 'color': '#2FBBA9' });
+				if (is_group_failed == 2) {
+					$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
+					$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('成团失败');
+				}
+				if (is_group_failed == 1) {
+					$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('已成团');
+				}
+				if (is_group_failed == 3) {
+					$('.group_orders li').eq(i).find('p').last().find('b').css({ 'display': 'none' });
+					$('.group_orders li').eq(i).find('p').eq(5).find('span').eq(1).html('未成团');
+				}
+			}
+		}
+	},10)
+		
+
 
 	$('.order_nav p').eq(1).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'block' });
