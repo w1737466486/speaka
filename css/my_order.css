@@ -114,6 +114,9 @@ ul{
     display: flex;
     margin-top: 2.5%;
 }
+.group_orders li p:nth-of-type(6) span:nth-of-type(2){
+    color: #2FBBA9;
+}
 .group_orders li .xuxian{
 	width: 90%;
 	position: relative;
