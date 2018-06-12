@@ -163,12 +163,12 @@ ul{
     right: 5px;
     
 }
-.mark{
+#yesmark{
 	color: #2FBBA9;
 }
-.nomark{
+#nomark{
     color: #999999;
 }
-.overmark{
+#overmark{
 	color: #FD7C7C;
 }

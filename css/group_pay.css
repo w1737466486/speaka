@@ -17,6 +17,10 @@ body{
 	width: 100%;
 	font-family: Roboto,Open Sans,Helvetica,Arial;
 }
+img{
+	outline-width:0px;  
+    vertical-align:top; 
+}
 .group_main{
 	position: fixed;
 	top: 0px;
