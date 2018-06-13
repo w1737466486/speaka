@@ -225,7 +225,7 @@ $(function () {
 				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'http://api.speaka.cn/api/buy/1?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&env=' + 1;
+						window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&env=' + 1;
 					});
 				}
 			}, 1000);
