@@ -26,6 +26,7 @@ $(function () {
 					var obj = {};
 					//点击获取导读视频
 					$('.nav_v').click(function () {
+						obj={};
 						var v_tit = 'Lesson' + ' ' + lessonId;
 						var txt1 = $('.nav span').html();
 						obj.id = data.lessons[lessonId - 1].id;
@@ -39,10 +40,8 @@ $(function () {
 
 						if (window.webkit) {
 							window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
-							obj={}
 						} else {
 							curson.punchCurson(JSON.stringify(obj));
-							obj={}
 						}
 					});
 
@@ -81,6 +80,7 @@ $(function () {
 					//console.log($('.main').find('p').length)
 
 					$('.main .y1').click(function () {
+						obj={};
 						var day_index = $(this).parent().find('span').attr('data_day');
 						var v_tit = 'Lesson' + ' ' + lessonId;
 						console.log(arrlessons);
@@ -110,10 +110,8 @@ $(function () {
 
 								if (window.webkit) {
 									window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
-									obj={}
 								} else {
 									curson.punchCurson(JSON.stringify(obj));
-									obj={}
 								}
 							}
 						}
