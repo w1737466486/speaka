@@ -12,6 +12,9 @@ $(function () {
 			url: "http://api.speaka.cn/api/top100 ",
 			//url: "../json/top.json",
 			async: true,
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", token);
+			},
 			success: function success(data) {
 				console.log(data);
 				for (var i = 0; i < data.info.top.length; i++) {
