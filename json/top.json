@@ -1,0 +1,613 @@
+{
+  "status": 1,
+  "info": {
+    "top": [
+      {
+        "rank": 1,
+        "score": 102,
+        "head": "head/ysxNeP9XvmNPjWLN51D603PSChsWgxhxauTeGymy.jpeg",
+        "name": "Erha"
+      },
+      {
+        "rank": 2,
+        "score": 100,
+        "head": "head/510316mVmGVfi2otXxsfw4ftltTgiAo7NiEk3RAT.png",
+        "name": "kafka_TE"
+      },
+      {
+        "rank": 3,
+        "score": 99,
+        "head": "head/20180604/oxPQpwZbwVQPhOzeE9vtL9zpz2ss.jpg",
+        "name": "Eric"
+      },
+      {
+        "rank": 4,
+        "score": 78,
+        "head": "head/20180604/oxPQpwe8bzfoO_A_pt2fZvsGkjto.jpg",
+        "name": "Donut"
+      },
+      {
+        "rank": 5,
+        "score": 35,
+        "head": "head/Ut20zN9i42jCFZGeRdh9vRNlwFdZfR0muGF8NUf8.png",
+        "name": "Donie1"
+      },
+      {
+        "rank": 6,
+        "score": 30,
+        "head": "head/20180604/oxPQpwY1HaTDHD_-OCBAQs134GuI.jpg",
+        "name": "Lucas"
+      },
+      {
+        "rank": 7,
+        "score": 30,
+        "head": "head/j7uDixfmYwk6zOP41ysN8EKHNgUL6od6Q6KRHPwx.jpeg",
+        "name": "panda"
+      },
+      {
+        "rank": 8,
+        "score": 29,
+        "head": "head/NmHI7k56mp4N1QGou5Oe260uxiPqCJ32FFRxsZ1D.png",
+        "name": "Kathleen"
+      },
+      {
+        "rank": 9,
+        "score": 24,
+        "head": "head/20180604/oxPQpwbX4BPwbqetVIH4pAXGTWZM.jpg",
+        "name": "Stella"
+      },
+      {
+        "rank": 10,
+        "score": 20,
+        "head": "head/bEd0prgPWG2xwZ0425b5i45aSEKyVneAXl5sPwrV.png",
+        "name": "Monster"
+      },
+      {
+        "rank": 11,
+        "score": 18,
+        "head": "head/FXeL896smnCWv8GZjQsw7FEZ9914nbswQ0p80F0E.jpeg",
+        "name": "Max"
+      },
+      {
+        "rank": 12,
+        "score": 17,
+        "head": "head/20180604/oxPQpwQyteFe5XyCuqKMXvR1sxxk.jpg",
+        "name": "Allen"
+      },
+      {
+        "rank": 13,
+        "score": 16,
+        "head": "head/20180604/oxPQpwU-E55_DcurLMfxtj7kb6A8.jpg",
+        "name": "Cindy"
+      },
+      {
+        "rank": 14,
+        "score": 15,
+        "head": "head/20180604/oxPQpwV7mgw6FxixWeRZb-MmiB6k.jpg",
+        "name": "Iris"
+      },
+      {
+        "rank": 15,
+        "score": 13,
+        "head": "head/e7W3rdpEeQCFqRDNXpd5q884uPBlsozGqm1PTZcp.png",
+        "name": "Ellis"
+      },
+      {
+        "rank": 16,
+        "score": 12,
+        "head": "head/TQle652iHXH3ZEiGWqJtjtMyfPIiTtXRbbJ5gx9C.png",
+        "name": "Nickar"
+      },
+      {
+        "rank": 17,
+        "score": 11,
+        "head": "head/20180605/oxPQpwf2PAQYeWyseyBFnqiSq5qM.jpg",
+        "name": "小小黄"
+      },
+      {
+        "rank": 18,
+        "score": 8,
+        "head": "head/20180604/oxPQpwcvKgQaKJfdq549xJPZqe30.jpg",
+        "name": "Tim"
+      },
+      {
+        "rank": 19,
+        "score": 6,
+        "head": "head/D7PGjvOjPLG8RxmJ7yIFMJOJADvF4dvlIcvsHIRF.png",
+        "name": "班主任"
+      },
+      {
+        "rank": 20,
+        "score": 6,
+        "head": "head/xhaT6VEMeO8HFu0p5R8sp5Euo5AMZeRXCX3urJgV.png",
+        "name": "Christina"
+      },
+      {
+        "rank": 21,
+        "score": 5,
+        "head": "head/20180604/oxPQpwW46VXHnMSpx2fE0Kr_KnvU.jpg",
+        "name": "Bella"
+      },
+      {
+        "rank": 22,
+        "score": 5,
+        "head": "head/20180604/oxPQpwYD7ZEYG6z-3D7zzcdsh4to.jpg",
+        "name": "Elsa_"
+      },
+      {
+        "rank": 23,
+        "score": 0,
+        "head": "",
+        "name": ""
+      },
+      {
+        "rank": 24,
+        "score": 0,
+        "head": "",
+        "name": "13758158252"
+      },
+      {
+        "rank": 25,
+        "score": 0,
+        "head": "",
+        "name": "15088610637"
+      },
+      {
+        "rank": 26,
+        "score": 0,
+        "head": "",
+        "name": "13957137208"
+      },
+      {
+        "rank": 27,
+        "score": 0,
+        "head": "",
+        "name": "15158889982"
+      },
+      {
+        "rank": 28,
+        "score": 0,
+        "head": "",
+        "name": "15606880676"
+      },
+      {
+        "rank": 29,
+        "score": 0,
+        "head": "head/grmcJ0qg2zvCdzAyfTnW1IHxapq5IzWsITAWP80D.png",
+        "name": "Teresa"
+      },
+      {
+        "rank": 30,
+        "score": 0,
+        "head": "",
+        "name": "15967147041"
+      },
+      {
+        "rank": 31,
+        "score": 0,
+        "head": "",
+        "name": "Michael"
+      },
+      {
+        "rank": 32,
+        "score": 0,
+        "head": "head/mj30.jpeg",
+        "name": "houseofhf"
+      },
+      {
+        "rank": 33,
+        "score": 0,
+        "head": "",
+        "name": "13957102470"
+      },
+      {
+        "rank": 34,
+        "score": 0,
+        "head": "",
+        "name": "13666677612"
+      },
+      {
+        "rank": 35,
+        "score": 0,
+        "head": "head/4hnJ78VVRSd7XxOsJQihMElyq1ZiKYzp3E10Ew69.png",
+        "name": "Olivia"
+      },
+      {
+        "rank": 36,
+        "score": 0,
+        "head": "",
+        "name": "13067841419"
+      },
+      {
+        "rank": 37,
+        "score": 0,
+        "head": "",
+        "name": "13968132867"
+      },
+      {
+        "rank": 38,
+        "score": 0,
+        "head": "",
+        "name": "13666680627"
+      },
+      {
+        "rank": 39,
+        "score": 0,
+        "head": "",
+        "name": "13968021167"
+      },
+      {
+        "rank": 40,
+        "score": 0,
+        "head": "",
+        "name": "17316900480"
+      },
+      {
+        "rank": 41,
+        "score": 0,
+        "head": "",
+        "name": "13655714180"
+      },
+      {
+        "rank": 42,
+        "score": 0,
+        "head": "",
+        "name": "13958090255"
+      },
+      {
+        "rank": 43,
+        "score": 0,
+        "head": "head/mj29.jpeg",
+        "name": "夏洛特..."
+      },
+      {
+        "rank": 44,
+        "score": 0,
+        "head": "",
+        "name": "13957188319"
+      },
+      {
+        "rank": 45,
+        "score": 0,
+        "head": "",
+        "name": "17706526166"
+      },
+      {
+        "rank": 46,
+        "score": 0,
+        "head": "",
+        "name": "15968147047"
+      },
+      {
+        "rank": 47,
+        "score": 0,
+        "head": "",
+        "name": "13588177364"
+      },
+      {
+        "rank": 48,
+        "score": 0,
+        "head": "",
+        "name": "18657190193"
+      },
+      {
+        "rank": 49,
+        "score": 0,
+        "head": "",
+        "name": "18969389095"
+      },
+      {
+        "rank": 50,
+        "score": 0,
+        "head": "",
+        "name": "哆哥"
+      },
+      {
+        "rank": 51,
+        "score": 0,
+        "head": "",
+        "name": "13305170339"
+      },
+      {
+        "rank": 52,
+        "score": 0,
+        "head": "",
+        "name": "13588383552"
+      },
+      {
+        "rank": 53,
+        "score": 0,
+        "head": "",
+        "name": "13567158488"
+      },
+      {
+        "rank": 54,
+        "score": 0,
+        "head": "head/mj28.jpeg",
+        "name": "万能之..."
+      },
+      {
+        "rank": 55,
+        "score": 0,
+        "head": "",
+        "name": "13777897277"
+      },
+      {
+        "rank": 56,
+        "score": 0,
+        "head": "head/wGoBtJrJeeCu2lUTnk9mbf3Lv00CxR3qzsJSLQV6.jpeg",
+        "name": "汤可妤"
+      },
+      {
+        "rank": 57,
+        "score": 0,
+        "head": "",
+        "name": "13967194555"
+      },
+      {
+        "rank": 58,
+        "score": 0,
+        "head": "",
+        "name": "13305713956"
+      },
+      {
+        "rank": 59,
+        "score": 0,
+        "head": "",
+        "name": "13867156421"
+      },
+      {
+        "rank": 60,
+        "score": 0,
+        "head": "",
+        "name": "13989873421"
+      },
+      {
+        "rank": 61,
+        "score": 0,
+        "head": "",
+        "name": "13857137660"
+      },
+      {
+        "rank": 62,
+        "score": 0,
+        "head": "",
+        "name": "15168255382"
+      },
+      {
+        "rank": 63,
+        "score": 0,
+        "head": "head/6yvRvBGuRIfMCm80wMPfaBLhNhJaa3dqxF7dWpyE.jpeg",
+        "name": "William"
+      },
+      {
+        "rank": 64,
+        "score": 0,
+        "head": "",
+        "name": "13777890174"
+      },
+      {
+        "rank": 65,
+        "score": 0,
+        "head": "head/mj27.jpeg",
+        "name": "丶索大..."
+      },
+      {
+        "rank": 66,
+        "score": 0,
+        "head": "",
+        "name": "13805745870"
+      },
+      {
+        "rank": 67,
+        "score": 0,
+        "head": "",
+        "name": "15356193988"
+      },
+      {
+        "rank": 68,
+        "score": 0,
+        "head": "",
+        "name": "13757137170"
+      },
+      {
+        "rank": 69,
+        "score": 0,
+        "head": "",
+        "name": "18868722137"
+      },
+      {
+        "rank": 70,
+        "score": 0,
+        "head": "",
+        "name": "13666694552"
+      },
+      {
+        "rank": 71,
+        "score": 0,
+        "head": "",
+        "name": "15168317766"
+      },
+      {
+        "rank": 72,
+        "score": 0,
+        "head": "",
+        "name": "13738148569"
+      },
+      {
+        "rank": 73,
+        "score": 0,
+        "head": "",
+        "name": "15888879134"
+      },
+      {
+        "rank": 74,
+        "score": 0,
+        "head": "",
+        "name": "18757128727"
+      },
+      {
+        "rank": 75,
+        "score": 0,
+        "head": "",
+        "name": "18957106261"
+      },
+      {
+        "rank": 76,
+        "score": 0,
+        "head": "head/mj26.jpeg",
+        "name": "和蔼的wanyu520"
+      },
+      {
+        "rank": 77,
+        "score": 0,
+        "head": "",
+        "name": "18969066739"
+      },
+      {
+        "rank": 78,
+        "score": 0,
+        "head": "",
+        "name": "13588467763"
+      },
+      {
+        "rank": 79,
+        "score": 0,
+        "head": "",
+        "name": "13346188702"
+      },
+      {
+        "rank": 80,
+        "score": 0,
+        "head": "",
+        "name": "13666603243"
+      },
+      {
+        "rank": 81,
+        "score": 0,
+        "head": "",
+        "name": "13777882096"
+      },
+      {
+        "rank": 82,
+        "score": 0,
+        "head": "head/AfwQFpmoXR9anEH2xB6hgdKMdAu8im8IzXgVI3Bt.png",
+        "name": "Skye"
+      },
+      {
+        "rank": 83,
+        "score": 0,
+        "head": "",
+        "name": "13906626103"
+      },
+      {
+        "rank": 84,
+        "score": 0,
+        "head": "",
+        "name": "13067997200"
+      },
+      {
+        "rank": 85,
+        "score": 0,
+        "head": "",
+        "name": "13805794183"
+      },
+      {
+        "rank": 86,
+        "score": 0,
+        "head": "",
+        "name": "17706533397"
+      },
+      {
+        "rank": 87,
+        "score": 0,
+        "head": "head/mj25.jpeg",
+        "name": "和蔼的wanyu520"
+      },
+      {
+        "rank": 88,
+        "score": 0,
+        "head": "",
+        "name": "15669999912"
+      },
+      {
+        "rank": 89,
+        "score": 0,
+        "head": "",
+        "name": "18658108527"
+      },
+      {
+        "rank": 90,
+        "score": 0,
+        "head": "",
+        "name": "13515715298"
+      },
+      {
+        "rank": 91,
+        "score": 0,
+        "head": "",
+        "name": "13858138075"
+      },
+      {
+        "rank": 92,
+        "score": 0,
+        "head": "",
+        "name": "13819125715"
+      },
+      {
+        "rank": 93,
+        "score": 0,
+        "head": "",
+        "name": "13506710883"
+      },
+      {
+        "rank": 94,
+        "score": 0,
+        "head": "",
+        "name": "15167732638"
+      },
+      {
+        "rank": 95,
+        "score": 0,
+        "head": "",
+        "name": "13588147395"
+      },
+      {
+        "rank": 96,
+        "score": 0,
+        "head": "head/wEP46KhG3u7l3ioulrLedrGoD3Ndb0WIs9WOyLT3.jpeg",
+        "name": "13486131221"
+      },
+      {
+        "rank": 97,
+        "score": 0,
+        "head": "",
+        "name": "13588326711"
+      },
+      {
+        "rank": 98,
+        "score": 0,
+        "head": "head/mj24.jpeg",
+        "name": "starcat2008"
+      },
+      {
+        "rank": 99,
+        "score": 0,
+        "head": "",
+        "name": "18668175577"
+      },
+      {
+        "rank": 100,
+        "score": 0,
+        "head": "",
+        "name": "13857100824"
+      }
+    ],
+    "mine": {
+      "score": 18,
+      "rank": 11,
+      "head": "head/FXeL896smnCWv8GZjQsw7FEZ9914nbswQ0p80F0E.jpeg",
+      "name": "Max"
+    }
+  }
+}
