@@ -4,6 +4,9 @@ $(function () {
 	var commodity_id = queryURL(location.href);
 	commodity_id=commodity_id.commodity_id
 	var url_course = null;
+	url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
+	console.log(url_course)
+
     window.get_share = get_share;
     //get_share();
 	function get_share(_results) {
@@ -30,15 +33,7 @@ $(function () {
 		return obj;
 	}
 
-console.log(typeof(parseInt(commodity_id)))
-
-	if (typeof(parseInt(commodity_id))=='number') {
-		url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
-		console.log(commodity_id)
-	} else {
-		commodity_id = 1;
-		url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
-	}
+		
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 		var date = new Date();
