@@ -1,7 +1,8 @@
 "use strict";
 
 $(function () {
-	var commodity_id = location.href.split('?')[1];
+	var commodity_id = queryURL(location.href);
+	commodity_id=commodity_id.commodity_id
 	var url_course = null;
     window.get_share = get_share;
     //get_share();
@@ -17,10 +18,23 @@ $(function () {
 		}
 	}
 
+	//将url参数转对象
+	function queryURL(url) {
+		var arr1 = url.split("?");
+		var params = arr1[1].split("&"); //进行分割成数组
+		var obj = {};
+		for (var i = 0; i < params.length; i++) {
+			var param = params[i].split("="); //进行分割成数组
+			obj[param[0]] = param[1]; //为对象赋值
+		}
+		return obj;
+	}
 
+console.log(typeof(parseInt(commodity_id)))
 
-	if (commodity_id) {
+	if (typeof(parseInt(commodity_id))=='number') {
 		url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
+		console.log(commodity_id)
 	} else {
 		commodity_id = 1;
 		url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
