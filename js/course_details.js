@@ -13,7 +13,7 @@ $(function () {
 		if (window.webkit) {
 			window.webkit.messageHandlers.shareClick.postMessage(JSON.stringify(_obj));
 		} else {
-			androidpay.androidWechatPay(JSON.stringify(_obj));
+			androidCorsonShare.CorsonShare(JSON.stringify(_obj));
 		}
 	}
 
