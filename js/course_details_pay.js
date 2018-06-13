@@ -263,7 +263,7 @@ $(function () {
 					$('.course_pay_error').css({
 						'display': 'block'
 					});
-					window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id;
+					window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
 					console.log(res);
 				});
 				//判断当前客户端版本是否支持指定JS接口
@@ -294,7 +294,7 @@ $(function () {
 					objpay.paycallback = 'get_token';
 					objpay.title = '超有趣的少儿互动英文课！';
 					objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					objpay.share_url = 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id;
+					objpay.share_url = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
 					androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
 					//alert('ios')
@@ -304,7 +304,7 @@ $(function () {
 					_objpay.paycallback = 'get_token';
 					_objpay.title = '超有趣的少儿互动英文课！';
 					_objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					_objpay.share_url = 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id;
+					_objpay.share_url = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay));
 				}
 				//App团购
@@ -346,6 +346,6 @@ $(function () {
 	});
 
 	$('.wx_pay span').eq(0).click(function () {
-		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id;
+		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
 });
