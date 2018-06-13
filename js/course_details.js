@@ -112,14 +112,14 @@ $(function () {
 					$('.v_pay p').eq(0).click(function () {
 						if (isWeiXin()) {
 							//http://api.speaka.cn/api/buy/1?type_id=11
-							window.location.href = 'http://api.speaka.cn/api/buy/1?type_id=' + 11 + '&commodity_id=' + commodity_id;
+							window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 11 + '&commodity_id=' + commodity_id;
 						} else {
 							window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
 						}
 					});
 					$('.v_pay p').eq(1).click(function () {
 						if (isWeiXin()) {
-							window.location.href = 'http://api.speaka.cn/api/buy/1?type_id=' + 12 + '&commodity_id=' + commodity_id;
+							window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
 						} else {
 							window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
 						}
