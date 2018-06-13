@@ -39,8 +39,10 @@ $(function () {
 
 						if (window.webkit) {
 							window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+							obj={}
 						} else {
 							curson.punchCurson(JSON.stringify(obj));
+							obj={}
 						}
 					});
 
@@ -108,8 +110,10 @@ $(function () {
 
 								if (window.webkit) {
 									window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+									obj={}
 								} else {
 									curson.punchCurson(JSON.stringify(obj));
+									obj={}
 								}
 							}
 						}
