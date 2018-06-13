@@ -110,6 +110,8 @@ img{
 	left: 0px;
 	border-radius: 50%;
 	z-index: 20;
+	width: 100%;
+	height: 100%;
 }
 .group_member ul li span img:nth-of-type(3){
 	position: absolute;

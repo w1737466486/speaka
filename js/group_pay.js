@@ -106,7 +106,7 @@ $(function () {
 			if (data.group.length > 0) {
 				var group_member = $('.group_member li');
 				for (var i = 0; i < data.group.length; i++) {
-					$('.group_member li').eq(i).find('img').eq(1).attr('src', data.group[i].user_info.head_wx);
+					$('.group_member li').eq(i).find('img').eq(1).attr('src','http://s.speaka.cn/' +data.group[i].user_info.head);
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
 			}
