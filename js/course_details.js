@@ -87,7 +87,7 @@ $(function () {
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起购</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
 				$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课');
 				$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元');
 				$('.course_pay p span').eq(2).html('暂无可用');
