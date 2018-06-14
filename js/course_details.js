@@ -11,7 +11,7 @@ $(function () {
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
-		_obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
+		_obj.title = '超有趣的少儿互动英文课';
 		_obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
 		_obj.share_url =location.href
 		if (window.webkit) {
