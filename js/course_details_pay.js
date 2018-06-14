@@ -41,7 +41,7 @@ $(function () {
 			}
 
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
-				$('.course_pay p').eq(2).css({
+				$('.course_pay p').eq(3).css({
 					'display': 'none'
 				});
 			}
