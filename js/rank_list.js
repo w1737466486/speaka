@@ -7,7 +7,6 @@ $(function () {
 	function get_token(_results) {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
-		alert(token)
 		$.ajax({
 			type: "get",
 			url: "http://api.speaka.cn/api/top100 ",
@@ -17,7 +16,7 @@ $(function () {
 				request.setRequestHeader("Authorization", token);
 			},
 			success: function success(data) {
-				alert(JSON.stringify(data));
+				//alert(JSON.stringify(data));
 				for (var i = 0; i < data.info.top.length; i++) {
 					//console.log(data.info.top[i])
 					if (i < 3) {
