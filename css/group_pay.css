@@ -95,6 +95,7 @@ img{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
+	margin-bottom: 12px;
 }
 .group_member ul li span img{
 	width: 100%;

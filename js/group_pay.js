@@ -194,7 +194,7 @@ $(function () {
 
 
 				if (remain_time > 0 && data.group.length >= 3 && data.group.length <= 10) {
-					$('.group_head p').eq(0).html('该拼团已成功！');
+					$('.group_head p').eq(0).html('该拼团已成团！剩余参团时间:');
 				} else if (data.group.length > 10) {
 					$('.group_head p').eq(0).html('该拼团人数已满！');
 					$('.group_head p').eq(1).find('span').eq(0).html('00');

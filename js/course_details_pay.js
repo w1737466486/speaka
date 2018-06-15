@@ -154,30 +154,30 @@ $(function () {
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
 			/*var data = {
-   	"status": 1,
-   	"order_no": "2018051118065256229",
-   	"prepay_id": "wx11180652597696856feb0f581358570244",
-   	"config": {
-   		"debug": false,
-   		"beta": false,
-   		"jsApiList": [
-   			"chooseWXPay"
-   		],
-   		"appId": "wx0b778a82184cf52f",
-   		"nonceStr": "OysMAJLdI1",
-   		"timestamp": 1526033212,
-   		"url": "http://api.speaka.cn/api/pay",
-   		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
-   	},
-   	"pay_config": {
-   		"appId": "wx0b778a82184cf52f",
-   		"nonceStr": "5af56b3c9c034",
-   		"package": "prepay_id=wx11180652597696856feb0f581358570244",
-   		"signType": "MD5",
-   		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
-   		"timestamp": "1526033212"
-   	}
-   }*/
+			   	"status": 1,
+			   	"order_no": "2018051118065256229",
+			   	"prepay_id": "wx11180652597696856feb0f581358570244",
+			   	"config": {
+			   		"debug": false,
+			   		"beta": false,
+			   		"jsApiList": [
+			   			"chooseWXPay"
+			   		],
+			   		"appId": "wx0b778a82184cf52f",
+			   		"nonceStr": "OysMAJLdI1",
+			   		"timestamp": 1526033212,
+			   		"url": "http://api.speaka.cn/api/pay",
+			   		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
+			   	},
+			   	"pay_config": {
+			   		"appId": "wx0b778a82184cf52f",
+			   		"nonceStr": "5af56b3c9c034",
+			   		"package": "prepay_id=wx11180652597696856feb0f581358570244",
+			   		"signType": "MD5",
+			   		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
+			   		"timestamp": "1526033212"
+			   	}
+			   }*/
 
 			console.log(data.config);
 			if (data.status == 0 && data.code == 403) {
@@ -275,7 +275,7 @@ $(function () {
 					}
 				});
 			} else {
-				alert('验证信息已失效，请重新获取订单信息！');
+				//alert('验证信息已失效，请重新获取订单信息！');
 				$('.wx_pay span').eq(1).click(function () {
 					alert('验证信息已失效，请重新获取订单信息！');
 				});
