@@ -21,7 +21,7 @@ $(function () {
 					//console.log(data.info.top[i])
 					if (i < 3) {
 						console.log($('.rank_ul_one .li' + i).html());
-						$('.rank_ul_one .li' + i).find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.top[i].head);
+						$('.rank_ul_one .li' + i).find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.top[i].head+'?x-oss-process=w132');
 						$('.rank_ul_one .li' + i).find('span').eq(1).html(data.info.top[i].name);
 						$('.rank_ul_one .li' + i).find('span').eq(2).find('em').html(data.info.top[i].score);
 					} else {
@@ -38,7 +38,7 @@ $(function () {
 					}
 				}
 				$('.rank_ul_three li b').html('No.' + data.info.mine.rank);
-				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.mine.head);
+				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.mine.head+'?x-oss-process=w132');
 				$('.rank_ul_three li').find('span').eq(1).html(data.info.mine.name);
 				$('.rank_ul_three li').find('span').eq(2).find('em').html(data.info.mine.score);
 			},
