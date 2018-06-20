@@ -97,7 +97,7 @@ ul{
 }
 /*右上角的显示已支付或未支付*/
 .mark{
-    width:13.5%;
+    width:14.5%;
     position: absolute;
     top:10.5%;
     right: 5px;
@@ -118,9 +118,8 @@ ul{
     color: #2FBBA9;
 }
 .group_orders li .xuxian{
-	width: 90%;
+	width: 95%;
 	position: relative;
-	left: 5%;
 	border-bottom: 1px dashed #CCCCCC;
 }
 .price{
@@ -157,7 +156,7 @@ ul{
     color: #FFFFFF;
 }
 .group_orders .mark{
-    width:13.5%;
+    width:14.5%;
     position: absolute;
     top:6.5%;
     right: 5px;

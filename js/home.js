@@ -10,7 +10,6 @@ $(function() {
 		async:true,
 		success:function(data){
 			console.log(data)
-			
 			if(data.status==1){
 				$('.content p').eq(0).html(data.w.phonetic)
 				var rep=data.w.translation.replace(/\\n/g,'<br/>')
