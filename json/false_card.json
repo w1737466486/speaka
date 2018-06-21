@@ -1,0 +1,1979 @@
+{
+  "status": 1,
+  "info": [
+    {
+      "id": 536112,
+      "eng": "play",
+      "chn": "n. 游戏, 游玩, 玩笑, 运动, 比赛, 赌博, 跳动, 表演, 剧本\\nv. 玩, 游戏, 假装, 开玩笑, 比赛, 扮演, 演奏, 演戏, 传摇曳, (使)跳动\\n[计] 播放",
+      "isCard": false
+    },
+    {
+      "id": 536113,
+      "eng": "play a deep game",
+      "chn": "暗地里搞鬼",
+      "isCard": false
+    },
+    {
+      "id": 536114,
+      "eng": "play a few bars of",
+      "chn": "演奏几节…",
+      "isCard": false
+    },
+    {
+      "id": 536115,
+      "eng": "play a good knife and fork",
+      "chn": "痛痛快快地吃上一顿,大吃大喝",
+      "isCard": false
+    },
+    {
+      "id": 536116,
+      "eng": "play a joke on",
+      "chn": "戏弄某人；对…恶作剧；开…的玩笑",
+      "isCard": false
+    },
+    {
+      "id": 536117,
+      "eng": "play a joke on sb",
+      "chn": "对某人开玩笑",
+      "isCard": false
+    },
+    {
+      "id": 536118,
+      "eng": "play a joke on sb.",
+      "chn": "开某人玩笑",
+      "isCard": false
+    },
+    {
+      "id": 536119,
+      "eng": "play a lone hand",
+      "chn": "单枪匹马地干, 完全独立地行动",
+      "isCard": false
+    },
+    {
+      "id": 536120,
+      "eng": "play a part",
+      "chn": "扮演角色, 参与, 有影响, 装腔骗人",
+      "isCard": false
+    },
+    {
+      "id": 536121,
+      "eng": "play a part in",
+      "chn": "在…中扮演角色,在…中起作用",
+      "isCard": false
+    },
+    {
+      "id": 536122,
+      "eng": "play a record",
+      "chn": "放唱片,放录音",
+      "isCard": false
+    },
+    {
+      "id": 536123,
+      "eng": "play a role in",
+      "chn": "在...起作用",
+      "isCard": false
+    },
+    {
+      "id": 536124,
+      "eng": "play a team",
+      "chn": "和某队比赛",
+      "isCard": false
+    },
+    {
+      "id": 536125,
+      "eng": "play a trick on",
+      "chn": " 捉弄某人, 对某人恶作剧; 撮弄",
+      "isCard": false
+    },
+    {
+      "id": 536126,
+      "eng": "play a trick on sb",
+      "chn": "捉弄某人",
+      "isCard": false
+    },
+    {
+      "id": 536127,
+      "eng": "play about",
+      "chn": "随便摆弄,到处乱搞",
+      "isCard": false
+    },
+    {
+      "id": 536128,
+      "eng": "Play according to the rules of the game",
+      "chn": "一切依照比赛规章进行",
+      "isCard": false
+    },
+    {
+      "id": 536129,
+      "eng": "play along",
+      "chn": "等待回音或决定; 合作; （使）沿…闪动; 荡漾",
+      "isCard": false
+    },
+    {
+      "id": 536130,
+      "eng": "play along with",
+      "chn": "参与, 对...假表同意",
+      "isCard": false
+    },
+    {
+      "id": 536131,
+      "eng": "play along with sb's plot",
+      "chn": "参与某人的阴谋",
+      "isCard": false
+    },
+    {
+      "id": 536132,
+      "eng": "play an accompaniment",
+      "chn": "伴奏",
+      "isCard": false
+    },
+    {
+      "id": 536133,
+      "eng": "play around",
+      "chn": "玩耍",
+      "isCard": false
+    },
+    {
+      "id": 536134,
+      "eng": "play at",
+      "chn": "参加(体育活动、比赛等), 假装, 戏弄, 敷衍",
+      "isCard": false
+    },
+    {
+      "id": 536135,
+      "eng": "play at chess",
+      "chn": "下象棋",
+      "isCard": false
+    },
+    {
+      "id": 536136,
+      "eng": "play at sb in print",
+      "chn": "用文字嘲弄某人",
+      "isCard": false
+    },
+    {
+      "id": 536137,
+      "eng": "play away",
+      "chn": "在外比赛, 输掉, 浪费掉(时间等)",
+      "isCard": false
+    },
+    {
+      "id": 536138,
+      "eng": "play back",
+      "chn": "把(球)打回对方, 播放(唱片、磁带等)",
+      "isCard": false
+    },
+    {
+      "id": 536139,
+      "eng": "play ball",
+      "chn": "发球, 开始活动, 办事公道",
+      "isCard": false
+    },
+    {
+      "id": 536140,
+      "eng": "play ball with",
+      "chn": "与…合作,公平对待…",
+      "isCard": false
+    },
+    {
+      "id": 536141,
+      "eng": "play ball with sb.",
+      "chn": "与某人合作",
+      "isCard": false
+    },
+    {
+      "id": 536142,
+      "eng": "play big luck",
+      "chn": "走运",
+      "isCard": false
+    },
+    {
+      "id": 536143,
+      "eng": "play booty",
+      "chn": "进行故意输掉的比赛, 勾结",
+      "isCard": false
+    },
+    {
+      "id": 536144,
+      "eng": "play both ends against the middle",
+      "chn": "v. 为获利而脚踏两只船,使鹬蚌相争而渔翁得利",
+      "isCard": false
+    },
+    {
+      "id": 536145,
+      "eng": "play bridge",
+      "chn": "打桥牌",
+      "isCard": false
+    },
+    {
+      "id": 536146,
+      "eng": "play by ear",
+      "chn": "凭听觉记忆演奏, 没有充分准备地处理某事",
+      "isCard": false
+    },
+    {
+      "id": 536147,
+      "eng": "play cat and mouse with",
+      "chn": "和…玩猫捉老鼠的把戏,躲躲闪闪",
+      "isCard": false
+    },
+    {
+      "id": 536148,
+      "eng": "play chess",
+      "chn": "下棋",
+      "isCard": false
+    },
+    {
+      "id": 536149,
+      "eng": "play chicken",
+      "chn": "为吓倒对方互相挑战和威胁",
+      "isCard": false
+    },
+    {
+      "id": 536150,
+      "eng": "play close to the vest",
+      "chn": "把...保守秘密",
+      "isCard": false
+    },
+    {
+      "id": 536151,
+      "eng": "play date",
+      "chn": "（家长与孩子之间的）玩耍约会",
+      "isCard": false
+    },
+    {
+      "id": 536152,
+      "eng": "play dead",
+      "chn": "装死, 装死躺下",
+      "isCard": false
+    },
+    {
+      "id": 536153,
+      "eng": "play dirty",
+      "chn": "（非正式）做事不诚实（或不公平）",
+      "isCard": false
+    },
+    {
+      "id": 536154,
+      "eng": "play double",
+      "chn": "耍两面派手法;当面一套,背后一套",
+      "isCard": false
+    },
+    {
+      "id": 536155,
+      "eng": "play down",
+      "chn": "对...不重视, 降低, 贬低, 屈尊随群",
+      "isCard": false
+    },
+    {
+      "id": 536156,
+      "eng": "play down one's tune",
+      "chn": "降低调子",
+      "isCard": false
+    },
+    {
+      "id": 536157,
+      "eng": "play ducks and drakes",
+      "chn": "挥霍, 滥用, 以...为儿戏",
+      "isCard": false
+    },
+    {
+      "id": 536158,
+      "eng": "play fair",
+      "chn": "按规则比赛,按公正原则办事",
+      "isCard": false
+    },
+    {
+      "id": 536159,
+      "eng": "play fair and square",
+      "chn": "表现得正大光明",
+      "isCard": false
+    },
+    {
+      "id": 536160,
+      "eng": "play false",
+      "chn": "na. 作弊\\n[网络] 弄假；弄虚作假",
+      "isCard": false
+    },
+    {
+      "id": 536161,
+      "eng": "play fast and loose",
+      "chn": "处事轻率, 行为反复无常",
+      "isCard": false
+    },
+    {
+      "id": 536162,
+      "eng": "play fast and loose with",
+      "chn": "对…出尔反尔,拿…当儿戏",
+      "isCard": false
+    },
+    {
+      "id": 536163,
+      "eng": "play figure",
+      "chn": "[机] 液面花纹",
+      "isCard": false
+    },
+    {
+      "id": 536164,
+      "eng": "play first fiddle",
+      "chn": "担任第一小提琴手, 当第一把手",
+      "isCard": false
+    },
+    {
+      "id": 536165,
+      "eng": "play first violin",
+      "chn": "担任第一小提琴手, 当第一把手",
+      "isCard": false
+    },
+    {
+      "id": 536166,
+      "eng": "play for one's own hand",
+      "chn": "为私利而干",
+      "isCard": false
+    },
+    {
+      "id": 536167,
+      "eng": "play for safety",
+      "chn": "不冒风险",
+      "isCard": false
+    },
+    {
+      "id": 536168,
+      "eng": "play for time",
+      "chn": "为争取时间而拖延",
+      "isCard": false
+    },
+    {
+      "id": 536169,
+      "eng": "play foul",
+      "chn": "犯规,不按规则比赛,不按公正原则办事,作肮脏交易",
+      "isCard": false
+    },
+    {
+      "id": 536170,
+      "eng": "play games",
+      "chn": "敷衍塞责",
+      "isCard": false
+    },
+    {
+      "id": 536171,
+      "eng": "play goal for",
+      "chn": "为…当守门员",
+      "isCard": false
+    },
+    {
+      "id": 536172,
+      "eng": "play God",
+      "chn": "装作无所不能；扮演上帝",
+      "isCard": false
+    },
+    {
+      "id": 536173,
+      "eng": "play gooseberry",
+      "chn": "硬插在两个情侣之间",
+      "isCard": false
+    },
+    {
+      "id": 536174,
+      "eng": "play group",
+      "chn": "[网络] 游戏小组；班；游戏团体",
+      "isCard": false
+    },
+    {
+      "id": 536175,
+      "eng": "play hanky-panky with sb",
+      "chn": "欺骗某人",
+      "isCard": false
+    },
+    {
+      "id": 536176,
+      "eng": "play hard",
+      "chn": "(比赛者)使劲, 不择手段\\n[法] 不择手段, 行为卑鄙",
+      "isCard": false
+    },
+    {
+      "id": 536177,
+      "eng": "play hard to get",
+      "chn": "假装不钟情于对方使对方更加喜欢自己",
+      "isCard": false
+    },
+    {
+      "id": 536178,
+      "eng": "play havoc",
+      "chn": "造成破坏",
+      "isCard": false
+    },
+    {
+      "id": 536179,
+      "eng": "play havoc with",
+      "chn": "对...遭成严重破坏, 扰乱...",
+      "isCard": false
+    },
+    {
+      "id": 536180,
+      "eng": "play hell with",
+      "chn": "破坏,糟蹋,趁火打劫",
+      "isCard": false
+    },
+    {
+      "id": 536181,
+      "eng": "play hell with sth",
+      "chn": "把某物弄得一塌糊涂",
+      "isCard": false
+    },
+    {
+      "id": 536182,
+      "eng": "play high",
+      "chn": "豪赌",
+      "isCard": false
+    },
+    {
+      "id": 536183,
+      "eng": "play hookey",
+      "chn": "逃学",
+      "isCard": false
+    },
+    {
+      "id": 536184,
+      "eng": "play hooky",
+      "chn": "逃学",
+      "isCard": false
+    },
+    {
+      "id": 536185,
+      "eng": "play horse with",
+      "chn": "与某人赌赛马;嘲弄某人",
+      "isCard": false
+    },
+    {
+      "id": 536186,
+      "eng": "play host to",
+      "chn": "招待",
+      "isCard": false
+    },
+    {
+      "id": 536187,
+      "eng": "play house",
+      "chn": "过家家",
+      "isCard": false
+    },
+    {
+      "id": 536188,
+      "eng": "play into sb's hands",
+      "chn": "为某人利益而做, 干对某人有利的事, 干对于对手有利的事, 中对手之计",
+      "isCard": false
+    },
+    {
+      "id": 536189,
+      "eng": "play into someone's hands",
+      "chn": "做对某人有利的事, 授人以柄",
+      "isCard": false
+    },
+    {
+      "id": 536190,
+      "eng": "play it by ear",
+      "chn": "随机行事, 无计划地进行",
+      "isCard": false
+    },
+    {
+      "id": 536191,
+      "eng": "play it cool",
+      "chn": "抑制住感情, 做出冷静的样子",
+      "isCard": false
+    },
+    {
+      "id": 536192,
+      "eng": "play it cozy",
+      "chn": "小心行事",
+      "isCard": false
+    },
+    {
+      "id": 536193,
+      "eng": "play it low upon",
+      "chn": "歧视",
+      "isCard": false
+    },
+    {
+      "id": 536194,
+      "eng": "play it safe",
+      "chn": "求稳, 不冒险",
+      "isCard": false
+    },
+    {
+      "id": 536195,
+      "eng": "play joke on",
+      "chn": "开...的玩笑",
+      "isCard": false
+    },
+    {
+      "id": 536196,
+      "eng": "play knife and fork",
+      "chn": "饱餐一顿",
+      "isCard": false
+    },
+    {
+      "id": 536197,
+      "eng": "play list",
+      "chn": " [计][WIN,NT]播放曲目，播放列表",
+      "isCard": false
+    },
+    {
+      "id": 536198,
+      "eng": "play marbles",
+      "chn": "打弹子,玩弹子球游戏",
+      "isCard": false
+    },
+    {
+      "id": 536199,
+      "eng": "play of accounts",
+      "chn": "[经] 帐户的运用, 记帐程序图",
+      "isCard": false
+    },
+    {
+      "id": 536200,
+      "eng": "play of valve",
+      "chn": "[化] 阀隙",
+      "isCard": false
+    },
+    {
+      "id": 536201,
+      "eng": "play off",
+      "chn": "使出丑, 延长比赛以破平局, 使相斗, (用欺骗手段)使...脱手",
+      "isCard": false
+    },
+    {
+      "id": 536202,
+      "eng": "play off a draw",
+      "chn": "加时比赛",
+      "isCard": false
+    },
+    {
+      "id": 536203,
+      "eng": "play off a match",
+      "chn": "加赛以决胜负",
+      "isCard": false
+    },
+    {
+      "id": 536204,
+      "eng": "play off a tie",
+      "chn": "平局后加赛以决胜负",
+      "isCard": false
+    },
+    {
+      "id": 536205,
+      "eng": "play on",
+      "chn": "继续比赛, 利用",
+      "isCard": false
+    },
+    {
+      "id": 536206,
+      "eng": "play one's best card",
+      "chn": "使出绝招",
+      "isCard": false
+    },
+    {
+      "id": 536207,
+      "eng": "play one's cards right",
+      "chn": "办事高明, 善于利用各种有利条件",
+      "isCard": false
+    },
+    {
+      "id": 536208,
+      "eng": "play one's cards well",
+      "chn": "办事高明",
+      "isCard": false
+    },
+    {
+      "id": 536209,
+      "eng": "play one's prize",
+      "chn": "图私利",
+      "isCard": false
+    },
+    {
+      "id": 536210,
+      "eng": "play one's trump card",
+      "chn": "打出王牌",
+      "isCard": false
+    },
+    {
+      "id": 536211,
+      "eng": "play out",
+      "chn": "把戏演完, 使耗尽, 使筋疲力尽, 放出, 用完, 使破产, 宣泄, 结束",
+      "isCard": false
+    },
+    {
+      "id": 536212,
+      "eng": "play politics",
+      "chn": "弄权, 玩弄政治手腕\\n[法] 玩弄权术, 搞阴谋诡计",
+      "isCard": false
+    },
+    {
+      "id": 536213,
+      "eng": "play possum",
+      "chn": "装睡, 装病, 装死, 装糊涂",
+      "isCard": false
+    },
+    {
+      "id": 536214,
+      "eng": "play prize",
+      "chn": "为获奖而参加比赛",
+      "isCard": false
+    },
+    {
+      "id": 536215,
+      "eng": "play reading",
+      "chn": "[网络] 剧本读演活动；剧本围读；围读",
+      "isCard": false
+    },
+    {
+      "id": 536216,
+      "eng": "play right",
+      "chn": "na. 上演权",
+      "isCard": false
+    },
+    {
+      "id": 536217,
+      "eng": "play rough",
+      "chn": "耍粗暴作风, 作粗暴动作",
+      "isCard": false
+    },
+    {
+      "id": 536218,
+      "eng": "play safe",
+      "chn": "不冒险",
+      "isCard": false
+    },
+    {
+      "id": 536219,
+      "eng": "play sb a dirty trick",
+      "chn": "对某人玩弄卑劣的手段",
+      "isCard": false
+    },
+    {
+      "id": 536220,
+      "eng": "play sb dirt",
+      "chn": "对某人施卑劣伎俩,欺骗某人",
+      "isCard": false
+    },
+    {
+      "id": 536221,
+      "eng": "play sb false",
+      "chn": "欺骗某人,愚弄某人",
+      "isCard": false
+    },
+    {
+      "id": 536222,
+      "eng": "play sb up",
+      "chn": "给...造成麻烦, 使痛苦",
+      "isCard": false
+    },
+    {
+      "id": 536223,
+      "eng": "play sb's game",
+      "chn": "做使(某人)获利的事, 帮(某人的)大忙",
+      "isCard": false
+    },
+    {
+      "id": 536224,
+      "eng": "play sb.'s game",
+      "chn": "帮某人大忙",
+      "isCard": false
+    },
+    {
+      "id": 536225,
+      "eng": "play second",
+      "chn": "当配角,扮演次要角色,处于次要地位",
+      "isCard": false
+    },
+    {
+      "id": 536226,
+      "eng": "play second fiddle",
+      "chn": "处于次要地位",
+      "isCard": false
+    },
+    {
+      "id": 536227,
+      "eng": "play second fiddle to",
+      "chn": "当...的副手",
+      "isCard": false
+    },
+    {
+      "id": 536228,
+      "eng": "play smash",
+      "chn": "[经] 破产",
+      "isCard": false
+    },
+    {
+      "id": 536229,
+      "eng": "play smash with",
+      "chn": "摧毁",
+      "isCard": false
+    },
+    {
+      "id": 536230,
+      "eng": "play sth back",
+      "chn": "重放录音, 播放",
+      "isCard": false
+    },
+    {
+      "id": 536231,
+      "eng": "play sth down",
+      "chn": "降低, 贬低, 减弱, 缩小",
+      "isCard": false
+    },
+    {
+      "id": 536232,
+      "eng": "play the accompaniment to",
+      "chn": "为…伴奏",
+      "isCard": false
+    },
+    {
+      "id": 536233,
+      "eng": "play the advantage over",
+      "chn": "欺骗,哄骗…",
+      "isCard": false
+    },
+    {
+      "id": 536234,
+      "eng": "play the angel",
+      "chn": "扮作天使",
+      "isCard": false
+    },
+    {
+      "id": 536235,
+      "eng": "play the ape",
+      "chn": "模仿, 学样",
+      "isCard": false
+    },
+    {
+      "id": 536236,
+      "eng": "play the ass",
+      "chn": "做傻事,出洋相",
+      "isCard": false
+    },
+    {
+      "id": 536237,
+      "eng": "play the bankrupt",
+      "chn": "[经] 破产, 利用破产骗钱",
+      "isCard": false
+    },
+    {
+      "id": 536238,
+      "eng": "play the bear",
+      "chn": "举止粗鲁,说话粗俗",
+      "isCard": false
+    },
+    {
+      "id": 536239,
+      "eng": "play the deuce with",
+      "chn": "弄糟, 使失败",
+      "isCard": false
+    },
+    {
+      "id": 536240,
+      "eng": "play the deuce with...",
+      "chn": "弄糟..., 有害于..., 使...失败",
+      "isCard": false
+    },
+    {
+      "id": 536241,
+      "eng": "play the devil with",
+      "chn": "搞糟, 使失败",
+      "isCard": false
+    },
+    {
+      "id": 536242,
+      "eng": "play the devil with...",
+      "chn": "弄糟..., 有害于..., 使...失败",
+      "isCard": false
+    },
+    {
+      "id": 536243,
+      "eng": "play the drum",
+      "chn": "打鼓",
+      "isCard": false
+    },
+    {
+      "id": 536244,
+      "eng": "play the electronic guitar",
+      "chn": "弹电吉它",
+      "isCard": false
+    },
+    {
+      "id": 536245,
+      "eng": "play the electronic piano",
+      "chn": "弹电子琴",
+      "isCard": false
+    },
+    {
+      "id": 536246,
+      "eng": "play the fool",
+      "chn": "干蠢事, 演滑稽角色",
+      "isCard": false
+    },
+    {
+      "id": 536247,
+      "eng": "play the fool with",
+      "chn": "愚弄,戏弄;损坏,糟蹋",
+      "isCard": false
+    },
+    {
+      "id": 536248,
+      "eng": "play the fox",
+      "chn": "行为狡猾",
+      "isCard": false
+    },
+    {
+      "id": 536249,
+      "eng": "play the game",
+      "chn": "遵守比赛规则, 行动光明正大",
+      "isCard": false
+    },
+    {
+      "id": 536250,
+      "eng": "play the goat",
+      "chn": "做蠢事,胡闹",
+      "isCard": false
+    },
+    {
+      "id": 536251,
+      "eng": "play the hog",
+      "chn": "独吞独揽,行为卑鄙",
+      "isCard": false
+    },
+    {
+      "id": 536252,
+      "eng": "play the horse",
+      "chn": "赌赛马",
+      "isCard": false
+    },
+    {
+      "id": 536253,
+      "eng": "play the Jack",
+      "chn": "取笑某人,欺骗某人",
+      "isCard": false
+    },
+    {
+      "id": 536254,
+      "eng": "play the jackal to the tiger",
+      "chn": "n. 为虎作伥",
+      "isCard": false
+    },
+    {
+      "id": 536255,
+      "eng": "play the man",
+      "chn": "显示男子气概, 无所畏惧",
+      "isCard": false
+    },
+    {
+      "id": 536256,
+      "eng": "play the market",
+      "chn": "(证券)投机\\n[经] 买空卖空",
+      "isCard": false
+    },
+    {
+      "id": 536257,
+      "eng": "play the master",
+      "chn": "主持一切",
+      "isCard": false
+    },
+    {
+      "id": 536258,
+      "eng": "play the mischief with",
+      "chn": "搞乱",
+      "isCard": false
+    },
+    {
+      "id": 536259,
+      "eng": "play the old soldier",
+      "chn": "对某人摆老资格,在某人面前装作一个老兵的样子;装病,欺骗",
+      "isCard": false
+    },
+    {
+      "id": 536260,
+      "eng": "play the peacock",
+      "chn": "炫耀自己",
+      "isCard": false
+    },
+    {
+      "id": 536261,
+      "eng": "play the piano",
+      "chn": "弹钢琴",
+      "isCard": false
+    },
+    {
+      "id": 536262,
+      "eng": "play the prodigal",
+      "chn": "挥霍",
+      "isCard": false
+    },
+    {
+      "id": 536263,
+      "eng": "play the race",
+      "chn": "赛赌马",
+      "isCard": false
+    },
+    {
+      "id": 536264,
+      "eng": "play the role of",
+      "chn": "扮演…角色,起…作用",
+      "isCard": false
+    },
+    {
+      "id": 536265,
+      "eng": "play the wag",
+      "chn": "逃学",
+      "isCard": false
+    },
+    {
+      "id": 536266,
+      "eng": "play the woman",
+      "chn": "撒娇",
+      "isCard": false
+    },
+    {
+      "id": 536267,
+      "eng": "play therapy",
+      "chn": "游戏疗法",
+      "isCard": false
+    },
+    {
+      "id": 536268,
+      "eng": "play to hard luck",
+      "chn": "不走运",
+      "isCard": false
+    },
+    {
+      "id": 536269,
+      "eng": "play to the gallery",
+      "chn": "迎合低级趣味",
+      "isCard": false
+    },
+    {
+      "id": 536270,
+      "eng": "play to the score",
+      "chn": "随机应变",
+      "isCard": false
+    },
+    {
+      "id": 536271,
+      "eng": "play trick on",
+      "chn": "开...的玩笑",
+      "isCard": false
+    },
+    {
+      "id": 536272,
+      "eng": "play tricks",
+      "chn": "捣鬼；掉枪花；玩花招；弄虚作假",
+      "isCard": false
+    },
+    {
+      "id": 536273,
+      "eng": "play truant",
+      "chn": "逃学, 逃避责任",
+      "isCard": false
+    },
+    {
+      "id": 536274,
+      "eng": "play up",
+      "chn": "加油, (比赛时)拼命, 开始奏乐, 强调, 给...制造麻烦, 出故障",
+      "isCard": false
+    },
+    {
+      "id": 536275,
+      "eng": "play up to",
+      "chn": "支持, 给...当配角, 配合好, 戏弄, 奉承",
+      "isCard": false
+    },
+    {
+      "id": 536276,
+      "eng": "play wag",
+      "chn": "逃学",
+      "isCard": false
+    },
+    {
+      "id": 536277,
+      "eng": "play with",
+      "chn": "和…一起玩耍,漫不经心地摆弄,玩弄",
+      "isCard": false
+    },
+    {
+      "id": 536278,
+      "eng": "play with fire",
+      "chn": "玩火",
+      "isCard": false
+    },
+    {
+      "id": 536279,
+      "eng": "play with loaded dice",
+      "chn": "使用欺诈手段,暗中搞鬼",
+      "isCard": false
+    },
+    {
+      "id": 536280,
+      "eng": "play yard",
+      "chn": "游戏场",
+      "isCard": false
+    },
+    {
+      "id": 536281,
+      "eng": "play-act",
+      "chn": "vi.vt. 表演, 演出\\nvi. 装扮, 装腔作势, 假装",
+      "isCard": false
+    },
+    {
+      "id": 536282,
+      "eng": "play-acted",
+      "chn": "v. 表演, 装扮, 假扮( play-act的过去式和过去分词 )",
+      "isCard": false
+    },
+    {
+      "id": 536283,
+      "eng": "play-acting",
+      "chn": "v. 表演, 装扮, 假扮( play-act的现在分词 )",
+      "isCard": false
+    },
+    {
+      "id": 536284,
+      "eng": "play-actor",
+      "chn": "na. 〈蔑〉演员",
+      "isCard": false
+    },
+    {
+      "id": 536285,
+      "eng": "play-acts",
+      "chn": "v. 表演, 装扮, 假扮( play-act的第三人称单数 )",
+      "isCard": false
+    },
+    {
+      "id": 536286,
+      "eng": "play-back",
+      "chn": "回录\\n回放",
+      "isCard": false
+    },
+    {
+      "id": 536287,
+      "eng": "play-backs",
+      "chn": "(play-back 的复数) 回录\\n回放",
+      "isCard": false
+    },
+    {
+      "id": 536288,
+      "eng": "play-box",
+      "chn": "[网络] 木质玩具盒；玩具盒；挥杆区",
+      "isCard": false
+    },
+    {
+      "id": 536289,
+      "eng": "play-by-play",
+      "chn": "a. 详尽的, 实况报道的\\nn. 比赛详情",
+      "isCard": false
+    },
+    {
+      "id": 536290,
+      "eng": "play-doh",
+      "chn": "n. 培乐多泥胶",
+      "isCard": false
+    },
+    {
+      "id": 536291,
+      "eng": "play-group",
+      "chn": "n. 托儿所；学龄前幼儿游戏组",
+      "isCard": false
+    },
+    {
+      "id": 536292,
+      "eng": "play-groups",
+      "chn": "(play-group 的复数) n. 托儿所；学龄前幼儿游戏组",
+      "isCard": false
+    },
+    {
+      "id": 536293,
+      "eng": "play-maker",
+      "chn": "n. 场上组织进攻的队员",
+      "isCard": false
+    },
+    {
+      "id": 536294,
+      "eng": "play-makers",
+      "chn": "(play-maker 的复数) n. 场上组织进攻的队员",
+      "isCard": false
+    },
+    {
+      "id": 536295,
+      "eng": "play-off",
+      "chn": "n. 最后决赛, 夺标决赛",
+      "isCard": false
+    },
+    {
+      "id": 536296,
+      "eng": "play-offs",
+      "chn": "(play-off 的复数) n. 最后决赛, 夺标决赛",
+      "isCard": false
+    },
+    {
+      "id": 536297,
+      "eng": "play-play",
+      "chn": "[网络] 玩玩；演奏字符串指定的音乐；开始播放数据",
+      "isCard": false
+    },
+    {
+      "id": 536298,
+      "eng": "play-school",
+      "chn": "n. 幼儿园；幼稚园",
+      "isCard": false
+    },
+    {
+      "id": 536299,
+      "eng": "play-schools",
+      "chn": "(play-school 的复数) n. 幼儿园；幼稚园",
+      "isCard": false
+    },
+    {
+      "id": 536300,
+      "eng": "play-through",
+      "chn": "进行到底\\n保持不败",
+      "isCard": false
+    },
+    {
+      "id": 536301,
+      "eng": "play-throughs",
+      "chn": "(play-through 的复数) 进行到底\\n保持不败",
+      "isCard": false
+    },
+    {
+      "id": 536302,
+      "eng": "play-wright",
+      "chn": "n. 剧作家",
+      "isCard": false
+    },
+    {
+      "id": 536303,
+      "eng": "play-wrights",
+      "chn": "(play-wright 的复数) n. 剧作家",
+      "isCard": false
+    },
+    {
+      "id": 536304,
+      "eng": "play-yard",
+      "chn": "游戏场",
+      "isCard": false
+    },
+    {
+      "id": 536305,
+      "eng": "play-yards",
+      "chn": "(play-yard 的复数) 游戏场",
+      "isCard": false
+    },
+    {
+      "id": 536306,
+      "eng": "play...in",
+      "chn": "奏乐迎...进场",
+      "isCard": false
+    },
+    {
+      "id": 536307,
+      "eng": "play...out",
+      "chn": "奏乐送...出场",
+      "isCard": false
+    },
+    {
+      "id": 536308,
+      "eng": "playa",
+      "chn": "n. 干盐湖, 河滩, 海边休养地",
+      "isCard": false
+    },
+    {
+      "id": 536309,
+      "eng": "playability",
+      "chn": "n. playable（可游戏的, 宜玩的）的变形",
+      "isCard": false
+    },
+    {
+      "id": 536310,
+      "eng": "playable",
+      "chn": "a. 可玩的, 可演奏的, 宜玩的, 宜演奏的",
+      "isCard": false
+    },
+    {
+      "id": 536311,
+      "eng": "playact",
+      "chn": "vi. 出场演戏, 装扮, 装腔作势\\nvt. 演出, 表演",
+      "isCard": false
+    },
+    {
+      "id": 536312,
+      "eng": "playacted",
+      "chn": "v. 做作, 演戏, 假装( playact的过去式和过去分词 )",
+      "isCard": false
+    },
+    {
+      "id": 536313,
+      "eng": "playacting",
+      "chn": "v. 做作, 演戏, 假装( playact的现在分词 )",
+      "isCard": false
+    },
+    {
+      "id": 536314,
+      "eng": "playactor",
+      "chn": "n. 演员",
+      "isCard": false
+    },
+    {
+      "id": 536315,
+      "eng": "playacts",
+      "chn": "v. 做作, 演戏, 假装( playact的第三人称单数 )",
+      "isCard": false
+    },
+    {
+      "id": 536316,
+      "eng": "playas",
+      "chn": "沙漠中的盆地, 海边休养地( playa的名词复数 )",
+      "isCard": false
+    },
+    {
+      "id": 536317,
+      "eng": "playback",
+      "chn": "n. (录音)重放, (录音)重放装置\\n[计] 重现",
+      "isCard": false
+    },
+    {
+      "id": 536318,
+      "eng": "playback head",
+      "chn": "[计] 读出头, 读头",
+      "isCard": false
+    },
+    {
+      "id": 536319,
+      "eng": "playback loss",
+      "chn": "[电] 回放损失",
+      "isCard": false
+    },
+    {
+      "id": 536320,
+      "eng": "playback mode",
+      "chn": "[计] 读出方式",
+      "isCard": false
+    },
+    {
+      "id": 536321,
+      "eng": "playback print rate",
+      "chn": "[计] 读出打印速率",
+      "isCard": false
+    },
+    {
+      "id": 536322,
+      "eng": "playback recording",
+      "chn": "[计] 读出记录",
+      "isCard": false
+    },
+    {
+      "id": 536323,
+      "eng": "playback signal",
+      "chn": "[计] 读出信号, 再生信号",
+      "isCard": false
+    },
+    {
+      "id": 536324,
+      "eng": "playbacks",
+      "chn": "(playback 的复数) n. (录音)重放, (录音)重放装置\\n[计] 重现",
+      "isCard": false
+    },
+    {
+      "id": 536325,
+      "eng": "playbill",
+      "chn": "n. 戏单, 演出海报, 节目单",
+      "isCard": false
+    },
+    {
+      "id": 536326,
+      "eng": "playbills",
+      "chn": "戏单（playbill的复数）",
+      "isCard": false
+    },
+    {
+      "id": 536327,
+      "eng": "playboat",
+      "chn": "[网络] 花式舟；花式独木舟",
+      "isCard": false
+    },
+    {
+      "id": 536328,
+      "eng": "playbook",
+      "chn": "n. 剧本, 剧本集",
+      "isCard": false
+    },
+    {
+      "id": 536329,
+      "eng": "playbooks",
+      "chn": "(playbook 的复数) n. 剧本, 剧本集",
+      "isCard": false
+    },
+    {
+      "id": 536330,
+      "eng": "playbox",
+      "chn": "n. 玩具箱, 私人用品箱",
+      "isCard": false
+    },
+    {
+      "id": 536331,
+      "eng": "playboy",
+      "chn": "n. 花花公子, 乖巧的人",
+      "isCard": false
+    },
+    {
+      "id": 536332,
+      "eng": "playboys",
+      "chn": "n. 花花公子, 纨绔子弟( playboy的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536333,
+      "eng": "playbus",
+      "chn": "n. (儿童乘坐的)游戏公共汽车",
+      "isCard": false
+    },
+    {
+      "id": 536334,
+      "eng": "playclothes",
+      "chn": "[复]n.(在家或娱乐时穿的)游乐装,轻便装",
+      "isCard": false
+    },
+    {
+      "id": 536335,
+      "eng": "playdate",
+      "chn": "n. (影片等的)上映期",
+      "isCard": false
+    },
+    {
+      "id": 536336,
+      "eng": "playday",
+      "chn": "n. 休假日, 休息日, 演出日, 非正式比赛",
+      "isCard": false
+    },
+    {
+      "id": 536337,
+      "eng": "playdays",
+      "chn": "(playday 的复数) n. 休假日, 休息日, 演出日, 非正式比赛",
+      "isCard": false
+    },
+    {
+      "id": 536338,
+      "eng": "playdom",
+      "chn": "n. 戏剧界",
+      "isCard": false
+    },
+    {
+      "id": 536339,
+      "eng": "playdown",
+      "chn": "n. <加拿大>[体](平局后的加时)决赛",
+      "isCard": false
+    },
+    {
+      "id": 536340,
+      "eng": "playe",
+      "chn": " [医]翻放机, 唱机",
+      "isCard": false
+    },
+    {
+      "id": 536341,
+      "eng": "played",
+      "chn": "v. 玩耍；演奏；播放；参加竞赛（play的过去分词）",
+      "isCard": false
+    },
+    {
+      "id": 536342,
+      "eng": "played out",
+      "chn": "[体]使筋疲力尽",
+      "isCard": false
+    },
+    {
+      "id": 536343,
+      "eng": "played-out",
+      "chn": "adj. 已丧失权利的； <贬>陈旧的，过时的",
+      "isCard": false
+    },
+    {
+      "id": 536344,
+      "eng": "playeds",
+      "chn": "(played 的第三人称 -s形式) v. 玩耍；演奏；播放；参加竞赛（play的过去分词）",
+      "isCard": false
+    },
+    {
+      "id": 536345,
+      "eng": "player",
+      "chn": "n. 竞赛者, 上场队员, 游戏者, 演员\\n[经] 交易者",
+      "isCard": false
+    },
+    {
+      "id": 536346,
+      "eng": "player piano",
+      "chn": "自动钢琴",
+      "isCard": false
+    },
+    {
+      "id": 536347,
+      "eng": "player-coach",
+      "chn": "n. 教练兼队员",
+      "isCard": false
+    },
+    {
+      "id": 536348,
+      "eng": "player-manager",
+      "chn": "n. （足球和一些其他体育运动中的）队员兼主教练",
+      "isCard": false
+    },
+    {
+      "id": 536349,
+      "eng": "players",
+      "chn": "n. 队员, 参与者；迷你音碟机, 雷射唱盘（player的复数形式）；玩家（player的复数形式）",
+      "isCard": false
+    },
+    {
+      "id": 536350,
+      "eng": "playes",
+      "chn": "(playe 的复数)  [医]翻放机, 唱机",
+      "isCard": false
+    },
+    {
+      "id": 536351,
+      "eng": "playfair",
+      "chn": " [人名] [苏格兰人姓氏] 普莱费尔 Playford的变体, 绰号, 体育运动热情参加者, 来源于中世纪英语, 含义是“运动, 比赛+伙伴”(sport,play+companion)",
+      "isCard": false
+    },
+    {
+      "id": 536352,
+      "eng": "Playfair's treatment",
+      "chn": "[医] 普兰卡氏疗法(治麻风)",
+      "isCard": false
+    },
+    {
+      "id": 536353,
+      "eng": "Playfair's uterine probe",
+      "chn": "[医] 普累费尔氏子宫探子",
+      "isCard": false
+    },
+    {
+      "id": 536354,
+      "eng": "playfairs",
+      "chn": "(playfair 的复数)  [人名] [苏格兰人姓氏] 普莱费尔 Playford的变体, 绰号, 体育运动热情参加者, 来源于中世纪英语, 含义是“运动, 比赛+伙伴”(sport,play+companion)",
+      "isCard": false
+    },
+    {
+      "id": 536355,
+      "eng": "playfellow",
+      "chn": "n. 游伴",
+      "isCard": false
+    },
+    {
+      "id": 536356,
+      "eng": "playfellows",
+      "chn": "(playfellow 的复数) n. 游伴",
+      "isCard": false
+    },
+    {
+      "id": 536357,
+      "eng": "playfield",
+      "chn": "n. 室外运动场, 球场",
+      "isCard": false
+    },
+    {
+      "id": 536358,
+      "eng": "playford",
+      "chn": " [人名] [英格兰人姓氏] 普莱福德住所名称，来源于古英语，含义是“运动，比赛+津渡”(sport,play +ford); [地名] [英国] 普莱福德",
+      "isCard": false
+    },
+    {
+      "id": 536359,
+      "eng": "playful",
+      "chn": "a. 爱打趣的, 多趣的, 开玩笑的, 嬉戏的",
+      "isCard": false
+    },
+    {
+      "id": 536360,
+      "eng": "playfully",
+      "chn": "adv. 开玩笑地；好游玩地",
+      "isCard": false
+    },
+    {
+      "id": 536361,
+      "eng": "playfulness",
+      "chn": "n. 活泼快乐, 戏谑; 童心",
+      "isCard": false
+    },
+    {
+      "id": 536362,
+      "eng": "playgame",
+      "chn": "n. 儿戏, 不足道的事",
+      "isCard": false
+    },
+    {
+      "id": 536363,
+      "eng": "playgirl",
+      "chn": "n. 寻欢作乐的女子, 花花小姐",
+      "isCard": false
+    },
+    {
+      "id": 536364,
+      "eng": "playgirls",
+      "chn": "(playgirl 的第三人称 -s形式) n. 寻欢作乐的女子, 花花小姐",
+      "isCard": false
+    },
+    {
+      "id": 536365,
+      "eng": "playgoer",
+      "chn": "n. 爱看戏的人, 常看戏的人, 戏迷",
+      "isCard": false
+    },
+    {
+      "id": 536366,
+      "eng": "playgoers",
+      "chn": "(playgoer 的复数) n. 爱看戏的人, 常看戏的人, 戏迷",
+      "isCard": false
+    },
+    {
+      "id": 536367,
+      "eng": "playgoing",
+      "chn": "n. 看戏",
+      "isCard": false
+    },
+    {
+      "id": 536368,
+      "eng": "playground",
+      "chn": "n. 运动场, 操场, 度假胜地, 活动场所",
+      "isCard": false
+    },
+    {
+      "id": 536369,
+      "eng": "playground ball",
+      "chn": "[网络] 游戏场球；草地球；操场球",
+      "isCard": false
+    },
+    {
+      "id": 536370,
+      "eng": "playground slide",
+      "chn": "[网络] 滑梯；溜滑梯；儿童滑梯",
+      "isCard": false
+    },
+    {
+      "id": 536371,
+      "eng": "playgrounds",
+      "chn": "n. 操场( playground的复数形式 ); 游乐场; 娱乐场; （某些集体聚会游乐的）园地",
+      "isCard": false
+    },
+    {
+      "id": 536372,
+      "eng": "playgroup",
+      "chn": "n. 托儿所",
+      "isCard": false
+    },
+    {
+      "id": 536373,
+      "eng": "playgroups",
+      "chn": "n. （三至五岁孩子的）幼儿园( playgroup的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536374,
+      "eng": "playhouse",
+      "chn": "n. 剧场, 儿童之家, 玩具房",
+      "isCard": false
+    },
+    {
+      "id": 536375,
+      "eng": "playhouses",
+      "chn": "n. 剧场, 戏院( playhouse的复数形式 ); （像房子一样的）儿童游戏屋",
+      "isCard": false
+    },
+    {
+      "id": 536376,
+      "eng": "playing",
+      "chn": "n. 游戏, 玩耍, 竞技, 比赛, 扮演, 演奏, 赌博",
+      "isCard": false
+    },
+    {
+      "id": 536377,
+      "eng": "playing area",
+      "chn": "[体]比赛场地",
+      "isCard": false
+    },
+    {
+      "id": 536378,
+      "eng": "playing card",
+      "chn": "扑克牌",
+      "isCard": false
+    },
+    {
+      "id": 536379,
+      "eng": "playing field",
+      "chn": "运动场, 比赛场地",
+      "isCard": false
+    },
+    {
+      "id": 536380,
+      "eng": "playing period",
+      "chn": "[网络] 打球时间",
+      "isCard": false
+    },
+    {
+      "id": 536381,
+      "eng": "playing-card",
+      "chn": "n. 扑克牌",
+      "isCard": false
+    },
+    {
+      "id": 536382,
+      "eng": "playing-cards",
+      "chn": "(playing-card 的复数) n. 扑克牌",
+      "isCard": false
+    },
+    {
+      "id": 536383,
+      "eng": "playing-field",
+      "chn": "n. 运动场",
+      "isCard": false
+    },
+    {
+      "id": 536384,
+      "eng": "playing-fields",
+      "chn": "(playing-field 的复数) n. 运动场",
+      "isCard": false
+    },
+    {
+      "id": 536385,
+      "eng": "playingfield",
+      "chn": "(野外)运动场, 操场, 球场",
+      "isCard": false
+    },
+    {
+      "id": 536386,
+      "eng": "playings",
+      "chn": "(playing 的复数) n. 游戏, 玩耍, 竞技, 比赛, 扮演, 演奏, 赌博",
+      "isCard": false
+    },
+    {
+      "id": 536387,
+      "eng": "playland",
+      "chn": " 操场, （儿童）游戏场",
+      "isCard": false
+    },
+    {
+      "id": 536388,
+      "eng": "playlet",
+      "chn": "n. 短剧, 小戏",
+      "isCard": false
+    },
+    {
+      "id": 536389,
+      "eng": "playlets",
+      "chn": "n. 小戏；短剧",
+      "isCard": false
+    },
+    {
+      "id": 536390,
+      "eng": "playlist",
+      "chn": "n. 播放列表；演出剧目表",
+      "isCard": false
+    },
+    {
+      "id": 536391,
+      "eng": "playlisted",
+      "chn": "(playlist 的过去分词) n. 播放列表；演出剧目表",
+      "isCard": false
+    },
+    {
+      "id": 536392,
+      "eng": "playlisting",
+      "chn": "(playlist 的现在分词) n. 播放列表；演出剧目表",
+      "isCard": false
+    },
+    {
+      "id": 536393,
+      "eng": "playlists",
+      "chn": "(playlist 的复数) n. 播放列表；演出剧目表",
+      "isCard": false
+    },
+    {
+      "id": 536394,
+      "eng": "Playlobium obtusangulum",
+      "chn": "[网络] 小叶柄",
+      "isCard": false
+    },
+    {
+      "id": 536395,
+      "eng": "playmaker",
+      "chn": "n. (篮球、 曲棍球等 ) 场上组织进攻的队员",
+      "isCard": false
+    },
+    {
+      "id": 536396,
+      "eng": "playmakers",
+      "chn": "(playmaker 的复数) n.(篮球、 曲棍球等 ) 场上组织进攻的队员",
+      "isCard": false
+    },
+    {
+      "id": 536397,
+      "eng": "playmaking",
+      "chn": "n. 控球后卫；发动机",
+      "isCard": false
+    },
+    {
+      "id": 536398,
+      "eng": "playmaking n.",
+      "chn": "[网络] 制作n。",
+      "isCard": false
+    },
+    {
+      "id": 536399,
+      "eng": "playmate",
+      "chn": "n. 玩伴, 游伴",
+      "isCard": false
+    },
+    {
+      "id": 536400,
+      "eng": "playmates",
+      "chn": "n. 一起玩耍的朋友, 游戏的伙伴( playmate的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536401,
+      "eng": "playmobile",
+      "chn": "n. 玩具车",
+      "isCard": false
+    },
+    {
+      "id": 536402,
+      "eng": "playoff",
+      "chn": "n. 双方得分相等时的最后决赛；复赛；季后赛",
+      "isCard": false
+    },
+    {
+      "id": 536403,
+      "eng": "playoff game",
+      "chn": "[网络] 季后赛最佳比赛；参加决赛系列赛",
+      "isCard": false
+    },
+    {
+      "id": 536404,
+      "eng": "playoffs",
+      "chn": "n. NBA 季后赛",
+      "isCard": false
+    },
+    {
+      "id": 536405,
+      "eng": "playpen",
+      "chn": "n. 游戏围栏",
+      "isCard": false
+    },
+    {
+      "id": 536406,
+      "eng": "playpens",
+      "chn": "n. （供幼儿在内玩耍的）护栏( playpen的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536407,
+      "eng": "playpit",
+      "chn": "n. <英>(供儿童玩的)游戏沙坑",
+      "isCard": false
+    },
+    {
+      "id": 536408,
+      "eng": "playreader",
+      "chn": "n. (为出版商、演出人或剧团等阅读并评价剧本的)剧本读评人",
+      "isCard": false
+    },
+    {
+      "id": 536409,
+      "eng": "playroom",
+      "chn": "n. 游戏室, 娱乐室",
+      "isCard": false
+    },
+    {
+      "id": 536410,
+      "eng": "playrooms",
+      "chn": "n. 游戏室, 娱乐室( playroom的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536411,
+      "eng": "plays",
+      "chn": "n. 戏剧集；戏剧（play的复数）",
+      "isCard": false
+    },
+    {
+      "id": 536412,
+      "eng": "playscape",
+      "chn": "[网络] 攻城大战",
+      "isCard": false
+    },
+    {
+      "id": 536413,
+      "eng": "playscheme",
+      "chn": "（尤指学校放假期间为儿童制订的）游戏活动计划",
+      "isCard": false
+    },
+    {
+      "id": 536414,
+      "eng": "playschemes",
+      "chn": "(playscheme 的复数)  （尤指学校放假期间为儿童制订的）游戏活动计划",
+      "isCard": false
+    },
+    {
+      "id": 536415,
+      "eng": "playschool",
+      "chn": "n. 幼儿游戏组",
+      "isCard": false
+    },
+    {
+      "id": 536416,
+      "eng": "playschools",
+      "chn": "(playschool 的第三人称 -s形式) n. 幼儿游戏组",
+      "isCard": false
+    },
+    {
+      "id": 536417,
+      "eng": "playscript",
+      "chn": "n. 剧本,剧本原稿",
+      "isCard": false
+    },
+    {
+      "id": 536418,
+      "eng": "playscripts",
+      "chn": "(playscript 的复数) n.剧本,剧本原稿",
+      "isCard": false
+    },
+    {
+      "id": 536419,
+      "eng": "playset",
+      "chn": "玩具套装",
+      "isCard": false
+    },
+    {
+      "id": 536420,
+      "eng": "playsets",
+      "chn": "(playset 的第三人称 -s形式) 玩具套装",
+      "isCard": false
+    },
+    {
+      "id": 536421,
+      "eng": "playshoe",
+      "chn": "n. 游乐鞋,轻便鞋",
+      "isCard": false
+    },
+    {
+      "id": 536422,
+      "eng": "playshop",
+      "chn": "[网络] 戏剧",
+      "isCard": false
+    },
+    {
+      "id": 536423,
+      "eng": "playsome",
+      "chn": "a. 爱打趣的, 多趣的, 开玩笑的, 嬉戏的",
+      "isCard": false
+    },
+    {
+      "id": 536424,
+      "eng": "playstation",
+      "chn": "n. 游戏机",
+      "isCard": false
+    },
+    {
+      "id": 536425,
+      "eng": "playsuit",
+      "chn": "n. 运动装, 戏装, 轻便服",
+      "isCard": false
+    },
+    {
+      "id": 536426,
+      "eng": "playsuits",
+      "chn": "(playsuit 的复数) n. 运动装, 戏装, 轻便服",
+      "isCard": false
+    },
+    {
+      "id": 536427,
+      "eng": "playtest",
+      "chn": "[网络] 可玩性测试；播放测试文件",
+      "isCard": false
+    },
+    {
+      "id": 536428,
+      "eng": "playtesting",
+      "chn": "[网络] 玩测试",
+      "isCard": false
+    },
+    {
+      "id": 536429,
+      "eng": "plaything",
+      "chn": "n. 玩具, 被玩弄的人, 玩物",
+      "isCard": false
+    },
+    {
+      "id": 536430,
+      "eng": "playthings",
+      "chn": "n. 玩物, 供消遣的东西( plaything的复数形式 ); <正>玩具",
+      "isCard": false
+    },
+    {
+      "id": 536431,
+      "eng": "playtime",
+      "chn": "n. 游戏时间, 娱乐时间, 演出时间, 开幕时刻",
+      "isCard": false
+    },
+    {
+      "id": 536432,
+      "eng": "playtimes",
+      "chn": "(playtime 的复数) n. 游戏时间, 娱乐时间, 演出时间, 开幕时刻",
+      "isCard": false
+    },
+    {
+      "id": 536433,
+      "eng": "playwear",
+      "chn": "n. (空闲时穿的)游乐装,轻便服",
+      "isCard": false
+    },
+    {
+      "id": 536434,
+      "eng": "playworker",
+      "chn": "",
+      "isCard": false
+    },
+    {
+      "id": 536435,
+      "eng": "playwright",
+      "chn": "n. 剧作家",
+      "isCard": false
+    },
+    {
+      "id": 536436,
+      "eng": "playwrighting",
+      "chn": "(playwright 的现在分词) n. 剧作家",
+      "isCard": false
+    },
+    {
+      "id": 536437,
+      "eng": "playwrights",
+      "chn": "n. 剧作家( playwright的复数形式 )",
+      "isCard": false
+    },
+    {
+      "id": 536438,
+      "eng": "playwrite",
+      "chn": "vt.把…写成剧本",
+      "isCard": false
+    },
+    {
+      "id": 536439,
+      "eng": "playwriter",
+      "chn": "n. 剧作家",
+      "isCard": false
+    },
+    {
+      "id": 536440,
+      "eng": "playwriting",
+      "chn": "n. 剧本创作",
+      "isCard": false
+    }
+  ]
+}

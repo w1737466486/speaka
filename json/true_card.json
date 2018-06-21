@@ -1,0 +1,509 @@
+{
+  "status": 1,
+  "info": [
+    {
+      "id": 1,
+      "eng": "apple",
+      "chn": "测试",
+      "isCard": true
+    },
+    {
+      "id": 42433,
+      "eng": "apple aphid",
+      "chn": "苹果蚜，苹蚜",
+      "isCard": false
+    },
+    {
+      "id": 42434,
+      "eng": "apple blight",
+      "chn": "苹果疫病",
+      "isCard": false
+    },
+    {
+      "id": 42435,
+      "eng": "apple butter",
+      "chn": "n. 苹果酱",
+      "isCard": false
+    },
+    {
+      "id": 42436,
+      "eng": "apple canker",
+      "chn": "苹果腐烂病",
+      "isCard": false
+    },
+    {
+      "id": 42437,
+      "eng": "apple cart",
+      "chn": "苹果车",
+      "isCard": false
+    },
+    {
+      "id": 42438,
+      "eng": "APPLE computer",
+      "chn": "[计] \"苹果\"计算机, AP-PLE机",
+      "isCard": false
+    },
+    {
+      "id": 42439,
+      "eng": "Apple Computer Inc.",
+      "chn": "[计] 苹果计算机公司",
+      "isCard": false
+    },
+    {
+      "id": 42440,
+      "eng": "Apple Desktop Bus",
+      "chn": "[计] 苹果桌面总线",
+      "isCard": false
+    },
+    {
+      "id": 42441,
+      "eng": "apple dumpling",
+      "chn": "[网络] 苹果布丁；苹菓局布仑糕；苹果饺",
+      "isCard": false
+    },
+    {
+      "id": 42442,
+      "eng": "apple essence",
+      "chn": "[机] 戊酸异酯",
+      "isCard": false
+    },
+    {
+      "id": 42443,
+      "eng": "apple fritter",
+      "chn": "炸苹果饼",
+      "isCard": false
+    },
+    {
+      "id": 42444,
+      "eng": "apple geranium",
+      "chn": "[网络] 苹果天竺葵；碰碰香；苹果花天竺葵",
+      "isCard": false
+    },
+    {
+      "id": 42445,
+      "eng": "apple head",
+      "chn": "笨人\\n[医] 苹果状头",
+      "isCard": false
+    },
+    {
+      "id": 42446,
+      "eng": "apple jelly",
+      "chn": "n. 苹果冻",
+      "isCard": false
+    },
+    {
+      "id": 42447,
+      "eng": "apple jelly nodules",
+      "chn": "[医] 苹果酱状结节(狼疮)",
+      "isCard": false
+    },
+    {
+      "id": 42448,
+      "eng": "apple juice",
+      "chn": "苹果汁",
+      "isCard": false
+    },
+    {
+      "id": 42449,
+      "eng": "apple maggot",
+      "chn": "[美国英语]【植物病理学、昆虫】苹果蝇蛆,苹果实蝇(Rhagoletis pomonella)[亦作railroad worm]",
+      "isCard": false
+    },
+    {
+      "id": 42450,
+      "eng": "apple mint",
+      "chn": "圆叶薄荷",
+      "isCard": false
+    },
+    {
+      "id": 42451,
+      "eng": "apple nut",
+      "chn": "[网络] 苹果坚果",
+      "isCard": false
+    },
+    {
+      "id": 42452,
+      "eng": "apple of discord",
+      "chn": "争端,祸根",
+      "isCard": false
+    },
+    {
+      "id": 42453,
+      "eng": "apple of one's eye",
+      "chn": "瞳孔, 珍爱物, 宝贝",
+      "isCard": false
+    },
+    {
+      "id": 42454,
+      "eng": "apple of Peru",
+      "chn": "【植物】曼陀罗(Nicandra physalodes)",
+      "isCard": false
+    },
+    {
+      "id": 42455,
+      "eng": "apple oil",
+      "chn": "[机] 戊酸异酯",
+      "isCard": false
+    },
+    {
+      "id": 42456,
+      "eng": "apple orchard",
+      "chn": "苹果园",
+      "isCard": false
+    },
+    {
+      "id": 42457,
+      "eng": "apple pie",
+      "chn": "苹果馅饼",
+      "isCard": false
+    },
+    {
+      "id": 42458,
+      "eng": "apple polisher",
+      "chn": "n. 拍马屁的人",
+      "isCard": false
+    },
+    {
+      "id": 42459,
+      "eng": "apple pomace",
+      "chn": "[机] 苹果糊",
+      "isCard": false
+    },
+    {
+      "id": 42460,
+      "eng": "apple rust",
+      "chn": "苹果锈病",
+      "isCard": false
+    },
+    {
+      "id": 42461,
+      "eng": "apple sauce",
+      "chn": "苹果酱;胡说八道,瞎扯",
+      "isCard": false
+    },
+    {
+      "id": 42462,
+      "eng": "apple scab",
+      "chn": "苹果黑星病",
+      "isCard": false
+    },
+    {
+      "id": 42463,
+      "eng": "apple tart",
+      "chn": "苹果馅饼",
+      "isCard": false
+    },
+    {
+      "id": 42464,
+      "eng": "apple tree",
+      "chn": "苹果树",
+      "isCard": false
+    },
+    {
+      "id": 42465,
+      "eng": "apple turnover",
+      "chn": "[网络] 苹果饺；苹果公司的改革之路；苹果卷饼",
+      "isCard": false
+    },
+    {
+      "id": 42466,
+      "eng": "apple-cheeked",
+      "chn": "a. 脸颊红润的",
+      "isCard": false
+    },
+    {
+      "id": 42467,
+      "eng": "apple-green",
+      "chn": "苹果绿",
+      "isCard": false
+    },
+    {
+      "id": 42468,
+      "eng": "apple-juice",
+      "chn": "苹果汁",
+      "isCard": false
+    },
+    {
+      "id": 42469,
+      "eng": "apple-oil",
+      "chn": "[医] 苹果油",
+      "isCard": false
+    },
+    {
+      "id": 42470,
+      "eng": "apple-pear",
+      "chn": "苹果梨",
+      "isCard": false
+    },
+    {
+      "id": 42471,
+      "eng": "apple-pie",
+      "chn": "a. 苹果饼状的, 整齐的, 完美的",
+      "isCard": false
+    },
+    {
+      "id": 42472,
+      "eng": "apple-pie bed",
+      "chn": "n. 苹果排式的床铺",
+      "isCard": false
+    },
+    {
+      "id": 42473,
+      "eng": "apple-pie order",
+      "chn": "n. <口>整整齐齐, 井然有序",
+      "isCard": false
+    },
+    {
+      "id": 42474,
+      "eng": "apple-polish",
+      "chn": "v. 拍马屁",
+      "isCard": false
+    },
+    {
+      "id": 42475,
+      "eng": "apple-polisher",
+      "chn": "n. <美俚>请老师吃苹果以换取关照的学生",
+      "isCard": false
+    },
+    {
+      "id": 42476,
+      "eng": "apple-scented",
+      "chn": "[网络] 苹果味",
+      "isCard": false
+    },
+    {
+      "id": 42477,
+      "eng": "apple-seed oil",
+      "chn": "[机] 苹果子油",
+      "isCard": false
+    },
+    {
+      "id": 42478,
+      "eng": "apple-shaped",
+      "chn": "[网络] 苹果型；苹果体型",
+      "isCard": false
+    },
+    {
+      "id": 42479,
+      "eng": "apple-sized",
+      "chn": "[网络] 苹果大小",
+      "isCard": false
+    },
+    {
+      "id": 42480,
+      "eng": "apple-tree",
+      "chn": "苹果树",
+      "isCard": false
+    },
+    {
+      "id": 42481,
+      "eng": "apple-trees",
+      "chn": "(apple-tree 的复数) 苹果树",
+      "isCard": false
+    },
+    {
+      "id": 42482,
+      "eng": "applebaum",
+      "chn": "n. (Applebaum)人名；(德)阿普勒鲍姆",
+      "isCard": false
+    },
+    {
+      "id": 42483,
+      "eng": "appleblossom",
+      "chn": "苹果花色",
+      "isCard": false
+    },
+    {
+      "id": 42484,
+      "eng": "Appleby",
+      "chn": "n. 阿普比（英国英格兰西北部小镇）",
+      "isCard": false
+    },
+    {
+      "id": 42485,
+      "eng": "Appleby-Frodingham process",
+      "chn": "[化] 阿普尔比-福罗丁翰法",
+      "isCard": false
+    },
+    {
+      "id": 42486,
+      "eng": "applecart",
+      "chn": "n. 苹果小贩手推车",
+      "isCard": false
+    },
+    {
+      "id": 42487,
+      "eng": "applecarts",
+      "chn": "(applecart 的复数) n. 苹果小贩手推车",
+      "isCard": false
+    },
+    {
+      "id": 42488,
+      "eng": "appledore",
+      "chn": "[地名] [英国] 阿普尔多尔",
+      "isCard": false
+    },
+    {
+      "id": 42489,
+      "eng": "applegarth",
+      "chn": " [人名] [北方英格兰人、苏格兰人姓氏] 阿普尔加思地貌名称，或住所名称，来源于古诺斯语，含义是“苹果+圈用地，果园”(apple+enclosure,orchard)",
+      "isCard": false
+    },
+    {
+      "id": 42490,
+      "eng": "applegate",
+      "chn": "n. (Applegate)人名；(英)阿普尔盖特",
+      "isCard": false
+    },
+    {
+      "id": 42491,
+      "eng": "Applegate diagram",
+      "chn": "[电] 阿波里格特图",
+      "isCard": false
+    },
+    {
+      "id": 42492,
+      "eng": "appleget",
+      "chn": "[人名] 阿普尔格特",
+      "isCard": false
+    },
+    {
+      "id": 42493,
+      "eng": "applejack",
+      "chn": "n. 苹果白兰地",
+      "isCard": false
+    },
+    {
+      "id": 42494,
+      "eng": "applelike",
+      "chn": "adj. apple的变形",
+      "isCard": false
+    },
+    {
+      "id": 42495,
+      "eng": "AppleLink",
+      "chn": "[计] AppleLink库文件",
+      "isCard": false
+    },
+    {
+      "id": 42496,
+      "eng": "appleman",
+      "chn": "[人名] 阿普尔曼",
+      "isCard": false
+    },
+    {
+      "id": 42497,
+      "eng": "applemint",
+      "chn": "un. 圆叶薄荷\\n[网络] 苹果薄荷",
+      "isCard": false
+    },
+    {
+      "id": 42498,
+      "eng": "apples",
+      "chn": "n. 苹果（复数）；井架小零件",
+      "isCard": false
+    },
+    {
+      "id": 42499,
+      "eng": "applesauce",
+      "chn": "n. 苹果沙司, 胡说",
+      "isCard": false
+    },
+    {
+      "id": 42500,
+      "eng": "applesauce cake",
+      "chn": "[网络] 苹果蛋糕；苹果酱蛋糕",
+      "isCard": false
+    },
+    {
+      "id": 42501,
+      "eng": "Appleseed",
+      "chn": "n. 苹果核战记（动画电影名）\\nn. (Appleseed)人名；(英)阿普尔西德",
+      "isCard": false
+    },
+    {
+      "id": 42502,
+      "eng": "appleseeds",
+      "chn": "n. 苹果核战记（动画电影名）\\nn. (Appleseed)人名；(英)阿普尔西德",
+      "isCard": false
+    },
+    {
+      "id": 42503,
+      "eng": "AppleShare",
+      "chn": "[计] AppleShare文件",
+      "isCard": false
+    },
+    {
+      "id": 42504,
+      "eng": "applet",
+      "chn": "n. 小型程式；支程序, 小应用程序；程序类型",
+      "isCard": false
+    },
+    {
+      "id": 42505,
+      "eng": "appletalk",
+      "chn": "对话  ;     网络协议,(由苹果电脑公司开发出的一种网络协议。用于苹果计算机与其它种类计算机的通信上)",
+      "isCard": false
+    },
+    {
+      "id": 42506,
+      "eng": "AppleTalk Filing Protocol",
+      "chn": "[计] AppleTalk文件处理协议",
+      "isCard": false
+    },
+    {
+      "id": 42507,
+      "eng": "appletini",
+      "chn": "n. 苹果马提尼（一种非常流行的鸡尾酒，但也被看作是同性恋饮料）",
+      "isCard": false
+    },
+    {
+      "id": 42508,
+      "eng": "Appleton",
+      "chn": "[计] 阿普尔顿",
+      "isCard": false
+    },
+    {
+      "id": 42509,
+      "eng": "Appleton layer",
+      "chn": "[计] 阿普尔顿层",
+      "isCard": false
+    },
+    {
+      "id": 42510,
+      "eng": "applets",
+      "chn": "(applet 的复数) n. 小型程式；支程序, 小应用程序；程序类型",
+      "isCard": false
+    },
+    {
+      "id": 42511,
+      "eng": "applewhite",
+      "chn": "[人名] [英格兰人姓氏] 阿普尔怀特 Applethwaite的变体",
+      "isCard": false
+    },
+    {
+      "id": 42512,
+      "eng": "applewife",
+      "chn": "n. 卖苹果之女人",
+      "isCard": false
+    },
+    {
+      "id": 42513,
+      "eng": "applewood",
+      "chn": "n. 苹果木",
+      "isCard": false
+    },
+    {
+      "id": 42514,
+      "eng": "appleworks",
+      "chn": "苹果工具",
+      "isCard": false
+    },
+    {
+      "id": 42515,
+      "eng": "Appleyard",
+      "chn": "n. (Appleyard)人名；(英)阿普尔亚德",
+      "isCard": false
+    }
+  ]
+}

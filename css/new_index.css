@@ -84,7 +84,28 @@ input[type=search]::-ms-clear{
     text-indent: 15px;
     border: none;
 }
+.recommended_word_word{
+	/*display: none;*/
+	position: relative;
+    width: 81.3%;
+    left: 9.3%;
+    background: #FFFFFF;
+    padding: 15px 0px;
+}
+.recommended_word_word p{
+	margin-bottom: 20px;
+	font-family: RifficFree-Bold;
+}
+.recommended_word_word p:nth-of-type(1){
+	text-align: center;
+    height: 44px;
+    line-height: 44px;
+    font-size: 36px;
+    color: #112231;
+    letter-spacing: -0.02px;
+}
 .recommended_word_box{
+	display: none;
 	position: relative;
 	width: 81.3%;
 	left: 9.3%;
@@ -92,11 +113,26 @@ input[type=search]::-ms-clear{
 	padding: 15px 0px;
 }
 .recommended_word_box .recommended_word_img{
+	position: relative;
 	width: 90.2%;
 	height: 275px;
-	background: #ccc;
+/*	background: #000000;
+	opacity: 0.6;*/
 	border-radius: 10px;
 	margin: 0px auto;
+}
+.recommended_word_blur{
+	position: absolute;
+	bottom: 0px;
+	left: 15px;
+	width:245px;
+	height: 245px;
+	background:#66333333;
+	/*opacity: 0.6;*/
+	border-radius: 10px;
+	margin: 0px auto;
+	filter: url(blur.svg#blur);
+    filter: blur(20px);
 }
 .recommended_word_box p:nth-of-type(1){
 	text-align: center;

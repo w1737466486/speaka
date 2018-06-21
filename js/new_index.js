@@ -1,4 +1,6 @@
 $(function () {
+	var word=null;
+	//默认页面点击搜索，显示搜索框，隐藏今日单词
 	$('.recommended_word_head p span').eq(1).click(function(){
 		$('.recommended_word_head').css({
 			'display':'none'
@@ -7,7 +9,7 @@ $(function () {
 			'display':'block'
 		})
 	})
-	var word=null;
+	//点击cancel或者search触发返回或搜索事件
 	$('.recommended_word_search p span').click(function(){
 		if($('.recommended_word_search p span img').attr('state')=='cancel'){
 		alert('2')
@@ -23,12 +25,13 @@ $(function () {
 				$.ajax({
 				type:"get",
 				dataType: 'JSON',
-				//url:'../json/word.json',
-				url:"http://api.speaka.cn/api/q?word="+word,
+				url:'../json/true_card.json',
+				//url:"http://api.speaka.cn/api/word/search?keyword="+word,
 				async:true,
 				success:function(data){
-					alert(data)
+					alert(JSON.stringify(data))
 					console.log(data)
+					$('.recommended_word_search p input').val('')
 					if(data.status==1){
 						
 					}else{
@@ -52,14 +55,25 @@ $(function () {
 				$.ajax({
 				type:"get",
 				dataType: 'JSON',
-				//url:'../json/word.json',
-				url:"http://api.speaka.cn/api/q?word="+searchName,
+				url:'../json/true_card.json',
+				//url:"http://api.speaka.cn/api/word/search?keyword="+searchName,
 				async:true,
 				success:function(data){
-					console.log(data)
+					//console.log(data)
 					$('.recommended_word_search p span img').attr('src','../img/search.png')
 					$('.recommended_word_search p span img').attr('state','search')
-					alert(data)
+					alert(JSON.stringify(data))
+					$(".keyword").val('')
+					if(data.status==1){
+						if(data.info[0].isCard){
+							alert('123')
+							$('.recommended_word_word').hide()
+							$('.recommended_word_box').show()
+						}
+					}else{
+						
+					}
+				    console.log($(".keyword").val())	
 					
 				},
 				error: function error(res) {

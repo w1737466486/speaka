@@ -1,0 +1,16 @@
+{
+  "status": 1,
+  "info": {
+    "word": {
+      "id": 1,
+      "eng": "apple",
+      "chn": "测试",
+      "voice": "wordcard/20180615/XCix8z38SLX6xk4W5sR5odsZKO524mvqVM2R47BY.wav",
+      "pic_path": "wordcard/20180615/oCbBKGesp01GJAtvgsA0UbzwOsDuemSUzCA6uQOJ.jpeg",
+      "bg_color": "#86ad1c",
+      "created_at": "2018-06-15 15:07:59",
+      "updated_at": "2018-06-19 18:50:48"
+    },
+    "videos": null
+  }
+}
