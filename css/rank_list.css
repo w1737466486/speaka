@@ -155,7 +155,7 @@ li{
 }
 .rank_ul_two{
 	background: #FFFFFF;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10);
+	box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.10);
 	border-radius: 0 0 10px 10px;
 	margin-top: -21px;
 	margin-bottom: 75px;
@@ -232,7 +232,7 @@ li{
 	height: 60px;
 	width: 100%;
 	background: #FFFFFF;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.20);
+	box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.20);
 }
 .rank_ul_three li{
 	width: 92%;
