@@ -64,6 +64,7 @@ b{
 	height: 44px;
 	padding-left: 4%;
 	background: #FFFFFF;
+	box-sizing: border-box;
    box-shadow: 0 0 1px 0 rgba(0,0,0,0.20); 
 }
 .wx_stutas img{

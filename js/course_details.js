@@ -74,24 +74,33 @@ $(function () {
 				$('.v_nav .v_s1').html(data.eng);
 				$('.v_nav .v_s2').html(data.chn);
 				$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path);
+				
 				for (var i = 0; i < data.pages.length; i++) {
-					$('.v_img').append('<img src=""/>');
+					if(data.pages[i].type==1){
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" controlslist="nodownload" width="100%" src="http://s.speaka.cn/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+					}
+					if(data.pages[i].type==0){
+						$('.v_img').append('<img src="http://s.speaka.cn/' + data.pages[i].pic_path+'"/>');
+					}
 				}
-				for (var _i = 0; _i < data.pages.length; _i++) {
-					$('.v_img img').eq(_i).attr('src', 'http://s.speaka.cn/' + data.pages[_i].pic_path);
-				}
-				/*				$('.v_img img').eq(0).attr('src', 'http://s.speaka.cn/' + data.pages[0].pic_path)
-    				$('.v_img img').eq(1).attr('src', 'http://s.speaka.cn/' + data.pages[1].pic_path)
-    				$('.v_img img').eq(2).attr('src', 'http://s.speaka.cn/' + data.pages[2].pic_path)*/
+				var _stop=true
+				$('.img_video').click(function(){
+					if(_stop){
+						_stop=false
+						$(this).find('video').trigger('play')
+						$(this).find('img').remove()
+					}else{
+						_stop=true
+						$(this).find('video').trigger('pause')
+						$(this).append('<img src="../img/Play.png"/>')
+					}
+					
+				})
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
 				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
-				$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课');
-				$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元');
-				$('.course_pay p span').eq(2).html('暂无可用');
-				$('.course_pay p span').eq(3).html('￥' + data.price / 100 + '元');
 				var curr_time = getNowFormatDate();
 				var last_time = data.alloc_at;
 				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
