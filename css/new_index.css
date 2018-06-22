@@ -1,43 +1,53 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
-@font-face {  
- font-family: RifficFree-Bold;  
- src: url(../font/RifficFree-Bold.ttf)
+
+@font-face {
+	font-family: RifficFree-Bold;
+	src: url(../font/RifficFree-Bold.ttf)
 }
-body,html{
+
+body,
+html {
 	width: 100%;
 	height: auto;
 }
-li{
+
+li {
 	list-style: none;
 }
-input::-webkit-search-cancel-button{
-  display: none;
+
+input::-webkit-search-cancel-button {
+	display: none;
 }
-input[type=search]::-ms-clear{
-  display: none;
+
+input[type=search]::-ms-clear {
+	display: none;
 }
-.recommended_word_head{
+
+.recommended_word_head {
 	padding: 30px 0px;
 	width: 100%;
 	height: 44px;
 }
-.recommended_word_head p{
+
+.recommended_word_head p {
 	position: relative;
 	width: 89.4%;
 	left: 5.3%;
 }
-.recommended_word_head span:nth-of-type(1){
+
+.recommended_word_head span:nth-of-type(1) {
 	font-family: PingFangSC-Medium;
 	font-size: 24px;
 	line-height: 44px;
-    color: #333333;
+	color: #333333;
 	position: absolute;
 	left: 0px;
 }
-.recommended_word_head span:nth-of-type(2){
+
+.recommended_word_head span:nth-of-type(2) {
 	width: 23px;
 	height: 23px;
 	display: inline-block;
@@ -46,23 +56,27 @@ input[type=search]::-ms-clear{
 	right: 0px;
 	top: 5px;
 }
-.recommended_word_head span:nth-of-type(2) img{
+
+.recommended_word_head span:nth-of-type(2) img {
 	width: 100%;
 	height: 100%;
 }
-.recommended_word_search{
+
+.recommended_word_search {
 	width: 100%;
 	padding: 30px 0px;
 	display: none;
 }
-.recommended_word_search p{
+
+.recommended_word_search p {
 	position: relative;
 	width: 89.3%;
 	height: 44px;
 	line-height: 44px;
 	left: 5.3%;
 }
-.recommended_word_search p span{
+
+.recommended_word_search p span {
 	width: 44px;
 	height: 44px;
 	position: absolute;
@@ -70,41 +84,47 @@ input[type=search]::-ms-clear{
 	top: 0px;
 	text-align: center;
 }
-.recommended_word_search p span img{
+
+.recommended_word_search p span img {
 	width: 16px;
 	height: 16px;
 }
-.recommended_word_search p input{
+
+.recommended_word_search p input {
 	width: 100%;
 	height: 44px;
 	background: #F5F5F5;
 	border-radius: 4px;
 	font-size: 14px;
-    color: #666666;
-    text-indent: 15px;
-    border: none;
+	color: #666666;
+	text-indent: 15px;
+	border: none;
 }
-.recommended_word_word{
+
+.recommended_word_word {
 	display: none;
 	position: relative;
-    width: 81.3%;
-    left: 9.3%;
-    background: #FFFFFF;
-    padding: 15px 0px;
+	width: 81.3%;
+	left: 9.3%;
+	background: #FFFFFF;
+	padding: 15px 0px;
 }
-.recommended_word_word p{
+
+.recommended_word_word p {
 	margin-bottom: 20px;
 	font-family: RifficFree-Bold;
 }
-.recommended_word_word p:nth-of-type(1){
+
+.recommended_word_word p:nth-of-type(1) {
 	text-align: center;
-    height: 44px;
-    line-height: 44px;
-    font-size: 36px;
-    color: #112231;
-    letter-spacing: -0.02px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 36px;
+	color: #112231;
+	letter-spacing: -0.02px;
 }
-.recommended_word_box{
+
+.recommended_word_box {
 	/*display: none;*/
 	position: relative;
 	width: 81.3%;
@@ -112,33 +132,41 @@ input[type=search]::-ms-clear{
 	background: #FFFFFF;
 	padding: 15px 0px;
 }
-.recommended_word_box .recommended_word_img{
+
+.recommended_word_box .recommended_word_img {
 	position: relative;
 	width: 275px;
 	height: 275px;
-/*	background: #000000;
+	/*	background: #000000;
 	opacity: 0.6;*/
 	border-radius: 10px;
 	margin: 0px auto;
 }
-.recommended_word_box .recommended_word_img img{
+
+.recommended_word_box .recommended_word_img img {
 	width: 100%;
 	height: 100%;
 }
-.recommended_word_blur{
+
+.recommended_word_blur {
 	position: absolute;
 	bottom: 0px;
 	left: 15px;
-	width:245px;
+	width: 245px;
 	height: 245px;
-	background:#66333333;
+	background: #66333333;
 	/*opacity: 0.6;*/
 	border-radius: 10px;
 	margin: 0px auto;
 	filter: url(blur.svg#blur);
-    filter: blur(20px);
+	-webkit-filter: blur(20px);
+	/* Chrome, Opera */
+	-moz-filter: blur(20px);
+	-ms-filter: blur(20px);
+	filter: blur(20px);
 }
-.recommended_word_box p:nth-of-type(1){
+
+.recommended_word_box p:nth-of-type(1) {
 	text-align: center;
 	height: 44px;
 	line-height: 44px;
@@ -148,7 +176,8 @@ input[type=search]::-ms-clear{
 	color: #112231;
 	letter-spacing: -0.02px;
 }
-.recommended_word_box p:nth-of-type(3) span{
+
+.recommended_word_box p:nth-of-type(3) span {
 	display: inline-block;
 	width: 23px;
 	height: 20px;
@@ -156,7 +185,8 @@ input[type=search]::-ms-clear{
 	background-image: url(../img/Voice.png);
 	background-size: 100% 100%;
 }
-.recommended_word_box p:nth-of-type(2){
+
+.recommended_word_box p:nth-of-type(2) {
 	text-align: center;
 	height: 33px;
 	line-height: 33px;
@@ -165,64 +195,76 @@ input[type=search]::-ms-clear{
 	color: #112231;
 	margin-bottom: 30px;
 }
-.recommended_word_box p:nth-of-type(3){
+
+.recommended_word_box p:nth-of-type(3) {
 	font-family: PingFangSC-Regular;
 	font-size: 14px;
 	color: #112231;
 	text-align: center;
 	margin-bottom: 30px;
 }
-.recommended_word_foot p{
+
+.recommended_word_foot p {
 	height: 20px;
 	line-height: 20px;
 	margin-bottom: 15px;
 }
-.recommended_word_foot p span{
+
+.recommended_word_foot p span {
 	display: inline-block;
 	width: 16px;
 	height: 12px;
 	margin-left: 5.3%;
 	margin-right: 2.1%;
 }
-.recommended_word_foot p span img{
+
+.recommended_word_foot p span img {
 	width: 100%;
 	height: 100%;
 }
-.recommended_word_foot ul{
+
+.recommended_word_foot ul {
 	margin-left: 20px;
 }
-.recommended_word_foot ul li:nth-of-type(2n){
+
+.recommended_word_foot ul li:nth-of-type(2n) {
 	margin-left: 15px;
 }
-.recommended_word_foot ul li{
+
+.recommended_word_foot ul li {
 	float: left;
 	width: 160px;
 	height: 200px;
 	margin-bottom: 15px;
 }
-.recommended_word_foot ul li:nth-of-type(1){
+
+.recommended_word_foot ul li:nth-of-type(1) {
 	position: relative;
 }
-.recommended_word_foot ul li:nth-of-type(1)>img{
+
+.recommended_word_foot ul li:nth-of-type(1)>img {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	width: 57px;
 	height: 57px;
 }
-.recommended_word_foot ul li span{
+
+.recommended_word_foot ul li span {
 	display: inline-block;
 	width: 160px;
 	height: 160px;
 	background: #CCCCCC;
 }
-.recommended_word_foot ul li p{
+
+.recommended_word_foot ul li p {
 	font-family: PingFangSC-Regular;
 	font-size: 12px;
 	color: #333333;
 	text-align: right;
 }
-.recommended_word_foot ul li p img{
+
+.recommended_word_foot ul li p img {
 	width: 9px;
 	height: 8px;
 	margin-right: 5px;
