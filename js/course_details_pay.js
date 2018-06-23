@@ -133,8 +133,8 @@ $(function () {
 				}
 				//微信或App团购
 				if (objurl.type_id == 12 || objurl.type_id == 22) {
-					var pay_money = (data.groupon_price / 100 - Number(objurl.coupon_money)).toFixed(2);
-					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+					var pay_group_money = (data.groupon_price / 100 - Number(objurl.coupon_money)).toFixed(2);
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money + '元');
 				}
 				$('.have').html("-￥" + objurl.coupon_money + "元");
 					
@@ -213,7 +213,21 @@ $(function () {
 						$('.have ').css({ color: "#888" });
 					}
 				}
-				
+				if (objurl.coupon_money) {
+					//微信或App单人购,让团购价格消失
+					if (objurl.type_id == 11 || objurl.type_id == 21) {
+						$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+						$('.course_pay p').eq(3).css({
+							'display': 'none'
+						});
+					}
+					//微信或App团购
+					if (objurl.type_id == 12 || objurl.type_id == 22) {
+						$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money + '元');
+					}
+					$('.have').html("-￥" + objurl.coupon_money + "元");
+						
+				}	
 			},
 			error: function error(res) {
 				console.log(res);
