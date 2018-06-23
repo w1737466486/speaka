@@ -7,7 +7,8 @@ $(function () {
 	var coupon_url = location.href.split('?')[1];
 	var coupon_no = null;
 	console.log(coupon_url);
-	
+	var token_pay=null;
+	var pay_price=null;
 	//测试url
 	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
 
@@ -39,29 +40,39 @@ $(function () {
 			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课');
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元');
 			$('.course_pay p span').eq(2).html('￥' + data.groupon_price / 100 + '元');
+			//单购价
+			if(objurl.type_id == 11 || objurl.type_id == 21){
+				pay_price=data.price / 100 
+			}else if(objurl.type_id == 12 || objurl.type_id == 22){
+				//团购价
+				pay_price=data.groupon_price / 100
+			}
 			//获取优惠券数据
 			$.ajax({
 				type: "get",
 				//url:"../json/my_coupon.json",
-				url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code,
+				url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
 				async: false,
 				success: function success(data) {
 					console.log(data.info.length);
-					//判断是否有优惠券
-					if (data.info.length !== 0) {
-
-						$('.have').html(data.info.length + " 张可用");
-						$('.have').css({ color: "red" });
-						//点击选择
-						$('.have').click(function () {
-							console.log(this);
-							window.location.href = 'http://h5.speaka.cn/front/html/my_coupon.html?' + coupon_url;
-							//window.location.href='../html/my_coupon.html?'+coupon_url;
-						});
-					} else {
-						$('.have').html("暂无可用");
-						$('.have ').css({ color: "#888" });
+					if(data.status==1){
+						token_pay='Bearer '+data.token
+						//判断是否有优惠券
+						if (data.info.length !== 0) {
+							$('.have').html(data.info.length + " 张可用");
+							$('.have').css({ color: "red" });
+							//点击选择
+							$('.have').click(function () {
+								console.log(this);
+								window.location.href = 'http://h5.speaka.cn/front/html/my_coupon.html?' + coupon_url;
+								//window.location.href='../html/my_coupon.html?'+coupon_url;
+							});
+						} else {
+							$('.have').html("暂无可用");
+							$('.have ').css({ color: "#888" });
+						}
 					}
+					
 				},
 				error: function error(res) {
 					console.log(res);
@@ -70,26 +81,35 @@ $(function () {
 
 			if (objurl.coupon_money) {
 				console.log(data.groupon_price / 100 - Number(objurl.coupon_money));
-				var pay_money = data.groupon_price / 100 - Number(objurl.coupon_money);
-				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+				//微信或App单人购,让团购价格消失
+				if (objurl.type_id == 11 || objurl.type_id == 21) {
+					var pay_money = data.price / 100 - Number(objurl.coupon_money);
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+					$('.course_pay p').eq(3).css({
+						'display': 'none'
+					});
+				}
+				//微信或App团购
+				if (objurl.type_id == 12 || objurl.type_id == 22) {
+					var pay_money = data.groupon_price / 100 - Number(objurl.coupon_money);
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+				}
 				$('.have').html("-￥" + objurl.coupon_money + "元");
-				//微信或App团购
-				if (objurl.type_id == 12 || objurl.type_id == 22) {
-					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
-				}
+					
 			} else {
-				$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
+				//微信或App单人购,让团购价格消失
+				if (objurl.type_id == 11 || objurl.type_id == 21) {
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.price / 100 + '元');
+					$('.course_pay p').eq(3).css({
+						'display': 'none'
+					});
+				}
 				//微信或App团购
 				if (objurl.type_id == 12 || objurl.type_id == 22) {
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
-				}
+				}	
 			}
-			//微信或App单人购,让团购价格消失
-			if (objurl.type_id == 11 || objurl.type_id == 21) {
-				$('.course_pay p').eq(3).css({
-					'display': 'none'
-				});
-			}
+			
 			//微信购买情况下无付款方式
 			if (objurl.type_id == 11 || objurl.type_id == 12) {
 				$('.wx_stutas').css({
@@ -197,6 +217,7 @@ $(function () {
 			typeId: typeId,
 			order_no: objurl.order_no,
 			coupon_no: coupon_no,
+			token:token_pay,
 			location: window.location.href
 		}, function (data) {
 			objurl.order_no = data.order_no;
@@ -297,9 +318,7 @@ $(function () {
 									$('.pay_success .pay_share').click(function () {
 										window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;
 									});
-									/*setInterval(function(){
-         window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+objurl.order_no
-         },1000)*/
+									
 								}
 							}
 						});
