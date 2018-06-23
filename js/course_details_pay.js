@@ -16,7 +16,7 @@ $(function () {
 	var objurl = queryURL(current_url);
 	console.log(objurl);
 	var commodity_id = objurl.commodity_id;
-	coupon_no=objurl.coupon_no
+	coupon_no=objurl.coupon_no;
 	window.get_token = get_token;
 	//将url参数转对象
 	function queryURL(url) {
@@ -202,6 +202,7 @@ $(function () {
 				console.log(data.info.length);
 				if(data.status==1){
 					//token_pay='Bearer '+data.token
+					
 					//token_pay='Bearer '+'7746tvu5gwP9B/yQtdCAii+ey2uHefAQrqlwVeuKoCvz'
 					//判断是否有优惠券
 					if (data.info.length !== 0) {
