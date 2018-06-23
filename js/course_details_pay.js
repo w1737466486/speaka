@@ -466,7 +466,7 @@ $(function () {
 						androidpay.androidWechatPay(JSON.stringify(obj_pay));
 					} else {
 						//ios  
-						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
+						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
 					alert(JSON.stringify(data))
