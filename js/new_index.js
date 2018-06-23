@@ -32,7 +32,7 @@ $(function () {
 					}
 				}
 			}
-		    $('.recommended_word_foot ul li').click(function(){
+			 $('.recommended_word_foot ul li').click(function(){
 		    	console.log($(this).index())
 		    	var obj={};
 		    	obj.pic_path=data.info.videos[$(this).index()].pic_path;
@@ -44,7 +44,7 @@ $(function () {
 					curson.punchCurson(JSON.stringify(obj));
 				}
 		    	
-		    })
+		    })	
 		}
 	});
 	//点击cancel或者search触发返回或搜索事件
@@ -69,7 +69,7 @@ $(function () {
 					//alert(JSON.stringify(data))
 					console.log(data)
 					$('.recommended_word_search p input').val('')
-					if(data.status==1){
+					if(data.status==1&&data.info.length>0){
 						if(data.info[0].isCard){
 							console.log('命中闪卡')
 							word_id=data.info[0].id
@@ -98,7 +98,19 @@ $(function () {
 											}
 										}
 									}
-									
+									 $('.recommended_word_foot ul li').click(function(){
+										console.log($(this).index())
+										var obj={};
+										obj.pic_path=data.info.videos[$(this).index()].pic_path;
+										obj.video_path=data.info.videos[$(this).index()].video_path;
+										console.log(obj)
+										if (window.webkit) {
+											window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+										} else {
+											curson.punchCurson(JSON.stringify(obj));
+										}
+										
+									})
 								}
 							});
 							$('.recommended_word_word').hide()
@@ -149,7 +161,7 @@ $(function () {
 					$('.recommended_word_search p span img').attr('state','search')
 					//alert(JSON.stringify(data))
 					$(".keyword").val('')
-					if(data.status==1){
+					if(data.status==1&&data.info.length>0){
 						if(data.info[0].isCard){
 							console.log('命中闪卡')
 							word_id=data.info[0].id
@@ -179,7 +191,19 @@ $(function () {
 											}
 										}
 									}
-									
+									 $('.recommended_word_foot ul li').click(function(){
+								    	console.log($(this).index())
+								    	var obj={};
+								    	obj.pic_path=data.info.videos[$(this).index()].pic_path;
+								    	obj.video_path=data.info.videos[$(this).index()].video_path;
+								    	console.log(obj)
+								    	if (window.webkit) {
+											window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+										} else {
+											curson.punchCurson(JSON.stringify(obj));
+										}
+								    	
+								    })
 								}
 							});
 							$('.recommended_word_word').hide()
@@ -216,6 +240,6 @@ $(function () {
 	$('.btn-audio').click(function() {
 	      audio.play(); //播放
 	});
-								
+   						
 	
 })
