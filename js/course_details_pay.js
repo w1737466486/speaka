@@ -16,6 +16,7 @@ $(function () {
 	var objurl = queryURL(current_url);
 	console.log(objurl);
 	var commodity_id = objurl.commodity_id;
+	coupon_no=objurl.coupon_no
 	window.get_token = get_token;
 	//将url参数转对象
 	function queryURL(url) {
@@ -48,38 +49,42 @@ $(function () {
 				pay_price=data.groupon_price / 100
 			}
 			//获取优惠券数据
-			$.ajax({
-				type: "get",
-				//url:"../json/my_coupon.json",
-				url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
-				async: false,
-				success: function success(data) {
-					//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
-					console.log(data.info.length);
-					if(data.status==1){
-						token_pay='Bearer '+data.token
-						//判断是否有优惠券
-						if (data.info.length !== 0) {
-							$('.have').html(data.info.length + " 张可用");
-							$('.have').css({ color: "red" });
-							//点击选择
-							$('.have').click(function () {
-								console.log(this);
-								window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
-								//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
-							});
-						} else {
-							$('.have').html("暂无可用");
-							$('.have ').css({ color: "#888" });
+			
+			//微信端
+			if(isWeiXin()){
+					$.ajax({
+					type: "get",
+					//url:"../json/my_coupon.json",
+					url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
+					async: false,
+					success: function success(data) {
+						//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+						console.log(data.info.length);
+						if(data.status==1){
+							token_pay='Bearer '+data.token
+							//token_pay='Bearer '+'7746tvu5gwP9B/yQtdCAii+ey2uHefAQrqlwVeuKoCvz'
+							//判断是否有优惠券
+							if (data.info.length !== 0) {
+								$('.have').html(data.info.length + " 张可用");
+								$('.have').css({ color: "red" });
+								//点击选择
+								$('.have').click(function () {
+									console.log(this);
+									window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+									//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+								});
+							} else {
+								$('.have').html("暂无可用");
+								$('.have ').css({ color: "#888" });
+							}
 						}
+						
+					},
+					error: function error(res) {
+						console.log(res);
 					}
-					
-				},
-				error: function error(res) {
-					console.log(res);
-				}
-			});
-
+				});
+			}
 			if (objurl.coupon_money) {
 				console.log(data.groupon_price / 100 - Number(objurl.coupon_money));
 				//微信或App单人购,让团购价格消失
@@ -152,6 +157,39 @@ $(function () {
 			typeId = 1;
 		}
 		$.ajax({
+			type: "get",
+			//url:"../json/my_coupon.json",
+			url: 'http://api.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
+			async: false,
+			success: function success(data) {
+				//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+				console.log(data.info.length);
+				if(data.status==1){
+					//token_pay='Bearer '+data.token
+					//token_pay='Bearer '+'7746tvu5gwP9B/yQtdCAii+ey2uHefAQrqlwVeuKoCvz'
+					//判断是否有优惠券
+					if (data.info.length !== 0) {
+						$('.have').html(data.info.length + " 张可用");
+						$('.have').css({ color: "red" });
+						//点击选择
+						$('.have').click(function () {
+							console.log(this);
+							window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token+'&id='+commodity_id+'&price='+pay_price;
+							//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+						});
+					} else {
+						$('.have').html("暂无可用");
+						$('.have ').css({ color: "#888" });
+					}
+				}
+				
+			},
+			error: function error(res) {
+				console.log(res);
+			}
+		});
+
+		$.ajax({
 			type: "post",
 			url: "http://api.speaka.cn/api/apppay",
 			data: {
@@ -210,9 +248,8 @@ $(function () {
 			$('.pay_success div span').html('去分享邀请');
 		}
 	$('.wx_pay span').eq(1).click(function () {
-		
+		//alert(token_pay)
 			$.post("http://api.speaka.cn/api/pay", {
-			code: objurl.code,
 			state: objurl.state,
 			commodity_id: commodity_id,
 			typeId: typeId,
