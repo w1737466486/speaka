@@ -483,7 +483,7 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					alert(JSON.stringify(data))
+					//alert(JSON.stringify(data))
 					alert('请求失败，请重试！');
 				}
 			},
