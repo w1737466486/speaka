@@ -43,7 +43,7 @@ $(function () {
 			$.ajax({
 				type: "get",
 				//url:"../json/my_coupon.json",
-				url: 'api.speaka.cn/api/coupon/usable?code='+objurl.code,
+				url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code,
 				async: false,
 				success: function success(data) {
 					console.log(data.info.length);

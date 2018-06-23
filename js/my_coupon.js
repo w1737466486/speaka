@@ -13,7 +13,7 @@ $(function () {
 			dataType: 'JSON',
 			async: true,
 			//url: "../json/my_coupon.json",
-			url: 'api.speaka.cn/api/coupon/usable ',
+			url: 'http://api.speaka.cn/api/coupon/m',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
