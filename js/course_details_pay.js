@@ -66,7 +66,7 @@ $(function () {
 							$('.have').click(function () {
 								console.log(this);
 								window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
-								//window.location.href='../html/my_coupon.html?'+coupon_url;
+								//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 							});
 						} else {
 							$('.have').html("暂无可用");
