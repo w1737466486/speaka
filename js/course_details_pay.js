@@ -1,8 +1,12 @@
 "use strict";
+//type_id=21&commodity_id=1
 
 $(function () {
 	//获取当前url
 	var current_url = location.href;
+	var coupon_url = location.href.split('?')[1];
+	var coupon_no = null;
+	console.log(coupon_url);
 	//测试url
 	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
 
@@ -29,22 +33,63 @@ $(function () {
 		//url:"../json/ocean.json",
 		async: true,
 		success: function success(data) {
+			//获取接口数据
 			console.log(data.pages);
 			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课');
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元');
 			$('.course_pay p span').eq(2).html('￥' + data.groupon_price / 100 + '元');
-			if (objurl.type_id == 11 || objurl.type_id == 21) {
-				$('.course_pay p span').eq(3).html('实付： ￥' + data.price / 100 + '元');
-			}
-			if (objurl.type_id == 12 || objurl.type_id == 22) {
-				$('.course_pay p span').eq(3).html('实付： ￥' + data.groupon_price / 100 + '元');
-			}
+			//获取优惠券数据
+			$.ajax({
+				type: "get",
+				//url:"../json/my_coupon.json",
+				url: 'api.speaka.cn/api/coupon/usable',
+				async: false,
+				success: function success(data) {
+					console.log(data.info.length);
+					//判断是否有优惠券
+					if (data.info.length !== 0) {
 
+						$('.have').html(data.info.length + " 张可用");
+						$('.have').css({ color: "red" });
+						//点击选择
+						$('.have').click(function () {
+							console.log(this);
+							window.location.href = 'http://h5.speaka.cn/front/html/my_coupon.html?' + coupon_url;
+							//window.location.href='../html/my_coupon.html?'+coupon_url;
+						});
+					} else {
+						$('.have').html("暂无可用");
+						$('.have ').css({ color: "#888" });
+					}
+				},
+				error: function error(res) {
+					console.log(res);
+				}
+			});
+
+			if (objurl.coupon_money) {
+				console.log(data.groupon_price / 100 - Number(objurl.coupon_money));
+				var pay_money = data.groupon_price / 100 - Number(objurl.coupon_money);
+				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+				$('.have').html("-￥" + objurl.coupon_money + "元");
+				//微信或App团购
+				if (objurl.type_id == 12 || objurl.type_id == 22) {
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
+				}
+			} else {
+				$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
+				//微信或App团购
+				if (objurl.type_id == 12 || objurl.type_id == 22) {
+					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.groupon_price / 100 + '元');
+				}
+			}
+			//微信或App单人购,让团购价格消失
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
 				$('.course_pay p').eq(3).css({
 					'display': 'none'
 				});
 			}
+			//微信购买情况下无付款方式
 			if (objurl.type_id == 11 || objurl.type_id == 12) {
 				$('.wx_stutas').css({
 					'display': 'none'
@@ -89,7 +134,8 @@ $(function () {
 			url: "http://api.speaka.cn/api/apppay",
 			data: {
 				commodity_id: commodity_id,
-				typeId: typeId
+				typeId: typeId,
+				coupon_no: coupon_no
 			},
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
@@ -149,35 +195,36 @@ $(function () {
 			commodity_id: commodity_id,
 			typeId: typeId,
 			order_no: objurl.order_no,
+			coupon_no: coupon_no,
 			location: window.location.href
 		}, function (data) {
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
 			/*var data = {
-			   	"status": 1,
-			   	"order_no": "2018051118065256229",
-			   	"prepay_id": "wx11180652597696856feb0f581358570244",
-			   	"config": {
-			   		"debug": false,
-			   		"beta": false,
-			   		"jsApiList": [
-			   			"chooseWXPay"
-			   		],
-			   		"appId": "wx0b778a82184cf52f",
-			   		"nonceStr": "OysMAJLdI1",
-			   		"timestamp": 1526033212,
-			   		"url": "http://api.speaka.cn/api/pay",
-			   		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
-			   	},
-			   	"pay_config": {
-			   		"appId": "wx0b778a82184cf52f",
-			   		"nonceStr": "5af56b3c9c034",
-			   		"package": "prepay_id=wx11180652597696856feb0f581358570244",
-			   		"signType": "MD5",
-			   		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
-			   		"timestamp": "1526033212"
-			   	}
-			   }*/
+      	"status": 1,
+      	"order_no": "2018051118065256229",
+      	"prepay_id": "wx11180652597696856feb0f581358570244",
+      	"config": {
+      		"debug": false,
+      		"beta": false,
+      		"jsApiList": [
+      			"chooseWXPay"
+      		],
+      		"appId": "wx0b778a82184cf52f",
+      		"nonceStr": "OysMAJLdI1",
+      		"timestamp": 1526033212,
+      		"url": "http://api.speaka.cn/api/pay",
+      		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
+      	},
+      	"pay_config": {
+      		"appId": "wx0b778a82184cf52f",
+      		"nonceStr": "5af56b3c9c034",
+      		"package": "prepay_id=wx11180652597696856feb0f581358570244",
+      		"signType": "MD5",
+      		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
+      		"timestamp": "1526033212"
+      	}
+      }*/
 
 			console.log(data.config);
 			if (data.status == 0 && data.code == 403) {
