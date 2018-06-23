@@ -7,6 +7,7 @@ $(function () {
 	var coupon_url = location.href.split('?')[1];
 	var coupon_no = null;
 	console.log(coupon_url);
+	
 	//测试url
 	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
 
@@ -42,7 +43,7 @@ $(function () {
 			$.ajax({
 				type: "get",
 				//url:"../json/my_coupon.json",
-				url: 'api.speaka.cn/api/coupon/usable',
+				url: 'api.speaka.cn/api/coupon/usable?code='+objurl.code,
 				async: false,
 				success: function success(data) {
 					console.log(data.info.length);
