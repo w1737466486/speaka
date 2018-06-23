@@ -33,7 +33,7 @@ $(function () {
 		type: "get",
 		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
-		async: true,
+		async: false,
 		success: function success(data) {
 			//获取接口数据
 			console.log(data.pages);
@@ -54,6 +54,7 @@ $(function () {
 				url: 'http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
 				async: false,
 				success: function success(data) {
+					//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 					console.log(data.info.length);
 					if(data.status==1){
 						token_pay='Bearer '+data.token
@@ -165,7 +166,6 @@ $(function () {
 			async: true,
 			success: function success(data) {
 				//alert(JSON.stringify(data));
-
 				if (data.status == 1) {
 					var obj_pay = {};
 					obj_pay.paytypeId = 2;
@@ -209,8 +209,9 @@ $(function () {
 			$('.pay_success p').eq(3).html('邀请好友参团');
 			$('.pay_success div span').html('去分享邀请');
 		}
-
-		$.post("http://api.speaka.cn/api/pay", {
+	$('.wx_pay span').eq(1).click(function () {
+		
+			$.post("http://api.speaka.cn/api/pay", {
 			code: objurl.code,
 			state: objurl.state,
 			commodity_id: commodity_id,
@@ -280,7 +281,8 @@ $(function () {
 				wx.ready(function () {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 
-					$('.wx_pay span').eq(1).click(function () {
+				
+					
 
 						wx.chooseWXPay({
 
@@ -322,7 +324,7 @@ $(function () {
 								}
 							}
 						});
-					});
+					
 				});
 				//通过error接口处理失败验证
 				wx.error(function (res) {
@@ -348,6 +350,13 @@ $(function () {
 				});
 			}
 		}, 'json');
+		
+		
+		
+	});
+
+
+	
 	} else {
 		$('.wx_pay span').eq(1).click(function () {
 			//alert(objurl.type_id)
