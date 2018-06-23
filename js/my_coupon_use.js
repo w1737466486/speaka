@@ -4,16 +4,31 @@ $(function () {
 	window.get_token = get_token;
 	var token = null;
 	var back_url = location.href.split('?')[1];
+	var coupon_token= queryURL(location.href)
+	coupon_token=coupon_token.token
 	console.log(back_url);
-	//get_token();
-	function get_token(_results) {
-		token = 'Bearer ' + _results;
+	//将url参数转对象
+	function queryURL(url) {
+		var arr1 = url.split("?");
+		var params = arr1[1].split("&"); //进行分割成数组
+		var obj = {};
+		for (var i = 0; i < params.length; i++) {
+			var param = params[i].split("="); //进行分割成数组
+			obj[param[0]] = param[1]; //为对象赋值
+		}
+		return obj;
+	}
+	
+	
+	get_token();
+	function get_token() {
+		token = coupon_token
 		$.ajax({
 			type: 'get',
 			dataType: 'JSON',
 			async: true,
 			//url: "../json/my_coupon.json",
-			url: 'http://api.speaka.cn/api/coupon/m',
+			url: 'http://api.speaka.cn/api/coupon/usable',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -38,13 +53,13 @@ $(function () {
 						console.log('可无限使用');
 					}
 				}
-				/*$('.coupon li').click(function () {
+				$('.coupon li').click(function () {
 					var coupon_money = $(this).find('strong').html();
 					var coupon_no = $(this).attr('coupon_no');
 					console.log($(this).find('strong').html());
 					window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?' + back_url + '&coupon_money=' + coupon_money + '&coupon_no=' + coupon_no;
 					//window.location.href='../html/course_details_pay.html?'+back_url+'&coupon_money='+coupon_money+'&coupon_no='+coupon_no
-				});*/
+				});
 			},
 			error: function error(res) {
 				console.log(res);
