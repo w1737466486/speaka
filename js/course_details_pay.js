@@ -383,49 +383,6 @@ $(function () {
 			if (objurl.type_id == 22) {
 				typeId = 1;
 			}
-		  $.ajax({
-			type: "post",
-			url: "http://api.speaka.cn/api/apppay",
-			data: {
-				commodity_id: commodity_id,
-				typeId: typeId,
-				coupon_no: coupon_no
-			},
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", app_token);
-			},
-			dataType: 'JSON',
-			async: true,
-			success: function success(data) {
-				//alert(JSON.stringify(data));
-				if (data.status == 1) {
-					var obj_pay = {};
-					obj_pay.paytypeId = 2;
-					obj_pay.partnerid = data.pay_config.partnerid;
-					obj_pay.prepayid = data.pay_config.prepayid;
-					obj_pay.package = data.pay_config.package;
-					obj_pay.noncestr = data.pay_config.noncestr;
-					obj_pay.timestamp = data.pay_config.timestamp;
-					obj_pay.sign = data.pay_config.sign;
-					obj_pay.order_no = data.order_no;
-					//alert(JSON.stringify(obj_pay));
-					if (isAndroid_ios()) {
-						//安卓  
-						androidpay.androidWechatPay(JSON.stringify(obj_pay));
-					} else {
-						//ios  
-						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
-					}
-				} else {
-					alert('请求失败，请重试！');
-				}
-			},
-			error: function error(res) {
-				alert(JSON.stringify(res));
-			}
-
-		});
-			
 			//alert(objurl.type_id)
 			//App单人购买	
 			if (objurl.type_id == 21) {
@@ -474,6 +431,52 @@ $(function () {
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay3));
 				}
 			}
+			
+			
+			
+			
+		  $.ajax({
+			type: "post",
+			url: "http://api.speaka.cn/api/apppay",
+			data: {
+				commodity_id: commodity_id,
+				typeId: typeId,
+				coupon_no: coupon_no
+			},
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", app_token);
+			},
+			dataType: 'JSON',
+			async: false,
+			success: function success(data) {
+				//alert(JSON.stringify(data));
+				if (data.status == 1) {
+					var obj_pay = {};
+					obj_pay.paytypeId = 2;
+					obj_pay.partnerid = data.pay_config.partnerid;
+					obj_pay.prepayid = data.pay_config.prepayid;
+					obj_pay.package = data.pay_config.package;
+					obj_pay.noncestr = data.pay_config.noncestr;
+					obj_pay.timestamp = data.pay_config.timestamp;
+					obj_pay.sign = data.pay_config.sign;
+					obj_pay.order_no = data.order_no;
+					//alert(JSON.stringify(obj_pay));
+					if (isAndroid_ios()) {
+						//安卓  
+						androidpay.androidWechatPay(JSON.stringify(obj_pay));
+					} else {
+						//ios  
+						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj_pay));
+					}
+				} else {
+					alert('请求失败，请重试！');
+				}
+			},
+			error: function error(res) {
+				alert(JSON.stringify(res));
+			}
+
+		});
 		});
 	}
 	$('.wx_pay span').eq(0).click(function () {
