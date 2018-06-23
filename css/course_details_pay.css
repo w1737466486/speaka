@@ -143,17 +143,6 @@ b{
 	position: relative;
 	height: 16%;
 }
-.pay_success p:nth-of-type(1) span{
-	position: absolute;
-	right: 4%;
-	top: 30%;
-	display: block;
-	width: 16px;
-	height: 16px;
-	background: url('../img/Cancel - On Light.png');
-	background-size: 100% auto;
-	
-}
 .pay_success p:nth-of-type(2){
 	position: relative;
 	width: 100%;
@@ -230,17 +219,6 @@ b{
 .pay_error p:nth-of-type(1){
 	position: relative;
 	height: 16%;
-}
-.pay_error p:nth-of-type(1) span{
-	position: absolute;
-	right: 4%;
-	top: 30%;
-	display: block;
-	width: 16px;
-	height: 16px;
-	background: url('../img/Cancel - On Light.png');
-	background-size: 100% auto;
-	
 }
 .pay_error p:nth-of-type(2){
 	margin-top: 10%;

@@ -294,7 +294,7 @@ $(function () {
 			token:token_pay,
 			location: window.location.href
 		}, function (data) {
-			alert(JSON.stringify(data))
+			//alert(JSON.stringify(data))
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
 			/*var data = {
@@ -471,18 +471,6 @@ $(function () {
 			}
 		});
 	}
-
-	$('.pay_success p span').click(function () {
-		$('.course_pay_success').css({
-			'display': 'none'
-		});
-	});
-	$('.pay_error p span').click(function () {
-		$('.course_pay_error').css({
-			'display': 'none'
-		});
-	});
-
 	$('.wx_pay span').eq(0).click(function () {
 		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
