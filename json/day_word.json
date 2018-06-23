@@ -11,6 +11,43 @@
       "created_at": "2018-06-15 15:07:59",
       "updated_at": "2018-06-19 18:50:48"
     },
-    "videos": null
+    "videos": [
+      {
+        "id": 3,
+        "u_id": 3,
+        "word_card_id": 1,
+        "video_path": "MemberVideo/20180622/JJAL2Kq6yGiB1eSh1uXcQBsVdgOWjviuCVLE8Ni9.png",
+        "pic_path": "wordcard/20180615/oCbBKGesp01GJAtvgsA0UbzwOsDuemSUzCA6uQOJ.jpeg",
+        "like_num": 8097,
+        "describe": "test",
+        "type": 1,
+        "created_at": "2018-06-22 11:51:03",
+        "updated_at": "2018-06-22 11:51:03"
+      },
+      {
+        "id": 2,
+        "u_id": 1247,
+        "word_card_id": 1,
+        "video_path": "MemberVideo/20180622/iHveFR1IliTmPbsiUceyTbadk2yPae6wjgWdnViT.png",
+        "pic_path": "wordcard/20180615/oCbBKGesp01GJAtvgsA0UbzwOsDuemSUzCA6uQOJ.jpeg",
+        "like_num": 8000,
+        "describe": "test",
+        "type": 1,
+        "created_at": "2018-06-22 11:50:35",
+        "updated_at": "2018-06-22 11:50:35"
+      },
+      {
+        "id": 1,
+        "u_id": 3,
+        "word_card_id": 1,
+        "video_path": "video/dSFE4fY615XDRC98N00yMV1MllnhviFgxLwwAgtG.mp4",
+        "pic_path": "wordcard/20180615/oCbBKGesp01GJAtvgsA0UbzwOsDuemSUzCA6uQOJ.jpeg",
+        "like_num": 1000,
+        "describe": "test",
+        "type": 1,
+        "created_at": "2018-06-19 10:54:11",
+        "updated_at": "2018-06-22 11:31:42"
+      }
+    ]
   }
 }

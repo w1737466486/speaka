@@ -22,6 +22,29 @@ $(function () {
 			$('.recommended_word_box p').eq(0).html(data.info.word.eng)
 			$('.recommended_word_box p').eq(1).html(data.info.word.chn)
 			$('.recommended_word_box .mp3Btn').attr('src','http://s.speaka.cn/'+data.info.word.voice)	
+		    if(data.info.videos.length>=1){
+		    	$('.recommended_word_foot ul').html('')
+				for(var i=0;i<data.info.videos.length;i++){
+					if(i==0){
+						$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p><img src="../img/最佳标签.png"></li>')
+					}else{
+						$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p></li>')
+					}
+				}
+			}
+		    $('.recommended_word_foot ul li').click(function(){
+		    	console.log($(this).index())
+		    	var obj={};
+		    	obj.pic_path=data.info.videos[$(this).index()].pic_path;
+		    	obj.video_path=data.info.videos[$(this).index()].video_path;
+		    	console.log(obj)
+		    	if (window.webkit) {
+					window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+				} else {
+					curson.punchCurson(JSON.stringify(obj));
+				}
+		    	
+		    })
 		}
 	});
 	//点击cancel或者search触发返回或搜索事件
@@ -60,12 +83,21 @@ $(function () {
 								async:false,
 								dataType:'JSON',
 								success:function(data){
-									alert('1234')
 									$('.recommended_word_img img').attr('src','http://s.speaka.cn/'+data.info.word.pic_path)
 									$('.recommended_word_box p').eq(0).html(data.info.word.eng)
 									$('.recommended_word_box p').eq(1).html(data.info.word.chn)
 									$('.recommended_word_box .mp3Btn').attr('src','http://s.speaka.cn/'+data.info.word.voice)
-								
+								    if(data.info.videos.length>=1){
+								    	$('.recommended_word_foot p').show()
+								    	$('.recommended_word_foot ul').html('')
+										for(var i=0;i<data.info.videos.length;i++){
+											if(i==0){
+												$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p><img src="../img/最佳标签.png"></li>')
+											}else{
+												$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p></li>')
+											}
+										}
+									}
 									
 								}
 							});
@@ -73,6 +105,8 @@ $(function () {
 							$('.recommended_word_box').show()
 						}else{
 							$('.recommended_word_word').html('')
+							$('.recommended_word_foot ul').html('')
+							$('.recommended_word_foot p').hide()
 							$('.recommended_word_word').append('<p>'+data.info[0].eng+'</p>')
 							var arr_word=data.info[0].chn.split("\\n")
 							console.log(arr_word)
@@ -129,12 +163,22 @@ $(function () {
 								async:false,
 								dataType:'JSON',
 								success:function(data){
-									alert(JSON.stringify(data))
+									//alert(JSON.stringify(data))
 									$('.recommended_word_img img').attr('src','http://s.speaka.cn/'+data.info.word.pic_path)
 									$('.recommended_word_box p').eq(0).html(data.info.word.eng)
 									$('.recommended_word_box p').eq(1).html(data.info.word.chn)
 									$('.recommended_word_box .mp3Btn').attr('src','http://s.speaka.cn/'+data.info.word.voice)
-								
+								    if(data.info.videos.length>=1){
+								    	$('.recommended_word_foot p').show()
+								    	$('.recommended_word_foot ul').html('')
+										for(var i=0;i<data.info.videos.length;i++){
+											if(i==0){
+												$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p><img src="../img/最佳标签.png"></li>')
+											}else{
+												$('.recommended_word_foot ul').append('<li><span><img src="http://s.speaka.cn/'+data.info.videos[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+data.info.videos[i].like_num+'</p></li>')
+											}
+										}
+									}
 									
 								}
 							});
@@ -142,6 +186,8 @@ $(function () {
 							$('.recommended_word_box').show()
 						}else{
 							$('.recommended_word_word').html('')
+							$('.recommended_word_foot ul').html('')
+							$('.recommended_word_foot p').hide()
 							$('.recommended_word_word').append('<p>'+data.info[0].eng+'</p>')
 							var arr_word=data.info[0].chn.split("\\n")
 							console.log(arr_word)

@@ -54,7 +54,7 @@ input[type=search]::-ms-clear {
 	margin: auto;
 	position: absolute;
 	right: 0px;
-	top: 5px;
+	top: 10px;
 }
 
 .recommended_word_head span:nth-of-type(2) img {
@@ -88,6 +88,9 @@ input[type=search]::-ms-clear {
 .recommended_word_search p span img {
 	width: 16px;
 	height: 16px;
+	position: absolute;
+	top: 14px;
+	left: 14px;
 }
 
 .recommended_word_search p input {
@@ -205,8 +208,9 @@ input[type=search]::-ms-clear {
 }
 
 .recommended_word_foot p {
-	height: 20px;
-	line-height: 20px;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 10px;
 	margin-bottom: 15px;
 }
 
@@ -236,6 +240,9 @@ input[type=search]::-ms-clear {
 	width: 160px;
 	height: 200px;
 	margin-bottom: 15px;
+	background: #FFFFFF;
+	box-shadow: 0 2px 20px 0 rgba(0,0,0,0.10);
+	border-radius: 4px;
 }
 
 .recommended_word_foot ul li:nth-of-type(1) {
@@ -255,6 +262,10 @@ input[type=search]::-ms-clear {
 	width: 160px;
 	height: 160px;
 	background: #CCCCCC;
+}
+.recommended_word_foot ul li span img{
+	width: 100%;
+	height: 100%;
 }
 
 .recommended_word_foot ul li p {
