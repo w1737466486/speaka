@@ -65,7 +65,7 @@ $(function () {
 							//点击选择
 							$('.have').click(function () {
 								console.log(this);
-								window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay;
+								window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 								//window.location.href='../html/my_coupon.html?'+coupon_url;
 							});
 						} else {
