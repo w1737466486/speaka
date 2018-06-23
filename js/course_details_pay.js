@@ -294,6 +294,7 @@ $(function () {
 			token:token_pay,
 			location: window.location.href
 		}, function (data) {
+			alert(JSON.stringify(data))
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
 			/*var data = {
