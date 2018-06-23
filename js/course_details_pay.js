@@ -52,6 +52,40 @@ $(function () {
 			
 			//微信端
 			if(isWeiXin()){
+				if(objurl.token){
+						$.ajax({
+						type: "get",
+						//url:"../json/my_coupon.json",
+						url: 'http://api.speaka.cn/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
+						async: false,
+						success: function success(data) {
+							//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+							console.log(data.info.length);
+							if(data.status==1){
+								token_pay='Bearer '+data.token
+								//token_pay='Bearer '+'7746tvu5gwP9B/yQtdCAii+ey2uHefAQrqlwVeuKoCvz'
+								//判断是否有优惠券
+								if (data.info.length !== 0) {
+									$('.have').html(data.info.length + " 张可用");
+									$('.have').css({ color: "red" });
+									//点击选择
+									$('.have').click(function () {
+										console.log(this);
+										window.location.href = 'http://h5.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+										//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+									});
+								} else {
+									$('.have').html("暂无可用");
+									$('.have ').css({ color: "#888" });
+								}
+							}
+							
+						},
+						error: function error(res) {
+							console.log(res);
+						}
+					});
+				}else{
 					$.ajax({
 					type: "get",
 					//url:"../json/my_coupon.json",
@@ -84,6 +118,8 @@ $(function () {
 						console.log(res);
 					}
 				});
+				}
+					
 			}
 			if (objurl.coupon_money) {
 				console.log(data.groupon_price / 100 - Number(objurl.coupon_money));
