@@ -196,7 +196,7 @@ $(function () {
 			type: "get",
 			//url:"../json/my_coupon.json",
 			url: 'http://api.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
-			async: false,
+			async: true,
 			success: function success(data) {
 				//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 				console.log(data.info.length);
@@ -247,7 +247,6 @@ $(function () {
 					obj_pay.prepayid = data.pay_config.prepayid;
 					obj_pay.package = data.pay_config.package;
 					obj_pay.noncestr = data.pay_config.noncestr;
-					/
 					obj_pay.timestamp = data.pay_config.timestamp;
 					obj_pay.sign = data.pay_config.sign;
 					obj_pay.order_no = data.order_no;
@@ -295,7 +294,6 @@ $(function () {
 			token:token_pay,
 			location: window.location.href
 		}, function (data) {
-			alert(JSON.stringify(data))
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
 			/*var data = {
@@ -325,6 +323,8 @@ $(function () {
       }*/
 
 			console.log(data.config);
+			
+
 			if (data.status == 1) {
 				//微信支付
 				//通过config接口注入权限验证配置
@@ -404,7 +404,7 @@ $(function () {
 				});
 			} else {
 				if (data.status == 0 && data.code == 403) {
-						alert('亲！你已经购买过该商品了，请勿重复购买！');
+					alert('亲！你已经购买过该商品了，请勿重复购买！');
 				}
 				if (data.status == 0 && data.code == 401) {
 						alert('该商品团购已被取消！');
@@ -412,9 +412,12 @@ $(function () {
 				if (data.status == 0 && data.code == 402) {
 						alert('未知用户分享！');
 				}
-			}
+				}
 		}, 'json');	
 	});
+
+
+	
 	} else {
 		$('.wx_pay span').eq(1).click(function () {
 			//alert(objurl.type_id)
