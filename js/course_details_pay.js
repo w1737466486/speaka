@@ -247,6 +247,7 @@ $(function () {
 					obj_pay.prepayid = data.pay_config.prepayid;
 					obj_pay.package = data.pay_config.package;
 					obj_pay.noncestr = data.pay_config.noncestr;
+					/
 					obj_pay.timestamp = data.pay_config.timestamp;
 					obj_pay.sign = data.pay_config.sign;
 					obj_pay.order_no = data.order_no;
@@ -323,22 +324,6 @@ $(function () {
       }*/
 
 			console.log(data.config);
-			if (data.status == 0 && data.code == 403) {
-				$('.wx_pay span').eq(1).click(function () {
-					alert('亲！你已经购买过该商品了，请勿重复购买！');
-				});
-			}
-			if (data.status == 0 && data.code == 401) {
-				$('.wx_pay span').eq(1).click(function () {
-					alert('该商品团购已被取消！');
-				});
-			}
-			if (data.status == 0 && data.code == 402) {
-				$('.wx_pay span').eq(1).click(function () {
-					alert('未知用户分享！');
-				});
-			}
-
 			if (data.status == 1) {
 				//微信支付
 				//通过config接口注入权限验证配置
@@ -417,13 +402,18 @@ $(function () {
 					}
 				});
 			} else {
-				alert('验证信息已失效，请重新获取订单信息！');
+				if (data.status == 0 && data.code == 403) {
+						alert('亲！你已经购买过该商品了，请勿重复购买！');
+				}
+				if (data.status == 0 && data.code == 401) {
+						alert('该商品团购已被取消！');
+				}
+				if (data.status == 0 && data.code == 402) {
+						alert('未知用户分享！');
+				}
 			}
 		}, 'json');	
 	});
-
-
-	
 	} else {
 		$('.wx_pay span').eq(1).click(function () {
 			//alert(objurl.type_id)
