@@ -9,6 +9,8 @@ $(function () {
 	console.log(coupon_url);
 	var token_pay=null;
 	var pay_price=null;
+	var pay_money=null;
+	var pay_group_money=null;
 	//测试url
 	//var current_url = 'http://h5.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
    var app_token=null;
@@ -125,7 +127,7 @@ $(function () {
 				console.log(data.groupon_price / 100 - Number(objurl.coupon_money));
 				//微信或App单人购,让团购价格消失
 				if (objurl.type_id == 11 || objurl.type_id == 21) {
-					var pay_money = (data.price / 100 - Number(objurl.coupon_money)).toFixed(2);
+					pay_money = (data.price / 100 - Number(objurl.coupon_money)).toFixed(2);
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
 					$('.course_pay p').eq(3).css({
 						'display': 'none'
@@ -133,7 +135,7 @@ $(function () {
 				}
 				//微信或App团购
 				if (objurl.type_id == 12 || objurl.type_id == 22) {
-					var pay_group_money = (data.groupon_price / 100 - Number(objurl.coupon_money)).toFixed(2);
+					pay_group_money = (data.groupon_price / 100 - Number(objurl.coupon_money)).toFixed(2);
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money + '元');
 				}
 				$('.have').html("-￥" + objurl.coupon_money + "元");
@@ -183,7 +185,7 @@ $(function () {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
 		app_token=token;
-		alert(token+'___'+app_token)
+		alert(token+'-----'+app_token)
 		//alert(token)
 		var typeId = null;
 		
@@ -196,9 +198,6 @@ $(function () {
 				//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 				console.log(data.info.length);
 				if(data.status==1){
-					//token_pay='Bearer '+data.token
-					
-					//token_pay='Bearer '+'7746tvu5gwP9B/yQtdCAii+ey2uHefAQrqlwVeuKoCvz'
 					//判断是否有优惠券
 					if (data.info.length !== 0) {
 						$('.have').html(data.info.length + " 张可用");
@@ -221,6 +220,7 @@ $(function () {
 			}
 		});
        if (objurl.coupon_money) {
+       	alert(objurl.coupon_money+'---'+pay_money+'----'+pay_group_money)
 			//微信或App单人购,让团购价格消失
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
 				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
@@ -484,7 +484,6 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					alert(commodity_id+'---'+typeId+'----'+coupon_no)
 					alert(JSON.stringify(data))
 					alert(app_token)
 					//alert('请求失败，请重试！');
