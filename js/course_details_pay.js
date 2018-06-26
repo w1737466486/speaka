@@ -185,7 +185,7 @@ $(function () {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
 		app_token=token;
-		alert(token+'-----'+app_token)
+		//alert(token+'-----'+app_token)
 		//alert(token)
 		var typeId = null;
 		
@@ -220,7 +220,7 @@ $(function () {
 			}
 		});
        if (objurl.coupon_money) {
-       	alert(objurl.coupon_money+'---'+pay_money+'----'+pay_group_money)
+       	//alert(objurl.coupon_money+'---'+pay_money+'----'+pay_group_money)
 			//微信或App单人购,让团购价格消失
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
 				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
@@ -464,7 +464,7 @@ $(function () {
 			dataType: 'JSON',
 			async: false,
 			success: function success(data) {
-				alert(JSON.stringify(data));
+				//alert(JSON.stringify(data));
 				if (data.status == 1) {
 					var obj_pay = {};
 					obj_pay.paytypeId = 2;
@@ -484,9 +484,9 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					alert(JSON.stringify(data))
-					alert(app_token)
-					//alert('请求失败，请重试！');
+					//alert(JSON.stringify(data))
+					//alert(app_token)
+					alert('请求失败，请重试！');
 				}
 			},
 			error: function error(res) {
