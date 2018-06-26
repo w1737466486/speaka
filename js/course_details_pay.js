@@ -463,7 +463,7 @@ $(function () {
 			dataType: 'JSON',
 			async: false,
 			success: function success(data) {
-				//alert(JSON.stringify(data));
+				alert(JSON.stringify(data));
 				if (data.status == 1) {
 					var obj_pay = {};
 					obj_pay.paytypeId = 2;
@@ -483,8 +483,10 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					//alert(JSON.stringify(data))
-					alert('请求失败，请重试！');
+					alert(commodity_id,typeId,coupon_no)
+					alert(JSON.stringify(data))
+					alert(app_token)
+					//alert('请求失败，请重试！');
 				}
 			},
 			error: function error(res) {
