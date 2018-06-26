@@ -191,7 +191,7 @@ $(function () {
 			type: "get",
 			//url:"../json/my_coupon.json",
 			url: 'http://api.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
-			async: true,
+			async: false,
 			success: function success(data) {
 				//alert('http://api.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 				console.log(data.info.length);
@@ -214,27 +214,27 @@ $(function () {
 						$('.have ').css({ color: "#888" });
 					}
 				}
-				if (objurl.coupon_money) {
-					//微信或App单人购,让团购价格消失
-					if (objurl.type_id == 11 || objurl.type_id == 21) {
-						$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
-						$('.course_pay p').eq(3).css({
-							'display': 'none'
-						});
-					}
-					//微信或App团购
-					if (objurl.type_id == 12 || objurl.type_id == 22) {
-						$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money + '元');
-					}
-					$('.have').html("-￥" + objurl.coupon_money + "元");
-						
-				}	
+				
 			},
 			error: function error(res) {
 				console.log(res);
 			}
 		});
-
+       if (objurl.coupon_money) {
+			//微信或App单人购,让团购价格消失
+			if (objurl.type_id == 11 || objurl.type_id == 21) {
+				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
+				$('.course_pay p').eq(3).css({
+					'display': 'none'
+				});
+			}
+			//微信或App团购
+			if (objurl.type_id == 12 || objurl.type_id == 22) {
+				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money + '元');
+			}
+			$('.have').html("-￥" + objurl.coupon_money + "元");
+				
+		}	
 
 	}
 	//微信购买，配置微信环境参数设置
