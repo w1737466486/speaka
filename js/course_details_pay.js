@@ -183,6 +183,7 @@ $(function () {
 		//console.log(_results)
 		token = 'Bearer ' + _results;
 		app_token=token;
+		alert(token+'___'+app_token)
 		//alert(token)
 		var typeId = null;
 		
@@ -483,7 +484,7 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					alert(commodity_id,typeId,coupon_no)
+					alert(commodity_id+'---'+typeId+'----'+coupon_no)
 					alert(JSON.stringify(data))
 					alert(app_token)
 					//alert('请求失败，请重试！');
