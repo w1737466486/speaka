@@ -185,7 +185,7 @@ $(function () {
 					wx.onMenuShareAppMessage({
 						title: '超有趣的少儿互动英文课！', // 分享标题    
 						desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-						link: 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id, // 分享链接    
+						link: 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
 						imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 						type: '', // 分享类型,music、video或link，不填默认为link    
 						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
@@ -200,7 +200,7 @@ $(function () {
 					});
 					wx.onMenuShareTimeline({
 						title: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享标题    
-						link: 'http://h5.speaka.cn/front/html/course_details.html?' + commodity_id, // 分享链接    
+						link: 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
 						imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 						success: function success() {
 							// 用户确认分享后执行的回调函数    
