@@ -18,6 +18,7 @@ $(function () {
 	var objurl = queryURL(current_url);
 	console.log(objurl);
 	var commodity_id = objurl.commodity_id;
+	var u_id=objurl.u_id;
 	coupon_no=objurl.coupon_no;
 	window.get_token = get_token;
 	//将url参数转对象
@@ -261,6 +262,7 @@ $(function () {
 			order_no: objurl.order_no,
 			coupon_no: coupon_no,
 			token:token_pay,
+			u_id:u_id,
 			location: window.location.href
 		}, function (data) {
 			//alert(JSON.stringify(data))

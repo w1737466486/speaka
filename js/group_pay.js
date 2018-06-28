@@ -13,6 +13,7 @@ $(function () {
 	console.log(group_url);
 	var groupurl = queryURL(group_url);
 	console.log(groupurl);
+	var u_id=groupurl.u_id;
 	var commodity_id = groupurl.commodity_id;
 	if (groupurl.is_share == 1) {
 		$('.group_share').css({
@@ -109,6 +110,8 @@ $(function () {
 					$('.group_member li').eq(i).find('img').eq(1).attr('src','http://s.speaka.cn/' +data.group[i].user_info.head);
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
+				u_id=data.group[data.group.length-1].u_id
+				console.log(u_id)
 			}
 
 			var curr_time = getNowFormatDate();
@@ -225,7 +228,7 @@ $(function () {
 				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&env=' + 1;
+						window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
 					});
 				}
 			}, 1000);
@@ -256,13 +259,13 @@ $(function () {
 				wx.onMenuShareAppMessage({
 					title: '【三人成团】！超有趣的少儿互动英文课！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no, // 分享链接    
+					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id, // 分享链接    
 					imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
@@ -271,11 +274,11 @@ $(function () {
 				});
 				wx.onMenuShareTimeline({
 					title: '【三人成团】！超有趣的少儿互动英文课！', // 分享标题    
-					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no, // 分享链接    
+					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id, // 分享链接    
 					imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
