@@ -140,7 +140,7 @@ $(function () {
 		}
 	});
 	$('.v_footer').css({
-		'height': '11.9%'
+		'height': '88px'
 	});
 
 	//判断是否是安卓还是ios  

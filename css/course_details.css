@@ -80,7 +80,9 @@ video{
 	font-size: 16px;
 	line-height: 20px;
 }
-
+.v_img{
+	margin-bottom: 88px;
+}
 
 .v_img img{
 	width: 100%;
