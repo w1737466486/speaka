@@ -50,11 +50,26 @@ $(function () {
 			$('.v_nav .v_s2').html(data.chn);
 			$('.v_nav img').attr('src', 'http://s.speaka.live/' + data.pic_path);
 			for (var i = 0; i < data.pages.length; i++) {
-				$('.v_img').append('<img src=""/>');
-			}
-			for (var _i = 0; _i < data.pages.length; _i++) {
-				$('.v_img img').eq(_i).attr('src', 'http://s.speaka.live/' + data.pages[_i].pic_path);
-			}
+					if(data.pages[i].type==1){
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" controlslist="nodownload" width="100%" src="http://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+					}
+					if(data.pages[i].type==0){
+						$('.v_img').append('<img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/>');
+					}
+				}
+				var _stop=true
+				$('.img_video').click(function(){
+					if(_stop){
+						_stop=false
+						$(this).find('video').trigger('play')
+						$(this).find('img').remove()
+					}else{
+						_stop=true
+						$(this).find('video').trigger('pause')
+						$(this).append('<img src="../img/Play.png"/>')
+					}
+					
+				})
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
