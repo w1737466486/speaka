@@ -9,7 +9,7 @@ $(function () {
 		token = 'Bearer ' + _results;
 		$.ajax({
 			type: "get",
-			url: "http://api.speaka.cn/api/top100 ",
+			url: "http://api.speaka.live/api/top100 ",
 			//url: "../json/top.json",
 			async: true,
 			beforeSend: function beforeSend(request) {
@@ -21,7 +21,7 @@ $(function () {
 					//console.log(data.info.top[i])
 					if (i < 3) {
 						console.log($('.rank_ul_one .li' + i).html());
-						$('.rank_ul_one .li' + i).find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.top[i].head+'?x-oss-process=w132');
+						$('.rank_ul_one .li' + i).find('span').eq(0).find('img').attr('src', 'http://s.speaka.live/' + data.info.top[i].head+'?x-oss-process=w132');
 						$('.rank_ul_one .li' + i).find('span').eq(1).html(data.info.top[i].name);
 						$('.rank_ul_one .li' + i).find('span').eq(2).find('em').html(data.info.top[i].score);
 					} else {
@@ -29,7 +29,7 @@ $(function () {
 						if (data.info.top[i].head == '') {
 							_head = '../img/mr.png';
 						} else {
-							_head = 'http://s.speaka.cn/' + data.info.top[i].head;
+							_head = 'http://s.speaka.live/' + data.info.top[i].head;
 						}
 						if (data.info.top[i].head.substr(5, 2) == 'mj') {
 							_head = '../img/mr.png';
@@ -38,7 +38,7 @@ $(function () {
 					}
 				}
 				$('.rank_ul_three li b').html('No.' + data.info.mine.rank);
-				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'http://s.speaka.cn/' + data.info.mine.head+'?x-oss-process=w132');
+				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'http://s.speaka.live/' + data.info.mine.head+'?x-oss-process=w132');
 				$('.rank_ul_three li').find('span').eq(1).html(data.info.mine.name);
 				$('.rank_ul_three li').find('span').eq(2).find('em').html(data.info.mine.score);
 			},

@@ -21,9 +21,9 @@
  	
  	if(mapurl){
  		console.log(mapurl.substr(8))
- 		url_map="http://api.speaka.cn/api/team/"+mapurl.substr(8)+"/commodity"
+ 		url_map="http://api.speaka.live/api/team/"+mapurl.substr(8)+"/commodity"
  	}else{
- 		url_map="http://api.speaka.cn/api/team/77/commodity"
+ 		url_map="http://api.speaka.live/api/team/77/commodity"
  	}
  	var obj={}
  	$.ajax({
@@ -65,7 +65,7 @@
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index())
     	}else{
-    		window.location.href = 'http://h5.speaka.cn/front/html/course.html?'+($(this).index()-1);
+    		window.location.href = 'http://h5.speaka.live/front/html/course.html?'+($(this).index()-1);
     	}
     	
     })

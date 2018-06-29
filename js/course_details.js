@@ -4,7 +4,7 @@ $(function () {
 	var commodity_id = queryURL(location.href);
 	commodity_id=commodity_id.commodity_id
 	var url_course = null;
-	url_course = "http://api.speaka.cn/api/commodity/" + commodity_id;
+	url_course = "http://api.speaka.live/api/commodity/" + commodity_id;
 	console.log(url_course)
 
     window.get_share = get_share;
@@ -73,14 +73,14 @@ $(function () {
 				//console.log(data)
 				$('.v_nav .v_s1').html(data.eng);
 				$('.v_nav .v_s2').html(data.chn);
-				$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path);
+				$('.v_nav img').attr('src', 'http://s.speaka.live/' + data.pic_path);
 				
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
-						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" controlslist="nodownload" width="100%" src="http://s.speaka.cn/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" controlslist="nodownload" width="100%" src="http://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
 					}
 					if(data.pages[i].type==0){
-						$('.v_img').append('<img src="http://s.speaka.cn/' + data.pages[i].pic_path+'"/>');
+						$('.v_img').append('<img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/>');
 					}
 				}
 				var _stop=true
@@ -120,17 +120,17 @@ $(function () {
 					//参数：1微信/单人购买     2App/团购   11微信单人  12微信团购  21App单人   22App团购
 					$('.v_pay p').eq(0).click(function () {
 						if (isWeiXin()) {
-							//http://api.speaka.cn/api/buy/1?type_id=11
-							window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 11 + '&commodity_id=' + commodity_id;
+							//http://api.speaka.live/api/buy/1?type_id=11
+							window.location.href = 'http://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 11 + '&commodity_id=' + commodity_id;
 						} else {
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
 						}
 					});
 					$('.v_pay p').eq(1).click(function () {
 						if (isWeiXin()) {
-							window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
+							window.location.href = 'http://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
 						} else {
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
 						}
 					});
 				}
@@ -163,7 +163,7 @@ $(function () {
 
 	if (isWeiXin()) {
 
-		$.post("http://api.speaka.cn/api/wxconfig", {
+		$.post("http://api.speaka.live/api/wxconfig", {
 			location: window.location.href
 		}, function (data) {
 			console.log(data);
@@ -185,30 +185,30 @@ $(function () {
 					wx.onMenuShareAppMessage({
 						title: '超有趣的少儿互动英文课！', // 分享标题    
 						desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-						link: 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
-						imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
+						link: 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
+						imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
 						type: '', // 分享类型,music、video或link，不填默认为link    
 						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 						success: function success() {
 							// 用户确认分享后执行的回调函数    
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 						},
 						cancel: function cancel() {
 							// 用户取消分享后执行的回调函数    
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 						}
 					});
 					wx.onMenuShareTimeline({
 						title: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享标题    
-						link: 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
-						imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
+						link: 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id, // 分享链接    
+						imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
 						success: function success() {
 							// 用户确认分享后执行的回调函数    
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 						},
 						cancel: function cancel() {
 							// 用户取消分享后执行的回调函数    
-							window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+							window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 						}
 					});
 				});

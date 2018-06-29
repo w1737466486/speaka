@@ -240,7 +240,7 @@ $(function () {
 		$.ajax({
 			type: "get",
 			//url:"../json/calendar.json",
-			url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+			url: 'http://api.speaka.live/api/lesson/day?day=' + click_day,
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -266,7 +266,7 @@ $(function () {
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $('.calendar_detail div').attr('lesson_id');
 						//console.log(lesson_id)
-						window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+						window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
@@ -376,7 +376,7 @@ $(function () {
 		$.ajax({
 			type: "get",
 			//url:"../json/calendar.json",
-			url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+			url: 'http://api.speaka.live/api/lesson/day?day=' + click_day,
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -402,7 +402,7 @@ $(function () {
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $('.calendar_detail div').attr('lesson_id');
 						//console.log(lesson_id)
-						window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+						window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
@@ -506,7 +506,7 @@ $(function () {
 			$.ajax({
 				type: "get",
 				//url:"../json/calendar.json",
-				url: 'http://api.speaka.cn/api/lesson/day?day=' + current_day,
+				url: 'http://api.speaka.live/api/lesson/day?day=' + current_day,
 				beforeSend: function beforeSend(request) {
 					request.setRequestHeader("Authorization", token);
 				},
@@ -604,7 +604,7 @@ $(function () {
 				$.ajax({
 					type: "get",
 					//url:"../json/calendar.json",
-					url: 'http://api.speaka.cn/api/lesson/day?day=' + click_day,
+					url: 'http://api.speaka.live/api/lesson/day?day=' + click_day,
 					beforeSend: function beforeSend(request) {
 						request.setRequestHeader("Authorization", token);
 					},
@@ -630,7 +630,7 @@ $(function () {
 							$('.calendar_detail div').click(function () {
 								var lesson_id = $('.calendar_detail div').attr('lesson_id');
 								//console.log(lesson_id)
-								window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+								window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
 							});
 						} else {
 							$('.calendar_detail div').click(function () {
@@ -675,7 +675,7 @@ $(function () {
 			$('.calendar_detail div').click(function () {
 				var lesson_id = $('.calendar_detail div').attr('lesson_id');
 				//console.log(lesson_id)
-				window.location.href = 'http://h5.speaka.cn/front/html/course.html?' + lesson_id;
+				window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
 			});
 		} else {
 			$('.calendar_detail div').click(function () {

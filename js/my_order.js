@@ -12,7 +12,7 @@ $(function () {
 			dataType: 'JSON',
 			async: true,
 			//url: "../json/my_order.json",
-			url: 'http://api.speaka.cn/api/u/orders',
+			url: 'http://api.speaka.live/api/u/orders',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -57,7 +57,7 @@ $(function () {
 					var obj = {};
 					obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
 					obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					obj.share_url = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
+					obj.share_url = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
 					console.log(obj);
 					if (window.webkit) {
 						window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(obj));

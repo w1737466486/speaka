@@ -8,7 +8,7 @@ $(function () {
 	console.log(protocol);
 	console.log(host);
 	//测试url
-	//var group_url = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
+	//var group_url = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
 
 	console.log(group_url);
 	var groupurl = queryURL(group_url);
@@ -41,19 +41,19 @@ $(function () {
 
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.cn/api/commodity/" + commodity_id,
+		url: "http://api.speaka.live/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
 		async: true,
 		success: function success(data) {
 			console.log(data);
 			$('.v_nav .v_s1').html(data.eng);
 			$('.v_nav .v_s2').html(data.chn);
-			$('.v_nav img').attr('src', 'http://s.speaka.cn/' + data.pic_path);
+			$('.v_nav img').attr('src', 'http://s.speaka.live/' + data.pic_path);
 			for (var i = 0; i < data.pages.length; i++) {
 				$('.v_img').append('<img src=""/>');
 			}
 			for (var _i = 0; _i < data.pages.length; _i++) {
-				$('.v_img img').eq(_i).attr('src', 'http://s.speaka.cn/' + data.pages[_i].pic_path);
+				$('.v_img img').eq(_i).attr('src', 'http://s.speaka.live/' + data.pages[_i].pic_path);
 			}
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
@@ -100,7 +100,7 @@ $(function () {
 	//获取微信头像
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.cn/api/order_group/" + groupurl.order_no,
+		url: "http://api.speaka.live/api/order_group/" + groupurl.order_no,
 		//url:"../json/order.json",
 		async: true,
 		success: function success(data) {
@@ -108,7 +108,7 @@ $(function () {
 			if (data.group.length > 0) {
 				var group_member = $('.group_member li');
 				for (var i = 0; i < data.group.length; i++) {
-					$('.group_member li').eq(i).find('img').eq(1).attr('src','http://s.speaka.cn/' +data.group[i].user_info.head);
+					$('.group_member li').eq(i).find('img').eq(1).attr('src','http://s.speaka.live/' +data.group[i].user_info.head);
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
 				if(u_id){
@@ -234,7 +234,7 @@ $(function () {
 				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'http://api.speaka.cn/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
+						window.location.href = 'http://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
 					});
 				}
 			}, 1000);
@@ -244,7 +244,7 @@ $(function () {
 		}
 	});
 
-	$.post("http://api.speaka.cn/api/wxconfig", {
+	$.post("http://api.speaka.live/api/wxconfig", {
 		location: window.location.href
 	}, function (data) {
 		console.log(data);
@@ -265,30 +265,30 @@ $(function () {
 				wx.onMenuShareAppMessage({
 					title: '【三人成团】！超有趣的少儿互动英文课！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
-					imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
+					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
 					}
 				});
 				wx.onMenuShareTimeline({
 					title: '【三人成团】！超有趣的少儿互动英文课！', // 分享标题    
-					link: 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
-					imgUrl: 'http://s.speaka.cn/static/logo-white.png', // 分享图标    
+					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
 					}
 				});
 			});
@@ -311,6 +311,6 @@ $(function () {
 	}, 'json');
 
 	$('.group_foot p').eq(0).click(function () {
-		window.location.href = 'http://h5.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+		window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
 });

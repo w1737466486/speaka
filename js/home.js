@@ -6,7 +6,7 @@ $(function() {
 		type:"get",
 		dataType: 'JSON',
 		//url:'../json/word.json',
-		url:"http://api.speaka.cn/api/q?word="+word,
+		url:"http://api.speaka.live/api/q?word="+word,
 		async:true,
 		success:function(data){
 			console.log(data)

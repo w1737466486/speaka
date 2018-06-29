@@ -6,7 +6,7 @@ $(function () {
 		type: "get",
 		async: true,
 		//url:"../json/speaka.json", 
-		url: 'http://api.speaka.cn/api/team/77/commodity',
+		url: 'http://api.speaka.live/api/team/77/commodity',
 		success: function success(data) {
 
 			var lessonId = location.href.split('?')[1];
@@ -21,7 +21,7 @@ $(function () {
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
 					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
 					//导读视频预览图获取
-					$('.nav_v .nav_img').attr('src', 'http://s.speaka.cn/' + data.lessons[k].pic_path);
+					$('.nav_v .nav_img').attr('src', 'http://s.speaka.live/' + data.lessons[k].pic_path);
 
 					var obj = {};
 					//点击获取导读视频
