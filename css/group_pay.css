@@ -191,6 +191,18 @@ img{
 	width: 100%;
 }
 .img_video{
+	width: 86%;
+	height: 54%;
+	position: absolute;
+	left: 50%;
+	top: 52%;
+	border-radius: 10px;
+	transform: translate(-50%,-51%);
+}
+.img_video video{
+	border-radius: 10px;
+}
+.video_position{
 	position: relative;
 }
 .img_video img{
