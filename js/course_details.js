@@ -156,10 +156,10 @@ $(function () {
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_footer').hide();
 							$('.buy_success').show();
-							$('.buy_success .buy_pay').eq(0).click(function(){
+							$('.buy_success .buy_pay p').eq(0).click(function(){
 								alert('开课说明暂无！')
 							})
-							$('.buy_success .buy_pay').eq(1).click(function(){
+							$('.buy_success .buy_pay p').eq(1).click(function(){
 								if (window.webkit) {
 									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
 								} else {
