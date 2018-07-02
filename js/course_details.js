@@ -149,7 +149,7 @@ $(function () {
 				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
 				$.ajax({
 					type:"get",
-					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+isbuy_token,
+					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
 					success:function(res){
 						console.log(res)
