@@ -6,7 +6,7 @@ $(function () {
 	var url_course = null;
 	url_course = "http://api.speaka.live/api/commodity/" + commodity_id;
 	console.log(url_course)
-
+    var slip_up=true;
     window.get_share = get_share;
     //get_share();
 	function get_share(_results) {
@@ -73,7 +73,7 @@ $(function () {
 				//console.log(data)
 				$('.v_nav .v_s1').html(data.eng);
 				$('.v_nav .v_s2').html(data.chn);
-				$('.v_nav img').attr('src', 'http://s.speaka.live/' + data.pic_path);
+				$('.v_nav .nav_video').attr('src', 'http://s.speaka.live/' + data.pic_path);
 				
 				/*for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
@@ -150,10 +150,53 @@ $(function () {
 			}
 		}
 	});
-	$('.v_footer').css({
-		'height': '88px'
-	});
-
+	setInterval(function(){
+			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
+			//console.log(sTop)
+			if(sTop>0){
+				$('.v_footer').css({'opacity': '0.1','display': 'block'})
+			}
+			if(sTop>100){
+				$('.v_footer').css({'opacity': '0.2'})
+			}
+			if(sTop>200){
+				$('.v_footer').css({'opacity': '0.3'})
+			}
+			if(sTop>300){
+				$('.v_footer').css({'opacity': '0.4'})
+			}
+			if(sTop>400){
+				$('.v_footer').css({'opacity': '0.5'})
+			}
+			if(sTop>500){
+				$('.v_footer').css({'opacity': '0.6'})
+			}
+			if(sTop>600){
+				$('.v_footer').css({'opacity': '0.7'})
+			}
+			if(sTop>700){
+				$('.v_footer').css({'opacity': '0.8'})
+			}
+			if(sTop==0){
+				$('.v_footer').css({'opacity': '0','display': 'none'})
+			}
+		},50)
+	//上划按键跳动显示
+	setInterval(function(){
+		var aTop=document.documentElement.scrollTop||document.body.scrollTop;
+		if(aTop==0){
+			$('.v_nav .slip_up').css({'display': 'block'})
+			slip_up=!slip_up;
+			if(slip_up){
+				$('.v_nav .slip_up').css({'bottom': '25px'})
+			}else{
+				$('.v_nav .slip_up').css({'bottom': '40px'})
+			}
+			
+		}else{
+			$('.v_nav .slip_up').css({'display': 'none'})
+		}
+	},500)
 	//判断是否是安卓还是ios  
 	function isAndroid_ios() {
 		var u = navigator.userAgent,
