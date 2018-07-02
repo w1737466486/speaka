@@ -5,21 +5,44 @@ $(function () {
 	//http://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=061TBw1T0MeiPX1eiU1T0f5P1T0TBw1Y&state=1
 	var courseurl = queryURL(location.href);
 	console.log(courseurl)
+	var isbuy_code=courseurl.code;
+    console.log(isbuy_code)
+    var isbuy_token=null;
 	var commodity_id=courseurl.commodity_id;
 	if (isWeiXin()) {
+		if(isbuy_code){
+		$.ajax({
+			type:"get",
+			url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
+			async:false,
+			success:function(res){
+				console.log(res)
+				 if(!res.token){
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+				 }else{
+				 	isbuy_token=res.token
+				 }
+				
+			},
+			error:function(res){
+				console.log(res)
+			}
+		});
+	 }else{
 		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+	  }
 	}
+	
+	
 	window.get_share = get_share;
 	console.log(url_course)
     var slip_up=true;
     //重新获取url
-    courseurl = queryURL(location.href)
     //courseurl = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=0613JmsR1tCw091geEvR1vrFsR13JmsK&state=1'
     //courseurl = queryURL(courseurl)
     console.log(courseurl)
     url_course = "http://api.speaka.live/api/commodity/" + commodity_id;
-    var isbuy_code=courseurl.code;
-    console.log(isbuy_code)
+    
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
@@ -126,7 +149,7 @@ $(function () {
 				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
 				$.ajax({
 					type:"get",
-					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
+					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+isbuy_token,
 					async:false,
 					success:function(res){
 						console.log(res)
