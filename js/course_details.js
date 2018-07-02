@@ -1,13 +1,25 @@
 "use strict";
 
 $(function () {
-	var commodity_id = queryURL(location.href);
-	commodity_id=commodity_id.commodity_id
 	var url_course = null;
-	url_course = "http://api.speaka.live/api/commodity/" + commodity_id;
+	//http://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=061TBw1T0MeiPX1eiU1T0f5P1T0TBw1Y&state=1
+	var courseurl = queryURL(location.href);
+	console.log(courseurl)
+	var commodity_id=courseurl.commodity_id;
+	if (isWeiXin()) {
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+	}
+	window.get_share = get_share;
 	console.log(url_course)
     var slip_up=true;
-    window.get_share = get_share;
+    //重新获取url
+    courseurl = queryURL(location.href)
+    //courseurl = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=0613JmsR1tCw091geEvR1vrFsR13JmsK&state=1'
+    //courseurl = queryURL(courseurl)
+    console.log(courseurl)
+    url_course = "http://api.speaka.live/api/commodity/" + commodity_id;
+    var isbuy_code=courseurl.code;
+    console.log(isbuy_code)
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
@@ -112,6 +124,32 @@ $(function () {
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
 				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
+				$.ajax({
+					type:"get",
+					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
+					async:false,
+					success:function(res){
+						console.log(res)
+						if(res.code==403||res.code==404||res.code==405){
+							$('.v_footer').hide();
+							$('.buy_success').show();
+							$('.buy_success .buy_pay').eq(0).click(function(){
+								alert('开课说明暂无！')
+							})
+							$('.buy_success .buy_pay').eq(1).click(function(){
+								if (window.webkit) {
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+								} else {
+									window.location.href='https://www.pgyer.com/q8oQ'
+								}
+							})
+						}
+						
+					},
+					error:function(res){
+						console.log(res)
+					}
+				});
 				var curr_time = getNowFormatDate();
 				var last_time = data.alloc_at;
 				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
@@ -154,29 +192,15 @@ $(function () {
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
 			if(sTop>0){
-				$('.v_footer').css({'opacity': '0.1','display': 'block'})
+				$('.v_footer').css({'opacity': '0.4','display': 'block'})
 			}
 			if(sTop>100){
-				$('.v_footer').css({'opacity': '0.2'})
-			}
-			if(sTop>200){
-				$('.v_footer').css({'opacity': '0.3'})
-			}
-			if(sTop>300){
-				$('.v_footer').css({'opacity': '0.4'})
-			}
-			if(sTop>400){
-				$('.v_footer').css({'opacity': '0.5'})
-			}
-			if(sTop>500){
 				$('.v_footer').css({'opacity': '0.6'})
 			}
-			if(sTop>600){
-				$('.v_footer').css({'opacity': '0.7'})
+			if(sTop>200){
+				$('.v_footer').css({'opacity': '1'})
 			}
-			if(sTop>700){
-				$('.v_footer').css({'opacity': '0.8'})
-			}
+
 			if(sTop==0){
 				$('.v_footer').css({'opacity': '0','display': 'none'})
 			}
