@@ -30,7 +30,7 @@ $(function () {
 				u_id_new=res.now_uid
 				console.log(res)
 				 if(!res.token){
-				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
 				 }else{
 				 	isbuy_token=res.token
 				 }
@@ -41,7 +41,7 @@ $(function () {
 			}
 		});
 	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
 	  }
 	}
 	
