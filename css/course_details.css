@@ -36,10 +36,10 @@ video{
 .v_nav .slip_up{
 	position: absolute;
 	bottom: 25px;
-	left: 38%;
+	left: 50%;
 	width: 50px;
 	height: 20px;
-	transform:translate(50%,50%) ;
+	transform:translate(-50%,50%) ;
 	transition-duration: 0.5s;
 	z-index: 2;
 }
