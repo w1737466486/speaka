@@ -536,7 +536,26 @@ $(function () {
 				} else {
 					//alert(JSON.stringify(data))
 					//alert(app_token)
-					alert('请求失败，请重试！');
+					if (data.status == 0 && data.code == 401) {
+							alert('该商品团购已被取消！');
+					}
+					if (data.status == 0 && data.code == 402) {
+							alert('未知用户分享！');
+					}
+					if (data.status == 0 && data.code == 403) {
+						alert('亲！您已经购买过该商品了，请勿重复购买！');
+					}
+					if (data.status == 0 && data.code == 404) {
+							alert('该课程已下架！');
+					}
+					if (data.status == 0 && data.code == 405) {
+							alert('您已购买过该课程！');
+					}
+					if (data.status == 0 && data.code == 406) {
+							alert('库存不足！');
+					}if (data.status == 0 && data.code == 407) {
+							alert('下单失败请重试！');
+					}
 				}
 			},
 			error: function error(res) {
