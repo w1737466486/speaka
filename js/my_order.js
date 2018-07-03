@@ -55,7 +55,7 @@ $(function () {
 				$('.share_order b').click(function () {
 					var order_no = $(this).parent().parent().find('p').eq(0).children('span').eq(1).html();
 					var obj = {};
-					obj.title = '【三人成团！】，超有趣的少儿互动英文课！';
+					obj.title = '【每天仅需1.99】少儿互动英文课邀你参团！';
 					obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
 					obj.share_url = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
 					console.log(obj);
