@@ -210,7 +210,7 @@ $(function () {
 				if(u_id){
 					u_id_new=data.group[data.group.length-1].u_id
 				}else{
-					u_id=data.group[data.group.length-1].u_id
+					u_id=data.group[0].u_id
 					u_id_new=data.group[data.group.length-1].u_id
 				}
 				console.log(u_id)
