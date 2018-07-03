@@ -9,13 +9,42 @@ $(function () {
 	console.log(host);
 	//测试url
 	//var group_url = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
-
 	console.log(group_url);
 	var groupurl = queryURL(group_url);
 	console.log(groupurl);
-	var u_id=groupurl.u_id;
+	var group_order=groupurl.order_no
+	//判断是否购买
+	var isbuy_code=groupurl.code;
+    console.log(isbuy_code)
+    var isbuy_token=null;
+    var u_id=groupurl.u_id;
 	var u_id_new=null;
 	var commodity_id = groupurl.commodity_id;
+	if (isWeiXin()) {
+		if(isbuy_code){
+		$.ajax({
+			type:"get",
+			url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
+			async:false,
+			success:function(res){
+				console.log(res)
+				 if(!res.token){
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id+'&order_no='+group_order)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+				 }else{
+				 	isbuy_token=res.token
+				 }
+				
+			},
+			error:function(res){
+				console.log(res)
+			}
+		});
+	 }else{
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+decodeURIComponent(location.href.split("?")[0]+'?commodity_id='+commodity_id+'&order_no='+group_order)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+	  }
+	}
+	
+	
 	if (groupurl.is_share == 1) {
 		$('.group_share').css({
 			'display': 'block'
@@ -37,6 +66,15 @@ $(function () {
 			obj[param[0]] = param[1]; //为对象赋值
 		}
 		return obj;
+	}
+	//判断是否是微信浏览器
+	function isWeiXin() {
+		var ua = window.navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	$.ajax({
@@ -82,6 +120,35 @@ $(function () {
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
 			$('.group_foot p').eq(1).find('span').html('<div><s>￥' + data.price / 100 + '</s>&nbsp￥' + data.groupon_price / 100 + '</div><b>我要参团</b>');
+				$.ajax({
+					type:"get",
+					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
+					async:false,
+					success:function(res){
+						console.log(res)
+						if(res.code==403||res.code==404||res.code==405){
+							$('.group_foot').hide();
+							$('.buy_success').show();
+							$('.buy_success .buy_pay p').eq(0).click(function(){
+								alert('开课说明暂无！')
+							})
+							$('.buy_success .buy_pay p').eq(1).click(function(){
+								if (window.webkit) {
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+								} else {
+									window.location.href='https://www.pgyer.com/q8oQ'
+								}
+							})
+						}
+						
+					},
+					error:function(res){
+						console.log(res)
+					}
+				});
+			
+			
+			
 			//微信配置
 			//优惠金额
 			var discount_amount = data.price / 100 - data.groupon_price / 100;
