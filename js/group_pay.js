@@ -368,7 +368,7 @@ $(function () {
 				
 				});
 				wx.onMenuShareAppMessage({
-					title: '【每天仅需1.99】少儿互动英文课邀你参团！', // 分享标题    
+					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
 					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
 					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
@@ -384,7 +384,7 @@ $(function () {
 					}
 				});
 				wx.onMenuShareTimeline({
-					title: '【每天仅需1.99】少儿互动英文课邀你参团！', // 分享标题    
+					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
 					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
