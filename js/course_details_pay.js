@@ -338,16 +338,16 @@ $(function () {
 
 								//微信单人
 								if (objurl.type_id == 11) {
-									/*$('.pay_success p').eq(0).find('span').click(function(){
-         	window.location.href = 'http://h5.speaka.live/front/html/course_details.html?'+commodity_id
-         })*/
+									
 									/*$('.pay_success .pay_share').click(function () {
 										window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU3ODQ3ODc5OA==&scene=124&#wechat_redirect';
 									});*/
-									$('.pay_success p').eq(0).find('span').click(function () {
+									/*$('.pay_success p').eq(0).find('span').click(function () {
 										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
-									});
-									$('.pay_success div').eq(0).hide()
+									});*/
+									$('.pay_success div').eq(1).show()
+									$('.pay_success div').eq(0).find('span').html('开课说明')
+									$('.pay_success div').eq(1).find('span').html('下载APP')
 									$('.pay_success div').eq(1).click(function(){
 										if (window.webkit) {
 											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
@@ -355,14 +355,14 @@ $(function () {
 											window.location.href='https://www.pgyer.com/q8oQ'
 										}
 									})
-									$('.pay_success div').eq(2).click(function(){
+									$('.pay_success div').eq(0).click(function(){
 										window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
 													
 									})
 								}
 								//微信团购
 								if (objurl.type_id == 12) {
-									$('.pay_success p').eq(0).find('span').click(function () {
+/*									$('.pay_success p').eq(0).find('span').click(function () {
 										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
 									});
 									$('.pay_success div').eq(0).click(function(){
@@ -381,8 +381,12 @@ $(function () {
 									})
 									$('.pay_success .pay_share').click(function () {
 										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;
-									});
-									
+									});*/
+									$('.pay_success div').eq(1).hide()
+									$('.pay_success div').eq(0).find('span').html('邀请好友参团')
+									$('.pay_success div').eq(0).click(function(){
+										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
+									})
 								}
 							}
 						});

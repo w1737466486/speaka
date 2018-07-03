@@ -55,6 +55,11 @@ $(function () {
 			});
 		});
 	}
+	$('.group_share').click(function () {
+		$('.group_share').css({
+			'display': 'none'
+		});
+	});
 	//将url参数转对象
 
 	function queryURL(url) {
