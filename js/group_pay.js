@@ -17,7 +17,7 @@ $(function () {
 	var isbuy_code=groupurl.code;
     console.log(isbuy_code)
     var isbuy_token=null;
-    var u_id=groupurl.u_id;
+    var u_id=groupurl.u_id;//null
 	var u_id_new=null;
 	var commodity_id = groupurl.commodity_id;
 	if (isWeiXin()) {
@@ -27,6 +27,7 @@ $(function () {
 			url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
 			async:false,
 			success:function(res){
+				u_id_new=res.now_uid
 				console.log(res)
 				 if(!res.token){
 				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
@@ -207,13 +208,16 @@ $(function () {
 					
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
-				if(u_id){
+				if(!u_id){
+					u_id=data.group[0].u_id
+				}
+				/*if(u_id){
 					u_id_new=data.group[data.group.length-1].u_id
 				}else{
 					u_id=data.group[0].u_id
 					u_id_new=data.group[data.group.length-1].u_id
 				}
-				console.log(u_id)
+				console.log(u_id)*/
 			}
 
 			var curr_time = getNowFormatDate();
