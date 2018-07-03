@@ -126,27 +126,42 @@ b{
 	height: 100%;
 	left: 0px;
 	top: 0px;
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
+    border-radius: 10px;
 	background: rgba(0,0,0,0.30);
 }
 .course_pay_success .pay_success{
 	position: absolute;
-	top: 31.9%;
-	left: 18.7%;
-	background: #FFFFFF;
+	top: 21%;
+	left: 13%;
+	background: #2FBBA9 ;
     border-radius: 10px; 
 	text-align:center;
 	z-index: 999;
-	width: 62.7%;
-	height:36.9% ;
+	width: 73.3%;
+	height:56.7% ;
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
 }
 .pay_success p:nth-of-type(1){
 	position: relative;
-	height: 16%;
+	height: 10%;
+}
+.pay_success p:nth-of-type(1) span{
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+.pay_success p:nth-of-type(1) span img{
+	width: 100%;
+	height: 100%;
 }
 .pay_success p:nth-of-type(2){
 	position: relative;
 	width: 100%;
-	height: 24.5%;
+	height: 20%;
 	text-align: center;
 }
 .pay_success p:nth-of-type(2) span{
@@ -154,9 +169,9 @@ b{
 	left: 50%;
 	margin-left: -14%;
 	display: block;
-	width: 28%;
-	height: 100%;
-	background: url('../img/支付成功.png');
+	width: 75px;
+	height: 75px;
+	background: url('../img/成功.png');
 	background-size: 100% 100%;
 	
 }
@@ -165,7 +180,7 @@ b{
 	width: 100%;
 	height: 10%;
 	text-align: center;
-	color: #333333;
+	color: #FFFFFF;
 	font-size: 18px;
 }
 .pay_success p:nth-of-type(4){
@@ -177,24 +192,34 @@ b{
 	text-align: center;
 }
 .pay_success div{
-    background: #3AAB87;
-    border-radius: 4px;
-    position: absolute;
-    color: #FFFFFF;
-    font-size: 16px;
-    width: 60%;
-    right: 20%;
-    height: 15%;
-    margin-top: 5px;
+	position: relative;
+	height: 10%;
+	margin:15px 0px;
+	width: 100%;
+	text-align: center;
+	color: #333333;
+	font-size: 14px;
+}
+.pay_success div:nth-of-type(2n+1) span{
+		background: #FFFFFF;
 }
 .pay_success div span{
 	position: absolute;
-    width: 100%;
+
+    border-radius: 5px;
+    width: 80%;
+    height: 44px;
+    color: #2FBBA9;
+    line-height: 44px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
-
+.pay_success div:nth-of-type(2n) span{
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
 .course_pay_error{
 	display: none;
 	position: fixed;
@@ -203,28 +228,39 @@ b{
 	left: 0px;
 	top: 0px;
 	background: rgba(0,0,0,0.30);
-	
 }
-.pay_error{
+.course_pay_error .pay_error{
 	position: absolute;
-	top: 31.9%;
-	left: 18.7%;
-	background: #FFFFFF;
+	top: 21%;
+	left: 13%;
     border-radius: 10px; 
 	text-align:center;
 	z-index: 999;
-	width: 62.7%;
-	height:36.9% ;
+	width: 73.3%;
+	height:56.7% ;
+	background: #FD7C7C;
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
 }
 .pay_error p:nth-of-type(1){
 	position: relative;
-	height: 16%;
+	height: 10%;
+}
+.pay_error p:nth-of-type(1) span{
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+.pay_error p:nth-of-type(1) span img{
+	width: 100%;
+	height: 100%;
 }
 .pay_error p:nth-of-type(2){
-	margin-top: 10%;
 	position: relative;
 	width: 100%;
-	height: 24.5%;
+	height: 20%;
 	text-align: center;
 }
 .pay_error p:nth-of-type(2) span{
@@ -232,32 +268,55 @@ b{
 	left: 50%;
 	margin-left: -14%;
 	display: block;
-	width: 28%;
-	height: 100%;
-	background: url('../img/支付失败.png');
+	width: 75px;
+	height: 75px;
+	background: url('../img/失败.png');
 	background-size: 100% 100%;
 	
 }
 .pay_error p:nth-of-type(3){
-	position: relative;
-	margin-top: 10%;
-	height: 16%;
-	
+	margin:10px 0px;
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 18px;
 }
-.pay_error p:nth-of-type(3) span{
-    font-size: 18px;
+.pay_error p:nth-of-type(4){
+	margin-bottom: 2px;
+	width: 100%;
+	height: 10%;
+	font-size: 14px;
 	color: #333333;
 	text-align: center;
 }
-/*可用优惠券样式*/
-.pay .coupon span{
-	padding-right: 14px;
-	background: url("../img/Next -On Light@2x.png") no-repeat right ;
-	background-size: 10% 70%;
-	display: inline-block;
-	font-style: normal;
-	top:1px;
-	right:-40%;
+.pay_error div{
+	position: relative;
+	height: 10%;
+	margin:15px 0px;
+	width: 100%;
+	text-align: center;
+	color: #333333;
+	font-size: 14px;
+}
+.pay_error div:nth-of-type(2n+1) span{
+		background: #FFFFFF;
+}
+.pay_error div span{
 	position: absolute;
+
+    border-radius: 5px;
+    width: 80%;
+    height: 44px;
+    color: #FD7C7C;
+    line-height: 44px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.pay_error div:nth-of-type(2n) span{
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	color: #FFFFFF;
 }
 

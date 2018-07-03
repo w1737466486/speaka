@@ -130,14 +130,10 @@ $(function () {
 							$('.group_foot').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								alert('开课说明暂无！')
+								window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
 							})
 							$('.buy_success .buy_pay p').eq(1).click(function(){
-								if (window.webkit) {
-									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
-								} else {
-									window.location.href='https://www.pgyer.com/q8oQ'
-								}
+								$('.group_share').show()
 							})
 						}
 						

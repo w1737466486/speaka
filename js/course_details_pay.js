@@ -244,14 +244,16 @@ $(function () {
 		//微信单人购买
 		if (objurl.type_id == 11) {
 			typeId = 0;
-			$('.pay_success p').eq(3).html('请用当前微信登陆App去上课');
-			$('.pay_success div span').html('去下载');
+			/*$('.pay_success p').eq(3).html('请用当前微信登陆App去上课');
+			$('.pay_success div span').html('去下载');*/
+			
 		}
 		//微信团购
 		if (objurl.type_id == 12) {
 			typeId = 1;
-			$('.pay_success p').eq(3).html('邀请好友参团');
-			$('.pay_success div span').html('去分享邀请');
+			/*$('.pay_success p').eq(3).html('邀请好友参团');
+			$('.pay_success div span').html('去分享邀请');*/
+			
 		}
 	$('.wx_pay span').eq(1).click(function () {
 		//alert(token_pay)
@@ -339,15 +341,44 @@ $(function () {
 									/*$('.pay_success p').eq(0).find('span').click(function(){
          	window.location.href = 'http://h5.speaka.live/front/html/course_details.html?'+commodity_id
          })*/
-									$('.pay_success .pay_share').click(function () {
+									/*$('.pay_success .pay_share').click(function () {
 										window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU3ODQ3ODc5OA==&scene=124&#wechat_redirect';
+									});*/
+									$('.pay_success p').eq(0).find('span').click(function () {
+										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
 									});
+									$('.pay_success div').eq(0).hide()
+									$('.pay_success div').eq(1).click(function(){
+										if (window.webkit) {
+											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+										} else {
+											window.location.href='https://www.pgyer.com/q8oQ'
+										}
+									})
+									$('.pay_success div').eq(2).click(function(){
+										window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
+													
+									})
 								}
 								//微信团购
 								if (objurl.type_id == 12) {
 									$('.pay_success p').eq(0).find('span').click(function () {
-										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;
+										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
 									});
+									$('.pay_success div').eq(0).click(function(){
+										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;				
+									})
+									$('.pay_success div').eq(1).click(function(){
+										if (window.webkit) {
+											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+										} else {
+											window.location.href='https://www.pgyer.com/q8oQ'
+										}
+									})
+									$('.pay_success div').eq(2).click(function(){
+										window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
+													
+									})
 									$('.pay_success .pay_share').click(function () {
 										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;
 									});

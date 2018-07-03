@@ -346,3 +346,14 @@ img{
 	color: #FFFFFF;
 	
 }
+.buy_success .buy_pay p:nth-of-type(2) span b{
+	display: inline-block;
+	width: 100%;
+	font-size: 18px;
+	color: #FFFFFF;
+	
+}
+.buy_success .buy_pay p:nth-of-type(2) span b:nth-of-type(2){
+	font-size: 12px;
+	color: #FFFFFF;
+}
