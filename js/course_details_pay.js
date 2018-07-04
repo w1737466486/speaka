@@ -50,7 +50,7 @@ $(function () {
 		success: function success(data) {
 			//获取接口数据
 			console.log(data.pages);
-			$('.course_pay p span').eq(0).html(data.eng + ' ' + data.chn + ' ' + '微课');
+			$('.course_pay p span').eq(0).html(data.chn + ' ' + '微课');
 			$('.course_pay p span').eq(1).html('￥' + data.price / 100 + '元');
 			$('.course_pay p span').eq(2).html('￥' + data.groupon_price / 100 + '元');
 			//单购价
