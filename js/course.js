@@ -1,22 +1,37 @@
 'use strict';
 
 $(function () {
+	
+	//将url参数转对象
+	function queryURL(url) {
+		var arr1 = url.split("?");
+		var params = arr1[1].split("&"); //进行分割成数组
+		var obj = {};
+		for (var i = 0; i < params.length; i++) {
+			var param = params[i].split("="); //进行分割成数组
+			obj[param[0]] = param[1]; //为对象赋值
+		}
+		return obj;
+	}
+	var lessons_url=queryURL(location.href)
+	console.log(lessons_url)
+	var team_id=lessons_url.team_id;
 	//console.log(str.split('?')[1])
 	$.ajax({
 		type: "get",
 		async: true,
 		//url:"../json/speaka.json", 
-		url: 'http://api.speaka.live/api/team/77/commodity',
+		url: "http://api.speaka.live/api/team/"+team_id+"/commodity",
 		success: function success(data) {
-
-			var lessonId = location.href.split('?')[1];
+           console.log(data)
+			var lessonId = lessons_url.lessonId;
 			console.log(data.lessons[0].id);
 			for (var k = 0; k < data.lessons.length; k++) {
 				//判断是第几天的课程
-				if (data.lessons[k].id == lessonId) {
+				if (lessonId==(k+1) ) {
 					//console.log(k)
 					//替换文字内容
-					$('.header .header_s2').html('Lesson' + ' ' + data.lessons[k].id);
+					$('.header .header_s2').html('Lesson' + ' ' + lessonId);
 
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
 					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)

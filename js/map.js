@@ -13,22 +13,33 @@
 		    var currentdate = date.getFullYear() + month + strDate
 		    return currentdate;
 		}
- 	
+ 		//将url参数转对象
+		function queryURL(url) {
+			var arr1 = url.split("?");
+			var params = arr1[1].split("&"); //进行分割成数组
+			var obj = {};
+			for (var i = 0; i < params.length; i++) {
+				var param = params[i].split("="); //进行分割成数组
+				obj[param[0]] = param[1]; //为对象赋值
+			}
+			return obj;
+		}
+
  	console.log(getNowFormatDate())
  	
  	var mapurl=location.href.split('?')[1]
  	var url_map=null
- 	
+ 	var team_id=null
  	if(mapurl){
  		console.log(mapurl.substr(8))
- 		url_map="http://api.speaka.live/api/team/"+mapurl.substr(8)+"/commodity"
+ 		team_id=mapurl.substr(8)
  	}else{
- 		url_map="http://api.speaka.live/api/team/77/commodity"
+ 		team_id=77
  	}
  	var obj={}
  	$.ajax({
  		type:"get",
- 		url:url_map,
+ 		url:"http://api.speaka.live/api/team/"+team_id+"/commodity",
  		//url:"../json/speaka.json",
  		async:true,
  		success:function(data){
@@ -65,7 +76,7 @@
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index())
     	}else{
-    		window.location.href = 'http://h5.speaka.live/front/html/course.html?'+($(this).index()-1);
+    		window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
     	}
     	
     })
