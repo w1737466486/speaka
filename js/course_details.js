@@ -32,8 +32,17 @@ $(function () {
 		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
 	  }
 	}
-	
-	
+	//去掉alert显示网页
+	window.alert = function(name) {
+		var iframe = document.createElement("IFRAME");
+		iframe.style.display = "none";
+		iframe.setAttribute("src", 'data:text/plain,');
+		document.documentElement.appendChild(iframe);
+		window.frames[0].window.alert(name);
+		iframe.parentNode.removeChild(iframe);
+	}
+	//
+	alert('测试')
 	window.get_share = get_share;
 	console.log(url_course)
     var slip_up=true;
@@ -146,7 +155,7 @@ $(function () {
 				$('.v_det .v_det_s2').html('课时数量：' + data.last_days + '课时');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>3人起团购</b>');
 				$.ajax({
 					type:"get",
 					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
@@ -214,17 +223,16 @@ $(function () {
 	setInterval(function(){
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
-			if(sTop>0){
+			if(sTop>50){
 				$('.v_footer').css({'opacity': '0.4','display': 'block'})
 			}
-			if(sTop>100){
+			if(sTop>150){
 				$('.v_footer').css({'opacity': '0.6'})
 			}
-			if(sTop>200){
+			if(sTop>250){
 				$('.v_footer').css({'opacity': '1'})
 			}
-
-			if(sTop==0){
+			if(sTop<50){
 				$('.v_footer').css({'opacity': '0','display': 'none'})
 			}
 		},50)
