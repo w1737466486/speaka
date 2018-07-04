@@ -169,7 +169,9 @@ img{
 }
 .v_nav .v_det{
 	width: 89.3%;
-	height: 19.5%;
+	/*height: 19.5%;*/
+	height: 120px;
+	padding: 10px 0;
 	position: absolute;
 	left: 5.3%;
 	bottom: 15%;
@@ -181,9 +183,9 @@ img{
 .v_det span{
 	display: block;
 	margin-left: 10%;
-	margin-top: 5.3%;
+	height: 40px;
 	font-size: 16px;
-	line-height: 20px;
+	line-height: 40px;
 }
 .v_img{
 	/*margin-bottom: 88px;*/
