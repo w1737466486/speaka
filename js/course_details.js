@@ -42,7 +42,7 @@ $(function () {
 		iframe.parentNode.removeChild(iframe);
 	}
 	//
-	alert('测试')
+	//alert('测试')
 	window.get_share = get_share;
 	console.log(url_course)
     var slip_up=true;
@@ -155,7 +155,7 @@ $(function () {
 				$('.v_det .v_det_s2').html('课时数量：' + data.last_days + '课时');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>3人起团购</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>' + data.groupon_num + '人起团购</b>');
 				$.ajax({
 					type:"get",
 					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,

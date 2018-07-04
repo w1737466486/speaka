@@ -73,6 +73,15 @@ $(function () {
 		}
 		return obj;
 	}
+	//去掉alert显示网页
+	window.alert = function(name) {
+		var iframe = document.createElement("IFRAME");
+		iframe.style.display = "none";
+		iframe.setAttribute("src", 'data:text/plain,');
+		document.documentElement.appendChild(iframe);
+		window.frames[0].window.alert(name);
+		iframe.parentNode.removeChild(iframe);
+	}
 	//判断是否是微信浏览器
 	function isWeiXin() {
 		var ua = window.navigator.userAgent.toLowerCase();
