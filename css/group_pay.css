@@ -136,31 +136,33 @@ img{
 	height: 100%;
 }
 .v_nav .v_desc{
-	width: 55%;
+	/*width: 55%;*/
 	position: absolute;
 	bottom: 40%;
 	left: 5.3%;
 }
 .v_nav .v_s1{
 	display: block;
-	font-size: 48px;
+	font-size: 36px;
 /*	width: 55%;
 	height: 9.4%;
 	position: absolute;
 	left: 5.3%;
 	top: 45%;*/
-	font-family: SFUIText-BoldItalic;
+	font-family: PingFangSC-Medium;
+	margin-bottom: 10px;
 	text-shadow: 0 2px 6px rgba(0,0,0,0.50);
 	color: #FFFFFF;
 }
 .v_nav .v_s2{
 	display: block;
-	font-size: 40px;
+	font-size: 20px;
 /*	width: 25%;
 	height: 8.4%;
 	position: absolute;
 	left: 5.3%;
 	top: 55%;*/
+	margin-left: 5px;
 	font-family: PingFangSC-Medium;
 	text-shadow: 0 2px 6px rgba(0,0,0,0.50);
 	color: #FFFFFF;
@@ -179,7 +181,7 @@ img{
 .v_det span{
 	display: block;
 	margin-left: 10%;
-	margin-top: 4.5%;
+	margin-top: 5.3%;
 	font-size: 16px;
 	line-height: 20px;
 }
