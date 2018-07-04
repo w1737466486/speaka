@@ -184,34 +184,25 @@ img{
 	line-height: 20px;
 }
 .v_img{
-	margin-bottom: 88px;
+	/*margin-bottom: 88px;*/
 }
 
 .v_img img{
 	width: 100%;
 }
+
 .img_video{
-	width: 86%;
-	height: 54%;
-	position: absolute;
-	left: 50%;
-	top: 52%;
-	border-radius: 10px;
-	transform: translate(-50%,-51%);
-}
-.img_video video{
-	border-radius: 10px;
-}
-.video_position{
+    width: 100%;
 	position: relative;
+	border-radius: 10px;
 }
 .img_video img{
-	width: 80px;
-	height: 80px;
 	position: absolute;
-	left: 50%;
+	width: 100px;
+	height: 100px;
 	top: 50%;
-	transform: translate(-50%,-50%);
+	left: 50%;
+	transform:translate(-50%,-50%);
 }
 .group_foot{
 	position: fixed;
