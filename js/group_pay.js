@@ -124,7 +124,7 @@ $(function () {
 				})
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课时数量：' + data.last_days + '课时');
-			$('.v_det .v_det_s3').html('购买截止时间：' + data.alloc_at.substr(0, 10));
+			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 			$('.group_foot p').eq(1).find('span').html('<div><s>￥' + data.price / 100 + '</s>&nbsp￥' + data.groupon_price / 100 + '</div><b>我要参团</b>');
 				$.ajax({
 					type:"get",
