@@ -48,6 +48,7 @@ $(function () {
 		//url:"../json/ocean.json",
 		async: false,
 		success: function success(data) {
+			
 			//获取接口数据
 			console.log(data.pages);
 			$('.course_pay p span').eq(0).html(data.chn + ' ' + '微课');

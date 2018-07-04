@@ -41,6 +41,7 @@ $(function () {
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
 	}
+	
 	//
 	//alert('测试')
 	window.get_share = get_share;
