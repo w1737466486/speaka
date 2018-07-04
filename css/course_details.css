@@ -45,7 +45,7 @@ video{
 .v_nav .v_desc{
 	/*width: 55%;*/
 	position: absolute;
-	top: 46%;
+	top: 45%;
 	left: 5.3%;
 }
 
@@ -58,7 +58,7 @@ video{
 	left: 5.3%;
 	top: 45%;*/
 	/*font-family: SFUIText-BoldItalic;*/
-	font-family: PingFangSC-Medium;
+	font-family: PingFangSC-Semibold;
 	margin-bottom: 10px;
 	text-shadow: 0 2px 6px rgba(0,0,0,0.50);
 	color: #FFFFFF;
