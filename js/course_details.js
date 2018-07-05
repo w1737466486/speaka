@@ -122,7 +122,7 @@ $(function () {
 				
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
-						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="../img/small.png" controlslist="nodownload" width="100%" src="http://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="http://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="http://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
 					}
 					if(data.pages[i].type==0){
 						$('.v_img').append('<img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/>');
