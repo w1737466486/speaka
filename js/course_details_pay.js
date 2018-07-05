@@ -172,8 +172,9 @@ $(function () {
 				});
 			}
 		}
+		
 	});
-
+	
 	//判断是否是安卓还是ios  
 	function isAndroid_ios() {
 		var u = navigator.userAgent,
@@ -348,13 +349,6 @@ $(function () {
 
 								//微信单人
 								if (objurl.type_id == 11) {
-									
-									/*$('.pay_success .pay_share').click(function () {
-										window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU3ODQ3ODc5OA==&scene=124&#wechat_redirect';
-									});*/
-									/*$('.pay_success p').eq(0).find('span').click(function () {
-										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
-									});*/
 									$('.pay_success div').eq(1).show()
 									$('.pay_success div').eq(0).find('span').html('开课说明')
 									$('.pay_success div').eq(1).find('span').html('下载APP')
@@ -372,28 +366,12 @@ $(function () {
 								}
 								//微信团购
 								if (objurl.type_id == 12) {
-/*									$('.pay_success p').eq(0).find('span').click(function () {
-										window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id
-									});
-									$('.pay_success div').eq(0).click(function(){
-										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;				
+									$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券')
+									$('.pay_success div').eq(1).find('span').css({
+										'border':'none','font-size':'12px'
 									})
-									$('.pay_success div').eq(1).click(function(){
-										if (window.webkit) {
-											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
-										} else {
-											window.location.href='https://www.pgyer.com/q8oQ'
-										}
-									})
-									$('.pay_success div').eq(2).click(function(){
-										window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
-													
-									})
-									$('.pay_success .pay_share').click(function () {
-										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no + '&is_share=' + 1;
-									});*/
-									$('.pay_success div').eq(1).hide()
-									$('.pay_success div').eq(0).find('span').html('邀请好友参团')
+									$('.pay_success div').css({'margin':'0px'})
+									$('.pay_success div').eq(0).find('span').html('邀请好友快速成团')
 									$('.pay_success div').eq(0).click(function(){
 										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
 									})
