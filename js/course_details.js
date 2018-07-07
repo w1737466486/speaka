@@ -184,7 +184,7 @@ $(function () {
 					}
 				});
 				var curr_time = getNowFormatDate();
-				var last_time = data.alloc_at;
+				var last_time = data.begin_time;
 				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
 				last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
 				curr_time = new Date(curr_time).valueOf();

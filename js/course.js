@@ -119,7 +119,7 @@ $(function () {
 								} else {
 									obj.which_page = 1;
 								}
-								console.log(obj);
+								console.log(JSON.stringify(obj));
 
 								if (window.webkit) {
 									window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
