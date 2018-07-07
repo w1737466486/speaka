@@ -50,7 +50,7 @@ $(function () {
 						obj.v_id = 0;
 						obj.v_tit = v_tit;
 						obj.v_text = txt1;
-						console.log(obj);
+						console.log(JSON.stringify(obj));
 						if (window.webkit) {
 							window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
 						} else {

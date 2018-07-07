@@ -415,7 +415,7 @@ $(function () {
 							alert('您已购买过该课程！');
 					}
 					if (data.status == 0 && data.code == 406) {
-							alert('库存不足！');
+							alert('本期课程已满员，您可以等待下一期或选购其他课程！');
 					}if (data.status == 0 && data.code == 407) {
 							alert('下单失败请重试！');
 					}
@@ -540,7 +540,7 @@ $(function () {
 							alert('您已购买过该课程！');
 					}
 					if (data.status == 0 && data.code == 406) {
-							alert('库存不足！');
+							alert('本期课程已满员，您可以等待下一期或选购其他课程！');
 					}if (data.status == 0 && data.code == 407) {
 							alert('下单失败请重试！');
 					}
