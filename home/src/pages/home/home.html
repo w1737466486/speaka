@@ -1,0 +1,42 @@
+<ion-content no-padding>
+  <ion-list no-lines>
+    <!-- <ion-item no-padding>
+        <ion-input placeholder="单词闪卡 —— 情景记忆单词" style="background: #F5F5F5; border-radius: 4px; margin: 4rem 2rem 0 2rem; text-indent: 1rem; font-size: 1.4rem;" (keyup.enter)="onSearch($event.target.value)"></ion-input>
+        <ion-icon name="search" style="position: absolute; right: 2rem; top: 3.8rem;" item-right></ion-icon>
+    </ion-item> -->
+    <ion-item no-padding style="padding: 2rem;">
+      <ion-label no-margin>
+        <h1>每日单词</h1>
+        <div style="text-align: center; margin-top: 1.5rem; width: 33.5rem; height: 13.6rem;">
+            <img src="http://s.speaka.live/{{dayWord?.pic_path}}" alt="" style="width: 33.5rem; height: 13.6rem; border-radius: 1rem;">
+            <ion-label no-margin style="font-size: 3.6rem; color: white; position: relative; top: -11rem;">{{dayWord?.eng}}</ion-label>
+            <ion-label style="font-size: 2rem; color: white; position: relative; top: -11rem;">{{dayWord?.chn}}</ion-label>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label no-margin style="padding-left: 2rem; padding-bottom: 2rem;">
+          <h1 style="padding: 0 0 1rem 0rem;">课程推荐</h1>
+          <ion-scroll scrollX style="height: 20.5rem;">
+              <div class="scroll-item">
+                <ion-col col-33 *ngFor="let card of recommondedCards" style="padding-left: 0">
+                  <shan-card class="card" [model]="card"></shan-card>
+                </ion-col>
+              </div>
+            </ion-scroll>
+      </ion-label>
+    </ion-item>
+    <ion-item no-padding *ngFor="let category of categoryCards">
+        <ion-label no-margin style="padding-left: 2rem;">
+            <h1 style="padding: 0 0 1rem 0rem;">{{category?.title}}</h1>
+            <ion-scroll scrollX style="height: 12rem;">
+                <div class="scroll-item">
+                  <ion-col col-33 *ngFor="let card of getVideo(category)" style="padding-left: 0;">
+                    <tag-card class="card" [model]="card" style="width: 14rem;"></tag-card>
+                  </ion-col>
+                </div>
+              </ion-scroll>
+        </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
