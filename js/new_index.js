@@ -24,6 +24,9 @@ $(function () {
 		return obj;
 	}
 	
+	
+	
+	
 	//每日一词推荐
 	$.ajax({
 		type:"get",
