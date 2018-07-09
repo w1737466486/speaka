@@ -24,3 +24,7 @@
                 loadingMask.parentNode.removeChild(loadingMask);
             }
         }
+/*		$.holdReady(true);    //hold住，等待a.js加载，后续代码不能执行
+		$.getScript('../js/map.js',function(){
+		　　$.holdReady(false);     //释放，a.js加载完成，继续执行后续代码
+		});*/
