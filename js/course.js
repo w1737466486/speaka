@@ -13,6 +13,15 @@ $(function () {
 		}
 		return obj;
 	}
+	//去掉alert显示网页
+	window.alert = function(name) {
+		var iframe = document.createElement("IFRAME");
+		iframe.style.display = "none";
+		iframe.setAttribute("src", 'data:text/plain,');
+		document.documentElement.appendChild(iframe);
+		window.frames[0].window.alert(name);
+		iframe.parentNode.removeChild(iframe);
+	}
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 		var date = new Date();
@@ -182,11 +191,14 @@ $(function () {
 								}
 							}
 						}else{
-							alert('未到上课时间，该视频暂时无法播放！上课时间：'+$(this).attr('learn_at'))
+							//var learn_at=$(this).attr('learn_at').substr(5)
+							$('.dialog').show()
+							$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>")
+							//alert("未到上课时间，该视频暂时无法播放！"+'\n'+"上课时间："+$(this).attr('learn_at').substr(5))
+							$('.dialog').click(function(){
+								$('.dialog').hide()
+							})
 						}
-						
-						
-						
 						
 					});
 				}

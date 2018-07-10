@@ -1,6 +1,17 @@
 "use strict";
 
 $(function () {
+	//去掉alert显示网页
+	window.alert = function(name) {
+		var iframe = document.createElement("IFRAME");
+		iframe.style.display = "none";
+		iframe.setAttribute("src", 'data:text/plain,');
+		document.documentElement.appendChild(iframe);
+		window.frames[0].window.alert(name);
+		iframe.parentNode.removeChild(iframe);
+	}
+	
+	
 	/*
   * 用于记录日期，显示的时候，根据dateObj中的日期的年月显示
   */
@@ -272,7 +283,12 @@ $(function () {
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
-						alert('亲，该课程还没到上课时间哦！');
+						//alert('亲，该课程还没到上课时间哦！');
+						$('.dialog').show()
+						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+						$('.dialog').click(function(){
+							$('.dialog').hide()
+						})
 					});
 				}
 				var less_days = data.info.has_lesson_days;
@@ -410,7 +426,12 @@ $(function () {
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
-						alert('亲，该课程还没到上课时间哦！');
+						//alert('亲，该课程还没到上课时间哦！');
+						$('.dialog').show()
+						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+						$('.dialog').click(function(){
+							$('.dialog').hide()
+						})
 					});
 				}
 				var less_days = data.info.has_lesson_days;
@@ -652,7 +673,12 @@ $(function () {
 							});
 						} else {
 							$('.calendar_detail div').click(function () {
-								alert('亲，该课程还没到上课时间哦！');
+								//alert('亲，该课程还没到上课时间哦！');
+								$('.dialog').show()
+								$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+								$('.dialog').click(function(){
+									$('.dialog').hide()
+								})
 							});
 						}
 						var less_days = data.info.has_lesson_days;
@@ -698,7 +724,12 @@ $(function () {
 			});
 		} else {
 			$('.calendar_detail div').click(function () {
-				alert('亲，该课程还没到上课时间哦！');
+				//alert('亲，该课程还没到上课时间哦！');
+				$('.dialog').show()
+				$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+				$('.dialog').click(function(){
+					$('.dialog').hide()
+				})
 			});
 		}
 	}
