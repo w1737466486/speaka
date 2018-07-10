@@ -13,15 +13,56 @@ $(function () {
 		}
 		return obj;
 	}
+	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
+	function getNowFormatDate() {
+		var date = new Date();
+		var seperator1 = "-";
+		var seperator2 = ":";
+		var month = date.getMonth() + 1;
+		var strDate = date.getDate();
+		var _hours = date.getHours();
+		var _minutes = date.getMinutes();
+		var _seconds = date.getSeconds();
+		if (month >= 1 && month <= 9) {
+			month = "0" + month;
+		}
+		if (strDate >= 0 && strDate <= 9) {
+			strDate = "0" + strDate;
+		}
+		if (_hours >= 0 && _hours <= 9) {
+			_hours = "0" + _hours;
+		}
+		if (_minutes >= 0 && _minutes <= 9) {
+			_minutes = "0" + _minutes;
+		}
+		if (_seconds >= 0 && _seconds <= 9) {
+			_seconds = "0" + _seconds;
+		}
+
+		var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + _hours + seperator2 + _minutes + seperator2 + _seconds;
+		return currentdate;
+	}
+	
+	
+	
+	
 	var lessons_url=queryURL(location.href)
 	console.log(lessons_url)
 	var team_id=lessons_url.team_id;
+	var comm_id=lessons_url.comm_id;
+	var comm_url=null;
 	//console.log(str.split('?')[1])
+	if(team_id){
+		comm_url="http://api.speaka.live/api/team/"+team_id+"/commodity"
+	}
+	if(comm_id){
+		comm_url="http://api.speaka.live/api/comm/"+comm_id
+	}
 	$.ajax({
 		type: "get",
 		async: true,
 		//url:"../json/speaka.json", 
-		url: "http://api.speaka.live/api/team/"+team_id+"/commodity",
+		url: comm_url,
 		success: function success(data) {
            console.log(data)
 			var lessonId = lessons_url.lessonId;
@@ -60,7 +101,7 @@ $(function () {
 
 					//判断有几个课时，就添加几个课程盒子
 					var arrlessons = Object.keys(data.lessons[k].items);
-					//console.log(arrlessons.length)
+					console.log(arrlessons)
 					for (var i = 1; i <= arrlessons.length; i++) {
 						$('.main').append("<div class='main_d" + i + "'><span></span></div>");
 						$('.main_d' + i + '>span').html('Day' + ' ' + i);
@@ -82,6 +123,8 @@ $(function () {
 						for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
 							$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
 							$('.main_d' + i + '>div').addClass('y1');
+							console.log(data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at)
+							$('.main_d' + i + '>div').attr('learn_at',data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
 							//console.log($('.main_d'+i).find('p').length)
 							$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).html(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
 							$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).attr('chnId', data.lessons[k].items[arrlessons[i - 1]][j - 1].id);
@@ -96,6 +139,7 @@ $(function () {
 						obj={};
 						var day_index = $(this).parent().find('span').attr('data_day');
 						var v_tit = 'Lesson' + ' ' + lessonId;
+						console.log($(this).attr('learn_at'))
 						console.log(arrlessons);
 						console.log(day_index);
 						console.log(arrlessons.indexOf(day_index));
@@ -104,30 +148,46 @@ $(function () {
 						var day1 = data.lessons[lessonId - 1].items[day_index];
 						var txtId = $(this).find('p').attr('chnid');
 						console.log(txtId);
-						for (var _i = 0; _i < day1.length; _i++) {
-							if (day1[_i].chn == txt1 && day1[_i].id == txtId) {
-								obj.id = day1[_i].id;
-								obj.type = day1[_i].type;
-								obj.video_path = day1[_i].video_path;
-								obj.v_id = day1[_i].v_id;
-								obj.v_tit = v_tit;
-								obj.v_text = txt1;
-								obj.subtitle_en = day1[_i].subtitle_en;
-								obj.subtitle_ch = day1[_i].subtitle_ch;
-								if (day1[_i].which_page) {
-									obj.which_page = day1[_i].which_page;
-								} else {
-									obj.which_page = 1;
-								}
-								console.log(JSON.stringify(obj));
-
-								if (window.webkit) {
-									window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
-								} else {
-									curson.punchCurson(JSON.stringify(obj));
+						var curr_time = getNowFormatDate();
+						var last_time = $(this).attr('learn_at');
+						curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
+						last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+						curr_time = new Date(curr_time).valueOf();
+						last_time = new Date(last_time).valueOf();
+						//剩余总时间
+						var remain_time = (last_time - curr_time) / 1000;
+						if(remain_time<=0){
+							for (var _i = 0; _i < day1.length; _i++) {
+								if (day1[_i].chn == txt1 && day1[_i].id == txtId) {
+									obj.id = day1[_i].id;
+									obj.type = day1[_i].type;
+									obj.video_path = day1[_i].video_path;
+									obj.v_id = day1[_i].v_id;
+									obj.v_tit = v_tit;
+									obj.v_text = txt1;
+									obj.subtitle_en = day1[_i].subtitle_en;
+									obj.subtitle_ch = day1[_i].subtitle_ch;
+									if (day1[_i].which_page) {
+										obj.which_page = day1[_i].which_page;
+									} else {
+										obj.which_page = 1;
+									}
+									console.log(JSON.stringify(obj));
+	
+									if (window.webkit) {
+										window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+									} else {
+										curson.punchCurson(JSON.stringify(obj));
+									}
 								}
 							}
+						}else{
+							alert('未到上课时间，该视频暂时无法播放！上课时间：'+$(this).attr('learn_at'))
 						}
+						
+						
+						
+						
 					});
 				}
 			}

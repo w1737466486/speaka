@@ -252,6 +252,7 @@ $(function () {
 				for (var _i2 = 0; _i2 < data.info.lessons.length; _i2++) {
 					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[_i2].name + '</p><p>' + data.info.lessons[_i2].begin_at + '~' + data.info.lessons[_i2].end_at + '</p><span></span></div>');
 					$('.calendar_detail div').attr('lesson_id', data.info.lessons[_i2].lesson_id);
+					$('.calendar_detail div').attr('comm_id', data.info.lessons[_i2].comm_id);
 				}
 				$('.calendar_detail div').css({
 					'position': 'relative',
@@ -265,8 +266,9 @@ $(function () {
 					//点击跳转课程详情
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $('.calendar_detail div').attr('lesson_id');
+						var comm_id = $('.calendar_detail div').attr('comm_id');
 						//console.log(lesson_id)
-						window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
+						window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
@@ -388,6 +390,7 @@ $(function () {
 				for (var _i5 = 0; _i5 < data.info.lessons.length; _i5++) {
 					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[_i5].name + '</p><p>' + data.info.lessons[_i5].begin_at + '~' + data.info.lessons[_i5].end_at + '</p><span></span></div>');
 					$('.calendar_detail div').attr('lesson_id', data.info.lessons[_i5].lesson_id);
+					$('.calendar_detail div').attr('comm_id', data.info.lessons[_i5].comm_id);
 				}
 				$('.calendar_detail div').css({
 					'position': 'relative',
@@ -401,8 +404,9 @@ $(function () {
 					//点击跳转课程详情
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $('.calendar_detail div').attr('lesson_id');
+						var comm_id = $('.calendar_detail div').attr('comm_id');
 						//console.log(lesson_id)
-						window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
+						window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 					});
 				} else {
 					$('.calendar_detail div').click(function () {
@@ -530,6 +534,7 @@ $(function () {
 					for (var i = 0; i < data.info.lessons.length; i++) {
 						$('.calendar_detail').append('<div lesson_id=' + data.info.lessons[i].lesson_id + '><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 						$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id);
+						$('.calendar_detail div').attr('comm_id', data.info.lessons[i].comm_id);
 					}
 					$('.calendar_detail div').css({
 						'position': 'relative',
@@ -627,6 +632,7 @@ $(function () {
 						for (var i = 0; i < data.info.lessons.length; i++) {
 							$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 							$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id);
+							$('.calendar_detail div').attr('comm_id', data.info.lessons[i].comm_id);
 						}
 						$('.calendar_detail div').css({
 							'position': 'relative',
@@ -640,8 +646,9 @@ $(function () {
 							//点击跳转课程详情
 							$('.calendar_detail div').click(function () {
 								var lesson_id = $('.calendar_detail div').attr('lesson_id');
+								var comm_id = $('.calendar_detail div').attr('comm_id');
 								//console.log(lesson_id)
-								window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
+								window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 							});
 						} else {
 							$('.calendar_detail div').click(function () {
@@ -685,8 +692,9 @@ $(function () {
 			//点击跳转课程详情
 			$('.calendar_detail div').click(function () {
 				var lesson_id = $('.calendar_detail div').attr('lesson_id');
+				var comm_id = $('.calendar_detail div').attr('comm_id');
 				//console.log(lesson_id)
-				window.location.href = 'http://h5.speaka.live/front/html/course.html?' + lesson_id;
+				window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 			});
 		} else {
 			$('.calendar_detail div').click(function () {
