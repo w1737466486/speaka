@@ -249,6 +249,35 @@ $(function () {
 		}	
 
 	}
+		//微信单人
+								if (objurl.type_id == 11) {
+									$('.pay_success div').eq(1).show()
+									$('.pay_success div').eq(0).find('span').html('开课说明')
+									$('.pay_success div').eq(1).find('span').html('下载APP')
+									$('.pay_success div').eq(1).click(function(){
+										if (window.webkit) {
+											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+										} else {
+											window.location.href='https://www.pgyer.com/q8oQ'
+										}
+									})
+									$('.pay_success div').eq(0).click(function(){
+										window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
+													
+									})
+								}
+								//微信团购
+								if (objurl.type_id == 12) {
+									$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券')
+									$('.pay_success div').eq(1).find('span').css({
+										'border':'none','font-size':'12px'
+									})
+									$('.pay_success div').css({'margin':'0px'})
+									$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)')
+									$('.pay_success div').eq(0).click(function(){
+										window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
+									})
+								}
 	//微信购买，配置微信环境参数设置
 	if (objurl.type_id == 11 || objurl.type_id == 12) {
 		var typeId = null;
