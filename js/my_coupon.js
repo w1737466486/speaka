@@ -13,7 +13,7 @@ $(function () {
 			dataType: 'JSON',
 			async: true,
 			//url: "../json/my_coupon.json",
-			url: 'http://api.speaka.live/api/coupon/m',
+			url: 'https://api.speaka.live/api/coupon/m',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -42,7 +42,7 @@ $(function () {
 					var coupon_money = $(this).find('strong').html();
 					var coupon_no = $(this).attr('coupon_no');
 					console.log($(this).find('strong').html());
-					window.location.href = 'http://h5.speaka.live/front/html/course_details_pay.html?' + back_url + '&coupon_money=' + coupon_money + '&coupon_no=' + coupon_no;
+					window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?' + back_url + '&coupon_money=' + coupon_money + '&coupon_no=' + coupon_no;
 					//window.location.href='../html/course_details_pay.html?'+back_url+'&coupon_money='+coupon_money+'&coupon_no='+coupon_no
 				});*/
 			},

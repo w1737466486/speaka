@@ -29,9 +29,9 @@ $(function () {
 			dataType: 'JSON',
 			async: true,
 			//url: "../json/my_coupon.json",
-			url: 'http://api.speaka.live/api/coupon/usable?token='+token+'&id='+coupon_all.id+'&price='+coupon_all.price,
+			url: 'https://api.speaka.live/api/coupon/usable?token='+token+'&id='+coupon_all.id+'&price='+coupon_all.price,
 			success: function success(data) {
-				//alert('http://api.speaka.live/api/coupon/usable?token='+token+'&id='+coupon_all.id+'&price='+coupon_all.price)
+				//alert('https://api.speaka.live/api/coupon/usable?token='+token+'&id='+coupon_all.id+'&price='+coupon_all.price)
 				console.log("成功获取数据", data.info);
 				for (var i = 0; i < data.info.length; i++) {
 					$('.coupon').append('<li coupon_no="' + data.info[i].coupon_no + '">\n\t\t\t\t\t<div class="coupon_left">\n\t\t\t\t\t\t<div class="coupon_price">\n\t\t\t\t\t\t\t<strong>' + data.info[i].price + '</strong>\n\t\t\t\t\t\t\t<span>\u5143</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="use_time">\n\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="coupon_right">\n\t\t\t\t\t\t<div>\u6EE1\u51CF\u5238</div>\n\t\t\t\t\t\t<div>\u6EE1&nbsp;<span>' + data.info[i].required_price + '</span>&nbsp;\u53EF\u7528</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>');
@@ -55,7 +55,7 @@ $(function () {
 					var coupon_money = $(this).find('strong').html();
 					var coupon_no = $(this).attr('coupon_no');
 					console.log($(this).find('strong').html());
-					window.location.href = 'http://h5.speaka.live/front/html/course_details_pay.html?' + back_url + '&coupon_money=' + coupon_money + '&coupon_no=' + coupon_no;
+					window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?' + back_url + '&coupon_money=' + coupon_money + '&coupon_no=' + coupon_no;
 					//window.location.href='../html/course_details_pay.html?'+back_url+'&coupon_money='+coupon_money+'&coupon_no='+coupon_no
 				});
 			},

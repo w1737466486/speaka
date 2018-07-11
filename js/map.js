@@ -39,7 +39,7 @@
  	var obj={}
  	$.ajax({
  		type:"get",
- 		url:"http://api.speaka.live/api/team/"+team_id+"/commodity",
+ 		url:"https://api.speaka.live/api/team/"+team_id+"/commodity",
  		//url:"../json/speaka.json",
  		async:true,
  		success:function(data){
@@ -76,7 +76,7 @@
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index())
     	}else{
-    		window.location.href = 'http://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
+    		window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
     	}
     	
     })

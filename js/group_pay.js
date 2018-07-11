@@ -8,7 +8,7 @@ $(function () {
 	console.log(protocol);
 	console.log(host);
 	//测试url
-	//var group_url = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
+	//var group_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
 	console.log(group_url);
 	var groupurl = queryURL(group_url);
 	console.log(groupurl);
@@ -24,7 +24,7 @@ $(function () {
 		if(isbuy_code){
 		$.ajax({
 			type:"get",
-			url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
+			url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
 			async:false,
 			success:function(res){
 				u_id_new=res.now_uid
@@ -94,28 +94,28 @@ $(function () {
 
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.live/api/commodity/" + commodity_id,
+		url: "https://api.speaka.live/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
 		async: true,
 		success: function success(data) {
 			console.log(data);
 			$('.v_nav .v_s1').html(data.eng);
 			$('.v_nav .v_s2').html(data.chn);
-			$('.v_nav img').attr('src', 'http://s.speaka.live/' + data.pic_path);
+			$('.v_nav img').attr('src', 'https://s.speaka.live/' + data.pic_path);
 			for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
-						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="http://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="http://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
 					}
 					if(data.pages[i].type==0){
-						$('.v_img').append('<img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/>');
+						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
 					}
 				}
 			/*for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==0&&i<data.pages.length-1){
-						$('.v_img').append('<div><img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/></div>');
+						$('.v_img').append('<div><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/></div>');
 					}
 					if(data.pages[i].type==0&&i==data.pages.length-1){
-						$('.v_img').append('<div class="video_position"><img src="http://s.speaka.live/' + data.pages[i].pic_path+'"/><div class="img_video"><video controls="true" controlslist="nodownload" width="100%" height="100%" src="http://s.speaka.live/static/spk.mp4"></video><img src="../img/Play.png"/></div></div>');
+						$('.v_img').append('<div class="video_position"><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/><div class="img_video"><video controls="true" controlslist="nodownload" width="100%" height="100%" src="https://s.speaka.live/static/spk.mp4"></video><img src="../img/Play.png"/></div></div>');
 					}
 				}*/
 				var _stop=true
@@ -137,7 +137,7 @@ $(function () {
 			$('.group_foot p').eq(1).find('span').html('<div><s>￥' + data.price / 100 + '</s>&nbsp￥' + data.groupon_price / 100 + '</div><b>我要参团</b>');
 				$.ajax({
 					type:"get",
-					url:"http://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
+					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
 					success:function(res){
 						console.log(res)
@@ -145,7 +145,7 @@ $(function () {
 							$('.group_foot').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								window.location.href='http://h5.speaka.live/front/html/lecture_notes.html'
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html'
 							})
 							$('.buy_success .buy_pay p').eq(1).click(function(){
 								$('.group_share').show()
@@ -201,7 +201,7 @@ $(function () {
 	//获取微信头像
 	$.ajax({
 		type: "get",
-		url: "http://api.speaka.live/api/order_group/" + groupurl.order_no,
+		url: "https://api.speaka.live/api/order_group/" + groupurl.order_no,
 		//url:"../json/order.json",
 		async: true,
 		success: function success(data) {
@@ -210,7 +210,7 @@ $(function () {
 				var group_member = $('.group_member li');
 				for (var i = 0; i < data.group.length; i++) {
 					if(data.group[i].user_info.head_wx==null){
-						$('.group_member li').eq(i).find('img').eq(1).attr('src','http://s.speaka.live/' +data.group[i].user_info.head);
+						$('.group_member li').eq(i).find('img').eq(1).attr('src','https://s.speaka.live/' +data.group[i].user_info.head);
 					}else{
 						$('.group_member li').eq(i).find('img').eq(1).attr('src',data.group[i].user_info.head_wx);
 					}
@@ -343,7 +343,7 @@ $(function () {
 				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'http://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
+						window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
 					});
 				}
 			}, 1000);
@@ -353,7 +353,7 @@ $(function () {
 		}
 	});
 
-	$.post("http://api.speaka.live/api/wxconfig", {
+	$.post("https://api.speaka.live/api/wxconfig", {
 		location: window.location.href
 	}, function (data) {
 		console.log(data);
@@ -379,30 +379,30 @@ $(function () {
 				wx.onMenuShareAppMessage({
 					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
-					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
+					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
 					}
 				});
 				wx.onMenuShareTimeline({
 					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
-					link: 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
-					imgUrl: 'http://s.speaka.live/static/logo-white.png', // 分享图标    
+					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'http://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
 					}
 				});
 			});
@@ -425,6 +425,6 @@ $(function () {
 	}, 'json');
 
 	$('.group_foot p').eq(0).click(function () {
-		window.location.href = 'http://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
 });
