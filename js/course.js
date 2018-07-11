@@ -62,10 +62,10 @@ $(function () {
 	var comm_url=null;
 	//console.log(str.split('?')[1])
 	if(team_id){
-		comm_url="http://api.speaka.live/api/team/"+team_id+"/commodity"
+		comm_url="https://api.speaka.live/api/team/"+team_id+"/commodity"
 	}
 	if(comm_id){
-		comm_url="http://api.speaka.live/api/comm/"+comm_id
+		comm_url="https://api.speaka.live/api/comm/"+comm_id
 	}
 	$.ajax({
 		type: "get",
@@ -86,7 +86,7 @@ $(function () {
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
 					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
 					//导读视频预览图获取
-					$('.nav_v .nav_img').attr('src', 'http://s.speaka.live/' + data.lessons[k].pic_path);
+					$('.nav_v .nav_img').attr('src', 'https://s.speaka.live/' + data.lessons[k].pic_path);
 
 					var obj = {};
 					//点击获取导读视频
