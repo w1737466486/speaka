@@ -12,7 +12,7 @@ $(function(){
 	}
 	var weekly_url=queryURL(location.href)
 	var weeks_i=weekly_url.weeks_i
-	var weeks_j=weekly_url.weeks_i
+	var weeks_j=weekly_url.weeks_j
 	var month_i=weekly_url.month_i
 	console.log(weeks_i+'-----'+weeks_j+'-----'+month_i)
 	console.log(typeof(month_i))
@@ -34,10 +34,20 @@ $(function(){
 				console.log(data)
 				if(typeof(weeks_i)!='undefined'){
 					console.log("周报")
+					console.log(weeks_j)
 					if(weeks_j==0){
-						console.log('第一次周报')
-						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第一次周报')
-						$('.weekly_li p').eq(1).find('span').html(data.data[weeks_i].weeks[weeks_j].data.time1+'~'+data.data[weeks_i].weeks[weeks_i].data.time2)
+						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第一次周报')	
+					}
+					if(weeks_j==1){
+						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第二次周报')
+					}
+					if(weeks_j==2){
+						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第三次周报')
+					}
+					if(weeks_j==3){
+						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第四次周报')
+					}
+					$('.weekly_li p').eq(1).find('span').html(data.data[weeks_i].weeks[weeks_j].data.time1+'~'+data.data[weeks_i].weeks[weeks_i].data.time2)
 						$('.weekly_li .weekly_con p').eq(0).html('本周活跃度：')
 						$('.weekly_li .weekly_con p').eq(1).html(data.data[weeks_i].weeks[weeks_j].data.data[0])
 						$('.weekly_li .weekly_con p').eq(2).html(data.data[weeks_i].weeks[weeks_j].data.data[1])
@@ -45,7 +55,6 @@ $(function(){
 						$('.weekly_li .weekly_con p').eq(4).html(data.data[weeks_i].weeks[weeks_j].data.data[3])
 						$('.weekly_li .weekly_con p').eq(5).html(data.data[weeks_i].weeks[weeks_j].data.data[4])
 						$('.weekly_li .weekly_con p').eq(6).html(data.data[weeks_i].weeks[weeks_j].data.data[5])
-					}
 				}
 				if(typeof(month_i)!='undefined'){
 					console.log('月报')

@@ -61,6 +61,7 @@ $(function(){
 					}
 					if(data.data.length>3){
 						$('.weekly_bg .weekly_box').css({'height':'auto'})
+						$('html').css({'height':'auto'})
 					}
 				}
 				//点击跳转详细周报
