@@ -98,6 +98,7 @@ $(function () {
 						obj.type = 0;
 						obj.video_path = data.lessons[lessonId - 1].video_path;
 						obj.v_id = 0;
+						obj.v_type='lesson'
 						obj.v_tit = v_tit;
 						obj.v_text = txt1;
 						console.log(JSON.stringify(obj));
@@ -174,6 +175,7 @@ $(function () {
 									obj.v_id = day1[_i].v_id;
 									obj.v_tit = v_tit;
 									obj.v_text = txt1;
+									obj.v_type='work'
 									obj.subtitle_en = day1[_i].subtitle_en;
 									obj.subtitle_ch = day1[_i].subtitle_ch;
 									if (day1[_i].which_page) {
