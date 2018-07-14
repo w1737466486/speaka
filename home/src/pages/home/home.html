@@ -6,17 +6,7 @@
     </ion-item> -->
     <ion-item no-padding style="padding: 2rem;">
       <ion-label no-margin>
-        <h1>每日单词</h1>
-        <div style="text-align: center; margin-top: 1.5rem; width: 33.5rem; height: 13.6rem;">
-            <img src="http://s.speaka.live/{{dayWord?.pic_path}}?x-oss-process=style/w670" alt="" style="width: 33.5rem; height: 13.6rem; border-radius: 1rem;">
-            <ion-label no-margin style="font-size: 3.6rem; color: white; position: relative; top: -11rem;">{{dayWord?.eng}}</ion-label>
-            <ion-label style="font-size: 2rem; color: white; position: relative; top: -11rem;">{{dayWord?.chn}}</ion-label>
-        </div>
-      </ion-label>
-    </ion-item>
-    <ion-item no-padding>
-      <ion-label no-margin style="padding-left: 2rem; padding-bottom: 2rem;">
-          <h1 style="padding: 0 0 1rem 0rem;">课程推荐</h1>
+          <h1 style="padding: 0 0 1rem 0rem; font-size: 2rem; font-family: PingFangSC-Medium;">课程推荐</h1>
           <ion-scroll scrollX style="height: 20.5rem;">
               <div class="scroll-item">
                 <ion-col col-33 *ngFor="let card of recommondedCards" style="padding-left: 0">
@@ -26,13 +16,39 @@
             </ion-scroll>
       </ion-label>
     </ion-item>
+    <ion-item no-padding style="padding: 0 2rem 2rem 2rem;">
+      <ion-label no-margin style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 0.7rem 0 0.7rem;">
+          <div style="width: 7.2rem; height: 10rem; text-align: center;">
+            <img src="../../assets/imgs/dictionary.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+            <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">闪卡词典</ion-label>
+          </div>
+          <div style="width: 7.2rem; height: 10rem; text-align: center;">
+              <img src="../../assets/imgs/task.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+              <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">每日任务</ion-label>
+            </div>
+            <div style="width: 7.2rem; height: 10rem; text-align: center;">
+                <img src="../../assets/imgs/archive.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+                <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">我的档案</ion-label>
+              </div>
+      </ion-label>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label no-margin style="padding-left: 2rem; padding-bottom: 2rem;">
+        <h1 style="padding: 0; font-size: 2rem; font-family: PingFangSC-Medium;">每日单词</h1>
+        <div style="text-align: center; margin-top: 1.5rem; width: 33.5rem; height: 33.5rem;">
+            <img src="http://s.speaka.live/{{dayWord?.pic_path}}?x-oss-process=style/w670" alt="" style="width: 33.5rem; height: 33.5rem; border-radius: 1rem;">
+            <ion-label no-margin style="font-size: 3.6rem; font-family: RifficFree-Bold; color: white; position: relative; top: -22rem;">{{dayWord?.eng}}</ion-label>
+            <ion-label style="font-size: 2rem; font-family: PingFangSC-Semibold; color: white; position: relative; top: -22rem;">{{dayWord?.chn}}</ion-label>
+        </div>
+      </ion-label>
+    </ion-item>
     <ion-item no-padding *ngFor="let category of categoryCards">
         <ion-label no-margin style="padding-left: 2rem;">
             <h1 style="padding: 0 0 1rem 0rem;">{{category?.title}}</h1>
-            <ion-scroll scrollX style="height: 12rem;">
+            <ion-scroll scrollX style="height: 19.6rem;">
                 <div class="scroll-item">
-                  <ion-col col-33 *ngFor="let card of getVideo(category)" style="padding-left: 0;">
-                    <tag-card class="card" [model]="card" style="width: 14rem;"></tag-card>
+                  <ion-col col-33 *ngFor="let card of getVideo(category)" style="padding-left: 0; padding-right: 0;">
+                    <tag-card class="card" [model]="card" style="width: 28rem;"></tag-card>
                   </ion-col>
                 </div>
               </ion-scroll>
