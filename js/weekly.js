@@ -25,8 +25,8 @@ $(function(){
 			},
 			dataType: 'JSON',
 			async: true,
-			url:'https://api.speaka.live/api/statistics/statistics',
-			//url: '../json/weekly.json',
+			//url:'https://api.speaka.live/api/statistics/statistics',
+			url: '../json/weekly.json',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -47,7 +47,7 @@ $(function(){
 					if(weeks_j==3){
 						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第四次周报')
 					}
-					$('.weekly_li p').eq(1).find('span').html(data.data[weeks_i].weeks[weeks_j].data.time1+'~'+data.data[weeks_i].weeks[weeks_i].data.time2)
+					$('.weekly_li p').eq(1).find('span').html(data.data[weeks_i].weeks[weeks_j].data.time1+'~'+data.data[weeks_i].weeks[weeks_j].data.time2)
 						$('.weekly_li .weekly_con p').eq(0).html('本周活跃度：')
 						$('.weekly_li .weekly_con p').eq(1).html(data.data[weeks_i].weeks[weeks_j].data.data[0])
 						$('.weekly_li .weekly_con p').eq(2).html(data.data[weeks_i].weeks[weeks_j].data.data[1])

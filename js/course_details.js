@@ -45,14 +45,13 @@ $(function () {
 	//
 	//alert('测试')
 	window.get_share = get_share;
-	console.log(url_course)
     var slip_up=true;
     //重新获取url
     //courseurl = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=0613JmsR1tCw091geEvR1vrFsR13JmsK&state=1'
     //courseurl = queryURL(courseurl)
     console.log(courseurl)
     url_course = "https://api.speaka.live/api/commodity/" + commodity_id;
-    
+    console.log(url_course)
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
