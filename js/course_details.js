@@ -2,13 +2,13 @@
 
 $(function () {
 	var url_course = null;
-	//https://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=061TBw1T0MeiPX1eiU1T0f5P1T0TBw1Y&state=1
 	var courseurl = queryURL(location.href);
-	console.log(courseurl)
+	//console.log(courseurl)
 	var isbuy_code=courseurl.code;
-    console.log(isbuy_code)
+    //console.log(isbuy_code)
     var isbuy_token=null;
 	var commodity_id=courseurl.commodity_id;
+	var order_token=null;
 	if (isWeiXin()) {
 		if(isbuy_code){
 		$.ajax({
@@ -17,10 +17,12 @@ $(function () {
 			async:false,
 			success:function(res){
 				console.log(res)
+				order_token=res.token;
 				 if(!res.token){
 				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
 				 }else{
-				 	isbuy_token=res.token
+				 	isbuy_token=res.token;
+				 	order_token=res.token;
 				 }
 				
 			},
@@ -169,6 +171,9 @@ $(function () {
 								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html'
 							})
 							$('.buy_success .buy_pay p').eq(1).click(function(){
+								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token
+							})
+							$('.buy_success .buy_pay p').eq(2).click(function(){
 								if (window.webkit) {
 									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
 								} else {
