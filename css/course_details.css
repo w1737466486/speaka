@@ -145,6 +145,7 @@ video{
 	width: 28%;
 	 border-radius: 4px;
 	height: 67.2%;
+	box-sizing: border-box;
 }
 .buy_success .buy_pay span{
 	display: inline-block;
