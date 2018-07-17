@@ -14,7 +14,8 @@ export class HomePage {
   categoryCards = [];
 
   constructor(public navCtrl: NavController, private http: HttpClient) {
-    this.http.get('http://api.speaka.live/api/index/index')
+    // this.http.get('http://api.speaka.live/api/index/index')
+    this.http.get('assets/home.json')
     .subscribe(data => {
       this.dayWord = data["data"].topCard;
       this.recommondedCards = data["data"].middleCourse;
