@@ -24,4 +24,75 @@ page-home {
     .list-ios, .list-md {
         margin: 0;
     }
+    .dayImg {
+        background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 100%);
+        box-shadow: 0 3px 12px 0 rgba(0,0,0,0.16);
+        width: 8rem; 
+        height: 8rem; 
+        object-fit: cover;
+        border-radius: 0.4rem;
+        position: absolute;
+        top: 0;
+    }
+    .daySearch {
+        position: absolute; 
+        left: 0; 
+        top: 9.5rem; 
+        width: 8rem; 
+        height: 4rem; 
+        text-align: center;
+        background: #FFFFFF;
+        box-shadow: 0 3px 12px 0 rgba(0,0,0,0.10);
+        border-radius: 4px;
+    }
+    .lessonImg {
+        box-shadow: 0 3px 12px 0 rgba(0,0,0,0.16);
+        border-radius: 4px;
+        width: 24rem; 
+        height: 13.5rem; 
+        left: 9.5rem; 
+        position: absolute;
+    }
+    .level {
+        background: rgba(0,0,0,0.60);
+        border-radius: 100px 0 0 100px;
+        font-family: PingFangSC-Medium;
+        font-size: 1.2rem;
+        color: #FFCE4F;
+        text-align: center;
+        right: 0;
+        position: absolute;
+        padding: 0.5rem 0.8rem 0.5rem 1.2rem;
+        margin-top: 1rem;
+    }
+    .lessonTitle {
+        font-family: PingFangSC-Semibold;
+        font-size: 18px;
+        color: #FFFFFF;
+        text-align: center;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.30);
+        position: absolute;
+        left: 10.5rem;
+        bottom: 1.2rem;
+    }
+    .lessonAvatar {
+        border: 2px solid #FFFFFF;
+        width: 3.6rem;
+        height: 3.6rem;
+        position: absolute;
+        right: 1rem;
+        bottom: 0.7rem;
+        object-fit: cover;
+        border-radius: 1.8rem;
+    }
+    .seeAll {
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #666666;
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 2.7rem;
+        line-height: 2.8rem;
+    }
 }
