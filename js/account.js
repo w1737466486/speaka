@@ -1,9 +1,9 @@
 $(function(){
 	window.get_token = get_token;
 	var token = null;
-	get_token();
+	//get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + 1257;
+		token = 'Bearer ' + _results;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
@@ -11,8 +11,8 @@ $(function(){
 			if(bstop){
 				$.ajax({
 					type:"get",
-					//url:"https://api.speaka.live/api/u/account",
-					url:"http://dev.speaka.cn/api/u/account",
+					url:"https://api.speaka.live/api/u/account",
+					//url:"http://dev.speaka.cn/api/u/account",
 					dataType: 'JSON',
 					data:{
 						page:page
@@ -136,7 +136,7 @@ $(function(){
 	//客户端点击规则说明，显示规则说明弹窗
 	window.rulebooks=rulebooks;
 	// rulebooks()
-	function rulebooks(){
+	function rulebooks(res){
 		$('.account_rule_box').show()
 	}
 	$('.account_rule_box').click(function(){
@@ -159,16 +159,15 @@ $(function(){
         var myemailreg=/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
         if(data.account==''){
         	alert('请输入支付宝账号!');
-        }
-        if(data.name==''){
+        }else if(data.name==''){
         	alert('请输入支付宝账号绑定姓名！');
-        }
-         if(!myphonereg.test(data.account) && !myemailreg.test(data.account)){
+        }else if(!myphonereg.test(data.account) && !myemailreg.test(data.account)){
            alert('请输入正确的支付宝账号！')
-        }
-        $.ajax({
+        }else{
+        	$.ajax({
             type: "POST",
-            url: "http://dev.speaka.cn/api/u/commision/draw",
+            url:"https://api.speaka.live/api/u/commision/draw",
+            //url: "http://dev.speaka.cn/api/u/commision/draw",
             data: data,
             dataType: "json",
             beforeSend: function beforeSend(request) {
@@ -176,13 +175,24 @@ $(function(){
             },
             success: function (data) {
             	console.log(data)
-            	alert(data.msg)
-            	$('.account_zfb_box').hide()
+            	if(data.code==200){
+            		$('.account_zfb_id input').val('');
+            		$('.account_zfb_name input').val('');
+            		$('.account_zfb_box').hide()
+            	    alert(data.msg)
+            	}else{
+            		$('.account_zfb_id input').val('');
+            		$('.account_zfb_name input').val('');
+            	    alert(data.msg)
+            	}
+            	
             },
             error: function (res) {
             	
             }
         });
+        }
+        
 	})
 	$('.account_zfb_top').click(function(){
 		$('.account_zfb_box').hide()
