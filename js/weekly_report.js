@@ -2,10 +2,32 @@ $(function(){
 	window.get_token = get_token;
 	var token = null;
 	var token_code=null;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 1259;
 		token_code=_results;
+		$.ajax({
+			type:"get",
+			//url:"https://api.speaka.live/api/file/myFile",
+			url:'../json/weekly_data.json',
+			dataType: 'JSON',
+			async:true,
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			success:function(data){
+				console.log(data)
+				
+				
+			},
+			error:function(res){
+				
+			}
+		});
+		
+		
+		
+		
 		$.ajax({
 			type: 'get',
 			data:{

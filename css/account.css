@@ -1,0 +1,228 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+b{
+	font-weight: normal;
+}
+html{
+	width: 100%;
+	height: 100%;
+	background: #FAFAFA;
+}
+body{
+	width: 100%;
+	height: auto;
+}
+.account_head{
+	width: 89.3%;
+	height: 90px;
+	display: flex;
+	margin-left: 5.3%;
+	padding: 20px 0px;
+	justify-content: space-between;
+}
+.account_head p{
+	position: relative;
+	width: 46%;
+	height: 90px;
+	text-align: center;
+}
+.account_head p:nth-of-type(1){
+	background-image: linear-gradient(-90deg, #7380FA 0%, #5C59F0 100%);
+	box-shadow: 0 3px 12px 0 rgba(0,0,0,0.10);
+	border-radius: 4px;
+}
+.account_head p:nth-of-type(2){
+	background-image: linear-gradient(-90deg, #FFD059 0%, #E69230 100%);
+	box-shadow: 0 3px 12px 0 rgba(0,0,0,0.10);
+	border-radius: 4px;
+}
+.account_head p span:nth-of-type(1){
+	position: absolute;
+	top: 15px;
+	width: 100%;
+	display: block;
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.account_head p span:nth-of-type(2){
+	position: absolute;
+	width: 100%;
+	bottom: 15px;
+	display: block;
+	font-family: PingFangSC-Semibold;
+	font-size: 24px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.order_list{
+	width: 89.3%;
+	margin-left: 5.3%;
+	margin-bottom: 75px;
+}
+.order_list li{
+	padding-top: 10px;
+	padding-bottom: 12px;
+	background: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	border-radius: 4px;
+	margin-bottom: 15px;
+}
+.order_list li p{
+	display: flex;
+	justify-content: space-between;
+	width: 94%;
+	margin-left: 3%;
+}
+.order_list li p:nth-of-type(1){
+	margin-bottom: 8px;
+}
+.order_list li p:nth-of-type(1) span:nth-of-type(1){
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #2FBBA9;
+}
+.order_list li .xuxian{
+	border-bottom: 1px dashed #CCCCCC;
+}
+.order_list li p:nth-of-type(3){
+	margin-top: 13px;
+	margin-bottom: 10px;
+}
+.order_list li p:nth-of-type(3) span{
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #666666;
+}
+.order_list li p:nth-of-type(4) span{
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #666666;
+}
+/*已转存*/
+.repeating{
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #598BFF;
+}
+/*已退款*/
+.refund{
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #666666;
+}
+/*已结算*/
+.clearing{
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #FFC259;
+}
+/*未结算*/
+.noclearing{
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #FD7C7C;
+}
+.account_foot{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	bottom: 0px;
+	background: #FFFFFF;
+    box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.10);
+}
+.account_foot p{
+	font-family: PingFangSC-Semibold;
+	height: 60px;
+	line-height: 60px;
+	font-size: 18px;
+	color: #2FBBA9;
+	text-align: center;
+}
+.account_zfb_box{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.50);
+}
+.account_zfb{
+	/*display: none;*/
+	position: absolute;
+	bottom: 0px;
+	z-index: 5;
+	height: 304px;
+	width: 100%;
+	background: #FFFFFF;
+}
+.account_zfb_top{
+	height: 68px;
+}
+.account_zfb_top p:nth-of-type(1) img{
+	background: #000000;
+	transform: rotate(90deg);
+}
+.account_zfb_top p{
+	text-align: center;
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #333333;
+}
+.account_zfb_id{
+	width: 92%;
+	margin-left: 4%;
+}
+.account_zfb_id span{
+	display: block;
+	text-align: left;
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #333333;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+.account_zfb_name{
+	width: 92%;
+	margin-left: 4%;
+}
+.account_zfb_name span{
+	display: block;
+	text-align: left;
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #333333;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+.account_zfb input{
+	border: none;
+	background: #F5F5F5;
+	border-radius: 2px;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #666666;
+	text-indent: 10px;
+	margin-bottom: 20px;
+}
+.account_zfb>p{
+	height: 44px;
+	background: #2FBBA9;
+	border-radius: 2px;
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 44px;
+	width: 92%;
+	margin-left: 4%;
+}
