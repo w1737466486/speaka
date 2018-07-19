@@ -44,7 +44,7 @@ $(function(){
 				console.log(data)
 				if(data.code==200){
 					for(var i=0;i<data.data.length;i++){
-						/*$('.weekly_main').append(`<div class="weekly_li">
+						$('.weekly_main').append(`<div class="weekly_li">
 						<p>${data.data[i].comm_name}</p>
 						<ul>
 							<li>
@@ -63,10 +63,11 @@ $(function(){
 								<p>第四周</p>
 								<p>报告</p>
 							</li>
+							
 						</ul>
 						<p><span>学习月报</span></p>
-					</div>`)*/
-					 $('.weekly_main').append(("<div class=\"weekly_li\">\n\t\t\t\t\t\t<p>" + data.data[i].comm_name + "</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第一周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第二周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第三周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第四周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p><span>学习月报</span></p>\n\t\t\t\t\t</div>"));
+					</div>`)
+					// $('.weekly_main').append(("<div class=\"weekly_li\">\n\t\t\t\t\t\t<p>" + data.data[i].comm_name + "</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第一周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第二周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第三周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第四周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p><span>学习月报</span></p>\n\t\t\t\t\t</div>"));
 						for(var j=0;j<data.data[i].weeks.length;j++){
 							//console.log(data.data[i].weeks[j])
 							if(data.data[i].weeks[j].code==200){
@@ -81,10 +82,10 @@ $(function(){
 							$('.weekly_li').eq(i).children().eq(2).attr('month_i',i)
 						}
 					}
-					if(data.data.length>3){
+					/*if(data.data.length>3){
 						$('.weekly_bg .weekly_box').css({'height':'auto'})
 						$('html').css({'height':'auto'})
-					}
+					}*/
 				}
 				//点击跳转详细周报
 				$('.weekly_li ul .weeks').click(function(){

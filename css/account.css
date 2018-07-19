@@ -117,6 +117,12 @@ body{
 	font-size: 14px;
 	color: #666666;
 }
+/*审核中*/
+.audit{
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #2FBBA9;
+}
 /*已结算*/
 .clearing{
 	font-family: PingFangSC-Medium;
@@ -145,7 +151,63 @@ body{
 	color: #2FBBA9;
 	text-align: center;
 }
+.account_rule_box{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.50);
+}
+.account_rule{
+	position: absolute;
+	bottom: 0px;
+	z-index: 5;
+	width: 100%;
+	background: #FFFFFF;
+}
+.account_rule ul{
+	width: 92%;
+	margin-left: 4%;
+	font-size: 14px;
+	color: #333333;
+	margin-bottom: 20px;
+}
+.account_rule ul b{
+	color: #ffe3ab;
+}
+.account_rule_top{
+	padding-bottom: 20px;
+	padding-top: 15px;
+}
+.account_rule_top p:nth-of-type(1){
+	margin-bottom: 10px;
+}
+.account_rule_top p:nth-of-type(1) img{
+	width: 16px;
+	height: 6px;
+}
+.account_rule_top p{
+	text-align: center;
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+    color: #333333;
+}
+.account_rule>p{
+	width: 92%;
+	margin-left: 4%;
+	height: 44px;
+	line-height: 44px;
+	background: #2FBBA9;
+	border-radius: 2px;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-align: center;
+	margin-bottom: 20px;
+}
 .account_zfb_box{
+	display: none;
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -154,20 +216,22 @@ body{
 	background: rgba(0,0,0,0.50);
 }
 .account_zfb{
-	/*display: none;*/
 	position: absolute;
 	bottom: 0px;
 	z-index: 5;
-	height: 304px;
 	width: 100%;
 	background: #FFFFFF;
 }
-.account_zfb_top{
-	height: 68px;
+.account_zfb_top p:nth-of-type(1){
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.account_zfb_top p:nth-of-type(2){
+	margin-bottom: 20px;
 }
 .account_zfb_top p:nth-of-type(1) img{
-	background: #000000;
-	transform: rotate(90deg);
+	width: 16px;
+	height: 6px;
 }
 .account_zfb_top p{
 	text-align: center;
@@ -225,4 +289,5 @@ body{
 	line-height: 44px;
 	width: 92%;
 	margin-left: 4%;
+	margin-bottom: 20px;
 }
