@@ -84,8 +84,11 @@ body>img{
 	border: 2px solid #FD7C7C;
 	border-radius: 15px;
 	font-family: PingFangSC-Medium;
-	font-size: 14px;
+	font-size: 13px;
 	color: #FD7C7C;
+}
+.weekly_main ul{
+	overflow: hidden;
 }
 .weekly_main ul li{
 	float: left;
@@ -145,4 +148,10 @@ body>img{
 	font-size: 18px;
 	color: #2FBBA9;
 }
-
+#weekly_map{
+	width: 100%;
+	height: 240px;
+}
+.weeklyChart{
+	text-align: center;
+}

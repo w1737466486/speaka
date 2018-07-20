@@ -10,72 +10,126 @@ $(function(){
 		}
 		return obj;
 	}
-	var weekly_url=queryURL(location.href)
-	var weeks_i=weekly_url.weeks_i
-	var weeks_j=weekly_url.weeks_j
-	var month_i=weekly_url.month_i
-	console.log(weeks_i+'-----'+weeks_j+'-----'+month_i)
-	console.log(typeof(month_i))
+	var weekly_url=queryURL(location.href);
+	var comm_id=weekly_url.comm_id;
+	var weeks_num=weekly_url.weeks_num;
+	var month_num=weekly_url.month_num;
+	console.log(comm_id+'-----'+weeks_num+'-----'+month_num);
+	console.log(typeof(month_num));
 		token = 'Bearer ' + weekly_url.token;
-		console.log(token)
-		$.ajax({
-			type: 'get',
-			data:{
-				type:'weeklyReport'
-			},
-			dataType: 'JSON',
-			async: true,
-			//url:'https://api.speaka.live/api/statistics/statistics',
-			url: '../json/weekly.json',
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", token);
-			},
-			success: function success(data) {
-				console.log(data)
-				if(typeof(weeks_i)!='undefined'){
-					console.log("周报")
-					console.log(weeks_j)
-					if(weeks_j==0){
-						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第一次周报')	
-					}
-					if(weeks_j==1){
-						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第二次周报')
-					}
-					if(weeks_j==2){
-						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第三次周报')
-					}
-					if(weeks_j==3){
-						$('.weekly_li p').eq(0).html(data.data[weeks_i].comm_name+' 第四次周报')
-					}
-					$('.weekly_li p').eq(1).find('span').html(data.data[weeks_i].weeks[weeks_j].data.time1+'~'+data.data[weeks_i].weeks[weeks_j].data.time2)
-						$('.weekly_li .weekly_con p').eq(0).html('本周活跃度：')
-						$('.weekly_li .weekly_con p').eq(1).html(data.data[weeks_i].weeks[weeks_j].data.data[0])
-						$('.weekly_li .weekly_con p').eq(2).html(data.data[weeks_i].weeks[weeks_j].data.data[1])
-						$('.weekly_li .weekly_con p').eq(3).html(data.data[weeks_i].weeks[weeks_j].data.data[2])
-						$('.weekly_li .weekly_con p').eq(4).html(data.data[weeks_i].weeks[weeks_j].data.data[3])
-						$('.weekly_li .weekly_con p').eq(5).html(data.data[weeks_i].weeks[weeks_j].data.data[4])
-						$('.weekly_li .weekly_con p').eq(6).html(data.data[weeks_i].weeks[weeks_j].data.data[5])
-				}
-				if(typeof(month_i)!='undefined'){
-					console.log('月报')
-					console.log(data.data[month_i].month)
-					if(data.data[month_i].month.code==200){
-						$('.weekly_li p').eq(0).html(data.data[month_i].comm_name+' 月报')
-						$('.weekly_li p').eq(1).find('span').html(data.data[month_i].weeks[0].data.time1+'~'+data.data[month_i].weeks[data.data[month_i].weeks.length-1].data.time2)
-						$('.weekly_li .weekly_con p').eq(0).html('本月活跃度：')
-						$('.weekly_li .weekly_con p').eq(1).html(data.data[month_i].month.data.data[0])
-						$('.weekly_li .weekly_con p').eq(2).html(data.data[month_i].month.data.data[1])
-						$('.weekly_li .weekly_con p').eq(3).html(data.data[month_i].month.data.data[2])
-						$('.weekly_li .weekly_con p').eq(4).html(data.data[month_i].month.data.data[3])
-						$('.weekly_li .weekly_con p').eq(5).html(data.data[month_i].month.data.data[4])
-						$('.weekly_li .weekly_con p').eq(6).html(data.data[month_i].month.data.data[5])
-					}
+		console.log(token);
+		//获取周报详情表
+		if(typeof(weeks_num)!='undefined'){
+			$.ajax({
+				type:"get",
+				url:"http://dev.speaka.cn/api/file/getWeekly",
+				async:false,
+				data:{
+					commodity_id:comm_id,
+					weekly_id:weeks_num
+				},
+				beforeSend: function beforeSend(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				success:function(data){
+					console.log(data)
+					if(data.code==200){
+						$('body,html').css({'height':'auto'})
+						$('.weekly_bg').css({'margin-bottom':'80px'})
+						if(weeks_num==1){
+							$('.weekly_main>p').eq(0).html(data.data.eng+' 第一次周报');
+						}
+						if(weeks_num==2){
+							$('.weekly_main>p').eq(0).html(data.data.eng+' 第二次周报');
+						}
+						if(weeks_num==3){
+							$('.weekly_main>p').eq(0).html(data.data.eng+' 第三次周报');
+						}
+						if(weeks_num==4){
+							$('.weekly_main>p').eq(0).html(data.data.eng+' 第四次周报');
+						}
+						var begin_time=data.data.days[0].substr(0, 4)+'.'+data.data.days[0].substr(5, 2)+'.'+data.data.days[0].substr(8, 2)
+						var over_time=data.data.days[data.data.days.length-1].substr(0, 4)+'.'+data.data.days[data.data.days.length-1].substr(5, 2)+'.'+data.data.days[data.data.days.length-1].substr(8, 2)
+						$('.weekly_main>p').eq(1).find('span').html(begin_time+'~'+over_time);
 					
+						$('.weekly_main>ul li').eq(0).find('p').eq(1).html(data.data.wordCard);
+						$('.weekly_main>ul li').eq(1).find('p').eq(1).html(data.data.wordTotal);
+						$('.weekly_main>ul li').eq(2).find('p').eq(1).html(data.data.workTotal);
+						$('.weekly_main>ul li').eq(3).find('p').eq(1).html(data.data.successWork*100+'%');
+						$('.weekly_main').append('<p class="weeklyChart">上课发言次数曲线图<p>');
+						$('.weekly_main').append('<div id="weekly_map"></div>');
+						var weeklyChart=echarts.init(document.getElementById('weekly_map'));
+						 var weekly_data = {
+				            title: {
+				                text: '上课发言次数曲线图'
+				            },
+				            tooltip: {},
+				            legend: {
+				                data:['times']
+				            },
+				            xAxis: {
+				                data: ['周一','周二','周三','周四','周五','周六','周日']
+				            },
+				             grid:{
+					            x:40,
+					            x2:40,
+					            y:25,
+					            height:170
+					        }, 
+				            yAxis: {},
+				            series: [{
+				                name: 'times',
+				                type: 'line',
+				                smooth: true,
+				                data: data.data.speak,
+				               // areaStyle: {}
+				            }]
+				        };
+				        weeklyChart.setOption(weekly_data);
+					}
+				},
+				error:function(res){
+					console.log(res)
 				}
-			},
-			error: function error(res) {
-				console.log(res);
-			}
-		});
+			});
+		}
+		//获取月报详情表
+		if(typeof(month_num)!='undefined'){
+			$('.weekly_bg .weekly_box').css({
+				'height':'80%'
+			})
+			$.ajax({
+				type:"get",
+				url:"http://dev.speaka.cn/api/file/getMonthly",
+				async:false,
+				data:{
+					commodity_id:comm_id,
+					month_id:month_num
+				},
+				beforeSend: function beforeSend(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				success:function(data){
+					console.log(data)
+					if(data.code==200){
+						
+						$('.weekly_main>p').eq(0).html(data.data.eng+' 月报')	
+						var begin_time=data.data.days[0].substr(0, 4)+'.'+data.data.days[0].substr(5, 2)+'.'+data.data.days[0].substr(8, 2)
+						var over_time=data.data.days[data.data.days.length-1].substr(0, 4)+'.'+data.data.days[data.data.days.length-1].substr(5, 2)+'.'+data.data.days[data.data.days.length-1].substr(8, 2)
+						$('.weekly_main>p').eq(1).find('span').html(begin_time+'~'+over_time)
+						$('.weekly_main>ul li').eq(0).find('p').eq(1).html(data.data.wordCard)
+						$('.weekly_main>ul li').eq(1).find('p').eq(1).html(data.data.wordTotal)
+						$('.weekly_main>ul li').eq(2).find('p').eq(1).html(data.data.workTotal)
+						$('.weekly_main>ul li').eq(3).find('p').eq(1).html(data.data.successWork*100+'%')
+
+		
+					}
+				},
+				error:function(res){
+					console.log(res)
+				}
+			});
+		}
+		
 	
 })
