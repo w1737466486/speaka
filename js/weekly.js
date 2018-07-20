@@ -86,12 +86,30 @@ $(function(){
 				            }]
 				        };
 				        weeklyChart.setOption(weekly_data);
+				        //周报分享描述
+						$('.weekly_share p').click(function(){
+							//alert('周报')
+							var _obj = {};
+							_obj.title = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
+							_obj.desc = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
+							_obj.share_url =location.href
+							alert(JSON.stringify(_obj))
+							if (window.webkit) {
+								window.webkit.messageHandlers.weeklyClick.postMessage(JSON.stringify(_obj));
+							} else {
+								androidMyFile.JsUserFileShare(JSON.stringify(_obj));
+							}
+						})
+				        
 					}
 				},
 				error:function(res){
 					console.log(res)
 				}
 			});
+			
+			
+			
 		}
 		//获取月报详情表
 		if(typeof(month_num)!='undefined'){
@@ -121,7 +139,20 @@ $(function(){
 						$('.weekly_main>ul li').eq(1).find('p').eq(1).html(data.data.wordTotal)
 						$('.weekly_main>ul li').eq(2).find('p').eq(1).html(data.data.workTotal)
 						$('.weekly_main>ul li').eq(3).find('p').eq(1).html(data.data.successWork*100+'%')
-
+                        //月报分享描述
+						$('.weekly_share p').click(function(){
+							//alert('周报')
+							var _obj = {};
+							_obj.title = '我在speak.a参加《'+data.data.eng+'》课程，总共学会了'+data.data.wordTotal+'个英文单词';
+							_obj.desc = '我在speak.a参加《'+data.data.eng+'》课程，总共学会了'+data.data.wordTotal+'个英文单词';
+							_obj.share_url =location.href
+							alert(JSON.stringify(_obj))
+							if (window.webkit) {
+								window.webkit.messageHandlers.weeklyClick.postMessage(JSON.stringify(_obj));
+							} else {
+								androidMyFile.JsUserFileShare(JSON.stringify(_obj));
+							}
+						})
 		
 					}
 				},

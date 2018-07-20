@@ -26,7 +26,7 @@ $(function(){
 				
 			},
 			error:function(res){
-				
+				console.log(res)
 			}
 		});
 		
@@ -35,9 +35,6 @@ $(function(){
 		
 		$.ajax({
 			type: 'get',
-			data:{
-				type:'weeklyReport'
-			},
 			dataType: 'JSON',
 			async: true,
 			url:'http://dev.speaka.cn/api/file/getTeamsReport',
@@ -74,7 +71,7 @@ $(function(){
 							</li>
 							
 						</ul>
-						<p months="${data.data[i].month[0]}" class="month"><span>学习月报</span></p>
+						<p months="${data.data[i].month[0]}" class="month" comm_id="${data.data[i].id}"><span>学习月报</span></p>
 					</div>`)
 					// $('.weekly_main').append(("<div class=\"weekly_li\">\n\t\t\t\t\t\t<p>" + data.data[i].comm_name + "</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第一周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第二周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第三周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第四周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p><span>学习月报</span></p>\n\t\t\t\t\t</div>"));
 						
@@ -108,7 +105,8 @@ $(function(){
 				})
 				$('.weekly_li .months').click(function(){
 					var month_num=$(this).attr('months')
-					window.location.href='https://h5.speaka.live/front/html/weekly.html?month_num='+month_num+'&token='+token_code
+					var comm_id=$(this).attr('comm_id');
+					window.location.href='https://h5.speaka.live/front/html/weekly.html?comm_id='+comm_id+'&month_num='+month_num+'&token='+token_code
 				})
 				
 				

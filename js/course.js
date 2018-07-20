@@ -81,8 +81,8 @@ $(function () {
 				if (lessonId==(k+1) ) {
 					//console.log(k)
 					//替换文字内容
-					$('.header .header_s2').html('Lesson' + ' ' + lessonId);
-
+					//$('.header .header_s2').html('Lesson' + ' ' + lessonId);
+					$('title').html('Lesson' + ' ' + lessonId);
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
 					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
 					//导读视频预览图获取
