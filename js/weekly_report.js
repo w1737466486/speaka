@@ -1,10 +1,12 @@
 $(function(){
+	console.log(dns_url)
 	window.get_token = get_token;
 	var token = null;
 	var token_code=null;
 	get_token();
 	function get_token(_results) {
 		token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
+		//token='Bearer ' + _results
 		token_code=_results;
 		$.ajax({
 			type:"get",
