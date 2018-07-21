@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { Component, ViewChild, NgZone } from '@angular/core';
+import { NavController, Content } from 'ionic-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +12,13 @@ export class HomePage {
   dayWord: Object;
   recommondedCards = [];
   categoryCards = [];
+  cardInputHidden = true;
+  displayDayTask = false;
+  taskItems = [];
 
-  constructor(public navCtrl: NavController, private http: HttpClient) {
+  @ViewChild(Content) content: Content;
+
+  constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone) {
     // this.http.get('http://api.speaka.live/api/index/index')
     this.http.get('assets/home.json')
     .subscribe(data => {
@@ -27,6 +32,47 @@ export class HomePage {
     }, error => {
       console.log(error);
     });
+    this.cardInputHidden = true;
+  }
+
+  ngAfterViewInit() {
+    this.content.ionScroll.subscribe((data) => {
+      if (data.scrollTop > 111) {
+        if (this.cardInputHidden) {
+          this.zone.run(() => {
+            this.cardInputHidden = false;
+          });
+        }
+      } else {
+        if (!this.cardInputHidden) {
+          this.zone.run(() => {
+            this.cardInputHidden = true;
+          });
+        }
+      }
+    });
+  }
+
+  dictionaryClick() {
+    this.cardInputHidden = !this.cardInputHidden;
+  }
+
+  dayTask() {
+    this.displayDayTask = true;
+    let headers = new HttpHeaders().set('Authorization', 'Bearer b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq');
+    this.http.get('http://dev.speaka.cn/api/task/getUserList', {headers})
+    .subscribe(data=> {
+      this.taskItems = [];
+      let arr = data["data"];
+      for (const item of arr) {
+        this.taskItems.push(item);
+      }
+      console.log(this.taskItems);
+    });
+  }
+
+  hideDayTask() {
+    this.displayDayTask = false;
   }
 
   getVideo(tagVideo) {
