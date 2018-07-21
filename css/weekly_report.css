@@ -38,10 +38,10 @@ body>img{
 }
 .weekly_bg .weekly_box{
 	width: 89.3%;
-	height: 90%;
+	height: auto;
 	position: relative;
 	left: 5.3%;
-	padding-bottom: 2.8%;
+	padding-bottom: 20px;
 	border-bottom-right-radius:10px;
     border-bottom-left-radius:10px;
 }
@@ -52,6 +52,57 @@ body>img{
 	margin-top: -1px;
 	border-bottom-right-radius:10px;
     border-bottom-left-radius:10px;
+}
+.weekly_main .p1{
+	text-align: center;
+	font-family: PingFangSC-Semibold;
+	font-size: 18px;
+	color: #333333;
+	padding-top: 11px;
+	padding-bottom: 30px;
+}
+.weekly_main>ul{
+	overflow: hidden;
+}
+.weekly_main>ul li{
+	float: left;
+	width: 50%;
+	padding-bottom: 30px;
+}
+.weekly_main>ul li img{
+	width: 50px;
+	height: 50px;
+}
+.weekly_main>ul li p{
+	text-align: center;
+}
+.weekly_main>ul li p:nth-of-type(2){
+	height: 50px;
+	line-height: 50px;
+	font-family: PingFangSC-Semibold;
+	font-size: 36px;
+	color: #333333;
+	margin-top: 10px;
+}
+.weekly_main>ul li:nth-of-type(1) p:nth-of-type(3){
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #598BFF;
+}
+.weekly_main>ul li:nth-of-type(2) p:nth-of-type(3){
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #2FBBA9;
+}
+.weekly_main>ul li:nth-of-type(3) p:nth-of-type(3){
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #FFC259;
+}
+.weekly_main>ul li:nth-of-type(4) p:nth-of-type(3){
+	font-family: PingFangSC-Medium;
+	font-size: 12px;
+	color: #FD7C7C;
 }
 .weekly_main .weekly_li{
 	margin-bottom: 20px;
@@ -114,7 +165,7 @@ body>img{
 	color: #666666;
 	text-align: center;
 }
-.weekly_main .weekly_li .month span{
+.weekly_main .weekly_li .months span{
 	background: #598BFF!important;
 	color: #FFFFFF!important;
 }
