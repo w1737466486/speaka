@@ -30,7 +30,7 @@ $(function(){
 						if(data.code==200&&data.data.orders.length>0){
 							console.log(data.data.orders)
 							for(var i=0;i<data.data.orders.length;i++){
-								if(data.data.orders[i].commision_status==1){
+								/*if(data.data.orders[i].commision_status==1){
 									$('.order_list').append(`<li>
 															<p>
 																<span>佣金：￥${data.data.orders[i].commision_num/100}</span>
@@ -113,6 +113,17 @@ $(function(){
 																<span>${data.data.orders[i].limit_at}</span>
 															</p>
 														</li>`)
+								}*/
+								if (data.data.orders[i].commision_status == 1) {
+									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"noclearing\">\u672A\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+								} else if (data.data.orders[i].commision_status == 2) {
+									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"clearing\">\u5DF2\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+								} else if (data.data.orders[i].commision_status == 3) {
+									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"repeating\">\u5DF2\u8F6C\u5B58</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+								} else if (data.data.orders[i].commision_status == 4) {
+									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"refund\">\u5DF2\u9000\u6B3E</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+								} else if (data.data.orders[i].commision_status == 5) {
+									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"audit\">\u63D0\u73B0\u4E2D</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
 								}
 								
 							}

@@ -48,7 +48,7 @@ $(function(){
 				console.log(data)
 				if(data.code==200){
 					for(var i=0;i<data.data.length;i++){
-						$('.weekly_main').append(`<div class="weekly_li">
+						/*$('.weekly_main').append(`<div class="weekly_li">
 						<p>${data.data[i].eng}</p>
 						<ul comm_id="${data.data[i].id}">
 							<li weeks="${data.data[i].week[0]}" class=
@@ -74,9 +74,9 @@ $(function(){
 							
 						</ul>
 						<p months="${data.data[i].month[0]}" class="month" comm_id="${data.data[i].id}"><span>学习月报</span></p>
-					</div>`)
-					// $('.weekly_main').append(("<div class=\"weekly_li\">\n\t\t\t\t\t\t<p>" + data.data[i].comm_name + "</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第一周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第二周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第三周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>第四周</p>\n\t\t\t\t\t\t\t\t<p>报告</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p><span>学习月报</span></p>\n\t\t\t\t\t</div>"));
-						
+					</div>`)*/	
+					$('.weekly_main').append("<div class=\"weekly_li\">\n\t\t\t\t\t\t<p>" + data.data[i].eng + "</p>\n\t\t\t\t\t\t<ul comm_id=\"" + data.data[i].id + "\">\n\t\t\t\t\t\t\t<li weeks=\"" + data.data[i].week[0] + "\" class=\n\t\t\t\t\t\t\t\"week\">\n\t\t\t\t\t\t\t\t<p>\u7B2C\u4E00\u5468</p>\n\t\t\t\t\t\t\t\t<p>\u62A5\u544A</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li weeks=\"" + data.data[i].week[1] + "\" class=\n\t\t\t\t\t\t\t\"week\">\n\t\t\t\t\t\t\t\t<p>\u7B2C\u4E8C\u5468</p>\n\t\t\t\t\t\t\t\t<p>\u62A5\u544A</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li weeks=\"" + data.data[i].week[2] + "\" class=\n\t\t\t\t\t\t\t\"week\">\n\t\t\t\t\t\t\t\t<p>\u7B2C\u4E09\u5468</p>\n\t\t\t\t\t\t\t\t<p>\u62A5\u544A</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li weeks=\"" + data.data[i].week[3] + "\" class=\n\t\t\t\t\t\t\t\"week\">\n\t\t\t\t\t\t\t\t<p>\u7B2C\u56DB\u5468</p>\n\t\t\t\t\t\t\t\t<p>\u62A5\u544A</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p months=\"" + data.data[i].month[0] + "\" class=\"month\" comm_id=\"" + data.data[i].id + "\"><span>\u5B66\u4E60\u6708\u62A5</span></p>\n\t\t\t\t\t</div>");
+					
 					}
 					
 				}
