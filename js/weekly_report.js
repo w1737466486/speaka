@@ -3,15 +3,15 @@ $(function(){
 	window.get_token = get_token;
 	var token = null;
 	var token_code=null;
-	get_token();
+	//get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
-		//token='Bearer ' + _results
+		//token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
+		token='Bearer ' + _results
 		token_code=_results;
 		$.ajax({
 			type:"get",
-			//url:"https://api.speaka.live/api/file/myFile",
-			url:'http://dev.speaka.cn/api/file/myFile',
+			url:"https://api.speaka.live/api/file/myFile",
+			//url:'http://dev.speaka.cn/api/file/myFile',
 			dataType: 'JSON',
 			async:true,
 			beforeSend: function beforeSend(request) {
@@ -39,8 +39,8 @@ $(function(){
 			type: 'get',
 			dataType: 'JSON',
 			async: true,
-			url:'http://dev.speaka.cn/api/file/getTeamsReport',
-			//url: '../json/weekly.json',
+			//url:'http://dev.speaka.cn/api/file/getTeamsReport',
+			url:"https://api.speaka.live/api/file/getTeamsReport",
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},

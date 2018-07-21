@@ -12,7 +12,7 @@ $(function () {
 	var pay_money=null;
 	var pay_group_money=null;
 	//测试url
-	//var current_url = 'http://dev.speaka.cn/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
+	//var current_url = 'https://h5.speaka.live/front/html/course_details.html?item=1&code=011c8JvR1CO4R914E2tR1VDSvR1c8Jv7-&state=1'
    var app_token=null;
 	console.log(current_url);
 	var objurl = queryURL(current_url);
@@ -44,7 +44,7 @@ $(function () {
 
 	$.ajax({
 		type: "get",
-		url: "http://dev.speaka.cn/api/commodity/" + commodity_id,
+		url: "https://api.speaka.live/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
 		async: false,
 		success: function success(data) {
@@ -69,10 +69,10 @@ $(function () {
 						$.ajax({
 						type: "get",
 						//url:"../json/my_coupon.json",
-						url: 'http://dev.speaka.cn/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
+						url: 'https://api.speaka.live/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
 						async: false,
 						success: function success(data) {
-							//alert('http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+							//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 							console.log(data.info.length);
 							if(data.status==1){
 								token_pay='Bearer '+data.token
@@ -84,7 +84,7 @@ $(function () {
 									//点击选择
 									$('.have').click(function () {
 										console.log(this);
-										window.location.href = 'http://dev.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+										window.location.href = 'https://h5.speaka.live/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 										//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 									});
 								} else {
@@ -102,10 +102,10 @@ $(function () {
 					$.ajax({
 					type: "get",
 					//url:"../json/my_coupon.json",
-					url: 'http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
+					url: 'https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
 					async: false,
 					success: function success(data) {
-						//alert('http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+						//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 						console.log(data.info.length);
 						if(data.status==1){
 							token_pay='Bearer '+data.token
@@ -117,7 +117,7 @@ $(function () {
 								//点击选择
 								$('.have').click(function () {
 									console.log(this);
-									window.location.href = 'http://dev.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
+									window.location.href = 'https://h5.speaka.live/front/html/my_coupon_use.html?' + coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 									//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 								});
 							} else {
@@ -204,10 +204,10 @@ $(function () {
 		$.ajax({
 			type: "get",
 			//url:"../json/my_coupon.json",
-			url: 'http://dev.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
+			url: 'https://api.speaka.live/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
 			async: false,
 			success: function success(data) {
-				//alert('http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
+				//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 				console.log(data.info.length);
 				if(data.status==1){
 					//判断是否有优惠券
@@ -217,7 +217,7 @@ $(function () {
 						//点击选择
 						$('.have').click(function () {
 							console.log(this);
-							window.location.href = 'http://dev.speaka.cn/front/html/my_coupon_use.html?' + coupon_url+'&token='+token+'&id='+commodity_id+'&price='+pay_price;
+							window.location.href = 'https://h5.speaka.live/front/html/my_coupon_use.html?' + coupon_url+'&token='+token+'&id='+commodity_id+'&price='+pay_price;
 							//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
 						});
 					} else {
@@ -268,7 +268,7 @@ $(function () {
 		}
 	$('.wx_pay span').eq(1).click(function () {
 		//alert(token_pay)
-			$.post("http://dev.speaka.cn/api/pay", {
+			$.post("https://api.speaka.live/api/pay", {
 			state: objurl.state,
 			commodity_id: commodity_id,
 			typeId: typeId,
@@ -294,7 +294,7 @@ $(function () {
       		"appId": "wx0b778a82184cf52f",
       		"nonceStr": "OysMAJLdI1",
       		"timestamp": 1526033212,
-      		"url": "http://dev.speaka.cn/api/pay",
+      		"url": "https://api.speaka.live/api/pay",
       		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
       	},
       	"pay_config": {
@@ -360,7 +360,7 @@ $(function () {
 										}
 									})
 									$('.pay_success div').eq(0).click(function(){
-										window.location.href='http://dev.speaka.cn/front/html/lecture_notes.html'
+										window.location.href='https://h5.speaka.live/front/html/lecture_notes.html'
 													
 									})
 								}
@@ -373,7 +373,7 @@ $(function () {
 									$('.pay_success div').css({'margin':'0px'})
 									$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)')
 									$('.pay_success div').eq(0).click(function(){
-										window.location.href = 'http://dev.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
+										window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
 									})
 								}
 							}
@@ -386,7 +386,7 @@ $(function () {
 					$('.course_pay_error').css({
 						'display': 'block'
 					});
-					window.location.href = 'http://dev.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+					window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					console.log(res);
 				});
 				//判断当前客户端版本是否支持指定JS接口
@@ -447,7 +447,7 @@ $(function () {
 					objpay.paycallback = 'get_token';
 					objpay.title = '超有趣的少儿互动英文课！';
 					objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					objpay.share_url = 'http://dev.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+					objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
 					//alert('ios')
@@ -457,7 +457,7 @@ $(function () {
 					_objpay.paycallback = 'get_token';
 					_objpay.title = '超有趣的少儿互动英文课！';
 					_objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					_objpay.share_url = 'http://dev.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+					_objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay));
 				}
 				//App团购
@@ -470,7 +470,7 @@ $(function () {
 					_objpay2.paycallback = 'get_token';
 					_objpay2.title = '【三人成团】！超有趣的少儿互动英文课！';
 					_objpay2.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!';
-					_objpay2.share_url = 'http://dev.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id;
+					_objpay2.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id;
 					androidpay.androidWechatPay(JSON.stringify(_objpay2));
 				} else {
 					//alert('ios')
@@ -480,7 +480,7 @@ $(function () {
 					_objpay3.paycallback = 'get_token';
 					_objpay3.title = '【三人成团】！超有趣的少儿互动英文课！';
 					_objpay3.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!';
-					_objpay3.share_url = 'http://dev.speaka.cn/front/html/group_pay.html?commodity_id=' + commodity_id;
+					_objpay3.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id;
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay3));
 				}
 			}
@@ -490,7 +490,7 @@ $(function () {
 			
 		  $.ajax({
 			type: "post",
-			url: "http://dev.speaka.cn/api/apppay",
+			url: "https://api.speaka.live/api/apppay",
 			data: {
 				commodity_id: commodity_id,
 				typeId: typeId,
@@ -554,6 +554,6 @@ $(function () {
 		});
 	}
 	$('.wx_pay span').eq(0).click(function () {
-		window.location.href = 'http://dev.speaka.cn/front/html/course_details.html?commodity_id=' + commodity_id;
+		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
 });
