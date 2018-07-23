@@ -1,9 +1,9 @@
 $(function(){
 	window.get_token = get_token;
 	var token = null;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 1257;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
