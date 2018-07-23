@@ -59,6 +59,7 @@ export class HomePage {
   }
 
   taskToken(token: string) {
+    console.log(this);
     this.displayDayTask = true;
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
