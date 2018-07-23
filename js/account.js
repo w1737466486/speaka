@@ -1,9 +1,9 @@
 $(function(){
 	window.get_token = get_token;
 	var token = null;
-	get_token();
+	//get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + 1257;
+		token = 'Bearer ' + _results;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
@@ -190,7 +190,7 @@ $(function(){
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
             		$('.account_zfb_box').hide()
-            	    alert(data.msg)
+            	    alert('转存成功！')
             	}else{
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
