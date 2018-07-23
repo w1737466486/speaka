@@ -1,3 +1,27 @@
 task-item {
-
+    .taskUnFinish {
+        border: 2px solid #2FBBA9;
+        border-radius: 22px;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #2FBBA9;
+        text-align: center;
+        width: 7.2rem;
+        height: 3.6rem;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        line-height: 3.2rem;
+        transform: translateY(-50%);
+    }
+    .taskFinish {
+        background: #2FBBA9;
+        border-radius: 22px;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #FFFFFF;
+        text-align: center;
+        width: 7.2rem;
+        height: 3.6rem;
+    }
 }

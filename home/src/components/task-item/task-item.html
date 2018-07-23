@@ -1,5 +1,7 @@
 <!-- Generated template for the TaskItemComponent component -->
-<div style="margin-top: 2rem;">
+<div style="margin-top: 2rem; position: relative;">
   <img src="http://s.speaka.live/{{item?.img}}?x-oss-process=style/w530" alt="" style="width: 6rem; height: 6rem;">
-  <span style="font-family: PingFangSC-Medium; font-size: 1.8rem; color: #333333;">{{item?.explain}}</span>
+  <span style="font-family: PingFangSC-Medium; font-size: 1.8rem; color: #333333; position: absolute; top: 0; margin-left: 1.5rem;">{{item?.explain}}</span>
+  <span style="font-family: PingFangSC-Regular; font-size: 1.4rem; color: #999999; position: absolute; top: 3.7rem; margin-left: 1.5rem;">{{item?.describe}}</span>
+  <a (click)="doTask()" [class.taskUnFinish]="!isDone" [class.taskFinish]="isDone">{{text}}</a>
 </div>

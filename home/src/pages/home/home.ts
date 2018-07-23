@@ -19,8 +19,8 @@ export class HomePage {
   @ViewChild(Content) content: Content;
 
   constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone) {
-    // this.http.get('http://api.speaka.live/api/index/index')
-    this.http.get('assets/home.json')
+    this.http.get('http://api.speaka.live/api/index/index')
+    // this.http.get('assets/home.json')
     .subscribe(data => {
       this.dayWord = data["data"].topCard;
       this.recommondedCards = data["data"].middleCourse;
@@ -33,6 +33,8 @@ export class HomePage {
       console.log(error);
     });
     this.cardInputHidden = true;
+
+    window["getToken"] = this.receiveToken;
   }
 
   ngAfterViewInit() {
@@ -53,14 +55,19 @@ export class HomePage {
     });
   }
 
+  receiveToken(token: string) {
+    alert(token);
+  }
+
   dictionaryClick() {
     this.cardInputHidden = !this.cardInputHidden;
   }
 
   dayTask() {
+    window["webkit"]["messageHandlers"]["getToken"]["postMessage"]("receiveToken");
     this.displayDayTask = true;
     let headers = new HttpHeaders().set('Authorization', 'Bearer b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq');
-    this.http.get('http://dev.speaka.cn/api/task/getUserList', {headers})
+    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
       this.taskItems = [];
       let arr = data["data"];
