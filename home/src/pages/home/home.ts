@@ -36,8 +36,8 @@ export class HomePage {
 
     window["taskToken"] = this.taskToken;
     window["profileToken"] = this.profileToken;
-    this.taskToken.bind(this);
-    this.profileToken.bind(this);
+    window["taskToken"].bind(this);
+    window["profileToken"].bind(this);
   }
 
   ngAfterViewInit() {
