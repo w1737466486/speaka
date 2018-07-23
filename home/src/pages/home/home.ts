@@ -34,7 +34,7 @@ export class HomePage {
     });
     this.cardInputHidden = true;
 
-    window["getToken"] = this.receiveToken;
+    window["receiveToken"] = this.receiveToken;
   }
 
   ngAfterViewInit() {
