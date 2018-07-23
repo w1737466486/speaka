@@ -1,5 +1,5 @@
 $(function() {
-	console.log(123)
+	console.log(321)
 	var word=null;
 	$('.form p b').click(function(){
 		word=$('.form p input').val()
