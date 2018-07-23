@@ -22,8 +22,8 @@ $(function(){
 		if(typeof(weeks_num)!='undefined'){
 			$.ajax({
 				type:"get",
-				//url:"https://api.speaka.live/api/file/getWeekly",
-				url:"http://dev.speaka.cn/api/file/getWeekly",
+				url:"https://api.speaka.live/api/file/getWeekly",
+				//url:"http://dev.speaka.cn/api/file/getWeekly",
 				async:false,
 				data:{
 					commodity_id:comm_id,
@@ -119,8 +119,8 @@ $(function(){
 			})
 			$.ajax({
 				type:"get",
-				//url:"https://api.speaka.live/api/file/getMonthly",
-				url:"http://dev.speaka.cn/api/file/getMonthly",
+				url:"https://api.speaka.live/api/file/getMonthly",
+				//url:"http://dev.speaka.cn/api/file/getMonthly",
 				async:false,
 				data:{
 					commodity_id:comm_id,
