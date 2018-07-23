@@ -1,9 +1,9 @@
 $(function(){
 	window.get_token = get_token;
 	var token = null;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 2270ZjyXCL2L3Md7R mDTJy/IS/tKDCMW0OKkr5Qxqig;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
@@ -11,8 +11,8 @@ $(function(){
 			if(bstop){
 				$.ajax({
 					type:"get",
-					url:"https://api.speaka.live/api/u/account",
-					//url:"http://dev.speaka.cn/api/u/account",
+					//url:"https://api.speaka.live/api/u/account",
+					url:"http://dev.speaka.cn/api/u/account",
 					dataType: 'JSON',
 					data:{
 						page:page
@@ -177,8 +177,8 @@ $(function(){
         }else{
         	$.ajax({
             type: "POST",
-            url:"https://api.speaka.live/api/u/commision/draw",
-            //url: "http://dev.speaka.cn/api/u/commision/draw",
+            //url:"https://api.speaka.live/api/u/commision/draw",
+            url: "http://dev.speaka.cn/api/u/commision/draw",
             data: data,
             dataType: "json",
             beforeSend: function beforeSend(request) {
