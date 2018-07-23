@@ -56,6 +56,7 @@ export class HomePage {
   }
 
   receiveToken(token: string) {
+    console.log(11111);
     alert(token);
   }
 
@@ -65,17 +66,17 @@ export class HomePage {
 
   dayTask() {
     window["webkit"]["messageHandlers"]["getToken"]["postMessage"]("receiveToken");
-    this.displayDayTask = true;
-    let headers = new HttpHeaders().set('Authorization', 'Bearer b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq');
-    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
-    .subscribe(data=> {
-      this.taskItems = [];
-      let arr = data["data"];
-      for (const item of arr) {
-        this.taskItems.push(item);
-      }
-      console.log(this.taskItems);
-    });
+    // this.displayDayTask = true;
+    // let headers = new HttpHeaders().set('Authorization', 'Bearer b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq');
+    // this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
+    // .subscribe(data=> {
+    //   this.taskItems = [];
+    //   let arr = data["data"];
+    //   for (const item of arr) {
+    //     this.taskItems.push(item);
+    //   }
+    //   console.log(this.taskItems);
+    // });
   }
 
   hideDayTask() {
