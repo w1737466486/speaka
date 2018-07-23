@@ -190,7 +190,7 @@ $(function(){
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
             		$('.account_zfb_box').hide()
-            	    alert(data.msg)
+            	    alert('转存成功！')
             	}else{
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
