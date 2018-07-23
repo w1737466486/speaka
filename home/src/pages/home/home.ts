@@ -34,10 +34,12 @@ export class HomePage {
     });
     this.cardInputHidden = true;
 
+    this.taskToken.bind(this);
     window["taskToken"] = this.taskToken;
     window["profileToken"] = this.profileToken;
     window["taskToken"].bind(this);
     window["profileToken"].bind(this);
+    this.taskToken.bind(this);
   }
 
   ngAfterViewInit() {
