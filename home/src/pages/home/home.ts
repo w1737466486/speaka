@@ -34,12 +34,9 @@ export class HomePage {
     });
     this.cardInputHidden = true;
 
-    this.taskToken.bind(this);
     window["taskToken"] = this.taskToken;
     window["profileToken"] = this.profileToken;
-    window["taskToken"].bind(this);
-    window["profileToken"].bind(this);
-    this.taskToken.bind(this);
+    window["this"].bind(this);
   }
 
   ngAfterViewInit() {
@@ -61,15 +58,15 @@ export class HomePage {
   }
 
   taskToken(token: string) {
-    console.log(this);
-    this.displayDayTask = true;
+    const thx = window["this"];
+    thx.displayDayTask = true;
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
+    thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
-      this.taskItems = [];
+      thx.taskItems = [];
       let arr = data["data"];
       for (const item of arr) {
-        this.taskItems.push(item);
+        thx.taskItems.push(item);
       };
     });
   }
