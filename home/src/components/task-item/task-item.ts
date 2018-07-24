@@ -21,6 +21,9 @@ export class TaskItemComponent implements OnInit {
   type = -1;
   getTokenCallbackSignature = "receiveToken";
   canGet = false;
+  num = 0;
+  isFinish = 0;
+  isGet = 0;
 
   constructor(private http: HttpClient) {
   }
@@ -30,14 +33,17 @@ export class TaskItemComponent implements OnInit {
     window["this"] = this;
 
     this.type = this.item["type"];
-    const num = this.item["num"];
-    const isFinish = this.item["isFinish"];
-    const isGet = this.item["isGet"];
+    this.num = this.item["num"];
+    this.isFinish = this.item["isFinish"];
+    this.isGet = this.item["isGet"];
     this.isDone = true;
     this.canGet = false;
-    if (isGet != 0) {
+  }
+
+  updateTaskState() {
+    if (this.isGet != 0) {
       this.text = "已领取";
-    } else if (isFinish >= num) {
+    } else if (this.isFinish >= this.num) {
       this.text = "领取";
       this.canGet = true;
     } else {
@@ -59,12 +65,20 @@ export class TaskItemComponent implements OnInit {
     if (thx.canGet) {
       thx.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
       .subscribe(data => {
-        console.log(data);
+        const code = data.code;
+        if (code == 200) {
+          thx.isGet = 1;
+          thx.updateTaskState();
+        }
       });
     } else {
       thx.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
-        console.log(data);
+        const code = data.code;
+        if (code == 200) {
+          thx.isFinish += 1;
+          thx.updateTaskState();
+        }
       });
     }
   }
