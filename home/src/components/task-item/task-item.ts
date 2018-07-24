@@ -56,7 +56,8 @@ export class TaskItemComponent implements OnInit {
     console.log(token);
     console.log(thx.type);
     const params = new HttpParams().set('type', `${thx.type}`);
-    if (this.canGet) {
+    console.log(params);
+    if (thx.canGet) {
       thx.http.put("http://api.speaka.live/api/task/getGem", {headers: headers})
       .subscribe(data => {
         console.log(data);
