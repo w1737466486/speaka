@@ -37,6 +37,8 @@ export class TaskItemComponent implements OnInit {
     this.isGet = this.item["isGet"];
     this.isDone = true;
     this.canGet = false;
+    console.log(this);
+    console.log(this.type);
     this.updateTaskState();
   }
 
@@ -62,6 +64,7 @@ export class TaskItemComponent implements OnInit {
   }
 
   receiveToken = (token: String) => {
+    console.log(this);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const body = { type: this.type };
     if (this.canGet) {
