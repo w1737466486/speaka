@@ -89,6 +89,7 @@ export class HomePage {
   myProfile() {
     // window["profileToken"] = this.profileToken;
     // this.getToken("profileToken");
+    console.log(113);
     this.navCtrl.push('page-about');
   }
 
