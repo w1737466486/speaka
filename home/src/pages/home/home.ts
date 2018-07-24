@@ -15,6 +15,7 @@ export class HomePage {
   cardInputHidden = true;
   displayDayTask = false;
   taskItems = [];
+  contentNoScroll = false;
 
   @ViewChild(Content) content: Content;
 
@@ -68,6 +69,7 @@ export class HomePage {
     });
     this.zone.run(() => {
       this.displayDayTask = true;
+      this.contentNoScroll = true;
     });
   };
 
@@ -94,6 +96,7 @@ export class HomePage {
   }
 
   hideDayTask() {
+    this.contentNoScroll = false;
     this.displayDayTask = false;
   }
 

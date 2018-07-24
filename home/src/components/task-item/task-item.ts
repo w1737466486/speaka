@@ -26,7 +26,6 @@ export class TaskItemComponent implements OnInit {
   isGet = 0;
 
   constructor(private http: HttpClient, private zone: NgZone) {
-    console.log(777);
   }
 
   ngOnInit() {
@@ -35,7 +34,6 @@ export class TaskItemComponent implements OnInit {
     this.isFinish = this.item["isFinish"];
     this.isGet = this.item["isGet"];
     this.canGet = false;
-    console.log(888);
     this.updateTaskState();
   }
 
@@ -43,14 +41,11 @@ export class TaskItemComponent implements OnInit {
     this.zone.run(() => {
       this.isDone = true;
       if (this.isGet != 0) {
-        console.log(444);
         this.text = "已领取";
       } else if (this.isFinish >= this.num) {
-        console.log(123);
         this.text = "领取";
         this.canGet = true;
       } else {
-        console.log(666);
         this.text = "去完成";
         this.isDone = false;
       }
@@ -71,7 +66,6 @@ export class TaskItemComponent implements OnInit {
         const code = data["code"];
         if (code == 200) {
           this.isGet = 1;
-          console.log(999);
           this.updateTaskState();
         }
       });
@@ -81,7 +75,6 @@ export class TaskItemComponent implements OnInit {
         const code = data["code"];
         if (code == 200) {
           this.isFinish += 1;
-          console.log(101010);
           this.updateTaskState();
         }
       });
