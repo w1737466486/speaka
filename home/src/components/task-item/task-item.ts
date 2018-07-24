@@ -26,6 +26,7 @@ export class TaskItemComponent implements OnInit {
   isGet = 0;
 
   constructor(private http: HttpClient, private zone: NgZone) {
+    console.log(777);
   }
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class TaskItemComponent implements OnInit {
     this.isFinish = this.item["isFinish"];
     this.isGet = this.item["isGet"];
     this.canGet = false;
+    console.log(888);
     this.updateTaskState();
   }
 
@@ -69,6 +71,7 @@ export class TaskItemComponent implements OnInit {
         const code = data["code"];
         if (code == 200) {
           this.isGet = 1;
+          console.log(999);
           this.updateTaskState();
         }
       });
@@ -78,6 +81,7 @@ export class TaskItemComponent implements OnInit {
         const code = data["code"];
         if (code == 200) {
           this.isFinish += 1;
+          console.log(101010);
           this.updateTaskState();
         }
       });
