@@ -33,11 +33,6 @@ export class HomePage {
       console.log(error);
     });
     this.cardInputHidden = true;
-
-    window["taskToken"] = this.taskToken;
-    window["profileToken"] = this.profileToken;
-    // window["HomePage"] = this;
-    window["taskToken"].bind(this);
   }
 
   ngAfterViewInit() {
@@ -58,7 +53,7 @@ export class HomePage {
     });
   }
 
-  taskToken(token: string) {
+  taskToken = (token: string) => {
     console.log(this);
     const thx = window["HomePage"];
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -75,18 +70,24 @@ export class HomePage {
     thx.zone.run(() => {
       thx.displayDayTask = true;
     });
-  }
+  };
 
-  profileToken(token: string) {
+  profileToken = (token: string) => {
     
-  }
+  };
 
   dictionaryClick() {
-    this.cardInputHidden = !this.cardInputHidden;
+
   }
 
   dayTask() {
+    window["taskToken"] = this.taskToken;
     this.getToken("taskToken");
+  }
+
+  myProfile() {
+    window["profileToken"] = this.profileToken;
+    this.getToken("profileToken");
   }
 
   getToken(callback: string) {
