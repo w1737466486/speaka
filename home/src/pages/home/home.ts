@@ -36,7 +36,7 @@ export class HomePage {
 
     window["taskToken"] = this.taskToken;
     window["profileToken"] = this.profileToken;
-    window["this"] = this;
+    window["HomePage"] = this;
   }
 
   ngAfterViewInit() {
@@ -58,7 +58,7 @@ export class HomePage {
   }
 
   taskToken(token: string) {
-    const thx = window["this"];
+    const thx = window["HomePage"];
     thx.displayDayTask = true;
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
@@ -68,8 +68,6 @@ export class HomePage {
       for (const item of arr) {
         thx.taskItems.push(item);
       };
-      console.log(thx.taskItems);
-      console.log(thx.displayDayTask);
     });
   }
 
