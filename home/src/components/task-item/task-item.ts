@@ -61,7 +61,7 @@ export class TaskItemComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const body = { type: this.type };
     if (this.canGet) {
-      this.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
+      this.http.put("http://dev.speaka.cn/api/task/getGem", body, {headers})
       .subscribe(data => {
         const code = data["code"];
         if (code == 200) {
@@ -70,7 +70,7 @@ export class TaskItemComponent implements OnInit {
         }
       });
     } else {
-      this.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
+      this.http.put("http://dev.speaka.cn/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
         const code = data["code"];
         if (code == 200) {

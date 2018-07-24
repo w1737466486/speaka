@@ -20,7 +20,7 @@ export class HomePage {
   @ViewChild(Content) content: Content;
 
   constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone) {
-    this.http.get('http://api.speaka.live/api/index/index')
+    this.http.get('http://dev.speaka.cn/api/index/index')
     // this.http.get('assets/home.json')
     .subscribe(data => {
       this.dayWord = data["data"].topCard;
@@ -57,7 +57,7 @@ export class HomePage {
   taskToken = (token: string) => {
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
+    this.http.get('http://dev.speaka.cn/api/task/getUserList', {headers})
     .subscribe(data=> {
       let arr = data["data"];
       this.zone.run(() => {
