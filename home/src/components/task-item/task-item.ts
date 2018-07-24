@@ -30,7 +30,6 @@ export class TaskItemComponent implements OnInit {
 
   ngOnInit() {
     window[this.getTokenCallbackSignature] = this.receiveToken;
-    this.receiveToken.bind(this);
 
     this.type = this.item["type"];
     this.num = this.item["num"];
@@ -62,7 +61,7 @@ export class TaskItemComponent implements OnInit {
     this.getTokenHook("receiveToken");
   }
 
-  receiveToken(token: string) {
+  receiveToken = (token: String) => {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const body = { type: this.type };
     if (this.canGet) {
@@ -86,6 +85,6 @@ export class TaskItemComponent implements OnInit {
         }
       });
     }
-  }
+  };
 
 }
