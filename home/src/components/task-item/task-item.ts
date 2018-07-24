@@ -50,7 +50,9 @@ export class TaskItemComponent implements OnInit {
   receiveToken(token: string) {
     const thx = window["this"];
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const params = new HttpParams().set('type', `${this.type}`);
+    console.log(token);
+    console.log(thx.type);
+    const params = new HttpParams().set('type', `${thx.type}`);
     thx.http.put("http://api.live.cn/api/task/finishUserTask", {headers: headers, params: params})
     .subscribe(data => {
       console.log(data);
