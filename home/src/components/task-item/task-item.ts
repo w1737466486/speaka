@@ -76,6 +76,7 @@ export class TaskItemComponent implements OnInit {
         }
       });
     } else {
+      console.log(body);
       thx.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
         console.log(data);

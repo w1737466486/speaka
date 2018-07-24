@@ -60,8 +60,10 @@ export class HomePage {
   taskToken(token: string) {
     const thx = window["HomePage"];
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    console.log(token);
     thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
+      console.log(data);
       thx.taskItems = [];
       let arr = data["data"];
       for (const item of arr) {
