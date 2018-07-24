@@ -41,11 +41,14 @@ export class TaskItemComponent implements OnInit {
     this.zone.run(() => {
       this.isDone = true;
       if (this.isGet != 0) {
+        console.log(444);
         this.text = "已领取";
       } else if (this.isFinish >= this.num) {
+        console.log(123);
         this.text = "领取";
         this.canGet = true;
       } else {
+        console.log(666);
         this.text = "去完成";
         this.isDone = false;
       }
