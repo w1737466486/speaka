@@ -219,7 +219,7 @@ $(function () {
 					 $('.dialog .dialog_box p').eq(0).click(function (){
     	                 $.ajax({
     	                 	type:"get",
-    	                 	//url:'http://dev.speaka.cn/api/joinablegroup/'+commodity_id,
+    	                 	//url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
     	                 	url:'../json/tuijian.json',
     	                 	async:true,
     	                 	success:function(data){
