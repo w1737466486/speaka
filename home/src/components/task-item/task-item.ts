@@ -43,6 +43,9 @@ export class TaskItemComponent implements OnInit {
 
   updateTaskState() {
     this.zone.run(() => {
+      console.log(this.isGet);
+      console.log(this.isFinish);
+      console.log(this.num);
       if (this.isGet != 0) {
         this.text = "已领取";
       } else if (this.isFinish >= this.num) {
