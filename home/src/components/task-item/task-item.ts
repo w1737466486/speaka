@@ -53,7 +53,7 @@ export class TaskItemComponent implements OnInit {
     console.log(token);
     console.log(thx.type);
     const params = new HttpParams().set('type', `${thx.type}`);
-    thx.http.put("http://api.live.cn/api/task/finishUserTask", {headers: headers, params: params})
+    thx.http.put("http://api.speaka.live/api/task/finishUserTask", {headers: headers, params: params})
     .subscribe(data => {
       console.log(data);
     });
