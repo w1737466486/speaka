@@ -78,6 +78,7 @@ export class TaskItemComponent implements OnInit {
     } else {
       thx.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
+        console.log(data);
         const code = data.code;
         if (code == 200) {
           thx.isFinish += 1;
