@@ -54,22 +54,19 @@ export class HomePage {
   }
 
   taskToken = (token: string) => {
-    console.log(this);
-    const thx = window["HomePage"];
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
+    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
-      console.log(data);
-      thx.taskItems = [];
+      this.taskItems = [];
       let arr = data["data"];
       for (const item of arr) {
-        thx.taskItems.push(item);
+        this.taskItems.push(item);
       };
     });
-    thx.zone.run(() => {
-      thx.displayDayTask = true;
-    });
+    this.displayDayTask = true;
+    // this.zone.run(() => {
+    // });
   };
 
   profileToken = (token: string) => {
