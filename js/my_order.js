@@ -165,13 +165,13 @@ $(function () {
 		$('.group_orders').css({ 'display': 'none' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'none' });
 		$('.single_orders').css({ 'display': 'block' });
-		alert('num')
+		//alert('num')
 	});
 	$('.order_nav p').eq(0).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'none' });
 		$('.group_orders').css({ 'display': 'block' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'block' });
 		$('.single_orders').css({ 'display': 'none' });
-		alert('group')
+		//alert('group')
 	});
 });
