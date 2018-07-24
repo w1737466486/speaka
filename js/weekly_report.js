@@ -4,6 +4,11 @@ $(function(){
 	var token = null;
 	var token_code=null;
 	//get_token();
+	if (window.webkit) {
+		window.webkit.messageHandlers.getToken.postMessage('get_token');
+	} else {
+		//curson.punchCurson(JSON.stringify(obj));
+	}
 	function get_token(_results) {
 		//token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
 		token='Bearer ' + _results

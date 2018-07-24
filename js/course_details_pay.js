@@ -1,7 +1,7 @@
 "use strict";
 //type_id=21&commodity_id=1
 
-$(function () {
+$(function () {	
 	//获取当前url
 	var current_url = location.href;
 	var coupon_url = location.href.split('?')[1];
