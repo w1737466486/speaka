@@ -142,4 +142,8 @@ page-home {
         bottom: -300px;
         transition: bottom 0.3s;
     }
+
+    .no-scroll .scroll-content{
+        overflow: hidden;
+      }
 }
