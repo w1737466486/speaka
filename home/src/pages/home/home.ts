@@ -58,11 +58,13 @@ export class HomePage {
     console.log(token);
     this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
-      this.taskItems = [];
       let arr = data["data"];
-      for (const item of arr) {
-        this.taskItems.push(item);
-      };
+      this.zone.run(() => {
+        this.taskItems = [];
+        for (const item of arr) {
+          this.taskItems.push(item);
+        };
+      });
     });
     this.zone.run(() => {
       this.displayDayTask = true;
