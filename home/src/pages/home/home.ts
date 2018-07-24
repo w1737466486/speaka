@@ -68,6 +68,8 @@ export class HomePage {
       for (const item of arr) {
         thx.taskItems.push(item);
       };
+      console.log(thx.taskItems);
+      console.log(thx.displayDayTask);
     });
   }
 
