@@ -65,11 +65,13 @@ export class HomePage {
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
-      thx.taskItems = [];
-      let arr = data["data"];
-      for (const item of arr) {
-        thx.taskItems.push(item);
-      };
+      thx.zone.run(() => {
+        thx.taskItems = [];
+        let arr = data["data"];
+        for (const item of arr) {
+          thx.taskItems.push(item);
+        };
+      });
     });
   }
 

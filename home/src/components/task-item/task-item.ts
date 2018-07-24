@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 /**
@@ -25,7 +25,7 @@ export class TaskItemComponent implements OnInit {
   isFinish = 0;
   isGet = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private zone: NgZone) {
   }
 
   ngOnInit() {
@@ -42,15 +42,17 @@ export class TaskItemComponent implements OnInit {
   }
 
   updateTaskState() {
-    if (this.isGet != 0) {
-      this.text = "已领取";
-    } else if (this.isFinish >= this.num) {
-      this.text = "领取";
-      this.canGet = true;
-    } else {
-      this.text = "去完成";
-      this.isDone = false;
-    }
+    this.zone.run(() => {
+      if (this.isGet != 0) {
+        this.text = "已领取";
+      } else if (this.isFinish >= this.num) {
+        this.text = "领取";
+        this.canGet = true;
+      } else {
+        this.text = "去完成";
+        this.isDone = false;
+      }
+    });
   }
 
   doTask() {
@@ -60,8 +62,6 @@ export class TaskItemComponent implements OnInit {
   receiveToken(token: string) {
     const thx = window["TaskItemComponent"];
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    console.log(token);
-    console.log(thx.type);
     const body = { type: thx.type };
     if (thx.canGet) {
       thx.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
