@@ -267,7 +267,7 @@ $(function () {
 			
 		}
 	$('.wx_pay span').eq(1).click(function () {
-		//alert(token_pay)
+		    alert('是否做好坚持20天上课的准备？')
 			$.post("https://api.speaka.live/api/pay", {
 			state: objurl.state,
 			commodity_id: commodity_id,
@@ -426,6 +426,7 @@ $(function () {
 	
 	} else {
 		$('.wx_pay span').eq(1).click(function () {
+			alert('是否做好坚持20天上课的准备？')
 			//微信单人购买
 			if (objurl.type_id == 21) {
 				typeId = 0;
