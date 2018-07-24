@@ -64,7 +64,8 @@
         </ion-label>
     </ion-item>
   </ion-list>
-  <div class="cover" *ngIf="displayDayTask" (click)="hideDayTask()"> </div>
+</ion-content>
+<div class="cover" *ngIf="displayDayTask" (click)="hideDayTask()"> </div>
   <div class="dayTaskHolder" [class.dayTaskShowAnim]="displayDayTask" [class.dayTaskHideAnim]="!displayDayTask">
       <div style="position: absolute; width: 5rem; height: 4.3rem; transform: translateX(-50%); left: 50%; text-align: center;">
           <img src="../../assets/imgs/Glissade.png" style="width: 1.6rem; height: 0.6rem; margin-top: 1.2rem;" alt="">
@@ -74,4 +75,3 @@
           <task-item *ngFor="let task of taskItems" [item]="task" [getTokenHook]="getToken"></task-item>
       </div>
   </div>
-</ion-content>
