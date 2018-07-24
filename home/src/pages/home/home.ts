@@ -59,7 +59,9 @@ export class HomePage {
 
   taskToken(token: string) {
     const thx = window["HomePage"];
-    thx.displayDayTask = true;
+    thx.zone.run(() => {
+      thx.displayDayTask = true;
+    });
     // let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     // thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     // .subscribe(data=> {
