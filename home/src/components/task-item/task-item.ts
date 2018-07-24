@@ -30,7 +30,7 @@ export class TaskItemComponent implements OnInit {
 
   ngOnInit() {
     window[this.getTokenCallbackSignature] = this.receiveToken;
-    window["TaskItemComponent"] = this;
+    this.receiveToken.bind(this);
 
     this.type = this.item["type"];
     this.num = this.item["num"];
@@ -63,27 +63,26 @@ export class TaskItemComponent implements OnInit {
   }
 
   receiveToken(token: string) {
-    const thx = window["TaskItemComponent"];
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const body = { type: thx.type };
-    if (thx.canGet) {
-      thx.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
+    const body = { type: this.type };
+    if (this.canGet) {
+      this.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
       .subscribe(data => {
-        const code = data.code;
+        const code = data["code"];
         if (code == 200) {
-          thx.isGet = 1;
-          thx.updateTaskState();
+          this.isGet = 1;
+          this.updateTaskState();
         }
       });
     } else {
       console.log(body);
-      thx.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
+      this.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
         console.log(data);
-        const code = data.code;
+        const code = data["code"];
         if (code == 200) {
-          thx.isFinish += 1;
-          thx.updateTaskState();
+          this.isFinish += 1;
+          this.updateTaskState();
         }
       });
     }
