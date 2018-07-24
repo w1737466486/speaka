@@ -212,13 +212,41 @@ $(function () {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
 						}
 					});
+					
 					$('.v_pay p').eq(1).click(function () {
+						$('.dialog').show();
+					});
+					 $('.dialog .dialog_box p').eq(0).click(function (){
+    	                 $.ajax({
+    	                 	type:"get",
+    	                 	//url:'http://dev.speaka.cn/api/joinablegroup/'+commodity_id,
+    	                 	url:'../json/tuijian.json',
+    	                 	async:true,
+    	                 	success:function(data){
+    	                 		console.log(data)
+    	                 		if(data.code==200){
+    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[1].order_no
+    	                 		  }
+    	                 		},
+    	                 	error:function(res){
+    	                 		console.log(res)
+    	                 	}
+    	                 });
+				    });
+				    $('.dialog .dialog_box p').eq(1).click(function (){
+				    	if (isWeiXin()) {
+							window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
+						} else {
+							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
+						}
+				    });
+/*					$('.v_pay p').eq(1).click(function () {
 						if (isWeiXin()) {
 							window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
 						} else {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
 						}
-					});
+					});*/
 				}
 			} else {
 				alert('该商品不存在，请重试！');

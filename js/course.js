@@ -54,12 +54,13 @@ $(function () {
 	
 	
 	
-	
 	var lessons_url=queryURL(location.href)
 	console.log(lessons_url)
 	var team_id=lessons_url.team_id;
 	var comm_id=lessons_url.comm_id;
+	var lessonId = lessons_url.lessonId;
 	var comm_url=null;
+	$('title').html('Lesson' + ' ' + lessonId);
 	//console.log(str.split('?')[1])
 	if(team_id){
 		comm_url="https://api.speaka.live/api/team/"+team_id+"/commodity"
@@ -74,7 +75,7 @@ $(function () {
 		url: comm_url,
 		success: function success(data) {
            console.log(data)
-			var lessonId = lessons_url.lessonId;
+			
 			console.log(data.lessons[0].id);
 			for (var k = 0; k < data.lessons.length; k++) {
 				//判断是第几天的课程
@@ -82,7 +83,7 @@ $(function () {
 					//console.log(k)
 					//替换文字内容
 					//$('.header .header_s2').html('Lesson' + ' ' + lessonId);
-					$('title').html('Lesson' + ' ' + lessonId);
+					
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
 					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
 					//导读视频预览图获取

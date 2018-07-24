@@ -308,8 +308,6 @@ $(function () {
       }*/
 
 			console.log(data.config);
-			
-
 			if (data.status == 1) {
 				//微信支付
 				//通过config接口注入权限验证配置

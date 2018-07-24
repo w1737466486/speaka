@@ -20,6 +20,45 @@ $(function () {
     var u_id=groupurl.u_id;//null
 	var u_id_new=null;
 	var commodity_id = groupurl.commodity_id;
+	var share_dec=true;
+	//显示推荐人信息
+	if(u_id){
+		$('.share_dec').css({'right':'0px'});
+		$.ajax({
+			type:"get",
+			url:'http://dev.speaka.cn/api/u/head',
+			data:{
+				id:u_id
+			},
+			async:true,
+			success:function(data){
+				console.log(data)
+				if(data.code==200){
+					if(data.data[u_id].head_wx==null){
+						console.log(data.data[u_id].head+'1111')
+						$('.share_wxhead img').attr('src','https://s.speaka.live/' +data.data[u_id].head);
+					}else{
+						console.log(data.data[u_id].head_wx+'222')
+						$('.share_wxhead img').attr('src',data.data[u_id].head_wx);
+					}
+					$('.share_dec p b').eq(1).html(data.data[u_id].name)
+				}
+			},
+			error:function(res){
+				console.log(res)
+			}
+		});
+	}
+	$('.share_dec').click(function(){
+			if(share_dec){
+				$('.share_dec').css({'right':'-80px'});
+				share_dec=false;
+			}else{
+				$('.share_dec').css({'right':'0px'});
+				share_dec=true;
+			}
+		})
+	
 	if (isWeiXin()) {
 		if(isbuy_code){
 		$.ajax({
@@ -101,7 +140,7 @@ $(function () {
 			console.log(data);
 			$('.v_nav .v_s1').html(data.eng);
 			$('.v_nav .v_s2').html(data.chn);
-			$('.v_nav img').attr('src', 'https://s.speaka.live/' + data.pic_path);
+			$('.v_nav>img').attr('src', 'https://s.speaka.live/' + data.pic_path);
 			for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
 						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
@@ -423,8 +462,19 @@ $(function () {
 			alert('验证信息已失效，请重新获取订单信息！');
 		}
 	}, 'json');
-
-	$('.group_foot p').eq(0).click(function () {
-		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+    //添加提示框
+    $('.group_foot p').eq(0).click(function () {
+    	$('.dialog').show();
+		//window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
+    $('.dialog .dialog_box p').eq(0).click(function (){
+    	$('.dialog').hide();
+    });
+    $('.dialog .dialog_box p').eq(1).click(function (){
+    	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+    });
+    
+/*	$('.group_foot p').eq(0).click(function () {
+		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+	});*/
 });
