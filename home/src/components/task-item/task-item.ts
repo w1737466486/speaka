@@ -26,11 +26,6 @@ export class TaskItemComponent implements OnInit {
   isGet = 0;
 
   constructor(private http: HttpClient, private zone: NgZone) {
-  }
-
-  ngOnInit() {
-    window[this.getTokenCallbackSignature] = this.receiveToken;
-
     this.type = this.item["type"];
     this.num = this.item["num"];
     this.isFinish = this.item["isFinish"];
@@ -40,6 +35,9 @@ export class TaskItemComponent implements OnInit {
     console.log(this);
     console.log(this.type);
     this.updateTaskState();
+  }
+
+  ngOnInit() {
   }
 
   updateTaskState() {
@@ -60,6 +58,7 @@ export class TaskItemComponent implements OnInit {
   }
 
   doTask() {
+    window[this.getTokenCallbackSignature] = this.receiveToken;
     this.getTokenHook("receiveToken");
   }
 
