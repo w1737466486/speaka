@@ -64,9 +64,9 @@ export class HomePage {
         this.taskItems.push(item);
       };
     });
-    this.displayDayTask = true;
-    // this.zone.run(() => {
-    // });
+    this.zone.run(() => {
+      this.displayDayTask = true;
+    });
   };
 
   profileToken = (token: string) => {
