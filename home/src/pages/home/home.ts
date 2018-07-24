@@ -33,10 +33,6 @@ export class HomePage {
       console.log(error);
     });
     this.cardInputHidden = true;
-
-    window["taskToken"] = this.taskToken;
-    window["profileToken"] = this.profileToken;
-    window["this"] = this;
   }
 
   ngAfterViewInit() {
@@ -57,30 +53,44 @@ export class HomePage {
     });
   }
 
-  taskToken(token: string) {
-    const thx = window["this"];
-    thx.displayDayTask = true;
+  taskToken = (token: string) => {
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    thx.http.get('http://api.speaka.live/api/task/getUserList', {headers})
+    console.log(token);
+    this.http.get('http://api.speaka.live/api/task/getUserList', {headers})
     .subscribe(data=> {
-      thx.taskItems = [];
       let arr = data["data"];
-      for (const item of arr) {
-        thx.taskItems.push(item);
-      };
+      this.zone.run(() => {
+        this.taskItems = [];
+        for (const item of arr) {
+          this.taskItems.push(item);
+        };
+      });
     });
-  }
+    this.zone.run(() => {
+      this.displayDayTask = true;
+    });
+  };
 
-  profileToken(token: string) {
-
-  }
+  profileToken = (token: string) => {
+    
+  };
 
   dictionaryClick() {
-    this.cardInputHidden = !this.cardInputHidden;
+
   }
 
   dayTask() {
-    window["webkit"]["messageHandlers"]["getToken"]["postMessage"]("taskToken");
+    window["taskToken"] = this.taskToken;
+    this.getToken("taskToken");
+  }
+
+  myProfile() {
+    window["profileToken"] = this.profileToken;
+    this.getToken("profileToken");
+  }
+
+  getToken(callback: string) {
+    window["webkit"]["messageHandlers"]["getToken"]["postMessage"](callback);
   }
 
   hideDayTask() {
