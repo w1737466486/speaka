@@ -1,6 +1,7 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, Content } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AboutPage } from '../about/about';
 
 @Component({
   selector: 'page-home',
@@ -90,7 +91,7 @@ export class HomePage {
     // window["profileToken"] = this.profileToken;
     // this.getToken("profileToken");
     console.log(113);
-    this.navCtrl.push('page-about');
+    this.navCtrl.push(AboutPage);
   }
 
   getToken(callback: string) {
