@@ -23,10 +23,11 @@ $(function () {
 	var share_dec=true;
 	//显示推荐人信息
 	if(u_id){
-		$('.share_dec').css({'right':'0px'});
+		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
 			url:'http://dev.speaka.cn/api/u/head',
+			//url:'https://api.speaka.live/api/u/head',
 			data:{
 				id:u_id
 			},
@@ -35,10 +36,8 @@ $(function () {
 				console.log(data)
 				if(data.code==200){
 					if(data.data[u_id].head_wx==null){
-						console.log(data.data[u_id].head+'1111')
 						$('.share_wxhead img').attr('src','https://s.speaka.live/' +data.data[u_id].head);
 					}else{
-						console.log(data.data[u_id].head_wx+'222')
 						$('.share_wxhead img').attr('src',data.data[u_id].head_wx);
 					}
 					$('.share_dec p b').eq(1).html(data.data[u_id].name)
@@ -51,10 +50,10 @@ $(function () {
 	}
 	$('.share_dec').click(function(){
 			if(share_dec){
-				$('.share_dec').css({'right':'-80px'});
+				$('.share_dec').css({'right':'0px'});
 				share_dec=false;
 			}else{
-				$('.share_dec').css({'right':'0px'});
+				$('.share_dec').css({'right':'-80px'});
 				share_dec=true;
 			}
 		})
