@@ -135,11 +135,11 @@ page-home {
 
     .dayTaskShowAnim {
         bottom: 0;
-        transition: bottom 0.6s;
+        transition: bottom 0.3s;
     }
 
     .dayTaskHideAnim {
         bottom: -300px;
-        transition: bottom 0.6s;
+        transition: bottom 0.3s;
     }
 }
