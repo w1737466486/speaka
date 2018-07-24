@@ -26,31 +26,20 @@ export class TaskItemComponent implements OnInit {
   isGet = 0;
 
   constructor(private http: HttpClient, private zone: NgZone) {
-    console.log(0);
-  }
-
-  ngAfterViewInit() {
-    console.log(123);
   }
 
   ngOnInit() {
-    console.log(456);
     this.type = this.item["type"];
     this.num = this.item["num"];
     this.isFinish = this.item["isFinish"];
     this.isGet = this.item["isGet"];
-    this.isDone = true;
     this.canGet = false;
-    console.log(this);
-    console.log(this.type);
     this.updateTaskState();
   }
 
   updateTaskState() {
     this.zone.run(() => {
-      console.log(this.isGet);
-      console.log(this.isFinish);
-      console.log(this.num);
+      this.isDone = true;
       if (this.isGet != 0) {
         this.text = "已领取";
       } else if (this.isFinish >= this.num) {
@@ -69,7 +58,6 @@ export class TaskItemComponent implements OnInit {
   }
 
   receiveToken = (token: String) => {
-    console.log(this);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const body = { type: this.type };
     if (this.canGet) {
@@ -82,10 +70,8 @@ export class TaskItemComponent implements OnInit {
         }
       });
     } else {
-      console.log(body);
       this.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
-        console.log(data);
         const code = data["code"];
         if (code == 200) {
           this.isFinish += 1;
