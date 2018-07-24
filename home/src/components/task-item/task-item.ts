@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 /**
  * Generated class for the TaskItemComponent component.
@@ -13,16 +14,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TaskItemComponent implements OnInit {
 
   @Input() item: Object;
+  @Input() getTokenHook: Function;
 
   text: string;
   isDone = false;
+  type = -1;
+  getTokenCallbackSignature = "receiveToken";
 
-
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
-    const type = this.item["type"];
+    window[this.getTokenCallbackSignature] = this.receiveToken;
+    window["this"] = this;
+
+    this.type = this.item["type"];
     const num = this.item["num"];
     const isFinish = this.item["isFinish"];
     const isGet = this.item["isGet"];
@@ -38,7 +44,17 @@ export class TaskItemComponent implements OnInit {
   }
 
   doTask() {
-    console.log("dotask");
+    this.getTokenHook("receiveToken");
+  }
+
+  receiveToken(token: string) {
+    const thx = window["this"];
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const params = new HttpParams().set('type', `${this.type}`);
+    thx.http.put("http://api.live.cn/api/task/finishUserTask", {headers: headers, params: params})
+    .subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

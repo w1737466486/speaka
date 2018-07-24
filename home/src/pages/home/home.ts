@@ -72,7 +72,7 @@ export class HomePage {
   }
 
   profileToken(token: string) {
-
+    
   }
 
   dictionaryClick() {
@@ -80,7 +80,11 @@ export class HomePage {
   }
 
   dayTask() {
-    window["webkit"]["messageHandlers"]["getToken"]["postMessage"]("taskToken");
+    this.getToken("taskToken");
+  }
+
+  getToken(callback: string) {
+    window["webkit"]["messageHandlers"]["getToken"]["postMessage"](callback);
   }
 
   hideDayTask() {

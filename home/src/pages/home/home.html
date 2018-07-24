@@ -1,3 +1,23 @@
+<div no-padding *ngIf="!cardInputHidden" class="cardInput">
+  <ion-input placeholder="单词闪卡 —— 情景记忆单词" style="background: #F5F5F5; border-radius: 0.4rem; text-indent: 1.5rem; font-size: 1.4rem;" (keyup.enter)="onSearch($event.target.value)"></ion-input>
+  <img src="../../assets/imgs/search.png" style="width: 2.3rem; height: 2.3rem; position: absolute; right: 3rem; top: 3rem;" alt="">
+  <div no-padding style="position: relative; top: 2rem; width: 100%; background: transparent;">
+      <ion-label no-margin style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 0.7rem 0 0.7rem;">
+          <div style="width: 7.2rem; height: 10rem; text-align: center;" (click)="dictionaryClick()">
+            <img src="../../assets/imgs/dictionary.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+            <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">闪卡词典</ion-label>
+          </div>
+          <div style="width: 7.2rem; height: 10rem; text-align: center;" (click)="dayTask()">
+              <img src="../../assets/imgs/task.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+              <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">每日任务</ion-label>
+            </div>
+            <div style="width: 7.2rem; height: 10rem; text-align: center;">
+                <img src="../../assets/imgs/archive.png" alt="" style="width: 7.2rem; height: 7.2rem;">
+                <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">我的档案</ion-label>
+              </div>
+      </ion-label>
+    </div>
+</div>
 <ion-content no-padding>
   <div style="height: 13.5rem; position: relative; margin: 3rem 2rem 3rem 2rem;">
     <img src="../../assets/imgs/default.png" alt="" class="dayImg">
@@ -8,26 +28,6 @@
     <span class="level">难度系数：高</span>
     <span class="lessonTitle">Picnic</span>
     <img src="../../assets/imgs/default.png" alt="" class="lessonAvatar">
-  </div>
-  <div no-padding *ngIf="!cardInputHidden" class="cardInput">
-      <ion-input placeholder="单词闪卡 —— 情景记忆单词" style="background: #F5F5F5; border-radius: 0.4rem; text-indent: 1.5rem; font-size: 1.4rem;" (keyup.enter)="onSearch($event.target.value)"></ion-input>
-      <img src="../../assets/imgs/search.png" style="width: 2.3rem; height: 2.3rem; position: absolute; right: 3rem; top: 3rem;" alt="">
-      <div no-padding style="position: relative; top: 2rem; width: 100%; background: transparent;">
-          <ion-label no-margin style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 0.7rem 0 0.7rem;">
-              <div style="width: 7.2rem; height: 10rem; text-align: center;" (click)="dictionaryClick()">
-                <img src="../../assets/imgs/dictionary.png" alt="" style="width: 7.2rem; height: 7.2rem;">
-                <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">闪卡词典</ion-label>
-              </div>
-              <div style="width: 7.2rem; height: 10rem; text-align: center;" (click)="dayTask()">
-                  <img src="../../assets/imgs/task.png" alt="" style="width: 7.2rem; height: 7.2rem;">
-                  <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">每日任务</ion-label>
-                </div>
-                <div style="width: 7.2rem; height: 10rem; text-align: center;">
-                    <img src="../../assets/imgs/archive.png" alt="" style="width: 7.2rem; height: 7.2rem;">
-                    <ion-label style="font-size: 1.2rem; color: #333333; margin: auto; margin-top: 1rem;">我的档案</ion-label>
-                  </div>
-          </ion-label>
-        </div>
   </div>
   <ion-list no-lines>
     <ion-item no-padding style="padding: 0 2rem 3rem 2rem;">
@@ -71,7 +71,7 @@
           <span style="font-family: PingFangSC-Medium; font-size: 12px; color: #333333; text-align: center; margin-top: 0.8rem; display: block;">学习任务</span>
       </div>
       <div style="margin: 6.3rem 1.5rem 0 1.5rem;">
-          <task-item *ngFor="let task of taskItems" [item]="task"></task-item>
+          <task-item *ngFor="let task of taskItems" [item]="task" [getTokenHook]="getToken"></task-item>
       </div>
   </div>
 </ion-content>
