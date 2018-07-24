@@ -59,7 +59,7 @@ export class TaskItemComponent implements OnInit {
 
   doTask() {
     window[this.getTokenCallbackSignature] = this.receiveToken;
-    this.getTokenHook("receiveToken");
+    this.getTokenHook(this.getTokenCallbackSignature);
   }
 
   receiveToken = (token: String) => {

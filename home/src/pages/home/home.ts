@@ -36,7 +36,8 @@ export class HomePage {
 
     window["taskToken"] = this.taskToken;
     window["profileToken"] = this.profileToken;
-    window["HomePage"] = this;
+    // window["HomePage"] = this;
+    window["taskToken"].bind(this);
   }
 
   ngAfterViewInit() {
@@ -58,6 +59,7 @@ export class HomePage {
   }
 
   taskToken(token: string) {
+    console.log(this);
     const thx = window["HomePage"];
     let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
