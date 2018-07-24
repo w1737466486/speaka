@@ -55,15 +55,14 @@ export class TaskItemComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
     console.log(thx.type);
-    const params = new HttpParams().set('type', `${thx.type}`);
-    console.log(params);
+    const body = { type: thx.type };
     if (thx.canGet) {
-      thx.http.put("http://api.speaka.live/api/task/getGem", {headers: headers})
+      thx.http.put("http://api.speaka.live/api/task/getGem", body, {headers})
       .subscribe(data => {
         console.log(data);
       });
     } else {
-      thx.http.put("http://api.speaka.live/api/task/finishUserTask", {headers: headers})
+      thx.http.put("http://api.speaka.live/api/task/finishUserTask", body, {headers})
       .subscribe(data => {
         console.log(data);
       });
