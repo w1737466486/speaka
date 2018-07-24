@@ -87,8 +87,9 @@ export class HomePage {
   }
 
   myProfile() {
-    window["profileToken"] = this.profileToken;
-    this.getToken("profileToken");
+    // window["profileToken"] = this.profileToken;
+    // this.getToken("profileToken");
+    this.navCtrl.push('page-about');
   }
 
   getToken(callback: string) {
