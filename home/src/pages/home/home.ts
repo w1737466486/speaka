@@ -2,7 +2,7 @@ import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, Content, Platform } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AboutPage } from '../about/about';
-import { Cordova } from '../../../node_modules/@ionic-native/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-home',
@@ -21,7 +21,7 @@ export class HomePage {
 
   @ViewChild(Content) content: Content;
 
-  constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone) {
+  constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone, private iab: InAppBrowser) {
     this.http.get('http://dev.speaka.cn/api/index/index')
     // this.http.get('assets/home.json')
     .subscribe(data => {
@@ -92,7 +92,9 @@ export class HomePage {
     // window["profileToken"] = this.profileToken;
     // this.getToken("profileToken");
     // this.navCtrl.push(AboutPage);
-    window.open('https://h5.speaka.live/front/html/weekly_report.html', '_blank');
+    // window.open('https://h5.speaka.live/front/html/weekly_report.html', '_blank');
+    const browser = this.iab.create('https://www.baidu.com');
+    browser.show();
   }
 
   getToken(callback: string) {
