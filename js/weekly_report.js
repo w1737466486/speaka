@@ -15,8 +15,8 @@ $(function(){
 		token_code=_results;
 		$.ajax({
 			type:"get",
-			url:"https://api.speaka.live/api/file/myFile",
-			//url:'http://dev.speaka.cn/api/file/myFile',
+			//url:"https://api.speaka.live/api/file/myFile",
+			url:'http://dev.speaka.cn/api/file/myFile',
 			dataType: 'JSON',
 			async:true,
 			beforeSend: function beforeSend(request) {
@@ -44,8 +44,8 @@ $(function(){
 			type: 'get',
 			dataType: 'JSON',
 			async: true,
-			//url:'http://dev.speaka.cn/api/file/getTeamsReport',
-			url:"https://api.speaka.live/api/file/getTeamsReport",
+			url:'http://dev.speaka.cn/api/file/getTeamsReport',
+			//url:"https://api.speaka.live/api/file/getTeamsReport",
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
@@ -108,12 +108,12 @@ $(function(){
 					var comm_id=$(this).parent('ul').attr('comm_id');
 					var weeks_num=$(this).attr('weeks')
 					console.log(comm_id+'------'+weeks_num)
-					window.location.href='https://h5.speaka.live/front/html/weekly.html?comm_id='+comm_id+'&weeks_num='+weeks_num+'&token='+token_code
+					window.location.href='http://h5_test.speaka.cn/front/html/weekly.html?comm_id='+comm_id+'&weeks_num='+weeks_num+'&token='+token_code
 				})
 				$('.weekly_li .months').click(function(){
 					var month_num=$(this).attr('months')
 					var comm_id=$(this).attr('comm_id');
-					window.location.href='https://h5.speaka.live/front/html/weekly.html?comm_id='+comm_id+'&month_num='+month_num+'&token='+token_code
+					window.location.href='http://h5_test.speaka.cn/front/html/weekly.html?comm_id='+comm_id+'&month_num='+month_num+'&token='+token_code
 				})
 				
 				
