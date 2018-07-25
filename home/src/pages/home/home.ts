@@ -1,7 +1,8 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { NavController, Content } from 'ionic-angular';
+import { NavController, Content, Platform } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AboutPage } from '../about/about';
+import { Cordova } from '../../../node_modules/@ionic-native/core';
 
 @Component({
   selector: 'page-home',
@@ -90,8 +91,8 @@ export class HomePage {
   myProfile() {
     // window["profileToken"] = this.profileToken;
     // this.getToken("profileToken");
-    console.log(113);
-    this.navCtrl.push(AboutPage);
+    // this.navCtrl.push(AboutPage);
+    window.open('https://h5.speaka.live/front/html/weekly_report.html', '_blank');
   }
 
   getToken(callback: string) {

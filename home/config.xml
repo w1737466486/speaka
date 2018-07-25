@@ -86,6 +86,7 @@
     <plugin name="cordova-plugin-broadcaster" spec="^3.1.1" />
     <allow-navigation href="http://192.168.2.37:8100" />
     <allow-navigation href="http://169.254.43.25:8100" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <engine name="browser" spec="5.0.3" />
     <engine name="ios" spec="4.5.4" />
 </widget>
