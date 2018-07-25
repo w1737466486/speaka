@@ -2,7 +2,7 @@ import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, Content, Platform } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AboutPage } from '../about/about';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-home',
@@ -91,10 +91,7 @@ export class HomePage {
   myProfile() {
     // window["profileToken"] = this.profileToken;
     // this.getToken("profileToken");
-    // this.navCtrl.push(AboutPage);
-    // window.open('https://h5.speaka.live/front/html/weekly_report.html', '_blank');
-    const browser = this.iab.create('https://www.baidu.com');
-    browser.show();
+    this.navCtrl.push(AboutPage);
   }
 
   getToken(callback: string) {
