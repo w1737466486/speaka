@@ -1,8 +1,6 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, Content, Platform } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AboutPage } from '../about/about';
-import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-home',
@@ -21,9 +19,9 @@ export class HomePage {
 
   @ViewChild(Content) content: Content;
 
-  constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone, private iab: InAppBrowser) {
-    // this.http.get('http://dev.speaka.cn/api/index/index')
-    this.http.get('assets/home.json')
+  constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone) {
+    this.http.get('http://dev.speaka.cn/api/index/index')
+    // this.http.get('assets/home.json')
     .subscribe(data => {
       this.dayWord = data["data"].topCard;
       this.recommondedCards = data["data"].middleCourse;
@@ -31,7 +29,6 @@ export class HomePage {
       for (const item in videos) {
         this.categoryCards.push(videos[item]);
       }
-      // console.log(Object.prototype.toString.call(this.categoryCards));
     }, error => {
       console.log(error);
     });
@@ -89,9 +86,11 @@ export class HomePage {
   }
 
   myProfile() {
-    // window["profileToken"] = this.profileToken;
-    // this.getToken("profileToken");
-    this.navCtrl.push(AboutPage);
+    const params = {
+      openStyle: "push",
+      module: "weeklyreport"
+    };
+    window["webkit"]["messageHandlers"]["openH5Page"](params);
   }
 
   getToken(callback: string) {
