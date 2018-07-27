@@ -9,7 +9,7 @@ $(function(){
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 	//get_token();
 	function get_token(_results) {
 		token = 'Bearer ' + _results;
@@ -31,13 +31,13 @@ $(function(){
 						request.setRequestHeader("Authorization", token);
 					},
 					success:function(data){
-						console.log(typeof data.data.drawableMoney)
+						console.log(typeof data.data.drawableMoney);
 						if(data.code==200&&j==1){
-							$('.account_head p').eq(0).find('span').eq(1).html('￥'+data.data.drawableMoney/100+'元')
-							$('.account_head p').eq(1).find('span').eq(1).html('￥'+data.data.waitedMoney/100+'元')
+							$('.account_head p').eq(0).find('span').eq(1).html('￥'+data.data.drawableMoney/100+'元');
+							$('.account_head p').eq(1).find('span').eq(1).html('￥'+data.data.waitedMoney/100+'元');
 						}
 						if(data.code==200&&data.data.orders.length>0){
-							console.log(data.data.orders)
+							console.log(data.data.orders);
 							for(var i=0;i<data.data.orders.length;i++){
 								/*if(data.data.orders[i].commision_status==1){
 									$('.order_list').append(`<li>
@@ -157,23 +157,23 @@ $(function(){
 	window.rulebooks=rulebooks;
 	// rulebooks()
 	function rulebooks(res){
-		$('.account_rule_box').show()
+		$('.account_rule_box').show();
 	}
 	$('.account_rule_box').click(function(){
-		$('.account_rule_box').hide()
-	})
+		$('.account_rule_box').hide();
+	});
 	//点击转存，弹出打款界面
 	$('.account_foot p').click(function(){
-		$('.account_zfb_box').show()
-	})
+		$('.account_zfb_box').show();
+	});
 	$('.account_zfb>p').click(function(){
 		var data={
 			account:'',
 			name:''
-		}
+		};
 		data.account=$('.account_zfb_id input').val();
 		data.name=$('.account_zfb_name input').val();
-		console.log(data)
+		console.log(data);
 		//手机号和邮箱正则表达式验证
         var myphonereg=/^1[34578]{1}\d{9}$/;
         var myemailreg=/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
@@ -182,7 +182,7 @@ $(function(){
         }else if(data.name==''){
         	alert('请输入支付宝账号绑定姓名！');
         }else if(!myphonereg.test(data.account) && !myemailreg.test(data.account)){
-           alert('请输入正确的支付宝账号！')
+           alert('请输入正确的支付宝账号！');
         }else{
         	$.ajax({
             type: "POST",
@@ -194,16 +194,16 @@ $(function(){
                 request.setRequestHeader("Authorization", token);
             },
             success: function (data) {
-            	console.log(data)
+            	console.log(data);
             	if(data.code==200){
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
-            		$('.account_zfb_box').hide()
-            	    alert('转存成功！')
+            		$('.account_zfb_box').hide();
+            	    alert('转存成功！');
             	}else{
             		$('.account_zfb_id input').val('');
             		$('.account_zfb_name input').val('');
-            	    alert(data.msg)
+            	    alert(data.msg);
             	}
             	
             },
@@ -213,8 +213,8 @@ $(function(){
         });
         }
         
-	})
+	});
 	$('.account_zfb_top').click(function(){
-		$('.account_zfb_box').hide()
-	})
-})
+		$('.account_zfb_box').hide();
+	});
+});

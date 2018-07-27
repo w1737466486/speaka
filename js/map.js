@@ -10,7 +10,7 @@
 		    if (strDate >= 0 && strDate <= 9) {
 		        strDate = "0" + strDate;
 		    }
-		    var currentdate = date.getFullYear() + month + strDate
+		    var currentdate = date.getFullYear() + month + strDate;
 		    return currentdate;
 		}
  		//将url参数转对象
@@ -25,25 +25,25 @@
 			return obj;
 		}
 
- 	console.log(getNowFormatDate())
+ 	console.log(getNowFormatDate());
  	
- 	var mapurl=location.href.split('?')[1]
- 	var url_map=null
- 	var team_id=null
+ 	var mapurl=location.href.split('?')[1];
+ 	var url_map=null;
+ 	var team_id=null;
  	if(mapurl){
- 		console.log(mapurl.substr(8))
- 		team_id=mapurl.substr(8)
+ 		console.log(mapurl.substr(8));
+ 		team_id=mapurl.substr(8);
  	}else{
- 		team_id=77
+ 		team_id=77;
  	}
- 	var obj={}
+ 	var obj={};
  	$.ajax({
  		type:"get",
  		url:"https://api.speaka.live/api/team/"+team_id+"/commodity",
  		//url:"../json/speaka.json",
  		async:true,
  		success:function(data){
- 			console.log(data)
+ 			console.log(data);
  			//console.log(JSON.stringify(data.lessons[1].items.length))
  			if(JSON.stringify(data) != "{}"){
 	 			for(var j=0;j<data.lessons.length;j++){
@@ -52,11 +52,11 @@
 	 					console.log('222')
 	 				}*/
 	 				if(JSON.stringify(data.lessons[j].items).substr(5,8)<=getNowFormatDate()&&JSON.stringify(data.lessons[j].items.length)==undefined){
-	 					var k=j+1
-	 					$('.main .imgall').eq(j).attr('src','../img/'+k+'.png')
+	 					var k=j+1;
+	 					$('.main .imgall').eq(j).attr('src','../img/'+k+'.png');
 	 					//console.log(j)
 	 				}else{
-	 					$('.main .imgall').eq(j).attr('src','../img/locked.png')
+	 					$('.main .imgall').eq(j).attr('src','../img/locked.png');
 	 				}
 	 			}
  			}
@@ -72,14 +72,14 @@
     }) */ 
     
     $('.main .imgall').click(function(){
-    	console.log($(this).attr('src').substr(7,6))
+    	console.log($(this).attr('src').substr(7,6));
     	if($(this).attr('src').substr(7,6)=='locked'){
-    		console.log($(this).index())
+    		console.log($(this).index());
     	}else{
     		window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
     	}
     	
-    })
+    });
     
 });  
   

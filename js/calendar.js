@@ -9,7 +9,7 @@ $(function () {
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 	
 	
 	/*
@@ -284,11 +284,11 @@ $(function () {
 				} else {
 					$('.calendar_detail div').click(function () {
 						//alert('亲，该课程还没到上课时间哦！');
-						$('.dialog').show()
-						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+						$('.dialog').show();
+						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>");
 						$('.dialog').click(function(){
-							$('.dialog').hide()
-						})
+							$('.dialog').hide();
+						});
 					});
 				}
 				var less_days = data.info.has_lesson_days;
@@ -427,11 +427,11 @@ $(function () {
 				} else {
 					$('.calendar_detail div').click(function () {
 						//alert('亲，该课程还没到上课时间哦！');
-						$('.dialog').show()
-						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+						$('.dialog').show();
+						$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>");
 						$('.dialog').click(function(){
-							$('.dialog').hide()
-						})
+							$('.dialog').hide();
+						});
 					});
 				}
 				var less_days = data.info.has_lesson_days;
@@ -491,7 +491,7 @@ $(function () {
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 
 	//接收token
 	window.get_token = get_token;
@@ -674,11 +674,11 @@ $(function () {
 						} else {
 							$('.calendar_detail div').click(function () {
 								//alert('亲，该课程还没到上课时间哦！');
-								$('.dialog').show()
-								$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+								$('.dialog').show();
+								$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>");
 								$('.dialog').click(function(){
-									$('.dialog').hide()
-								})
+									$('.dialog').hide();
+								});
 							});
 						}
 						var less_days = data.info.has_lesson_days;
@@ -725,11 +725,11 @@ $(function () {
 		} else {
 			$('.calendar_detail div').click(function () {
 				//alert('亲，该课程还没到上课时间哦！');
-				$('.dialog').show()
-				$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>")
+				$('.dialog').show();
+				$('.dialog .dialog_box').html("<p>亲，该课程还没到上课时间哦！</p>");
 				$('.dialog').click(function(){
-					$('.dialog').hide()
-				})
+					$('.dialog').hide();
+				});
 			});
 		}
 	}

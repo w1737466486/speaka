@@ -4,9 +4,9 @@ $(function () {
 	window.get_token = get_token;
 	var token = null;
 	var back_url = location.href.split('?')[1];
-	var coupon_token=null
-	var coupon_all= queryURL(location.href)
-	coupon_token=coupon_all.token
+	var coupon_token=null;
+	var coupon_all= queryURL(location.href);
+	coupon_token=coupon_all.token;
 	console.log(location.href);
 	//将url参数转对象
 	function queryURL(url) {
@@ -23,7 +23,7 @@ $(function () {
 	
 	get_token();
 	function get_token() {
-		token = coupon_token
+		token = coupon_token;
 		$.ajax({
 			type: 'get',
 			dataType: 'JSON',
