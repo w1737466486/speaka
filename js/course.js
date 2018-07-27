@@ -21,7 +21,7 @@ $(function () {
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 		var date = new Date();
@@ -54,8 +54,8 @@ $(function () {
 	
 	
 	
-	var lessons_url=queryURL(location.href)
-	console.log(lessons_url)
+	var lessons_url=queryURL(location.href);
+	console.log(lessons_url);
 	var team_id=lessons_url.team_id;
 	var comm_id=lessons_url.comm_id;
 	var lessonId = lessons_url.lessonId;
@@ -63,10 +63,10 @@ $(function () {
 	$('title').html('Lesson' + ' ' + lessonId);
 	//console.log(str.split('?')[1])
 	if(team_id){
-		comm_url="https://api.speaka.live/api/team/"+team_id+"/commodity"
+		comm_url="https://api.speaka.live/api/team/"+team_id+"/commodity";
 	}
 	if(comm_id){
-		comm_url="https://api.speaka.live/api/comm/"+comm_id
+		comm_url="https://api.speaka.live/api/comm/"+comm_id;
 	}
 	$.ajax({
 		type: "get",
@@ -74,7 +74,7 @@ $(function () {
 		//url:"../json/speaka.json", 
 		url: comm_url,
 		success: function success(data) {
-           console.log(data)
+           console.log(data);
 			
 			console.log(data.lessons[0].id);
 			for (var k = 0; k < data.lessons.length; k++) {
@@ -99,7 +99,7 @@ $(function () {
 						obj.type = 0;
 						obj.video_path = data.lessons[lessonId - 1].video_path;
 						obj.v_id = 0;
-						obj.v_type='lesson'
+						obj.v_type='lesson';
 						obj.v_tit = v_tit;
 						obj.v_text = txt1;
 						console.log(JSON.stringify(obj));
@@ -112,7 +112,7 @@ $(function () {
 
 					//判断有几个课时，就添加几个课程盒子
 					var arrlessons = Object.keys(data.lessons[k].items);
-					console.log(arrlessons)
+					console.log(arrlessons);
 					for (var i = 1; i <= arrlessons.length; i++) {
 						$('.main').append("<div class='main_d" + i + "'><span></span></div>");
 						$('.main_d' + i + '>span').html('Day' + ' ' + i);
@@ -134,7 +134,7 @@ $(function () {
 						for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
 							$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
 							$('.main_d' + i + '>div').addClass('y1');
-							console.log(data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at)
+							console.log(data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
 							$('.main_d' + i + '>div').attr('learn_at',data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
 							//console.log($('.main_d'+i).find('p').length)
 							$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).html(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
@@ -150,7 +150,7 @@ $(function () {
 						obj={};
 						var day_index = $(this).parent().find('span').attr('data_day');
 						var v_tit = 'Lesson' + ' ' + lessonId;
-						console.log($(this).attr('learn_at'))
+						console.log($(this).attr('learn_at'));
 						console.log(arrlessons);
 						console.log(day_index);
 						console.log(arrlessons.indexOf(day_index));
@@ -176,7 +176,7 @@ $(function () {
 									obj.v_id = day1[_i].v_id;
 									obj.v_tit = v_tit;
 									obj.v_text = txt1;
-									obj.v_type='work'
+									obj.v_type='work';
 									obj.subtitle_en = day1[_i].subtitle_en;
 									obj.subtitle_ch = day1[_i].subtitle_ch;
 									if (day1[_i].which_page) {
@@ -195,12 +195,12 @@ $(function () {
 							}
 						}else{
 							//var learn_at=$(this).attr('learn_at').substr(5)
-							$('.dialog').show()
-							$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>")
+							$('.dialog').show();
+							$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>");
 							//alert("未到上课时间，该视频暂时无法播放！"+'\n'+"上课时间："+$(this).attr('learn_at').substr(5))
 							$('.dialog').click(function(){
-								$('.dialog').hide()
-							})
+								$('.dialog').hide();
+							});
 						}
 						
 					});

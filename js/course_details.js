@@ -16,10 +16,10 @@ $(function () {
 			url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
 			async:false,
 			success:function(res){
-				console.log(res)
+				console.log(res);
 				order_token=res.token;
 				 if(!res.token){
-				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 				 }else{
 				 	isbuy_token=res.token;
 				 	order_token=res.token;
@@ -27,11 +27,11 @@ $(function () {
 				
 			},
 			error:function(res){
-				console.log(res)
+				console.log(res);
 			}
 		});
 	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 	  }
 	}
 	//去掉alert显示网页
@@ -42,7 +42,7 @@ $(function () {
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 	
 	//
 	//alert('测试')
@@ -51,15 +51,15 @@ $(function () {
     //重新获取url
     //courseurl = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=0613JmsR1tCw091geEvR1vrFsR13JmsK&state=1'
     //courseurl = queryURL(courseurl)
-    console.log(courseurl)
+    console.log(courseurl);
     url_course = "https://api.speaka.live/api/commodity/" + commodity_id;
-    console.log(url_course)
+    console.log(url_course);
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
 		_obj.title = '【每天仅需1.99】跟着美国家庭学英语，看世界!';
 		_obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-		_obj.share_url =location.href
+		_obj.share_url =location.href;
 		if (window.webkit) {
 			window.webkit.messageHandlers.shareClick.postMessage(JSON.stringify(_obj));
 		} else {
@@ -123,7 +123,7 @@ $(function () {
 				
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
-						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ');
 					}
 					if(data.pages[i].type==0){
 						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
@@ -140,19 +140,19 @@ $(function () {
 				}*/
 				
 				
-				var _stop=true
+				var _stop=true;
 				$('.img_video').click(function(){
 					if(_stop){
-						_stop=false
-						$(this).find('video').trigger('play')
-						$(this).find('img').remove()
+						_stop=false;
+						$(this).find('video').trigger('play');
+						$(this).find('img').remove();
 					}else{
-						_stop=true
-						$(this).find('video').trigger('pause')
-						$(this).append('<img src="../img/Play.png"/>')
+						_stop=true;
+						$(this).find('video').trigger('pause');
+						$(this).append('<img src="../img/Play.png"/>');
 					}
 					
-				})
+				});
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
@@ -163,28 +163,28 @@ $(function () {
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
 					success:function(res){
-						console.log(res)
+						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_footer').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html'
-							})
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+							});
 							$('.buy_success .buy_pay p').eq(1).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token
-							})
+								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token;
+							});
 							$('.buy_success .buy_pay p').eq(2).click(function(){
 								if (window.webkit) {
-									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287'
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
 								} else {
-									window.location.href='https://www.pgyer.com/q8oQ'
+									window.location.href='https://www.pgyer.com/q8oQ';
 								}
-							})
+							});
 						}
 						
 					},
 					error:function(res){
-						console.log(res)
+						console.log(res);
 					}
 				});
 				var curr_time = getNowFormatDate();
@@ -223,13 +223,13 @@ $(function () {
     	                 	url:'../json/tuijian.json',
     	                 	async:true,
     	                 	success:function(data){
-    	                 		console.log(data)
+    	                 		console.log(data);
     	                 		if(data.code==200){
-    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[1].order_no
+    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[1].order_no;
     	                 		  }
     	                 		},
     	                 	error:function(res){
-    	                 		console.log(res)
+    	                 		console.log(res);
     	                 	}
     	                 });
 				    });
@@ -257,34 +257,34 @@ $(function () {
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			//console.log(sTop)
 			if(sTop>50){
-				$('.v_footer').css({'opacity': '0.4','display': 'block'})
+				$('.v_footer').css({'opacity': '0.4','display': 'block'});
 			}
 			if(sTop>150){
-				$('.v_footer').css({'opacity': '0.6'})
+				$('.v_footer').css({'opacity': '0.6'});
 			}
 			if(sTop>250){
-				$('.v_footer').css({'opacity': '1'})
+				$('.v_footer').css({'opacity': '1'});
 			}
 			if(sTop<50){
-				$('.v_footer').css({'opacity': '0','display': 'none'})
+				$('.v_footer').css({'opacity': '0','display': 'none'});
 			}
-		},50)
+		},50);
 	//上划按键跳动显示
 	setInterval(function(){
 		var aTop=document.documentElement.scrollTop||document.body.scrollTop;
 		if(aTop==0){
-			$('.v_nav .slip_up').css({'display': 'block'})
+			$('.v_nav .slip_up').css({'display': 'block'});
 			slip_up=!slip_up;
 			if(slip_up){
-				$('.v_nav .slip_up').css({'bottom': '25px'})
+				$('.v_nav .slip_up').css({'bottom': '25px'});
 			}else{
-				$('.v_nav .slip_up').css({'bottom': '40px'})
+				$('.v_nav .slip_up').css({'bottom': '40px'});
 			}
 			
 		}else{
-			$('.v_nav .slip_up').css({'display': 'none'})
+			$('.v_nav .slip_up').css({'display': 'none'});
 		}
-	},500)
+	},500);
 	//判断是否是安卓还是ios  
 	function isAndroid_ios() {
 		var u = navigator.userAgent,

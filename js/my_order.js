@@ -51,7 +51,7 @@ $(function () {
 						//console.log($('.group_orders li').eq(j).find('p').eq(6).html())
 						$('.group_orders li').eq(j).find('p').eq(6).find('b').css({
 							'display':'none'
-						})
+						});
 					}
 				}
 				$('.share_order b').click(function () {
@@ -100,7 +100,7 @@ $(function () {
 	if (isWeiXin()) {
 		if(orderurl.token){
 			token = 'Bearer ' + orderurl.token;
-			console.log(token)
+			console.log(token);
 			$.ajax({
 				type: 'post',
 				dataType: 'JSON',
@@ -144,7 +144,7 @@ $(function () {
 							//console.log($('.group_orders li').eq(j).find('p').eq(6).html())
 							$('.group_orders li').eq(j).find('p').eq(6).find('b').css({
 								'display':'none'
-							})
+							});
 						}
 					}
 					$('.share_order b').click(function () {

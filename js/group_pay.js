@@ -12,10 +12,10 @@ $(function () {
 	console.log(group_url);
 	var groupurl = queryURL(group_url);
 	console.log(groupurl);
-	var group_order=groupurl.order_no
+	var group_order=groupurl.order_no;
 	//判断是否购买
 	var isbuy_code=groupurl.code;
-    console.log(isbuy_code)
+    console.log(isbuy_code);
     var isbuy_token=null;
     var u_id=groupurl.u_id;//null
 	var u_id_new=null;
@@ -26,25 +26,25 @@ $(function () {
 		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
-			url:'http://dev.speaka.cn/api/u/head',
-			//url:'https://api.speaka.live/api/u/head',
+			//url:'http://dev.speaka.cn/api/u/head',
+			url:'https://api.speaka.live/api/u/head',
 			data:{
 				id:u_id
 			},
 			async:true,
 			success:function(data){
-				console.log(data)
+				console.log(data);
 				if(data.code==200){
 					if(data.data[u_id].head_wx==null){
 						$('.share_wxhead img').attr('src','https://s.speaka.live/' +data.data[u_id].head);
 					}else{
 						$('.share_wxhead img').attr('src',data.data[u_id].head_wx);
 					}
-					$('.share_dec p b').eq(1).html(data.data[u_id].name)
+					$('.share_dec p b').eq(1).html(data.data[u_id].name);
 				}
 			},
 			error:function(res){
-				console.log(res)
+				console.log(res);
 			}
 		});
 	}
@@ -56,7 +56,7 @@ $(function () {
 				$('.share_dec').css({'right':'-80px'});
 				share_dec=true;
 			}
-		})
+		});
 	
 	if (isWeiXin()) {
 		if(isbuy_code){
@@ -65,21 +65,21 @@ $(function () {
 			url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?code='+isbuy_code,
 			async:false,
 			success:function(res){
-				u_id_new=res.now_uid
-				console.log(res)
+				u_id_new=res.now_uid;
+				console.log(res);
 				 if(!res.token){
-				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 				 }else{
-				 	isbuy_token=res.token
+				 	isbuy_token=res.token;
 				 }
 				
 			},
 			error:function(res){
-				console.log(res)
+				console.log(res);
 			}
 		});
 	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect'
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 	  }
 	}
 	
@@ -119,7 +119,7 @@ $(function () {
 		document.documentElement.appendChild(iframe);
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
-	}
+	};
 	//判断是否是微信浏览器
 	function isWeiXin() {
 		var ua = window.navigator.userAgent.toLowerCase();
@@ -142,7 +142,7 @@ $(function () {
 			$('.v_nav>img').attr('src', 'https://s.speaka.live/' + data.pic_path);
 			for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
-						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ')
+						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ');
 					}
 					if(data.pages[i].type==0){
 						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
@@ -156,19 +156,19 @@ $(function () {
 						$('.v_img').append('<div class="video_position"><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/><div class="img_video"><video controls="true" controlslist="nodownload" width="100%" height="100%" src="https://s.speaka.live/static/spk.mp4"></video><img src="../img/Play.png"/></div></div>');
 					}
 				}*/
-				var _stop=true
+				var _stop=true;
 				$('.img_video').click(function(){
 					if(_stop){
-						_stop=false
-						$(this).find('video').trigger('play')
-						$(this).find('img').remove()
+						_stop=false;
+						$(this).find('video').trigger('play');
+						$(this).find('img').remove();
 					}else{
-						_stop=true
-						$(this).find('video').trigger('pause')
-						$(this).append('<img src="../img/Play.png"/>')
+						_stop=true;
+						$(this).find('video').trigger('pause');
+						$(this).append('<img src="../img/Play.png"/>');
 					}
 					
-				})
+				});
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
@@ -178,21 +178,21 @@ $(function () {
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
 					success:function(res){
-						console.log(res)
+						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
 							$('.group_foot').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html'
-							})
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+							});
 							$('.buy_success .buy_pay p').eq(1).click(function(){
-								$('.group_share').show()
-							})
+								$('.group_share').show();
+							});
 						}
 						
 					},
 					error:function(res){
-						console.log(res)
+						console.log(res);
 					}
 				});
 			
@@ -256,7 +256,7 @@ $(function () {
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
 				if(!u_id){
-					u_id=data.group[0].u_id
+					u_id=data.group[0].u_id;
 				}
 				/*if(u_id){
 					u_id_new=data.group[data.group.length-1].u_id
