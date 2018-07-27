@@ -88,9 +88,10 @@ export class HomePage {
   myProfile() {
     const params = {
       openStyle: "push",
-      module: "weeklyreport"
+      module: "weeklyreport",
+      title: "我的档案"
     };
-    window["webkit"]["messageHandlers"]["openH5Page"](params);
+    window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
   }
 
   getToken(callback: string) {
