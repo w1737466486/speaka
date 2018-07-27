@@ -285,7 +285,7 @@ $(function () {
 					location: window.location.href
 		    	},
 		    	beforeSend: function beforeSend(request) {
-					request.setRequestHeader("Authorization", 1259);
+					request.setRequestHeader("Authorization", 'Bearer 1259');
 				},
 		    	success:function(data){
 		    		
