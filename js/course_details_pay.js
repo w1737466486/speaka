@@ -44,7 +44,7 @@ $(function () {
 
 	$.ajax({
 		type: "get",
-		url: "http://dev.speaka.cn/api/commodity/" + commodity_id,
+		url: "https://api.speaka.live/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
 		async: false,
 		success: function success(data) {
@@ -69,7 +69,7 @@ $(function () {
 						$.ajax({
 						type: "get",
 						//url:"../json/my_coupon.json",
-						url: 'http://dev.speaka.cn/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
+						url: 'https://api.speaka.live/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
 						async: false,
 						success: function success(data) {
 							//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -102,7 +102,7 @@ $(function () {
 					$.ajax({
 					type: "get",
 					//url:"../json/my_coupon.json",
-					url: 'http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
+					url: 'https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
 					async: false,
 					success: function success(data) {
 						//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -204,7 +204,7 @@ $(function () {
 		$.ajax({
 			type: "get",
 			//url:"../json/my_coupon.json",
-			url: 'http://dev.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
+			url: 'https://api.speaka.live/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
 			async: false,
 			success: function success(data) {
 				//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -268,27 +268,16 @@ $(function () {
 		}
 	$('.wx_pay span').eq(1).click(function () {
 		    alert('是否做好坚持20天上课的准备？');
-		    $.ajax({
-		    	type:"post",
-		    	url:"http://dev.speaka.cn/api/order/insertOrder",
-		    	async:true,
-		    	dataType:'JSON',
-		    	data:{
-					commodity_id: commodity_id,
-					type_id: typeId,
-					pay_type:0,
-					order_no: objurl.order_no,
-					coupon_no: coupon_no,
-					token:token_pay,
-					u_id:u_id,
-					from_type:0,
-					location: window.location.href
-		    	},
-		    	beforeSend: function beforeSend(request) {
-					request.setRequestHeader("Authorization", 'Bearer 1259');
-				},
-		    	success:function(data){
-		    		
+			$.post("https://api.speaka.live/api/pay", {
+			state: objurl.state,
+			commodity_id: commodity_id,
+			typeId: typeId,
+			order_no: objurl.order_no,
+			coupon_no: coupon_no,
+			token:token_pay,
+			u_id:u_id,
+			location: window.location.href
+		}, function (data) {
 			//alert(JSON.stringify(data))
 			objurl.order_no = data.order_no;
 			//测试数据  ~商户id===1500516481
@@ -351,7 +340,7 @@ $(function () {
 
 							success: function success(res) {
 								// 支付成功后的回调函数
-								alert(JSON.stringify(res))
+								//alert(JSON.stringify(res))
 								$('.course_pay_success').css({
 									'display': 'block'
 								});
@@ -430,20 +419,7 @@ $(function () {
 					}
 					
 				}
-		
-		    	}
-		    });
-		    
-/*			$.post("https://api.speaka.live/api/pay", {
-			state: objurl.state,
-			commodity_id: commodity_id,
-			typeId: typeId,
-			order_no: objurl.order_no,
-			coupon_no: coupon_no,
-			token:token_pay,
-			u_id:u_id,
-			location: window.location.href
-		}, function (data) {}, 'json');	*/
+		}, 'json');	
 	});
 
 
@@ -513,7 +489,7 @@ $(function () {
 			
 		  $.ajax({
 			type: "post",
-			url: "http://dev.speaka.cn/api/apppay",
+			url: "https://api.speaka.live/api/apppay",
 			data: {
 				commodity_id: commodity_id,
 				typeId: typeId,
