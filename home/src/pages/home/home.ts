@@ -22,8 +22,8 @@ export class HomePage {
   @ViewChild(Content) content: Content;
 
   constructor(public navCtrl: NavController, private http: HttpClient, public zone: NgZone, private iab: InAppBrowser) {
-    this.http.get('http://dev.speaka.cn/api/index/index')
-    // this.http.get('assets/home.json')
+    // this.http.get('http://dev.speaka.cn/api/index/index')
+    this.http.get('assets/home.json')
     .subscribe(data => {
       this.dayWord = data["data"].topCard;
       this.recommondedCards = data["data"].middleCourse;
