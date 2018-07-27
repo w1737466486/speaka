@@ -80,6 +80,13 @@ export class HomePage {
 
   }
 
+  lessonClick() {
+    const params = {
+      openStyle: "push"
+    };
+    window["webkit"]["messageHandlers"]["openNativePage"]["postMessage"](params);
+  }
+
   dayTask() {
     window["taskToken"] = this.taskToken;
     this.getToken("taskToken");
