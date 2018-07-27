@@ -219,8 +219,8 @@ $(function () {
 					 $('.dialog .dialog_box p').eq(0).click(function (){
     	                 $.ajax({
     	                 	type:"get",
-    	                 	//url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
-    	                 	url:'../json/tuijian.json',
+    	                 	url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
+    	                 	//url:'../json/tuijian.json',
     	                 	async:true,
     	                 	success:function(data){
     	                 		console.log(data);
