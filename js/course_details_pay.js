@@ -44,7 +44,7 @@ $(function () {
 
 	$.ajax({
 		type: "get",
-		url: "https://api.speaka.live/api/commodity/" + commodity_id,
+		url: "http://dev.speaka.cn/api/commodity/" + commodity_id,
 		//url:"../json/ocean.json",
 		async: false,
 		success: function success(data) {
@@ -69,7 +69,7 @@ $(function () {
 						$.ajax({
 						type: "get",
 						//url:"../json/my_coupon.json",
-						url: 'https://api.speaka.live/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
+						url: 'http://dev.speaka.cn/api/coupon/usable?token='+objurl.token+'&id='+commodity_id+'&price='+pay_price,
 						async: false,
 						success: function success(data) {
 							//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -102,7 +102,7 @@ $(function () {
 					$.ajax({
 					type: "get",
 					//url:"../json/my_coupon.json",
-					url: 'https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
+					url: 'http://dev.speaka.cn/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price,
 					async: false,
 					success: function success(data) {
 						//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -204,7 +204,7 @@ $(function () {
 		$.ajax({
 			type: "get",
 			//url:"../json/my_coupon.json",
-			url: 'https://api.speaka.live/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
+			url: 'http://dev.speaka.cn/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
 			async: false,
 			success: function success(data) {
 				//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
@@ -270,7 +270,7 @@ $(function () {
 		    alert('是否做好坚持20天上课的准备？');
 		    $.ajax({
 		    	type:"post",
-		    	url:"http://dev.speaka.cn/api/Order/insertOrder",
+		    	url:"http://dev.speaka.cn/api/order/insertOrder",
 		    	async:true,
 		    	dataType:'JSON',
 		    	data:{
@@ -513,7 +513,7 @@ $(function () {
 			
 		  $.ajax({
 			type: "post",
-			url: "https://api.speaka.live/api/apppay",
+			url: "http://dev.speaka.cn/api/apppay",
 			data: {
 				commodity_id: commodity_id,
 				typeId: typeId,
