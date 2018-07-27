@@ -5,6 +5,10 @@
 .main{
 	position: relative;
 }
+img{
+	outline-width:0px;  
+    vertical-align:top;  
+}
 .main .bg{
 	width: 100%;
     position: absolute;
