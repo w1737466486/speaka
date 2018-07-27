@@ -82,7 +82,8 @@ export class HomePage {
 
   lessonClick() {
     const params = {
-      openStyle: "push"
+      openStyle: "push",
+      page: "SPELessonListViewController"
     };
     window["webkit"]["messageHandlers"]["openNativePage"]["postMessage"](params);
   }
