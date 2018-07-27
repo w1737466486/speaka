@@ -1,0 +1,64 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.main{
+	position: relative;
+}
+.main .bg{
+	width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.backImgPlaceHolder {
+    width: 100%;
+}
+.main .img1{
+	width: 10%;
+    position: absolute;
+	top: 13.9%;
+	left: 11.2%;
+}
+.main .img2{
+	width: 10%;
+    position: absolute;
+	top: 13.9%;
+	left: 46.4%;
+}
+.main .img3{
+	width: 10%;
+    position: absolute;
+	top: 22.9%;
+	left: 84.3%;
+}
+.main .img4{
+	width: 10%;
+    position: absolute;
+	top: 31.9%;
+	left: 46.4%;
+}
+.main .img5{
+	width: 10%;
+    position: absolute;
+	top: 42.9%;
+	left: 30.4%;
+}
+.main .img6{
+	width: 10%;
+    position: absolute;
+	top: 45.5%;
+	left: 71%;
+}
+.main .img7{
+	width: 10%;
+    position: absolute;
+	top: 65.5%;
+	left: 79%;
+}
+.main .img8{
+	width: 10%;
+    position: absolute;
+	top: 83.5%;
+	left: 79%;
+}
