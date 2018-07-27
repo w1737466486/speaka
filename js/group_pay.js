@@ -23,7 +23,6 @@ $(function () {
 	var share_dec=true;
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
-		alert(u_id)
 		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
