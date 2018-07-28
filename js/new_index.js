@@ -6,14 +6,59 @@ $(function () {
 	//var tokenurl = queryURL(location.href);
 	//var token='Bearer ' + tokenurl.token;
 	//get_token();
-	if (window.webkit) {
-		window.webkit.messageHandlers.getToken.postMessage('get_token');
-	} else {
-		//curson.punchCurson(JSON.stringify(obj));
-	}
 	function get_token(_results) {
 		//token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
 		token='Bearer ' + _results;
+			$.ajax({
+				type:"get",
+				url:"https://api.speaka.live/api/memberVideo/memberVideo",
+				//url:'../json/video_data.json',
+				async:false,
+				data:{ 
+					id: word_id,
+                    type: 'list',
+                    upload_type: 'word_card'
+                    },
+				dataType:'JSON',
+				beforeSend: function beforeSend(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				success:function(res){
+					console.log(res);
+					if(res.code==200){
+						if(res.data.length>=1){
+						$('.recommended_word_foot').show();
+				    	$('.recommended_word_foot ul').html('');
+						for(var i=0;i<res.data.length;i++){
+							if(i==0){
+								$('.recommended_word_foot ul').append('<li><span><img src="https://s.speaka.live/'+res.data[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+res.data[i].like_num+'</p><img src="../img/最佳标签.png"></li>');
+							}else{
+								$('.recommended_word_foot ul').append('<li><span><img src="https://s.speaka.live/'+res.data[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+res.data[i].like_num+'</p></li>');
+							}
+						  }
+						}else{
+							$('.recommended_word_foot').hide();
+						}
+						 $('.recommended_word_foot ul li').click(function(){
+					    	console.log($(this).index());
+					    	var obj={};
+					    	obj.pic_path=res.data[$(this).index()].pic_path;
+					    	obj.video_path=res.data[$(this).index()].video_path;
+					    	console.log(obj);
+					    	if (window.webkit) {
+								window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
+							} else {
+								curson.punchCurson(JSON.stringify(obj));
+							}
+					    	
+					    });
+					}else{
+						alert('数据请求失败，请重试！');
+					}
+					
+					
+				}
+			});
 	
 	}
 	//默认页面点击搜索，显示搜索框，隐藏今日单词
@@ -65,57 +110,13 @@ $(function () {
 					}
 				}
 			}*/
-			
-				$.ajax({
-				type:"get",
-				url:"https://api.speaka.live/api/memberVideo/memberVideo",
-				//url:'../json/video_data.json',
-				async:false,
-				data:{ 
-					id: word_id,
-                    type: 'list',
-                    upload_type: 'word_card'
-                    },
-				dataType:'JSON',
-				beforeSend: function beforeSend(request) {
-					request.setRequestHeader("Authorization", token);
-				},
-				success:function(res){
-					console.log(res);
-					if(res.code==200){
-						if(res.data.length>=1){
-						$('.recommended_word_foot').show();
-				    	$('.recommended_word_foot ul').html('');
-						for(var i=0;i<res.data.length;i++){
-							if(i==0){
-								$('.recommended_word_foot ul').append('<li><span><img src="https://s.speaka.live/'+res.data[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+res.data[i].like_num+'</p><img src="../img/最佳标签.png"></li>');
-							}else{
-								$('.recommended_word_foot ul').append('<li><span><img src="https://s.speaka.live/'+res.data[i].pic_path+'" alt=""></span><p><img src="../img/Like.png">'+res.data[i].like_num+'</p></li>');
-							}
-						  }
-						}else{
-							$('.recommended_word_foot').hide();
-						}
-						 $('.recommended_word_foot ul li').click(function(){
-					    	console.log($(this).index());
-					    	var obj={};
-					    	obj.pic_path=res.data[$(this).index()].pic_path;
-					    	obj.video_path=res.data[$(this).index()].video_path;
-					    	console.log(obj);
-					    	if (window.webkit) {
-								window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
-							} else {
-								curson.punchCurson(JSON.stringify(obj));
-							}
-					    	
-					    });
-					}else{
-						alert('数据请求失败，请重试！');
-					}
-					
-					
-				}
-			});
+			//请求token
+			if (window.webkit) {
+				window.webkit.messageHandlers.getToken.postMessage('get_token');
+			} else {
+				//curson.punchCurson(JSON.stringify(obj));
+			}
+				
 				
 		}
 	});
