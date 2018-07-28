@@ -1,8 +1,20 @@
 $(function () {
+	window.get_token = get_token;
 	var word=null;
 	var word_id=null;
-	var tokenurl = queryURL(location.href);
-	var token='Bearer ' + tokenurl.token;
+	var token=null;
+	//var tokenurl = queryURL(location.href);
+	//var token='Bearer ' + tokenurl.token;
+	//get_token();
+	if (window.webkit) {
+		window.webkit.messageHandlers.getToken.postMessage('get_token');
+	} else {
+		//curson.punchCurson(JSON.stringify(obj));
+	}
+	function get_token(_results) {
+		//token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
+		token='Bearer ' + _results;
+	}
 	//默认页面点击搜索，显示搜索框，隐藏今日单词
 	$('.recommended_word_head p span').eq(1).click(function(){
 		$('.recommended_word_head').css({
