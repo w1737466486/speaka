@@ -77,7 +77,12 @@ export class HomePage {
   };
 
   dictionaryClick() {
-
+    const params = {
+      openStyle: "push",
+      module: "dictionary",
+      title: "闪卡词典"
+    };
+    window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
   }
 
   lessonClick() {
