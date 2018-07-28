@@ -15,10 +15,15 @@ export class TagCardComponent {
   @Input() model: Object;
 
   text: string;
+  hard = [];
 
   constructor() {
     console.log('Hello TagCardComponent Component');
     this.text = 'Hello World';
+  }
+
+  ngOnInit() {
+    this.hard = new Array(this.model["hard"]);
   }
 
   videoItemClick(vid) {
