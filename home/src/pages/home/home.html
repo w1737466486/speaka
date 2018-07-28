@@ -1,5 +1,5 @@
 <div no-padding *ngIf="!cardInputHidden" class="cardInput">
-  <ion-input placeholder="单词闪卡 —— 情景记忆单词" style="background: #F5F5F5; border-radius: 0.4rem; text-indent: 1.5rem; font-size: 1.4rem;" (keyup.enter)="onSearch($event.target.value)"></ion-input>
+  <ion-input placeholder="单词闪卡 —— 情景记忆单词" style="background: #F5F5F5; border-radius: 0.4rem; text-indent: 1.5rem; font-size: 1.4rem;" (keyup.enter)="dictionaryClick()"></ion-input>
   <img src="./assets/imgs/search.png" style="width: 2.3rem; height: 2.3rem; position: absolute; right: 3rem; top: 3rem;" alt="">
   <div no-padding style="position: relative; top: 2rem; width: 100%; background: transparent;">
       <ion-label no-margin style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 0.7rem 0 0.7rem;">
@@ -21,7 +21,7 @@
 <ion-content no-padding [class.no-scroll]="contentNoScroll">
   <div style="height: 13.5rem; position: relative; margin: 3rem 2rem 3rem 2rem;">
     <img src="http://s.speaka.live/{{dayWord?.pic_path}}?x-oss-process=style/w250" alt="" class="dayImg">
-    <div class="daySearch">
+    <div class="daySearch" (click)="dictionaryClick()">
       <img src="./assets/imgs/search.png" style="width: 2.3rem; height: 2.3rem; margin-top: 0.85rem;" alt="">
     </div>
     <img src="http://s.speaka.live/{{recommondedCards[0]?.sale_bg_pic}}?x-oss-process=style/w250" class="lessonImg" alt="" (click)="lessonClick()">
