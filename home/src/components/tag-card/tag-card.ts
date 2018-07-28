@@ -22,11 +22,11 @@ export class TagCardComponent {
   }
 
   videoItemClick(vid) {
-    // if (window.webkit) {
-    //   window.webkit.messageHandlers.videoClick.postMessage({vid: vid});
-    //  } else {
-    //   androidCorsonVideo.CorsonVideo({vid: vid});
-    //  }
+    if (window["webkit"]) {
+      window["webkit"]["messageHandlers"]["videoClick"]["postMessage"]({vid: vid});
+     } else {
+       window["androidCorsonVideo"]["CorsonVideo"]({vid: vid});
+     }
   }
 
 }

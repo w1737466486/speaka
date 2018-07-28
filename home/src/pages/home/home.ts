@@ -73,10 +73,20 @@ export class HomePage {
   };
 
   profileToken = (token: string) => {
-    
+    const params = {
+      openStyle: "push",
+      module: "weeklyreport",
+      title: "我的档案"
+    };
+    window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
   };
 
   dictionaryClick() {
+    window["dictionaryToken"] = this.dictionaryToken;
+    this.getToken("dictionaryToken");
+  }
+
+  dictionaryToken() {
     const params = {
       openStyle: "push",
       module: "dictionary",
@@ -99,12 +109,8 @@ export class HomePage {
   }
 
   myProfile() {
-    const params = {
-      openStyle: "push",
-      module: "weeklyreport",
-      title: "我的档案"
-    };
-    window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
+    window["profileToken"] = this.profileToken;
+    this.getToken("profileToken");
   }
 
   getToken(callback: string) {
