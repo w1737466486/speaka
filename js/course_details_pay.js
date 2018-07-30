@@ -139,7 +139,7 @@ $(function () {
 				//微信或App单人购,让团购价格消失
 				if (objurl.type_id == 11 || objurl.type_id == 21) {
 					pay_money = (data.price / 100 - Number(objurl.coupon_money));
-					pay_money>0?pay_money:pay_money=0.00
+					pay_money>0?pay_money:pay_money=0.01
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money.toFixed(2) + '元');
 					$('.course_pay p').eq(3).css({
 						'display': 'none'
@@ -148,7 +148,7 @@ $(function () {
 				//微信或App团购
 				if (objurl.type_id == 12 || objurl.type_id == 22) {
 					pay_group_money = (data.groupon_price / 100 - Number(objurl.coupon_money));
-					pay_group_money>0?pay_group_money:pay_group_money=0.00
+					pay_group_money>0?pay_group_money:pay_group_money=0.01
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money.toFixed(2) + '元');
 				}
 				$('.have').html("-￥" + objurl.coupon_money + "元");
