@@ -225,7 +225,7 @@ $(function () {
     	                 	success:function(data){
     	                 		console.log(data);
     	                 		if(data.code==200&&data.data.length>0){
-    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[1].order_no;
+    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[0].order_no;
     	                 		  }else{
     	                 		  	alert('暂无推荐订单！')
     	                 		  }

@@ -268,44 +268,64 @@ $(function () {
 		}
 	$('.wx_pay span').eq(1).click(function () {
 		    alert('是否做好坚持20天上课的准备？');
-			$.post("https://api.speaka.live/api/pay", {
-			state: objurl.state,
-			commodity_id: commodity_id,
-			typeId: typeId,
-			order_no: objurl.order_no,
-			coupon_no: coupon_no,
-			token:token_pay,
-			u_id:u_id,
-			location: window.location.href
-		}, function (data) {
-			//alert(JSON.stringify(data))
-			objurl.order_no = data.order_no;
-			//测试数据  ~商户id===1500516481
-			/*var data = {
-      	"status": 1,
-      	"order_no": "2018051118065256229",
-      	"prepay_id": "wx11180652597696856feb0f581358570244",
-      	"config": {
-      		"debug": false,
-      		"beta": false,
-      		"jsApiList": [
-      			"chooseWXPay"
-      		],
-      		"appId": "wx0b778a82184cf52f",
-      		"nonceStr": "OysMAJLdI1",
-      		"timestamp": 1526033212,
-      		"url": "https://api.speaka.live/api/pay",
-      		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
-      	},
-      	"pay_config": {
-      		"appId": "wx0b778a82184cf52f",
-      		"nonceStr": "5af56b3c9c034",
-      		"package": "prepay_id=wx11180652597696856feb0f581358570244",
-      		"signType": "MD5",
-      		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
-      		"timestamp": "1526033212"
-      	}
-      }*/
+//			$.post("https://api.speaka.live/api/pay", {
+//			state: objurl.state,
+//			commodity_id: commodity_id,
+//			typeId: typeId,
+//			order_no: objurl.order_no,
+//			coupon_no: coupon_no,
+//			token:token_pay,
+//			u_id:u_id,
+//			location: window.location.href
+//		}, function (data) {}, 'json');	
+		$.ajax({
+			type:"post",
+			url:"https://api.speaka.live/api/order/insertOrder",
+			async:true,
+			dataType:'JSON',
+			data:{
+				commodity_id: commodity_id,
+				type_id: typeId,
+				pay_type:0,
+				from_type:0,
+				order_no: objurl.order_no,
+				coupon_no: coupon_no,
+				u_id:u_id,
+				location: window.location.href
+			},
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", token_pay);
+			},
+			success:function(data){
+		
+				//alert(JSON.stringify(data))
+				objurl.order_no = data.order_no;
+				//测试数据  ~商户id===1500516481
+				/*var data = {
+		      	"status": 1,
+		      	"order_no": "2018051118065256229",
+		      	"prepay_id": "wx11180652597696856feb0f581358570244",
+		      	"config": {
+		      		"debug": false,
+		      		"beta": false,
+		      		"jsApiList": [
+		      			"chooseWXPay"
+		      		],
+		      		"appId": "wx0b778a82184cf52f",
+		      		"nonceStr": "OysMAJLdI1",
+		      		"timestamp": 1526033212,
+		      		"url": "https://api.speaka.live/api/pay",
+		      		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
+		      	},
+		      	"pay_config": {
+		      		"appId": "wx0b778a82184cf52f",
+		      		"nonceStr": "5af56b3c9c034",
+		      		"package": "prepay_id=wx11180652597696856feb0f581358570244",
+		      		"signType": "MD5",
+		      		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
+		      		"timestamp": "1526033212"
+		      	}
+		      }*/
 
 			console.log(data.config);
 			if (data.status == 1) {
@@ -419,7 +439,9 @@ $(function () {
 					}
 					
 				}
-		}, 'json');	
+		
+	}
+});
 	});
 
 
