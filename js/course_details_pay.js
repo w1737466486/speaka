@@ -505,17 +505,24 @@ $(function () {
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay3));
 				}
 			}
-			
-			
-			
-			
+			var phone_type=null;
+		if (isAndroid_ios()) {
+			//安卓  
+			phone_type='android'
+		} else {
+			//ios  
+			phone_type='ios'
+		}	
 		  $.ajax({
 			type: "post",
-			url: "https://api.speaka.live/api/apppay",
+			url: "https://api.speaka.live/api/order/insertOrder",
 			data: {
 				commodity_id: commodity_id,
-				typeId: typeId,
-				coupon_no: coupon_no
+				type_id: typeId,
+				pay_type:0,
+				coupon_no: coupon_no,
+				from_type:phone_type,
+				location: window.location.href
 			},
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", app_token);
