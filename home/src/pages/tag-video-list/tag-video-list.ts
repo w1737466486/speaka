@@ -22,11 +22,11 @@ export class TagVideoListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone) {
     window["receiveData"] = this.receiveData;
-    // if (window["webkit"]) {
-    //   window["webkit"]["messageHandlers"]["getData"]["postMessage"]("receiveData");
-    // } else {
-    //     window["androidCorsonVideo"]["CorsonVideo"]("receiveData");
-    // }
+    if (window["webkit"]) {
+      window["webkit"]["messageHandlers"]["getData"]["postMessage"]("receiveData");
+    } else {
+        window["androidCorsonVideo"]["CorsonVideo"]("receiveData");
+    }
   }
 
   receiveData = (params) => {
