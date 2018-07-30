@@ -299,7 +299,7 @@ $(function () {
 				request.setRequestHeader("Authorization", token_pay);
 			},
 			success:function(data){
-		      objurl.order_no = data.data.order_no;
+		      //objurl.order_no = data.data.order_no;
 				//alert(JSON.stringify(data))
 				
 				//测试数据  ~商户id===1500516481
@@ -393,7 +393,7 @@ $(function () {
 									$('.pay_success div').css({'margin':'0px'});
 									$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
 									$('.pay_success div').eq(0).click(function(){
-										window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + objurl.order_no;				
+										window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
 									});
 								}
 							}
