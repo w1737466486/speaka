@@ -299,7 +299,7 @@ $(function () {
 				request.setRequestHeader("Authorization", token_pay);
 			},
 			success:function(data){
-		      //objurl.order_no = data.data.order_no;
+		      objurl.order_no = data.data.order_no;
 				//alert(JSON.stringify(data))
 				
 				//测试数据  ~商户id===1500516481

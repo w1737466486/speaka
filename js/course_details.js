@@ -211,6 +211,7 @@ $(function () {
 						} else {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
 						}
+						
 					});
 					
 					$('.v_pay p').eq(1).click(function () {
