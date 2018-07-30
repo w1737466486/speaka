@@ -301,7 +301,7 @@ $(function () {
 			success:function(data){
 		
 				//alert(JSON.stringify(data))
-				objurl.order_no = data.order_no;
+				objurl.order_no = data.data.order_no;
 				//测试数据  ~商户id===1500516481
 				/*var data = {
 		      	"status": 1,
@@ -329,17 +329,17 @@ $(function () {
 		      	}
 		      }*/
 
-			console.log(data.config);
-			if (data.status == 1) {
+			console.log(data.data.config);
+			if (data.code == 200) {
 				//微信支付
 				//通过config接口注入权限验证配置
 				wx.config({
-					debug: data.config.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-					appId: data.config.appId, // 必填，公众号的唯一标识
-					timestamp: data.config.timestamp, // 必填，生成签名的时间戳
-					nonceStr: data.config.nonceStr, // 必填，生成签名的随机串
-					signature: data.config.signature, // 必填，签名
-					jsApiList: data.config.jsApiList // 必填，需要使用的JS接口列表
+					debug: data.data.config.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: data.data.config.appId, // 必填，公众号的唯一标识
+					timestamp: data.data.config.timestamp, // 必填，生成签名的时间戳
+					nonceStr: data.data.config.nonceStr, // 必填，生成签名的随机串
+					signature: data.data.config.signature, // 必填，签名
+					jsApiList: data.data.config.jsApiList // 必填，需要使用的JS接口列表
 				});
 				//通过ready接口处理成功验证
 				wx.ready(function () {
@@ -350,15 +350,15 @@ $(function () {
 
 						wx.chooseWXPay({
 
-							timestamp: data.pay_config.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+							timestamp: data.data.pay_config.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
 
-							nonceStr: data.pay_config.nonceStr, // 支付签名随机串，不长于 32 位
+							nonceStr: data.data.pay_config.nonceStr, // 支付签名随机串，不长于 32 位
 
-							package: data.pay_config.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+							package: data.data.pay_config.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
 
-							signType: data.pay_config.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+							signType: data.data.pay_config.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
 
-							paySign: data.pay_config.paySign, // 支付签名
+							paySign: data.data.pay_config.paySign, // 支付签名
 
 							success: function success(res) {
 								// 支付成功后的回调函数
@@ -419,25 +419,59 @@ $(function () {
 				});
 			} else {
 					
-					if (data.status == 0 && data.code == 401) {
-							alert('该商品团购已被取消！');
+					if (data.code == 401) {
+							alert('课程状态异常！');
 					}
-					if (data.status == 0 && data.code == 402) {
-							alert('未知用户分享！');
+					if (data.code == 402) {
+							alert('课程已下架！');
 					}
-					if (data.status == 0 && data.code == 403) {
-						alert('亲！您已经购买过该商品了，请勿重复购买！');
+					if (data.code == 403) {
+						alert('课程已经卖完啦！');
 					}
-					if (data.status == 0 && data.code == 404) {
-							alert('该课程已下架！');
+					if (data.code == 404) {
+							alert('订单支付方式错误！');
 					}
-					if (data.status == 0 && data.code == 405) {
-							alert('您已购买过该课程！');
+					if (data.code == 405) {
+							alert('来源非法！');
 					}
-					if (data.status == 0 && data.code == 406) {
-							alert('本期课程已满员，您可以等待下一期或选购其他课程！');
-					}if (data.status == 0 && data.code == 407) {
+					if (data.code == 406) {
+							alert('订单类型非法！');
+					}
+					if (data.code == 410) {
+							alert('您已经参团了！');
+					}
+					if (data.code == 410) {
+							alert('您已经参团了！');
+					}
+					if (data.code == 411) {
+							alert('当前url非法！');
+					}
+					if (data.code == 412) {
+							alert('优惠券id错误！');
+					}
+					if (data.code == 414) {
+							alert('当前课程不能使用该优惠券！');
+					}
+					if (data.code == 415) {
+							alert('该优惠券还未到使用时间！');
+					}
+					if (data.code == 416) {
+							alert('该优惠券已经过期！');
+					}
+					if (data.code == 417) {
+							alert('该优惠券已经使用过啦！');
+					}
+					if (data.code == 418) {
+							alert('该优惠券状态异常！');
+					}
+					if (data.code == 419) {
+							alert('该优惠券未到达使用金额！');
+					}
+					if (data.code == 420) {
 							alert('下单失败请重试！');
+					}
+					if (data.code == 422) {
+							alert('余额不足！');
 					}
 					
 				}
@@ -533,16 +567,16 @@ $(function () {
 			async: false,
 			success: function success(data) {
 				//alert(JSON.stringify(data));
-				if (data.status == 1) {
+				if (data.code == 200) {
 					var obj_pay = {};
 					obj_pay.paytypeId = 2;
-					obj_pay.partnerid = data.pay_config.partnerid;
-					obj_pay.prepayid = data.pay_config.prepayid;
-					obj_pay.package = data.pay_config.package;
-					obj_pay.noncestr = data.pay_config.noncestr;
-					obj_pay.timestamp = data.pay_config.timestamp;
-					obj_pay.sign = data.pay_config.sign;
-					obj_pay.order_no = data.order_no;
+					obj_pay.partnerid = data.data.pay_config.partnerid;
+					obj_pay.prepayid = data.data.pay_config.prepayid;
+					obj_pay.package = data.data.pay_config.package;
+					obj_pay.noncestr = data.data.pay_config.noncestr;
+					obj_pay.timestamp = data.data.pay_config.timestamp;
+					obj_pay.sign = data.data.pay_config.sign;
+					obj_pay.order_no = data.data.order_no;
 					//alert(JSON.stringify(obj_pay));
 					if (isAndroid_ios()) {
 						//安卓  
@@ -552,28 +586,62 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					//alert(JSON.stringify(data))
-					//alert(app_token)
-					if (data.status == 0 && data.code == 401) {
-							alert('该商品团购已被取消！');
+					
+					if (data.code == 401) {
+							alert('课程状态异常！');
 					}
-					if (data.status == 0 && data.code == 402) {
-							alert('未知用户分享！');
+					if (data.code == 402) {
+							alert('课程已下架！');
 					}
-					if (data.status == 0 && data.code == 403) {
-						alert('亲！您已经购买过该商品了，请勿重复购买！');
+					if (data.code == 403) {
+						alert('课程已经卖完啦！');
 					}
-					if (data.status == 0 && data.code == 404) {
-							alert('该课程已下架！');
+					if (data.code == 404) {
+							alert('订单支付方式错误！');
 					}
-					if (data.status == 0 && data.code == 405) {
-							alert('您已购买过该课程！');
+					if (data.code == 405) {
+							alert('来源非法！');
 					}
-					if (data.status == 0 && data.code == 406) {
-							alert('本期课程已满员，您可以等待下一期或选购其他课程！');
-					}if (data.status == 0 && data.code == 407) {
+					if (data.code == 406) {
+							alert('订单类型非法！');
+					}
+					if (data.code == 410) {
+							alert('您已经参团了！');
+					}
+					if (data.code == 410) {
+							alert('您已经参团了！');
+					}
+					if (data.code == 411) {
+							alert('当前url非法！');
+					}
+					if (data.code == 412) {
+							alert('优惠券id错误！');
+					}
+					if (data.code == 414) {
+							alert('当前课程不能使用该优惠券！');
+					}
+					if (data.code == 415) {
+							alert('该优惠券还未到使用时间！');
+					}
+					if (data.code == 416) {
+							alert('该优惠券已经过期！');
+					}
+					if (data.code == 417) {
+							alert('该优惠券已经使用过啦！');
+					}
+					if (data.code == 418) {
+							alert('该优惠券状态异常！');
+					}
+					if (data.code == 419) {
+							alert('该优惠券未到达使用金额！');
+					}
+					if (data.code == 420) {
 							alert('下单失败请重试！');
 					}
+					if (data.code == 422) {
+							alert('余额不足！');
+					}
+					
 				}
 			},
 			error: function error(res) {
