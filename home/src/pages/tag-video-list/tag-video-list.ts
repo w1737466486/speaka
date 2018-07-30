@@ -21,11 +21,14 @@ export class TagVideoListPage {
   categoryId: Number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone) {
+  }
+
+  ngAfterViewInit() {
     window["receiveData"] = this.receiveData;
     if (window["webkit"]) {
       window["webkit"]["messageHandlers"]["getData"]["postMessage"]("receiveData");
     } else {
-        window["androidCorsonVideo"]["CorsonVideo"]("receiveData");
+      window["androidCorsonVideo"]["CorsonVideo"]("receiveData");
     }
   }
 
