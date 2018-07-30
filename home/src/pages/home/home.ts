@@ -1,6 +1,7 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController, Content } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TagVideoListPage } from '../tag-video-list/tag-video-list';
 
 @Component({
   selector: 'page-home',
@@ -129,6 +130,19 @@ export class HomePage {
         array.push(videos[item]);
       }
       return array;
+  }
+
+  seeAll(category) {
+    const params = {
+      openStyle: "push",
+      module: "TagVideoList",
+      title: category.title,
+      categorys: this.categoryCards,
+      categoryId: category.id,
+      videos: category.video,
+    };
+    // window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
+    this.navCtrl.push(TagVideoListPage, params);
   }
 
   onSearch(value) {

@@ -1,0 +1,36 @@
+page-tag-video-list {
+
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        .scroll-item {
+        display: inline-block;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+    }}
+
+    .tagSelected {
+        background: #FFFFFF;
+        border-radius: 4px;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #333333;
+        text-align: center;
+        line-height: 3rem;
+        display: inline-block;
+        padding: 0 1.6rem 0 1.6rem;
+    }
+
+    .tagUnselected {
+        background: #E6E6E6;
+        border-radius: 4px;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #666666;
+        text-align: center;
+        line-height: 3rem;
+        display: inline-block;
+        padding: 0 1.6rem 0 1.6rem;
+    }
+    .col {
+        padding: 0.5rem!important;
+    }
+}

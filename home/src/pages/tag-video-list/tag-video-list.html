@@ -1,0 +1,23 @@
+<!--
+  Generated template for the TagVideoListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-scroll scrollX style="height: 5rem; background: #F5F5F5;">
+    <div class="scroll-item">
+        <ion-col col-33 *ngFor="let category of categorys">
+            <span (click)="tagClick(category)" [class.tagSelected]="categoryId == category.id" [class.tagUnselected]="categoryId != category.id">{{category?.title}}</span>
+        </ion-col>
+    </div>
+  </ion-scroll>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines style="padding: 1rem 0 1rem 0;">
+    <ion-item no-padding style="padding: 1.5rem 1.5rem 0 1.5rem;" *ngFor="let video of videos">
+      <tag-video-list-item [item]="video"></tag-video-list-item>
+    </ion-item>
+  </ion-list>
+</ion-content>
