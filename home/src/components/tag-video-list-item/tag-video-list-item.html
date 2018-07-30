@@ -1,0 +1,9 @@
+<!-- Generated template for the TagVideoListItemComponent component -->
+<div (click)="videoItemClick(item?.id)" style="position: relative;">
+    <img src="http://s.speaka.live/{{item?.pic}}?x-oss-process=style/w250" class="itemImg" alt="">
+    <h2 style="ffont-family: PingFangSC-Medium; font-size: 1.4rem; color: #333333; margin: 0.8rem 0 0.2rem 0rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border-width: 0; position: absolute; top: 0.6rem; left: 15rem;">{{item?.desc}}</h2>
+    <span style="font-family: PingFangSC-Medium; font-size: 1.2rem; color: #2F2F3C; margin: 0; position: absolute; top: 4rem; left: 15rem;">难度：</span>
+    <div style="position: absolute; top: 3.7rem; left: 19rem;">
+        <img src="./assets/imgs/star.png" alt="" style="width: 1rem; height: 1rem;" *ngFor="let i of hard">
+    </div>
+</div>

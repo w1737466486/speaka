@@ -131,22 +131,15 @@ export class HomePage {
       return array;
   }
 
-  onSearch(value) {
-    // this.http.get('https://api.speaka.live/api/word/search?keyword=' + value)
-    // .subscribe(data => {
-    //   let info = data["info"];
-    //   if (info.length > 0) {
-    //     let first = info[0];
-    //     let isCard = first["isCard"];
-    //     if (isCard) {
-          
-    //     } else {
-          
-    //     }
-    //   } else {
-    //     alert("查无此词，请重新输入");
-    //   }
-    // }, error => {
-    // });
+  seeAll(category) {
+    const params = {
+      openStyle: "push",
+      module: "videolist",
+      title: category.title,
+      categorys: this.categoryCards,
+      categoryId: category.id,
+      videos: category.video,
+    };
+    window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
   }
 }
