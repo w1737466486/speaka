@@ -9,7 +9,7 @@ import { TagVideoListPage } from '../pages/tag-video-list/tag-video-list';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = TagVideoListPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -20,7 +20,7 @@ export class TagVideoListPage {
   videos: Object;
   categoryId: Number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone) {
     window["receiveData"] = this.receiveData;
     if (window["webkit"]) {
       window["webkit"]["messageHandlers"]["getData"]["postMessage"]("receiveData");
@@ -31,10 +31,12 @@ export class TagVideoListPage {
   }
 
   receiveData = (params) => {
-    this.title = params.title;
-    this.categorys = params.categorys;
-    this.categoryId = params.categoryId;
-    this.videos = params.videos;
+    this.zone.run(() => {
+      this.title = params.title;
+      this.categorys = params.categorys;
+      this.categoryId = params.categoryId;
+      this.videos = params.videos;
+    });
   };
 
   ionViewDidLoad() {
