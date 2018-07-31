@@ -139,7 +139,7 @@ $(function () {
 				//微信或App单人购,让团购价格消失
 				if (objurl.type_id == 11 || objurl.type_id == 21) {
 					pay_money = (data.price / 100 - Number(objurl.coupon_money));
-					pay_money>0?pay_money:pay_money=0.01
+					pay_money>0?pay_money:pay_money=0.00
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money.toFixed(2) + '元');
 					$('.course_pay p').eq(3).css({
 						'display': 'none'
@@ -148,7 +148,7 @@ $(function () {
 				//微信或App团购
 				if (objurl.type_id == 12 || objurl.type_id == 22) {
 					pay_group_money = (data.groupon_price / 100 - Number(objurl.coupon_money));
-					pay_group_money>0?pay_group_money:pay_group_money=0.01
+					pay_group_money>0?pay_group_money:pay_group_money=0.00
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_group_money.toFixed(2) + '元');
 				}
 				$('.have').html("-￥" + objurl.coupon_money + "元");
@@ -269,17 +269,7 @@ $(function () {
 			
 		}
 	$('.wx_pay span').eq(1).click(function () {
-		    alert('是否做好坚持20天上课的准备？');
-//			$.post("https://api.speaka.live/api/pay", {
-//			state: objurl.state,
-//			commodity_id: commodity_id,
-//			typeId: typeId,
-//			order_no: objurl.order_no,
-//			coupon_no: coupon_no,
-//			token:token_pay,
-//			u_id:u_id,
-//			location: window.location.href
-//		}, function (data) {}, 'json');	
+		alert('是否做好坚持20天上课的准备？');
 		$.ajax({
 			type:"post",
 			url:"https://api.speaka.live/api/order/insertOrder",
@@ -303,32 +293,6 @@ $(function () {
 				//alert(JSON.stringify(data))
 				
 				//测试数据  ~商户id===1500516481
-				/*var data = {
-		      	"status": 1,
-		      	"order_no": "2018051118065256229",
-		      	"prepay_id": "wx11180652597696856feb0f581358570244",
-		      	"config": {
-		      		"debug": false,
-		      		"beta": false,
-		      		"jsApiList": [
-		      			"chooseWXPay"
-		      		],
-		      		"appId": "wx0b778a82184cf52f",
-		      		"nonceStr": "OysMAJLdI1",
-		      		"timestamp": 1526033212,
-		      		"url": "https://api.speaka.live/api/pay",
-		      		"signature": "d9be4356ec60ff5c864dbb4d55dff261e81a1904"
-		      	},
-		      	"pay_config": {
-		      		"appId": "wx0b778a82184cf52f",
-		      		"nonceStr": "5af56b3c9c034",
-		      		"package": "prepay_id=wx11180652597696856feb0f581358570244",
-		      		"signType": "MD5",
-		      		"paySign": "DE8569BA33C8055BA2C5785635EDE382",
-		      		"timestamp": "1526033212"
-		      	}
-		      }*/
-
 			console.log(data.data.config);
 			if (data.code == 200) {
 				//微信支付
@@ -344,10 +308,6 @@ $(function () {
 				//通过ready接口处理成功验证
 				wx.ready(function () {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
-
-				
-					
-
 						wx.chooseWXPay({
 
 							timestamp: data.data.pay_config.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
@@ -418,6 +378,44 @@ $(function () {
 					}
 				});
 			} else {
+					if(data.code==201){
+						
+						// 0元直接支付成功，弹出支付成功窗口
+						$('.course_pay_success').css({
+							'display': 'block'
+						});
+		
+						//微信单人
+						if (objurl.type_id == 11) {
+							$('.pay_success div').eq(1).show();
+							$('.pay_success div').eq(0).find('span').html('开课说明');
+							$('.pay_success div').eq(1).find('span').html('下载APP');
+							$('.pay_success div').eq(1).click(function(){
+								if (window.webkit) {
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+								} else {
+									window.location.href='https://www.pgyer.com/q8oQ';
+								}
+							});
+							$('.pay_success div').eq(0).click(function(){
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+											
+							});
+						}
+						//微信团购
+						if (objurl.type_id == 12) {
+							$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券');
+							$('.pay_success div').eq(1).find('span').css({
+								'border':'none','font-size':'12px'
+							});
+							$('.pay_success div').css({'margin':'0px'});
+							$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
+							$('.pay_success div').eq(0).click(function(){
+								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
+							});
+						}
+								
+					}
 					
 					if (data.code == 401) {
 							alert('课程状态异常！');
@@ -473,11 +471,14 @@ $(function () {
 					if (data.code == 422) {
 							alert('余额不足！');
 					}
+					if (data.code == 423) {
+							alert('当前课程不允许开团！');
+					}
 					
 				}
 		
-	}
-});
+			}
+		});
 	});
 
 
@@ -586,7 +587,44 @@ $(function () {
 						window.webkit.messageHandlers.payData.postMessage(JSON.stringify(obj_pay));
 					}
 				} else {
-					
+					if(data.code==201){
+						
+						// 0元直接支付成功
+						$('.course_pay_success').css({
+							'display': 'block'
+						});
+		
+						//微信单人
+						if (objurl.type_id == 11) {
+							$('.pay_success div').eq(1).show();
+							$('.pay_success div').eq(0).find('span').html('开课说明');
+							$('.pay_success div').eq(1).find('span').html('下载APP');
+							$('.pay_success div').eq(1).click(function(){
+								if (window.webkit) {
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+								} else {
+									window.location.href='https://www.pgyer.com/q8oQ';
+								}
+							});
+							$('.pay_success div').eq(0).click(function(){
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+											
+							});
+						}
+						//微信团购
+						if (objurl.type_id == 12) {
+							$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券');
+							$('.pay_success div').eq(1).find('span').css({
+								'border':'none','font-size':'12px'
+							});
+							$('.pay_success div').css({'margin':'0px'});
+							$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
+							$('.pay_success div').eq(0).click(function(){
+								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
+							});
+						}
+								
+					}
 					if (data.code == 401) {
 							alert('课程状态异常！');
 					}
@@ -641,7 +679,9 @@ $(function () {
 					if (data.code == 422) {
 							alert('余额不足！');
 					}
-					
+					if (data.code == 423) {
+							alert('当前课程不允许开团！');
+					}
 				}
 			},
 			error: function error(res) {
