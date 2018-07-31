@@ -3,6 +3,7 @@
 
 $(function () {	
 	//获取当前url
+	alert(window.location.href)
 	var current_url = location.href;
 	var coupon_url = location.href.split('?')[1];
 	var coupon_no = null;
