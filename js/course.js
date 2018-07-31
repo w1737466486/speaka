@@ -51,9 +51,6 @@ $(function () {
 		var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + _hours + seperator2 + _minutes + seperator2 + _seconds;
 		return currentdate;
 	}
-	
-	
-	
 	var lessons_url=queryURL(location.href);
 	console.log(lessons_url);
 	var team_id=lessons_url.team_id;
