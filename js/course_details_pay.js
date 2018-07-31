@@ -546,10 +546,10 @@ $(function () {
 			var phone_type=null;
 		if (isAndroid_ios()) {
 			//安卓  
-			phone_type='android'
+			phone_type=2
 		} else {
 			//ios  
-			phone_type='ios'
+			phone_type=1
 		}	
 		  $.ajax({
 			type: "post",
