@@ -24,20 +24,23 @@
 			}
 			return obj;
 		}
-
  	console.log(getNowFormatDate());
- 	
- 	var mapurl=location.href.split('?')[1];
- 	var url_map=null;
  	var team_id=null;
- 	if(mapurl){
- 		console.log(mapurl.substr(8));
- 		team_id=mapurl.substr(8);
- 	}else{
- 		team_id=77;
- 	}
- 	var obj={};
- 	$.ajax({
+ 	window.get_teamId=get_teamId;
+ 	if (window.webkit) {
+		window.webkit.messageHandlers.getData.postMessage('get_teamId');
+	} else {
+		//curson.punchCurson(JSON.stringify(obj));
+	}
+	//get_teamId();
+	function get_teamId(res){
+		team_id=res;
+		if(team_id){
+			team_id=team_id;
+		}else{
+			team_id=77;
+		}
+		$.ajax({
  		type:"get",
  		url:"https://api.speaka.live/api/team/"+team_id+"/commodity",
  		//url:"../json/speaka.json",
@@ -61,16 +64,9 @@
 	 			}
  			}
  		}
- 	});
-   /* $('.main .imgall').click(function(){
-    	//console.log($(this).attr('src'))
-    	$(this).attr('src','../img/'+$(this).index()+'.png')
-    })*/
-   /* $('.main .img1').click(function(){
-    	console.log(1)
-    	window.location.href = "../html/course.html?1";
-    }) */ 
-    
+ 	});	
+}
+ 
     $('.main .imgall').click(function(){
     	console.log($(this).attr('src').substr(7,6));
     	if($(this).attr('src').substr(7,6)=='locked'){
