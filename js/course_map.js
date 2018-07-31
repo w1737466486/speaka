@@ -72,7 +72,23 @@
     	if($(this).attr('src').substr(7,6)=='locked'){
     		console.log($(this).index());
     	}else{
-    		window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
+    		 var params = {
+		      openStyle: "push",
+		      module: "map",
+		      title: "Lesson"+($(this).index()-1),
+		      lessonId:($(this).index()-1),
+		      team_id:team_id
+		    };
+		    //window["webkit"]["messageHandlers"]["openH5Page"]["postMessage"](params);
+    		if (window.webkit) {
+				window.webkit.messageHandlers.openH5Page.postMessage(params);
+			} else {
+				//curson.punchCurson(JSON.stringify(obj));
+				window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId='+($(this).index()-1)+'&team_id='+team_id;
+			}
+	   
+  
+    		
     	}
     	
     });
