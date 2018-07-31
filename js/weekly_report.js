@@ -10,7 +10,6 @@ $(function(){
 		//curson.punchCurson(JSON.stringify(obj));
 	}
 	function get_token(_results) {
-		//token = 'Bearer ' + 'b83eQAzanwJHD9WClsPva6iE7AcwdjMLs9QWlpjq';
 		token='Bearer ' + _results;
 		token_code=_results;
 		$.ajax({
@@ -36,10 +35,6 @@ $(function(){
 				console.log(res);
 			}
 		});
-		
-		
-		
-		
 		$.ajax({
 			type: 'get',
 			dataType: 'JSON',

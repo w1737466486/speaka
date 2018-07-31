@@ -24,7 +24,6 @@ $(function () {
 				 	isbuy_token=res.token;
 				 	order_token=res.token;
 				 }
-				
 			},
 			error:function(res){
 				console.log(res);
@@ -43,14 +42,8 @@ $(function () {
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
 	};
-	
-	//
-	//alert('测试')
 	window.get_share = get_share;
     var slip_up=true;
-    //重新获取url
-    //courseurl = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=1&code=0613JmsR1tCw091geEvR1vrFsR13JmsK&state=1'
-    //courseurl = queryURL(courseurl)
     console.log(courseurl);
     url_course = "https://api.speaka.live/api/commodity/" + commodity_id;
     console.log(url_course);
@@ -78,8 +71,6 @@ $(function () {
 		}
 		return obj;
 	}
-
-		
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 		var date = new Date();
@@ -105,7 +96,6 @@ $(function () {
 		if (_seconds >= 0 && _seconds <= 9) {
 			_seconds = "0" + _seconds;
 		}
-
 		var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + _hours + seperator2 + _minutes + seperator2 + _seconds;
 		return currentdate;
 	}
@@ -120,7 +110,6 @@ $(function () {
 				$('.v_nav .v_s1').html(data.eng);
 				$('.v_nav .v_s2').html(data.chn);
 				$('.v_nav .nav_video').attr('src', 'https://s.speaka.live/' + data.pic_path);
-				
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
 						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ');
@@ -129,17 +118,6 @@ $(function () {
 						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
 					}
 				}
-				
-				/*for (var i = 0; i < data.pages.length; i++) {
-					if(data.pages[i].type==0&&i<data.pages.length-1){
-						$('.v_img').append('<div><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/></div>');
-					}
-					if(data.pages[i].type==0&&i==data.pages.length-1){
-						$('.v_img').append('<div class="video_position"><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/><div class="img_video"><video controls="true" controlslist="nodownload" width="100%" height="100%" src="https://s.speaka.live/static/spk.mp4"></video><img src="../img/Play.png"/></div></div>');
-					}
-				}*/
-				
-				
 				var _stop=true;
 				$('.img_video').click(function(){
 					if(_stop){
@@ -151,7 +129,6 @@ $(function () {
 						$(this).find('video').trigger('pause');
 						$(this).append('<img src="../img/Play.png"/>');
 					}
-					
 				});
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
@@ -181,7 +158,6 @@ $(function () {
 								}
 							});
 						}
-						
 					},
 					error:function(res){
 						console.log(res);
@@ -211,9 +187,7 @@ $(function () {
 						} else {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id;
 						}
-						
 					});
-					
 					$('.v_pay p').eq(1).click(function () {
 						$('.dialog').show();
 					});
@@ -283,7 +257,6 @@ $(function () {
 			}else{
 				$('.v_nav .slip_up').css({'bottom': '40px'});
 			}
-			
 		}else{
 			$('.v_nav .slip_up').css({'display': 'none'});
 		}
@@ -307,12 +280,10 @@ $(function () {
 	}
 
 	if (isWeiXin()) {
-
 		$.post("https://api.speaka.live/api/wxconfig", {
 			location: window.location.href
 		}, function (data) {
 			console.log(data);
-
 			if (data.status == 1) {
 				//微信支付
 				//通过config接口注入权限验证配置
