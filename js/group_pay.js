@@ -381,7 +381,7 @@ $(function () {
 				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&env=' + 1;
+						window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id ;
 					});
 				}
 			}, 1000);
