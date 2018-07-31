@@ -196,20 +196,15 @@ $(function () {
 	}
 	var token = null;
 	function get_token(_results) {
-		//console.log(_results)
 		token = 'Bearer ' + _results;
 		app_token=token;
-		//alert(token+'-----'+app_token)
-		//alert(token)
 		var typeId = null;
-		
 		$.ajax({
 			type: "get",
 			//url:"../json/my_coupon.json",
 			url: 'https://api.speaka.live/api/coupon/usable?token='+token+'&id='+commodity_id+'&price='+pay_price,
 			async: false,
 			success: function success(data) {
-				//alert('https://api.speaka.live/api/coupon/usable?code='+objurl.code+'&id='+commodity_id+'&price='+pay_price)
 				console.log(data.info.length);
 				if(data.status==1){
 					//判断是否有优惠券
@@ -220,8 +215,7 @@ $(function () {
 						$('.have').click(function () {
 							console.log(this);
 							window.location.href = 'https://h5.speaka.live/front/html/my_coupon_use.html?' + coupon_url+'&token='+token+'&id='+commodity_id+'&price='+pay_price;
-							//window.location.href='../html/my_coupon_use.html?'+coupon_url+'&token='+token_pay+'&id='+commodity_id+'&price='+pay_price;
-						});
+							});
 					} else {
 						$('.have').html("暂无可用");
 						$('.have ').css({ color: "#888" });
@@ -234,7 +228,6 @@ $(function () {
 			}
 		});
        if (objurl.coupon_money) {
-       	//alert(objurl.coupon_money+'---'+pay_money+'----'+pay_group_money)
 			//微信或App单人购,让团购价格消失
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
 				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
@@ -257,16 +250,10 @@ $(function () {
 		//微信单人购买
 		if (objurl.type_id == 11) {
 			typeId = 0;
-			/*$('.pay_success p').eq(3).html('请用当前微信登陆App去上课');
-			$('.pay_success div span').html('去下载');*/
-			
 		}
 		//微信团购
 		if (objurl.type_id == 12) {
-			typeId = 1;
-			/*$('.pay_success p').eq(3).html('邀请好友参团');
-			$('.pay_success div span').html('去分享邀请');*/
-			
+			typeId = 1;	
 		}
 	$('.wx_pay span').eq(1).click(function () {
 		alert('是否做好坚持20天上课的准备？');
@@ -290,9 +277,6 @@ $(function () {
 			},
 			success:function(data){
 		      //objurl.order_no = data.data.order_no;
-				//alert(JSON.stringify(data))
-				
-				//测试数据  ~商户id===1500516481
 			console.log(data.data.config);
 			if (data.code == 200) {
 				//微信支付
@@ -326,7 +310,6 @@ $(function () {
 								$('.course_pay_success').css({
 									'display': 'block'
 								});
-
 								//微信单人
 								if (objurl.type_id == 11) {
 									$('.pay_success div').eq(1).show();
@@ -340,8 +323,7 @@ $(function () {
 										}
 									});
 									$('.pay_success div').eq(0).click(function(){
-										window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-													
+										window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';				
 									});
 								}
 								//微信团购
@@ -358,7 +340,6 @@ $(function () {
 								}
 							}
 						});
-					
 				});
 				//通过error接口处理失败验证
 				wx.error(function (res) {
@@ -474,9 +455,7 @@ $(function () {
 					if (data.code == 423) {
 							alert('当前课程不允许开团！');
 					}
-					
 				}
-		
 			}
 		});
 	});
@@ -494,11 +473,9 @@ $(function () {
 			if (objurl.type_id == 22) {
 				typeId = 1;
 			}
-			//alert(objurl.type_id)
 			//App单人购买	
 			if (objurl.type_id == 21) {
 				if (isAndroid_ios()) {
-					//alert('android')
 					var objpay = {};
 					objpay.typeId = 0;
 					objpay.paytypeId = 1;
@@ -508,7 +485,6 @@ $(function () {
 					objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
-					//alert('ios')
 					var _objpay = {};
 					_objpay.typeId = 0;
 					_objpay.paytypeId = 1;
@@ -521,7 +497,6 @@ $(function () {
 				//App团购
 			} else if (objurl.type_id == 22) {
 				if (isAndroid_ios()) {
-					//alert('android')
 					var _objpay2 = {};
 					_objpay2.typeId = 1;
 					_objpay2.paytypeId = 1;
@@ -531,7 +506,6 @@ $(function () {
 					_objpay2.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id;
 					androidpay.androidWechatPay(JSON.stringify(_objpay2));
 				} else {
-					//alert('ios')
 					var _objpay3 = {};
 					_objpay3.typeId = 1;
 					_objpay3.paytypeId = 1;
@@ -578,7 +552,6 @@ $(function () {
 					obj_pay.timestamp = data.data.pay_config.timestamp;
 					obj_pay.sign = data.data.pay_config.sign;
 					obj_pay.order_no = data.data.order_no;
-					//alert(JSON.stringify(obj_pay));
 					if (isAndroid_ios()) {
 						//安卓  
 						androidpay.androidWechatPay(JSON.stringify(obj_pay));
@@ -588,12 +561,8 @@ $(function () {
 					}
 				} else {
 					if(data.code==201){
-						
 						// 0元直接支付成功
-						$('.course_pay_success').css({
-							'display': 'block'
-						});
-		
+						$('.course_pay_success').show();
 						//微信单人
 						if (objurl.type_id == 11) {
 							$('.pay_success div').eq(1).show();
@@ -607,8 +576,7 @@ $(function () {
 								}
 							});
 							$('.pay_success div').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-											
+								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';				
 							});
 						}
 						//微信团购
@@ -622,8 +590,7 @@ $(function () {
 							$('.pay_success div').eq(0).click(function(){
 								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
 							});
-						}
-								
+						}			
 					}
 					if (data.code == 401) {
 							alert('课程状态异常！');
@@ -690,7 +657,6 @@ $(function () {
 			error: function error(res) {
 				alert(JSON.stringify(res));
 			}
-
 		});
 		});
 	}

@@ -77,12 +77,7 @@ $(function () {
 			for (var k = 0; k < data.lessons.length; k++) {
 				//判断是第几天的课程
 				if (lessonId==(k+1) ) {
-					//console.log(k)
-					//替换文字内容
-					//$('.header .header_s2').html('Lesson' + ' ' + lessonId);
-					
 					$('.describe span').html('<b class="b_eng">' + data.lessons[k].eng + '</b>' + '' + '<b>' + data.lessons[k].chn + '</b>');
-					//$('.describe span').html(data.lessons[k].eng+'<br/>'+data.lessons[k].chn)
 					//导读视频预览图获取
 					$('.nav_v .nav_img').attr('src', 'https://s.speaka.live/' + data.lessons[k].pic_path);
 
@@ -106,7 +101,6 @@ $(function () {
 							curson.punchCurson(JSON.stringify(obj));
 						}
 					});
-
 					//判断有几个课时，就添加几个课程盒子
 					var arrlessons = Object.keys(data.lessons[k].items);
 					console.log(arrlessons);
@@ -137,25 +131,16 @@ $(function () {
 							$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).html(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
 							$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).attr('chnId', data.lessons[k].items[arrlessons[i - 1]][j - 1].id);
 							console.log(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
-							//console.log(data.lessons[k].items[arrlessons[i-1]])
 						}
-						//console.log(data.lessons[k].items[arrlessons[i]])
 					}
-					//console.log($('.main').find('p').length)
-
 					$('.main .y1').click(function () {
 						obj={};
 						var day_index = $(this).parent().find('span').attr('data_day');
 						var v_tit = 'Lesson' + ' ' + lessonId;
-						console.log($(this).attr('learn_at'));
-						console.log(arrlessons);
-						console.log(day_index);
-						console.log(arrlessons.indexOf(day_index));
 						data = eval(data);
 						var txt1 = $(this).find('p').html();
 						var day1 = data.lessons[lessonId - 1].items[day_index];
 						var txtId = $(this).find('p').attr('chnid');
-						console.log(txtId);
 						var curr_time = getNowFormatDate();
 						var last_time = $(this).attr('learn_at');
 						curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
@@ -182,7 +167,6 @@ $(function () {
 										obj.which_page = 1;
 									}
 									console.log(JSON.stringify(obj));
-	
 									if (window.webkit) {
 										window.webkit.messageHandlers.itemClick.postMessage(JSON.stringify(obj));
 									} else {
@@ -191,10 +175,8 @@ $(function () {
 								}
 							}
 						}else{
-							//var learn_at=$(this).attr('learn_at').substr(5)
 							$('.dialog').show();
 							$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>");
-							//alert("未到上课时间，该视频暂时无法播放！"+'\n'+"上课时间："+$(this).attr('learn_at').substr(5))
 							$('.dialog').click(function(){
 								$('.dialog').hide();
 							});

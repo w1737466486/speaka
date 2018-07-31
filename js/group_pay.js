@@ -3,15 +3,7 @@
 $(function () {
 	//获取当前url
 	var group_url = location.href;
-	var protocol = window.location.protocol;
-	var host = window.location.host;
-	console.log(protocol);
-	console.log(host);
-	//测试url
-	//var group_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=1&order_no=2018052410495565873'
-	console.log(group_url);
 	var groupurl = queryURL(group_url);
-	console.log(groupurl);
 	var group_order=groupurl.order_no;
 	//判断是否购买
 	var isbuy_code=groupurl.code;
@@ -83,22 +75,15 @@ $(function () {
 	  }
 	}
 	if (groupurl.is_share == 1) {
-		$('.group_share').css({
-			'display': 'block'
-		});
+		$('.group_share').show();
 		$('.group_share').click(function () {
-			$('.group_share').css({
-				'display': 'none'
-			});
+			$('.group_share').hide();
 		});
 	}
 	$('.group_share').click(function () {
-		$('.group_share').css({
-			'display': 'none'
-		});
+		$('.group_share').hide();
 	});
 	//将url参数转对象
-
 	function queryURL(url) {
 		var arr1 = url.split("?");
 		var params = arr1[1].split("&"); //进行分割成数组
@@ -145,28 +130,20 @@ $(function () {
 					if(data.pages[i].type==0){
 						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
 					}
+			}
+			var _stop=true;
+			$('.img_video').click(function(){
+				if(_stop){
+					_stop=false;
+					$(this).find('video').trigger('play');
+					$(this).find('img').remove();
+				}else{
+					_stop=true;
+					$(this).find('video').trigger('pause');
+					$(this).append('<img src="../img/Play.png"/>');
 				}
-			/*for (var i = 0; i < data.pages.length; i++) {
-					if(data.pages[i].type==0&&i<data.pages.length-1){
-						$('.v_img').append('<div><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/></div>');
-					}
-					if(data.pages[i].type==0&&i==data.pages.length-1){
-						$('.v_img').append('<div class="video_position"><img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/><div class="img_video"><video controls="true" controlslist="nodownload" width="100%" height="100%" src="https://s.speaka.live/static/spk.mp4"></video><img src="../img/Play.png"/></div></div>');
-					}
-				}*/
-				var _stop=true;
-				$('.img_video').click(function(){
-					if(_stop){
-						_stop=false;
-						$(this).find('video').trigger('play');
-						$(this).find('img').remove();
-					}else{
-						_stop=true;
-						$(this).find('video').trigger('pause');
-						$(this).append('<img src="../img/Play.png"/>');
-					}
-					
-				});
+				
+			});
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
@@ -193,9 +170,6 @@ $(function () {
 						console.log(res);
 					}
 				});
-			
-			
-			
 			//微信配置
 			//优惠金额
 			var discount_amount = data.price / 100 - data.groupon_price / 100;
@@ -238,7 +212,6 @@ $(function () {
 	$.ajax({
 		type: "get",
 		url: "https://api.speaka.live/api/order_group/" + groupurl.order_no,
-		//url:"../json/order.json",
 		async: true,
 		success: function success(data) {
 			console.log(data);
@@ -256,15 +229,7 @@ $(function () {
 				if(!u_id){
 					u_id=data.group[0].u_id;
 				}
-				/*if(u_id){
-					u_id_new=data.group[data.group.length-1].u_id
-				}else{
-					u_id=data.group[0].u_id
-					u_id_new=data.group[data.group.length-1].u_id
-				}
-				console.log(u_id)*/
 			}
-
 			var curr_time = getNowFormatDate();
 			var last_time = data.limit_at;
 			curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
@@ -343,10 +308,6 @@ $(function () {
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
-
-				//remain_time=0
-
-
 				if (remain_time > 0 && data.group.length >= 3 && data.group.length <= 10) {
 					$('.group_head p').eq(0).html('该拼团已成团！剩余参团时间:');
 				} else if (data.group.length > 10) {
@@ -462,7 +423,6 @@ $(function () {
     //添加提示框
     $('.group_foot p').eq(0).click(function () {
     	$('.dialog').show();
-		//window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 	});
     $('.dialog .dialog_box p').eq(0).click(function (){
     	$('.dialog').hide();
@@ -470,8 +430,4 @@ $(function () {
     $('.dialog .dialog_box p').eq(1).click(function (){
     	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
     });
-    
-/*	$('.group_foot p').eq(0).click(function () {
-		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
-	});*/
 });

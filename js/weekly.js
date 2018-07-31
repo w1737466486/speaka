@@ -52,7 +52,6 @@ $(function(){
 						var begin_time=data.data.days[0].substr(0, 4)+'.'+data.data.days[0].substr(5, 2)+'.'+data.data.days[0].substr(8, 2);
 						var over_time=data.data.days[data.data.days.length-1].substr(0, 4)+'.'+data.data.days[data.data.days.length-1].substr(5, 2)+'.'+data.data.days[data.data.days.length-1].substr(8, 2);
 						$('.weekly_main>p').eq(1).find('span').html(begin_time+'~'+over_time);
-					
 						$('.weekly_main>ul li').eq(0).find('p').eq(1).html(data.data.wordCard);
 						$('.weekly_main>ul li').eq(1).find('p').eq(1).html(data.data.wordTotal);
 						$('.weekly_main>ul li').eq(2).find('p').eq(1).html(data.data.workTotal);
@@ -100,17 +99,13 @@ $(function(){
 							} else {
 								androidMyFile.JsUserFileShare(JSON.stringify(_obj));
 							}
-						})
-				        
+						}) 
 					}
 				},
 				error:function(res){
 					console.log(res);
 				}
-			});
-			
-			
-			
+			});	
 		}
 		//获取月报详情表
 		if(typeof(month_num)!='undefined'){
@@ -132,7 +127,6 @@ $(function(){
 				success:function(data){
 					console.log(data);
 					if(data.code==200){
-						
 						$('.weekly_main>p').eq(0).html(data.data.eng+' 月报');
 						var begin_time=data.data.days[0].substr(0, 4)+'.'+data.data.days[0].substr(5, 2)+'.'+data.data.days[0].substr(8, 2);
 						var over_time=data.data.days[data.data.days.length-1].substr(0, 4)+'.'+data.data.days[data.data.days.length-1].substr(5, 2)+'.'+data.data.days[data.data.days.length-1].substr(8, 2);
@@ -163,6 +157,4 @@ $(function(){
 				}
 			});
 		}
-		
-	
 })

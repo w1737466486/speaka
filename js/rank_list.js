@@ -5,20 +5,16 @@ $(function () {
 	var token = null;
 	//get_token();
 	function get_token(_results) {
-		//console.log(_results)
 		token = 'Bearer ' + _results;
 		$.ajax({
 			type: "get",
 			url: "https://api.speaka.live/api/top100 ",
-			//url: "../json/top.json",
 			async: true,
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
 			success: function success(data) {
-				//alert(JSON.stringify(data));
 				for (var i = 0; i < data.info.top.length; i++) {
-					//console.log(data.info.top[i])
 					if (i < 3) {
 						console.log($('.rank_ul_one .li' + i).html());
 						$('.rank_ul_one .li' + i).find('span').eq(0).find('img').attr('src', 'https://s.speaka.live/' + data.info.top[i].head);
