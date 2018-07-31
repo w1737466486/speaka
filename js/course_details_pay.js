@@ -3,7 +3,6 @@
 
 $(function () {	
 	//获取当前url
-	alert(window.location.href)
 	var current_url = location.href;
 	var coupon_url = location.href.split('?')[1];
 	var coupon_no = null;
@@ -682,6 +681,9 @@ $(function () {
 					}
 					if (data.code == 423) {
 							alert('当前课程不允许开团！');
+					}
+					if (data.code == 424) {
+							alert('你已经购过该课程，请勿重复购买！');
 					}
 				}
 			},
