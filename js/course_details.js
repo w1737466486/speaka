@@ -347,4 +347,18 @@ $(function () {
 			}
 		}, 'json');
 	}
+		$('.course_nav p').eq(1).click(function () {
+		$('.course_nav p').eq(1).find('b').css({ 'display': 'block' });
+		$('.v_img').css({ 'display': 'none' });
+		$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
+		$('.v_QA').css({ 'display': 'block' });
+		//alert('num')
+	});
+	$('.course_nav p').eq(0).click(function () {
+		$('.course_nav p').eq(1).find('b').css({ 'display': 'none' });
+		$('.v_img').css({ 'display': 'block' });
+		$('.course_nav p').eq(0).find('b').css({ 'display': 'block' });
+		$('.v_QA').css({ 'display': 'none' });
+		//alert('group')
+	});
 });
