@@ -246,7 +246,13 @@ video{
 	background: #3AAB87;
     border-radius: 4px;
 }
-
+.vx_box{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
 .v_wx{
 	position: absolute;
 	top: 64%;

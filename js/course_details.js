@@ -245,6 +245,7 @@ $(function () {
 			if(sTop<50){
 				$('.v_footer').css({'opacity': '0','display': 'none'});
 			}
+			
 		},50);
 	//上划按键跳动显示
 	setInterval(function(){
@@ -253,9 +254,9 @@ $(function () {
 			$('.v_nav .slip_up').css({'display': 'block'});
 			slip_up=!slip_up;
 			if(slip_up){
-				$('.v_nav .slip_up').css({'bottom': '25px'});
+				$('.v_nav .slip_up').css({'bottom': '45px'});
 			}else{
-				$('.v_nav .slip_up').css({'bottom': '40px'});
+				$('.v_nav .slip_up').css({'bottom': '60px'});
 			}
 		}else{
 			$('.v_nav .slip_up').css({'display': 'none'});
