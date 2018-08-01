@@ -48,6 +48,9 @@ $(function(){
 				console.log(data);
 				if(data.code==200){
 					for(var i=0;i<data.data.length;i++){
+						if(data.data.length>=2){
+							$('html').css({'height':'auto'})
+						}
 						/*$('.weekly_main').append(`<div class="weekly_li">
 						<p>${data.data[i].eng}</p>
 						<ul comm_id="${data.data[i].id}">
