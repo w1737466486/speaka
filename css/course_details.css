@@ -292,7 +292,7 @@ h4{
 	background: #2FBBA9;
    /* border-radius: 2px;*/
 }
-/*.v_control{
+.v_control{
 	position: fixed;
 	top: 64%;
 	right: 0;
@@ -303,10 +303,12 @@ h4{
     border-radius: 2px;
     z-index: 10;
     background: red;
-}*/
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px
+}
 .v_wx{
 	position: fixed;
-/*	display: none;*/
+	display: none;
 	top: 58%;
 	right: 2.7%;
 	height: 120px;
@@ -315,7 +317,6 @@ h4{
     border-radius: 2px;
     z-index: 10;
    /* padding: 10px 0;*/
-  opacity: 0.4;
 }
 .v_wx span{
 	display: block;

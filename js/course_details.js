@@ -368,12 +368,12 @@ $(function () {
 		$('.v_QA').css({ 'display': 'none' });
 		//alert('group')
 	});
-//	$('.v_control').click(function(){
-//		$('.v_control').hide();
-//		$('.v_wx').show();
-//	})
-//	$('.v_wx').click(function(){
-//		$('.v_wx').hide();
-//		$('.v_control').show();
-//	})
+	$('.v_control').click(function(){
+		$('.v_control').hide();
+		$('.v_wx').show();
+	})
+	$('.v_wx').click(function(){
+		$('.v_wx').hide();
+		$('.v_control').show();
+	})
 });
