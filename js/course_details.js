@@ -232,7 +232,14 @@ $(function () {
 	});
 	setInterval(function(){
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
-			//console.log(sTop)
+			var X=$('.course_nav').offset().top;
+			var Y=$('.nav_video').height();
+			//console.log(sTop+'---------'+X+'------'+Y)
+			if(sTop>Y){
+				$('.course_nav').css({'position':'fixed'})
+			}else{
+				$('.course_nav').css({'position':'relative'})
+			}
 			if(sTop>50){
 				$('.v_footer').css({'opacity': '0.4','display': 'block'});
 			}
