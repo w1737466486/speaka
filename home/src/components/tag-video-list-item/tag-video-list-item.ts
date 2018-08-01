@@ -26,10 +26,15 @@ export class TagVideoListItemComponent {
   }
 
   videoItemClick(vid) {
+    const params = {
+      openStyle: "present",
+      page: "SPERoundScrollVideoPlayViewController",
+      vidStr: vid
+    };
     if (window["webkit"]) {
-      window["webkit"]["messageHandlers"]["videoClick"]["postMessage"]({vid: vid});
+      window["webkit"]["messageHandlers"]["openNativePage"]["postMessage"](params);
      } else {
-       window["androidCorsonVideo"]["CorsonVideo"]({vid: vid});
+       window["androidCorsonVideo"]["CorsonVideo"](params);
      }
   }
 
