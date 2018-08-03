@@ -167,7 +167,8 @@ $(function () {
 						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_nav').hide();
-							$('html').css({'height':'100%'})
+							$('#course_progress').show();
+							$('html').css({'height':'100%'});
 							$('.group_foot').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
@@ -245,7 +246,7 @@ $(function () {
 					
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
-				if(!u_id){
+				if(!u_id||u_id=='undefined'){
 					u_id=data.group[0].u_id;
 				}
 			}
