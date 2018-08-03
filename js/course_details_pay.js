@@ -309,7 +309,6 @@ $(function () {
 							success: function success(res) {
 								// 支付成功后的回调函数
 								//alert(JSON.stringify(res))
-								
 									//微信单人
 									if (objurl.type_id == 11) {
 								       $('.course_pay>div').remove()
