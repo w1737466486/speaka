@@ -318,6 +318,7 @@ $(function () {
 								       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
 								       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
 								       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+								       $('.only_pay').show()
 								       $('.only_pay span').click(function(){
 									       	if (window.webkit) {
 												window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
@@ -362,6 +363,7 @@ $(function () {
 						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
 						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
 						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+						       $('.only_pay').show()
 						       $('.only_pay span').click(function(){
 							       	if (window.webkit) {
 										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
@@ -550,6 +552,7 @@ $(function () {
 						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
 						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
 						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+						       $('.only_pay').show()
 						       $('.only_pay span').click(function(){
 							       	if (window.webkit) {
 										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
