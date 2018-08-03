@@ -11,7 +11,13 @@
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 	<body>
 		<div class="course_pay">
-			<p></p>
+			<span id="course_progress">
+				<em class="course_img"><img src="../img/open-book.png"/></em>
+				<em class="course_progress">
+					<span><b><i><img src="../img/pay_click.png"/></i><strong></strong><i></i><strong></strong><i></i></b></span>
+					<span><b><i>支付中</i><i>邀请参团</i><i>App上课</i></b></span>
+				</em>
+			</span>
 			<div class="pay">
 				<p>商品名称<span></span></p>
 			    <p>原价<span></span></p>
@@ -37,24 +43,11 @@
 				</span>
 		    </div>
 		</div>
-		<div class="course_pay_success">
-	    	<div class="pay_success">
-			    <p><!--<span><img src="../img/payCancel.png"/></span>--></p>
-			    <p><span></span></p>
-			    <p>支付成功</p>
-			    <div><span>邀请好友参团</span></div>
-			    <div><span>下载APP</span></div>
-	    	</div>
-	    </div>
-	    <div class="course_pay_error">
-	    	<div class="pay_error">
-			    <p><!--<span><img src="../img/payCancel.png"/></span>--></p>
-			    <p><span></span></p>
-			    <p>支付成功</p>
-			    <div> <span>下载APP</span></div>
-			    <div> <span>开课说明</span></div>
-	    	</div>
-	    </div>
+		<div class="only_pay">
+			<span>
+				<b>下载App</b>
+			</span>
+		</div>
 	    <div style="display: none;">
 			<script src="https://s13.cnzz.com/z_stat.php?id=1274108748&web_id=1274108748"  language="JavaScript"></script>
 		</div>

@@ -12,7 +12,17 @@ $(function () {
     var u_id=groupurl.u_id;//null
 	var u_id_new=null;
 	var commodity_id = groupurl.commodity_id;
+	var joy_from=groupurl.joy_from;
 	var share_dec=true;
+	//判断是否是购买成功的回调
+	if(groupurl.is_pay){	
+		$('.v_nav').hide();
+		$('html').css({
+			'height':'100%'
+		})
+	}else{
+		$('#course_progress').hide();
+	}
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
 		$('.share_dec').css({'right':'-80px'});
@@ -60,7 +70,7 @@ $(function () {
 				u_id_new=res.now_uid;
 				console.log(res);
 				 if(!res.token){
-				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 				 }else{
 				 	isbuy_token=res.token;
 				 }
@@ -71,7 +81,7 @@ $(function () {
 			}
 		});
 	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+group_order+'%26u_id='+u_id+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 	  }
 	}
 	if (groupurl.is_share == 1) {
@@ -147,22 +157,31 @@ $(function () {
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
-			$('.group_foot p').eq(1).find('span').html('<div><s>￥' + data.price / 100 + '</s>&nbsp￥' + data.groupon_price / 100 + '</div><b>我要参团</b>');
-				$.ajax({
+			$('.group_foot p span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
+			$('.group_foot p span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');	
+			$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
 					success:function(res){
 						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
+							$('.v_nav').hide();
+							$('html').css({'height':'100%'})
 							$('.group_foot').hide();
 							$('.buy_success').show();
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+								if (window.webkit) {
+									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+								} else {
+									window.location.href='https://www.pgyer.com/q8oQ';
+								}
 							});
 							$('.buy_success .buy_pay p').eq(1).click(function(){
 								$('.group_share').show();
 							});
+						}else{
+							$('#course_progress').hide();
 						}
 						
 					},
@@ -255,7 +274,7 @@ $(function () {
 			$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
 
 			if (remain_time > 0 && data.group.length >= 3 && data.group.length < 10) {
-				$('.group_head p').eq(0).html('该拼团已成团！剩余参团时间:');
+				$('.group_head p').eq(0).html('该拼团已成团！');
 			} else if (data.group.length >= 10) {
 				$('.group_head p').eq(0).html('该拼团人数已满！');
 				$('.group_head p').eq(1).find('span').eq(0).html('00');
@@ -284,6 +303,12 @@ $(function () {
 					'opacity': '0.2'
 				});
 			}
+			if (remain_time > 0 && data.group.length ==1){
+				$('.group_head p').eq(0).html('还差<i>2</i>人成团');
+			}
+			if (remain_time > 0 && data.group.length ==2){
+				$('.group_head p').eq(0).html('还差<i>1</i>人成团');
+			}
 
 			//设置定时器
 			setInterval(function () {
@@ -309,7 +334,7 @@ $(function () {
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
 				if (remain_time > 0 && data.group.length >= 3 && data.group.length <= 10) {
-					$('.group_head p').eq(0).html('该拼团已成团！剩余参团时间:');
+					$('.group_head p').eq(0).html('该拼团已成团！');
 				} else if (data.group.length > 10) {
 					$('.group_head p').eq(0).html('该拼团人数已满！');
 					$('.group_head p').eq(1).find('span').eq(0).html('00');
@@ -338,9 +363,15 @@ $(function () {
 						'opacity': '0.2'
 					});
 				}
+				if (remain_time > 0 && data.group.length ==1){
+					$('.group_head p').eq(0).html('还差<i>2</i>人成团');
+				}
+				if (remain_time > 0 && data.group.length ==2){
+					$('.group_head p').eq(0).html('还差<i>1</i>人成团');
+				}
 				if (remain_time > 0 && data.group.length <= 10) {
 					$('.group_foot p').eq(1).click(function () {
-						window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id ;
+						window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&joy_from=' + joy_from ;
 					});
 				}
 			}, 1000);
@@ -376,30 +407,30 @@ $(function () {
 				wx.onMenuShareAppMessage({
 					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&joy_from=' + joy_from;
 					}
 				});
 				wx.onMenuShareTimeline({
 					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
-					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no;
+						window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&joy_from=' + joy_from;
 					}
 				});
 			});
@@ -422,12 +453,6 @@ $(function () {
 	}, 'json');
     //添加提示框
     $('.group_foot p').eq(0).click(function () {
-    	$('.dialog').show();
-	});
-    $('.dialog .dialog_box p').eq(0).click(function (){
-    	$('.dialog').hide();
-    });
-    $('.dialog .dialog_box p').eq(1).click(function (){
-    	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+    	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
     });
 });

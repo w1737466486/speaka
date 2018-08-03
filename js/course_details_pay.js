@@ -19,6 +19,7 @@ $(function () {
 	console.log(objurl);
 	var commodity_id = objurl.commodity_id;
 	var u_id=objurl.u_id;
+	var joy_from=objurl.joy_from;
 	coupon_no=objurl.coupon_no;
 	window.get_token = get_token;
 	//将url参数转对象
@@ -141,7 +142,7 @@ $(function () {
 					pay_money = (data.price / 100 - Number(objurl.coupon_money));
 					pay_money>0?pay_money:pay_money=0.00;
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money.toFixed(2) + '元');
-					$('.course_pay p').eq(3).css({
+					$('.course_pay p').eq(2).css({
 						'display': 'none'
 					});
 				}
@@ -157,7 +158,7 @@ $(function () {
 				//微信或App单人购,让团购价格消失
 				if (objurl.type_id == 11 || objurl.type_id == 21) {
 					$('.course_pay div').eq(1).find('span').html('实付： ￥' + data.price / 100 + '元');
-					$('.course_pay p').eq(3).css({
+					$('.course_pay p').eq(2).css({
 						'display': 'none'
 					});
 				}
@@ -231,7 +232,7 @@ $(function () {
 			//微信或App单人购,让团购价格消失
 			if (objurl.type_id == 11 || objurl.type_id == 21) {
 				$('.course_pay div').eq(1).find('span').html('实付： ￥' + pay_money + '元');
-				$('.course_pay p').eq(3).css({
+				$('.course_pay p').eq(2).css({
 					'display': 'none'
 				});
 			}
@@ -256,7 +257,6 @@ $(function () {
 			typeId = 1;	
 		}
 	$('.wx_pay span').eq(1).click(function () {
-		alert('是否做好坚持20天上课的准备？');
 		$.ajax({
 			type:"post",
 			url:"https://api.speaka.live/api/order/insertOrder",
@@ -270,7 +270,7 @@ $(function () {
 				order_no: objurl.order_no,
 				coupon_no: coupon_no,
 				u_id:u_id,
-				joy_from:null,
+				joy_from:joy_from,
 				location: window.location.href
 			},
 			beforeSend: function beforeSend(request) {
@@ -308,36 +308,26 @@ $(function () {
 							success: function success(res) {
 								// 支付成功后的回调函数
 								//alert(JSON.stringify(res))
-								$('.course_pay_success').css({
-									'display': 'block'
-								});
-								//微信单人
-								if (objurl.type_id == 11) {
-									$('.pay_success div').eq(1).show();
-									$('.pay_success div').eq(0).find('span').html('开课说明');
-									$('.pay_success div').eq(1).find('span').html('下载APP');
-									$('.pay_success div').eq(1).click(function(){
-										if (window.webkit) {
-											window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
-										} else {
-											window.location.href='https://www.pgyer.com/q8oQ';
-										}
-									});
-									$('.pay_success div').eq(0).click(function(){
-										window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';				
-									});
-								}
+								
+									//微信单人
+									if (objurl.type_id == 11) {
+								       $('.course_pay>div').remove()
+								       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
+								       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
+								       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
+								       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
+								       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+								       $('.only_pay span').click(function(){
+									       	if (window.webkit) {
+												window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+											} else {
+												window.location.href='https://www.pgyer.com/q8oQ';
+											}
+								       })
+									}
 								//微信团购
 								if (objurl.type_id == 12) {
-									$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券');
-									$('.pay_success div').eq(1).find('span').css({
-										'border':'none','font-size':'12px'
-									});
-									$('.pay_success div').css({'margin':'0px'});
-									$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
-									$('.pay_success div').eq(0).click(function(){
-										window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
-									});
+										window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';				
 								}
 							}
 						});
@@ -345,10 +335,10 @@ $(function () {
 				//通过error接口处理失败验证
 				wx.error(function (res) {
 					// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-					$('.course_pay_error').css({
-						'display': 'block'
-					});
-					window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+					$('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_error.png')
+	                $('.course_progress span').eq(1).find('i').eq(0).html('支付失败')
+	                $('.wx_pay span').eq(1).find('b').html('重新支付')
+					//window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					console.log(res);
 				});
 				//判断当前客户端版本是否支持指定JS接口
@@ -363,38 +353,25 @@ $(function () {
 					if(data.code==201){
 						
 						// 0元直接支付成功，弹出支付成功窗口
-						$('.course_pay_success').css({
-							'display': 'block'
-						});
-		
-						//微信单人
-						if (objurl.type_id == 11) {
-							$('.pay_success div').eq(1).show();
-							$('.pay_success div').eq(0).find('span').html('开课说明');
-							$('.pay_success div').eq(1).find('span').html('下载APP');
-							$('.pay_success div').eq(1).click(function(){
-								if (window.webkit) {
-									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
-								} else {
-									window.location.href='https://www.pgyer.com/q8oQ';
-								}
-							});
-							$('.pay_success div').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-											
-							});
-						}
+							//微信单人
+							if (objurl.type_id == 11) {
+						       $('.course_pay>div').remove()
+						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
+						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
+						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
+						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
+						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+						       $('.only_pay span').click(function(){
+							       	if (window.webkit) {
+										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+									} else {
+										window.location.href='https://www.pgyer.com/q8oQ';
+									}
+						       })
+							}
 						//微信团购
 						if (objurl.type_id == 12) {
-							$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券');
-							$('.pay_success div').eq(1).find('span').css({
-								'border':'none','font-size':'12px'
-							});
-							$('.pay_success div').css({'margin':'0px'});
-							$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
-							$('.pay_success div').eq(0).click(function(){
-								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
-							});
+								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';				
 						}
 								
 					}
@@ -465,7 +442,6 @@ $(function () {
 	
 	} else {
 		$('.wx_pay span').eq(1).click(function () {
-			alert('是否做好坚持20天上课的准备？');
 			//微信单人购买
 			if (objurl.type_id == 21) {
 				typeId = 0;
@@ -483,7 +459,7 @@ $(function () {
 					objpay.paycallback = 'get_token';
 					objpay.title = '超有趣的少儿互动英文课！';
 					objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+					objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					androidpay.androidWechatPay(JSON.stringify(objpay));
 				} else {
 					var _objpay = {};
@@ -492,7 +468,7 @@ $(function () {
 					_objpay.paycallback = 'get_token';
 					_objpay.title = '超有趣的少儿互动英文课！';
 					_objpay.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
-					_objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+					_objpay.share_url = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay));
 				}
 				//App团购
@@ -504,7 +480,7 @@ $(function () {
 					_objpay2.paycallback = 'get_token';
 					_objpay2.title = '【三人成团】！超有趣的少儿互动英文课！';
 					_objpay2.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!';
-					_objpay2.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id;
+					_objpay2.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					androidpay.androidWechatPay(JSON.stringify(_objpay2));
 				} else {
 					var _objpay3 = {};
@@ -513,7 +489,7 @@ $(function () {
 					_objpay3.paycallback = 'get_token';
 					_objpay3.title = '【三人成团】！超有趣的少儿互动英文课！';
 					_objpay3.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活!';
-					_objpay3.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id;
+					_objpay3.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					window.webkit.messageHandlers.payClick.postMessage(JSON.stringify(_objpay3));
 				}
 			}
@@ -534,7 +510,7 @@ $(function () {
 				pay_type:0,
 				coupon_no: coupon_no,
 				from_type:phone_type,
-				joy_from:null,
+				joy_from:joy_from,
 				location: window.location.href
 			},
 			beforeSend: function beforeSend(request) {
@@ -565,34 +541,27 @@ $(function () {
 					if(data.code==201){
 						// 0元直接支付成功
 						$('.course_pay_success').show();
-						//微信单人
-						if (objurl.type_id == 11) {
-							$('.pay_success div').eq(1).show();
-							$('.pay_success div').eq(0).find('span').html('开课说明');
-							$('.pay_success div').eq(1).find('span').html('下载APP');
-							$('.pay_success div').eq(1).click(function(){
-								if (window.webkit) {
-									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
-								} else {
-									window.location.href='https://www.pgyer.com/q8oQ';
-								}
-							});
-							$('.pay_success div').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';				
-							});
-						}
+							//微信单人
+							if (objurl.type_id == 21) {
+						       $('.course_pay>div').remove()
+						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
+						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
+						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
+						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
+						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
+						       $('.only_pay span').click(function(){
+							       	if (window.webkit) {
+										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+									} else {
+										window.location.href='https://www.pgyer.com/q8oQ';
+									}
+						       })
+							}
 						//微信团购
-						if (objurl.type_id == 12) {
-							$('.pay_success div').eq(1).find('span').html('每邀请1人参团得1张10元优惠券');
-							$('.pay_success div').eq(1).find('span').css({
-								'border':'none','font-size':'12px'
-							});
-							$('.pay_success div').css({'margin':'0px'});
-							$('.pay_success div').eq(0).find('span').html('邀请好友(满三人成团才能开课)');
-							$('.pay_success div').eq(0).click(function(){
-								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no;				
-							});
-						}			
+						if (objurl.type_id == 22) {
+								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';				
+						}
+									
 					}
 					if (data.code == 401) {
 							alert('课程状态异常！');
@@ -663,6 +632,7 @@ $(function () {
 		});
 	}
 	$('.wx_pay span').eq(0).click(function () {
-		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
+		window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 	});
+
 });

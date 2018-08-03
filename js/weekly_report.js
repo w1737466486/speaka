@@ -3,15 +3,15 @@ $(function(){
 	window.get_token = get_token;
 	var token = null;
 	var token_code=null;
-	get_token();
+	//get_token();
 	if (window.webkit) {
 		window.webkit.messageHandlers.getToken.postMessage('get_token');
 	} else {
 		//curson.punchCurson(JSON.stringify(obj));
 	}
 	function get_token(_results) {
-		token='Bearer ' + 1257;
-		token_code=1257;
+		token='Bearer ' + _results;
+		token_code=_results;
 		$.ajax({
 			type:"get",
 			url:"https://api.speaka.live/api/file/myFile",
@@ -47,7 +47,7 @@ $(function(){
 			success: function success(data) {
 				console.log(data);
 				if(data.code==200){
-					$('.weekly_main').html('')
+					$('.weekly_main div').remove()
 					for(var i=0;i<data.data.length;i++){
 						if(data.data.length>=2){
 							$('html').css({'height':'auto'})

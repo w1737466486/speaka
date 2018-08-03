@@ -16,10 +16,17 @@ $(function(){
 	var month_num=weekly_url.month_num;
 	console.log(comm_id+'-----'+weeks_num+'-----'+month_num);
 	console.log(typeof(month_num));
+	if(weekly_url.isShare){
+		$('.weekly_share').hide()
+		$('.weekly_bg').css({
+			'margin-bottom': '20px'
+		})
+	}
 		token = 'Bearer ' + weekly_url.token;
 		console.log(token);
 		//获取周报详情表
 		if(typeof(weeks_num)!='undefined'){
+			$('title').html('我的周报');
 			$.ajax({
 				type:"get",
 				url:"https://api.speaka.live/api/file/getWeekly",
@@ -36,7 +43,7 @@ $(function(){
 					console.log(data)
 					if(data.code==200){
 						$('body,html').css({'height':'auto'});
-						$('.weekly_bg').css({'margin-bottom':'80px'});
+						//$('.weekly_bg').css({'margin-bottom':'80px'});
 						if(weeks_num==1){
 							$('.weekly_main>p').eq(0).html(data.data.eng+' 第一次周报');
 						}
@@ -92,8 +99,8 @@ $(function(){
 							var _obj = {};
 							_obj.title = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
 							_obj.desc = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
-							_obj.share_url =location.href;
-							//alert(JSON.stringify(_obj))
+							_obj.share_url =location.href+'&isShare=true';
+							alert(JSON.stringify(_obj))
 							if (window.webkit) {
 								window.webkit.messageHandlers.weeklyClick.postMessage(JSON.stringify(_obj));
 							} else {
@@ -109,6 +116,8 @@ $(function(){
 		}
 		//获取月报详情表
 		if(typeof(month_num)!='undefined'){
+			$('title').html('我的月报');
+			$('.weekly_bg>img').attr('src','../img/月报.png')
 			$('.weekly_bg .weekly_box').css({
 				'height':'80%'
 			});
@@ -141,7 +150,7 @@ $(function(){
 							var _obj = {};
 							_obj.title = '我在speak.a参加《'+data.data.eng+'》课程，总共学会了'+data.data.wordTotal+'个英文单词';
 							_obj.desc = '我在speak.a参加《'+data.data.eng+'》课程，总共学会了'+data.data.wordTotal+'个英文单词';
-							_obj.share_url =location.href;
+							_obj.share_url =location.href+'&isShare=true';
 							//alert(JSON.stringify(_obj))
 							if (window.webkit) {
 								window.webkit.messageHandlers.weeklyClick.postMessage(JSON.stringify(_obj));
