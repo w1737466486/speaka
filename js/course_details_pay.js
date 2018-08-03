@@ -21,6 +21,7 @@ $(function () {
 	var u_id=objurl.u_id;
 	var joy_from=objurl.joy_from;
 	coupon_no=objurl.coupon_no;
+	alert(location.href)
 	window.get_token = get_token;
 	//将url参数转对象
 	function queryURL(url) {
