@@ -163,8 +163,39 @@ $(function(){
 		$('.account_rule_box').hide();
 	});
 	//点击转存，弹出打款界面
-	$('.account_foot p').click(function(){
+	$('.v_footer p').eq(0).click(function(){
 		$('.account_zfb_box').show();
+	});
+	$('.v_footer p').eq(1).click(function(){
+		//请求分享链接
+         $.ajax({
+         	type:"get",
+         	url:'https://api.speaka.live/api/joinablegroup/0',
+         	//url:'../json/tuijian.json',
+         	async:true,
+         	success:function(data){
+         		console.log(data);
+         		if(data.code==200&&data.data.length>0){
+         			var obj = {};
+					obj.title = '【每天仅需1.99】跟着美国家庭学英语，看世界！';
+					obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
+					obj.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id='+data.data[0].commodity_id+'&order_no='+data.data[0].order_no + '&joy_from=' + joy_from;
+					console.log(obj);
+					if (window.webkit) {
+						window.webkit.messageHandlers.orderClick.postMessage(JSON.stringify(obj));
+					} else {
+						androidDetialShare.JsUserDetialShare(JSON.stringify(obj));
+						
+					}
+         		 }else{
+         		  	alert('暂无推荐订单！')
+         		  }
+         		},
+         	error:function(res){
+         		console.log(res);
+         	}
+         });
+				    
 	});
 	$('.account_zfb>p').click(function(){
 		var data={
@@ -216,5 +247,7 @@ $(function(){
 	});
 	$('.account_zfb_top').click(function(){
 		$('.account_zfb_box').hide();
+		$('.account_zfb_id input').val('');
+		$('.account_zfb_name input').val('');
 	});
 });
