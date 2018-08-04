@@ -259,7 +259,7 @@ $(function () {
 			async: false,
 			success: function success(data) {
 				console.log(data);
-				$('.calendar_detail>p').html('详情');
+				$('.calendar_detail>p').html('');
 				for (var _i2 = 0; _i2 < data.info.lessons.length; _i2++) {
 					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[_i2].name + '</p><p>' + data.info.lessons[_i2].begin_at + '~' + data.info.lessons[_i2].end_at + '</p><span></span></div>');
 					$('.calendar_detail div').attr('lesson_id', data.info.lessons[_i2].lesson_id);
@@ -402,7 +402,7 @@ $(function () {
 			async: false,
 			success: function success(data) {
 				console.log(data);
-				$('.calendar_detail>p').html('详情');
+				$('.calendar_detail>p').html('');
 				for (var _i5 = 0; _i5 < data.info.lessons.length; _i5++) {
 					$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[_i5].name + '</p><p>' + data.info.lessons[_i5].begin_at + '~' + data.info.lessons[_i5].end_at + '</p><span></span></div>');
 					$('.calendar_detail div').attr('lesson_id', data.info.lessons[_i5].lesson_id);
@@ -551,7 +551,7 @@ $(function () {
 				success: function success(data) {
 					console.log(data);
 
-					$('.calendar_detail>p').html('详情');
+					$('.calendar_detail>p').html('');
 					for (var i = 0; i < data.info.lessons.length; i++) {
 						$('.calendar_detail').append('<div lesson_id=' + data.info.lessons[i].lesson_id + '><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 						$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id);
@@ -649,7 +649,7 @@ $(function () {
 					async: false,
 					success: function success(data) {
 						console.log(data);
-						$('.calendar_detail>p').html('详情');
+						$('.calendar_detail>p').html('');
 						for (var i = 0; i < data.info.lessons.length; i++) {
 							$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 							$('.calendar_detail div').attr('lesson_id', data.info.lessons[i].lesson_id);
