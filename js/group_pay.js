@@ -22,6 +22,7 @@ $(function () {
 		})
 	}else{
 		$('#course_progress').hide();
+		$('title').html('课程详情')
 	}
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
