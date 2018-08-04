@@ -182,10 +182,9 @@ $(function(){
 					obj.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id='+data.data[0].commodity_id+'&order_no='+data.data[0].order_no + '&joy_from=' + joy_from;
 					console.log(obj);
 					if (window.webkit) {
-						window.webkit.messageHandlers.orderClick.postMessage(JSON.stringify(obj));
+						window.webkit.messageHandlers.toShare.postMessage(JSON.stringify(obj));
 					} else {
-						androidDetialShare.JsUserDetialShare(JSON.stringify(obj));
-						
+						androidToShare.toShare(JSON.stringify(obj));	
 					}
          		 }else{
          		  	alert('暂无推荐订单！')

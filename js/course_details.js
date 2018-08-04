@@ -241,7 +241,7 @@ $(function () {
     	                 	success:function(data){
     	                 		console.log(data);
     	                 		if(data.code==200&&data.data.length>0){
-    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+commodity_id+'&order_no='+data.data[0].order_no + '&joy_from=' + joy_from;
+    	                 			window.location.href='https://h5.speaka.live/front/html/group_pay.html?commodity_id='+ commodity_id + '&order_no='+data.data[0].order_no + '&u_id=' + u_id + '&joy_from=' + joy_from;
     	                 		  }else{
     	                 		  	alert('暂无推荐订单！')
     	                 		  }
