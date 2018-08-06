@@ -33,6 +33,8 @@ $(function () {
 						$('.share_wxhead img').attr('src',data.data[u_id].head_wx);
 					}
 					$('.share_dec p b').eq(1).html(data.data[u_id].name);
+				}else{
+					$('.share_dec').hide();
 				}
 			},
 			error:function(res){
