@@ -186,13 +186,13 @@ $(function () {
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_footer').hide();
 							$('.buy_success').show();
+//							$('.buy_success .buy_pay p').eq(0).click(function(){
+//								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
+//							});
 							$('.buy_success .buy_pay p').eq(0).click(function(){
-								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-							});
-							$('.buy_success .buy_pay p').eq(1).click(function(){
 								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token;
 							});
-							$('.buy_success .buy_pay p').eq(2).click(function(){
+							$('.buy_success .buy_pay p').eq(1).click(function(){
 								if (window.webkit) {
 									window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
 								} else {
