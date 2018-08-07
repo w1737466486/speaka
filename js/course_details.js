@@ -278,11 +278,13 @@ $(function () {
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			var X=$('.course_nav').offset().top;
 			var Y=$('.nav_video').height();
-			console.log(sTop+'---------'+X+'------'+Y)
+			console.log(sTop+'---------'+X+'------'+Y);
 			if(sTop>Y){
-				$('.course_nav').css({'position':'fixed'})
+				$('.course_nav').css({'position':'fixed'});
+				$('.v_img').css({'margin-top':'44px'});
 			}else{
-				$('.course_nav').css({'position':'relative'})
+				$('.course_nav').css({'position':'relative'});
+				$('.v_img').css({'margin-top':'0'});
 			}
 			if(sTop>50){
 				$('.v_footer').css({'opacity': '0.4','display': 'block'});
@@ -352,7 +354,7 @@ $(function () {
 	}
 
 	if (isWeiXin()) {
-		$.post("https://api.speaka.live/api/wxconfig", {
+		$.post("https://api.speaka.live/api/weChat/wxconfig", {
 			location: window.location.href
 		}, function (data) {
 			console.log(data);

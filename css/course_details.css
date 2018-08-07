@@ -122,7 +122,7 @@ video{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 88px;
+	height: 60px;
 	background: rgba(255,255,255,1);
     box-shadow: 0 0 1px 0 rgba(0,0,0,0.20);
 	transition-duration: 0.5s;
@@ -133,21 +133,15 @@ video{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	display: flex;
-	justify-content:space-around
 }
 .buy_success .buy_pay p{
 	display: inline-block;
 	text-align: center;
-	position: relative;
+	position: absolute;
 	top: 16.4%;
 	overflow: hidden;
-	width: 28%;
-	 border-radius: 4px;
-	height: 67.2%;
-	box-sizing: border-box;
 }
-.buy_success .buy_pay span{
+.buy_success .buy_pay p span{
 	display: inline-block;
 	width: 100%;
 	text-align: center;
@@ -156,31 +150,27 @@ video{
 	left:50%;
 	transform:translate(-50%,-50%);
 }
-.buy_success .buy_pay div{
-	height: 40%;
-}
 .buy_success .buy_pay p:nth-of-type(1){
-	border: 1px solid #999999;
+	width: 44%;
+	height: 44px;
+	left: 4%;
+    border-radius: 4px;
+    background-image: linear-gradient(-135deg, #FEE08C 0%, #FD9823 100%);
 }
 .buy_success .buy_pay p:nth-of-type(1) span{
-	font-size: 18px;
-	color: #333333;
+	font-size: 14px;
+	color: #FFFFFF;
 }
 .buy_success .buy_pay p:nth-of-type(2){
-	border: 1px solid #999999;
+	width: 44%;
+	height: 44px;
+	right: 4%;
+    border-radius: 4px;
+    background-image: linear-gradient(-135deg, #F89595 0%, #E63737 100%);
 }
 .buy_success .buy_pay p:nth-of-type(2) span{
-	font-size: 18px;
-	color: #333333;
-}
-.buy_success .buy_pay p:nth-of-type(3){
-	background: #3AAB87;
-}
-
-.buy_success .buy_pay p:nth-of-type(3) span{
-	font-size: 18px;
+	font-size: 14px;
 	color: #FFFFFF;
-	
 }
 .v_footer{
 	position: fixed;

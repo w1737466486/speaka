@@ -16,10 +16,11 @@ $(function () {
 	var share_dec=true;
 	//判断是否是购买成功的回调
 	if(groupurl.is_pay){	
-		$('.v_nav').hide();
+		//$('.v_nav').hide();
 		$('html').css({
 			'height':'100%'
 		})
+		$('title').html('团购详情')
 	}else{
 		$('#course_progress').hide();
 		$('title').html('课程详情')
@@ -54,14 +55,31 @@ $(function () {
 		});
 	}
 	$('.share_dec').click(function(){
-			if(share_dec){
-				$('.share_dec').css({'right':'0px'});
-				share_dec=false;
-			}else{
-				$('.share_dec').css({'right':'-80px'});
-				share_dec=true;
-			}
-		});
+		if(share_dec){
+			$('.share_dec').css({'right':'0px'});
+			share_dec=false;
+		}else{
+			$('.share_dec').css({'right':'-80px'});
+			share_dec=true;
+		}
+	});
+	setInterval(function(){
+		var sTop=document.documentElement.scrollTop||document.body.scrollTop;
+		var X=$('.v_nav').offset().top;
+		var Y=$('.v_nav').height();
+	    console.log(sTop+'---------'+X+'------'+Y);
+		if(sTop>(X+Y)){
+			$('.course_nav').css({'position':'fixed'});
+			$('.v_img').css({'margin-top':'44px'});
+			$('.v_QA').css({'padding-top':'44px'});
+		}else{
+			$('.course_nav').css({'position':'relative'});
+			$('.v_img').css({'margin-top':'0'});
+			$('.v_QA').css({'padding-top':'0'});
+		}
+	},50)
+	
+	
 	
 	if (isWeiXin()) {
 		if(isbuy_code){
@@ -385,7 +403,7 @@ $(function () {
 		}
 	});
 
-	$.post("https://api.speaka.live/api/wxconfig", {
+	$.post("https://api.speaka.live/api/weChat/wxconfig", {
 		location: window.location.href
 	}, function (data) {
 		console.log(data);
@@ -459,4 +477,18 @@ $(function () {
     $('.group_foot p').eq(0).click(function () {
     	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
     });
+    	$('.course_nav p').eq(1).click(function () {
+		$('.course_nav p').eq(1).find('b').css({ 'display': 'block' });
+		$('.v_img').css({ 'display': 'none' });
+		$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
+		$('.v_QA').css({ 'display': 'block' });
+		//alert('num')
+	});
+	$('.course_nav p').eq(0).click(function () {
+		$('.course_nav p').eq(1).find('b').css({ 'display': 'none' });
+		$('.v_img').css({ 'display': 'block' });
+		$('.course_nav p').eq(0).find('b').css({ 'display': 'block' });
+		$('.v_QA').css({ 'display': 'none' });
+		//alert('group')
+	});
 });
