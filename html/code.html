@@ -21,6 +21,7 @@
 				return obj;
 			}
 			var code=queryURL(location.href).code
+			console.log(code)
 			if(code){
 				console.log(code)
 				//window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?a=true')+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
