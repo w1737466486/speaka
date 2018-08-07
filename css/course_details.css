@@ -255,6 +255,12 @@ video{
 	margin-bottom: 20px;
 	background: #FFFFFF;
 }
+.v_QA span{
+	display: block;
+}
+.v_QA p{
+	line-height: 30px;
+}
 h4{
 	margin: 30px 0 10px 0;
 }
@@ -405,7 +411,7 @@ h4{
 .dialog .dialog_box{
 	position: absolute;
 	width: 92%;
-	height: 40.2%;
+	height: 295px;
 	background: #FFFFFF;
     border-radius: 10px;
 	top: 50%;
@@ -415,7 +421,7 @@ h4{
 .dialog .dialog_box div {
 	text-align: center;
 	width: 94%;
-	height: 40.5%;
+	height: 120px;
 	margin: 0 auto;
 }
 .dialog .dialog_box p{
@@ -447,12 +453,13 @@ h4{
 }
 
 .dialog .dialog_box div:nth-of-type(1){
-	margin-top: 4.75%;
+	margin-top: 20px;
+	margin-bottom: 15px;
 	background-image: linear-gradient(-135deg, #F89595 0%, #E63737 100%);
     border-radius: 4px;
 }
 .dialog .dialog_box div:nth-of-type(2){
-	margin-top: 4.75%;
+	margin-bottom: 20px;
 	background-image: linear-gradient(-135deg, #FEE08C 0%, #FD9823 100%);
     border-radius: 4px;
 }

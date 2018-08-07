@@ -205,6 +205,7 @@ $(function () {
 						console.log(res);
 					}
 				});
+				
 				var curr_time = getNowFormatDate();
 				var last_time = data.begin_time;
 				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
@@ -261,6 +262,10 @@ $(function () {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id + '&u_id='+u_id + '&joy_from=' + joy_from;
 						}
 				    });
+				    //点击其他地方隐藏弹窗
+				    $('.dialog').click(function(){
+				    	$('.dialog').hide();
+				    })
 /*					$('.v_pay p').eq(1).click(function () {
 						if (isWeiXin()) {
 							window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
@@ -282,9 +287,11 @@ $(function () {
 			if(sTop>Y){
 				$('.course_nav').css({'position':'fixed'});
 				$('.v_img').css({'margin-top':'44px'});
+				$('.v_QA span').css({'height':'44px'});
 			}else{
 				$('.course_nav').css({'position':'relative'});
 				$('.v_img').css({'margin-top':'0'});
+				$('.v_QA span').css({'height':'0px'});
 			}
 			if(sTop>50){
 				$('.v_footer').css({'opacity': '0.4','display': 'block'});
