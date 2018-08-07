@@ -100,7 +100,7 @@ $(function(){
 							_obj.title = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
 							_obj.desc = '我在speak.a参加《'+data.data.eng+'》课程第'+weeks_num+'周，总共学会了'+data.data.wordCard+'个英文单词';
 							_obj.share_url =location.href+'&isShare=true';
-							alert(JSON.stringify(_obj))
+							//alert(JSON.stringify(_obj))
 							if (window.webkit) {
 								window.webkit.messageHandlers.weeklyClick.postMessage(JSON.stringify(_obj));
 							} else {
