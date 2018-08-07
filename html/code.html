@@ -9,14 +9,25 @@
 	</body>
 	<script type="text/javascript">
 		$(function(){
-			var a=location.href.split('?')[1].substr(2);
-			if(!a){
+			//将url参数转对象
+			function queryURL(url) {
+				var arr1 = url.split("?");
+				var params = arr1[1].split("&"); //进行分割成数组
+				var obj = {};
+				for (var i = 0; i < params.length; i++) {
+					var param = params[i].split("="); //进行分割成数组
+					obj[param[0]] = param[1]; //为对象赋值
+				}
+				return obj;
+			}
+			var code=queryURL(location.href).code
+			if(code){
+				console.log(code)
+				//window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?a=true')+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+			}else{
 				window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?a=true')+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 			
-				}else{
-					console.log(a)
-				    console.log(window.location.href)
-				}
+			}
 			
 		})
 	</script>
