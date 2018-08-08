@@ -14,6 +14,10 @@ body{
 	width: 100%;
 	font-family: Roboto,Open Sans,Helvetica,Arial;
 }
+@font-face {  
+ font-family: RifficFree-Bold;  
+ src: url(../font/RifficFree-Bold.ttf)
+} 
 img{
 	outline-width:0px;  
     vertical-align:top; 
@@ -199,6 +203,7 @@ video{
 .v_footer .v_pay span{
 	display: inline-block;
 	text-align: center;
+	height: 32px;
 	position: absolute;
 	top:50%;
 	left:50%;

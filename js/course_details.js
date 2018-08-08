@@ -175,8 +175,8 @@ $(function () {
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
-				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');
+				$('.v_footer .v_pay span').eq(0).html('<div>¥' + data.price / 100 + '</div><b>单人购</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');
 				$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,

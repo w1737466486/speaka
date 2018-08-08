@@ -1,24 +1,14 @@
 $(function() {
-	console.log(123);
-	var word=null;
-	$('.form p b').click(function(){
-		word=$('.form p input').val();
 		$.ajax({
-		type:"get",
+		type:"post",
 		dataType: 'JSON',
 		//url:'../json/word.json',
-		url:"https://api.speaka.live/api/q?word="+word,
+		url:"http://106.14.3.202:8091/dynamic/ctrl/findAllUserDynamic",
 		async:true,
 		success:function(data){
-			console.log(data);
-			if(data.status==1){
-				$('.content p').eq(0).html(data.w.phonetic);
-				var rep=data.w.translation.replace(/\\n/g,'<br/>');
-				$('.content p').eq(1).html(rep);
-			}else{
-				alert('查无此词，请重新输入！');
-				$('.content p').eq(0).html('');
-				$('.content p').eq(1).html('');
+			console.log(data.data.listdata);
+			for(var i=0;i<data.data.listdata.length;i++){
+				console.log(data.data.listdata[i].dynamic.photo.split(','))
 			}
 			
 		},
@@ -26,11 +16,10 @@ $(function() {
 				console.log(res);
 		}
 	});
-	});
 
 });
 
-const app = getApp();
+/*const app = getApp();
 
 const baseUrl = "https://app.sfys365.xyz/"; //设置基础url
 let requestPayment = {
@@ -120,4 +109,4 @@ if (res.statusCode == 200 && res.data.status == 99999) {
 wx.removeStorageSync("userInfo");
 wx.removeStorageSync("token");
 app.globalData.userInfo = null;
-app.globalData.
+app.globalData.*/

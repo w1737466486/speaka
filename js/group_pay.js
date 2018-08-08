@@ -77,6 +77,26 @@ $(function () {
 			$('.v_img').css({'margin-top':'0'});
 			$('.v_QA').css({'padding-top':'0'});
 		}
+		if(sTop>450){
+			$(".v_wx").css({
+			'opacity':'0.6'
+			})
+		}
+		if(sTop>750){
+			$(".v_wx").css({
+			'opacity':'0.4'
+			})
+		}
+		if(sTop>900){
+			$(".v_wx").css({
+			'opacity':'0.2'
+			})
+		}
+		if(sTop<750){
+			$(".v_wx").css({
+			'opacity':'1'
+			})
+		}	
 	},50)
 	
 	
@@ -178,8 +198,8 @@ $(function () {
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
-			$('.group_foot p span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-			$('.group_foot p span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');	
+			$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
+			$('.group_foot p span').eq(1).html('<div>¥ ' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');	
 			$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
