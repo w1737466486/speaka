@@ -6,9 +6,9 @@ $(function () {
 	var back_url = location.href.split('?')[1];
 	console.log(back_url);
 	var isbuy_code=queryURL(location.href).code;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 'd5d8/6URnUjUyS7z9qU+/n0NBrVVM054dfAaItbuh3oT';
 		$.ajax({
 			type: 'get',
 			dataType: 'JSON',
@@ -19,25 +19,29 @@ $(function () {
 				request.setRequestHeader("Authorization", token);
 			},
 			success: function success(data) {
-				console.log("成功获取数据", data.info);
-				for (var i = 0; i < data.info.length; i++) {
-					$('.coupon').append('<li coupon_no="' + data.info[i].coupon_no + '">\n\t\t\t\t\t<div class="coupon_left">\n\t\t\t\t\t\t<div class="coupon_price">\n\t\t\t\t\t\t\t<strong>' + data.info[i].price + '</strong>\n\t\t\t\t\t\t\t<span>\u5143</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="use_time">\n\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="coupon_right">\n\t\t\t\t\t\t<div>\u6EE1\u51CF\u5238</div>\n\t\t\t\t\t\t<div>\u6EE1&nbsp;<span>' + data.info[i].required_price + '</span>&nbsp;\u53EF\u7528</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>');
-
-					if (data.info[i].usable_start_at != null || data.info[i].usable_end_at != null) {
-						console.log("有限时间");
-						var start_year = data.info[i].usable_start_at.substr(0, 4) + "年";
-						var start_month = data.info[i].usable_start_at.substr(5, 2) + "月";
-						var start_day = data.info[i].usable_start_at.substr(8, 2) + "日";
-						var end_year = data.info[i].usable_end_at.substr(0, 4) + "年";
-						var end_month = data.info[i].usable_end_at.substr(5, 2) + "月";
-						var end_day = data.info[i].usable_end_at.substr(8, 2) + "日";
-						$('.use_time').eq(i).html('有效期：' + start_year + start_month + start_day + '-' + end_year + end_month + end_day);
+				if(data.status==1){
+					console.log("成功获取数据", data.info);
+					for (var i = 0; i < data.info.length; i++) {
+						$('.coupon').append('<li coupon_no="' + data.info[i].coupon_no + '">\n\t\t\t\t\t<div class="coupon_left">\n\t\t\t\t\t\t<div class="coupon_price">\n\t\t\t\t\t\t\t<strong>' + data.info[i].price + '</strong>\n\t\t\t\t\t\t\t<span>\u5143</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="use_time">\n\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="coupon_right">\n\t\t\t\t\t\t<div>\u6EE1\u51CF\u5238</div>\n\t\t\t\t\t\t<div>\u6EE1&nbsp;<span>' + data.info[i].required_price + '</span>&nbsp;\u53EF\u7528</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>');
+						if (data.info[i].usable_start_at != null || data.info[i].usable_end_at != null) {
+							console.log("有限时间");
+							var start_year = data.info[i].usable_start_at.substr(0, 4) + "年";
+							var start_month = data.info[i].usable_start_at.substr(5, 2) + "月";
+							var start_day = data.info[i].usable_start_at.substr(8, 2) + "日";
+							var end_year = data.info[i].usable_end_at.substr(0, 4) + "年";
+							var end_month = data.info[i].usable_end_at.substr(5, 2) + "月";
+							var end_day = data.info[i].usable_end_at.substr(8, 2) + "日";
+							$('.use_time').eq(i).html('有效期：' + start_year + start_month + start_day + '-' + end_year + end_month + end_day);
+						}
+						if (data.info[i].usable_start_at == null && data.info[i].usable_end_at == null) {
+							$('.use_time').eq(i).append('\u65E0\u9650\u671F\u4F7F\u7528');
+							console.log('可无限使用');
+						}
 					}
-					if (data.info[i].usable_start_at == null && data.info[i].usable_end_at == null) {
-						$('.use_time').eq(i).append('\u65E0\u9650\u671F\u4F7F\u7528');
-						console.log('可无限使用');
-					}
+				}else if(data.status==-1){
+					alert('请登录后重试！')
 				}
+				
 			},
 			error: function error(res) {
 				console.log(res);
