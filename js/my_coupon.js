@@ -6,9 +6,9 @@ $(function () {
 	var back_url = location.href.split('?')[1];
 	console.log(back_url);
 	var isbuy_code=queryURL(location.href).code;
-	get_token();
+	//get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + 'd5d8/6URnUjUyS7z9qU+/n0NBrVVM054dfAaItbuh3oT';
+		token = 'Bearer ' + _results;
 		$.ajax({
 			type: 'get',
 			dataType: 'JSON',

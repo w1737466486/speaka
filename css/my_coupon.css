@@ -15,6 +15,9 @@ img{
 	outline-width:0px;  
     vertical-align:top; 
 }
+.my_coupon{
+	padding-top: 20px;
+}
 .coupon{
     width: 100%;
     height:auto;
