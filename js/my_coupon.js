@@ -5,6 +5,7 @@ $(function () {
 	var token = null;
 	var back_url = location.href.split('?')[1];
 	console.log(back_url);
+	var isbuy_code=queryURL(location.href).code;
 	//get_token();
 	function get_token(_results) {
 		token = 'Bearer ' + _results;
@@ -43,34 +44,50 @@ $(function () {
 			}
 		});
 	}
-	$.ajax({
-	    type: 'HEAD', // 获取头信息，type=HEAD即可
-	    url : window.location.href,
-	    //url:"http://device.qq.com/cgi-bin/device_cgi/remote_bind_get_Verify",
-	    complete: function( xhr,data ){
-	        // 获取相关Http Response header
-	        var wpoInfo = {
-	            // 服务器端时间
-	            "date" : xhr.getResponseHeader('Date'),
-	            // 如果开启了gzip，会返回这个东西
-	            "contentEncoding" : xhr.getResponseHeader('Content-Encoding'),
-	            // keep-alive ？ close？
-	            "connection" : xhr.getResponseHeader('Connection'),
-	            // 响应长度
-	            "contentLength" : xhr.getResponseHeader('content-length'),
-	            // 服务器类型，apache？lighttpd？
-	            "server" : xhr.getResponseHeader('Server'),
-	            "vary" : xhr.getResponseHeader('Vary'),
-	            "transferEncoding" : xhr.getResponseHeader('Transfer-Encoding'),
-	            // text/html ? text/xml?
-	            "contentType" : xhr.getResponseHeader('Content-Type'),
-	            "cacheControl" : xhr.getResponseHeader('Cache-Control'),
-	            // 生命周期？
-	            "exprires" : xhr.getResponseHeader('Exprires'),
-	            "lastModified" : xhr.getResponseHeader('Last-Modified')
-	        };
-	        console.log(xhr.getAllResponseHeaders());
-	        console.log(wpoInfo)
-	    }
-	});
+	//判断是否是微信浏览器
+	function isWeiXin() {
+		var ua = window.navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	//将url参数转对象
+	function queryURL(url) {
+		var arr1 = url.split("?");
+		var params = arr1[1].split("&"); //进行分割成数组
+		var obj = {};
+		for (var i = 0; i < params.length; i++) {
+			var param = params[i].split("="); //进行分割成数组
+			obj[param[0]] = param[1]; //为对象赋值
+		}
+		return obj;
+	}
+	
+	if (isWeiXin()) {
+		if(isbuy_code){
+			$.ajax({
+				type:"get",
+				url:"https://api.speaka.live/api/commoditybuy/1"+'?code='+isbuy_code,
+				async:false,
+				success:function(res){
+					console.log(res);
+					token=res.token;
+					 if(!res.token){
+					 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+					 }else{
+					 	token=res.token;
+					 }
+				},
+				error:function(res){
+					console.log(res);
+				}
+		  });
+		  console.log(token);
+		  get_token(token);
+	   }else{
+		  window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+	  }
+	}
 });
