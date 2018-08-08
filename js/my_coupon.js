@@ -43,4 +43,34 @@ $(function () {
 			}
 		});
 	}
+	$.ajax({
+	    type: 'HEAD', // 获取头信息，type=HEAD即可
+	    url : window.location.href,
+	    //url:"http://device.qq.com/cgi-bin/device_cgi/remote_bind_get_Verify",
+	    complete: function( xhr,data ){
+	        // 获取相关Http Response header
+	        var wpoInfo = {
+	            // 服务器端时间
+	            "date" : xhr.getResponseHeader('Date'),
+	            // 如果开启了gzip，会返回这个东西
+	            "contentEncoding" : xhr.getResponseHeader('Content-Encoding'),
+	            // keep-alive ？ close？
+	            "connection" : xhr.getResponseHeader('Connection'),
+	            // 响应长度
+	            "contentLength" : xhr.getResponseHeader('content-length'),
+	            // 服务器类型，apache？lighttpd？
+	            "server" : xhr.getResponseHeader('Server'),
+	            "vary" : xhr.getResponseHeader('Vary'),
+	            "transferEncoding" : xhr.getResponseHeader('Transfer-Encoding'),
+	            // text/html ? text/xml?
+	            "contentType" : xhr.getResponseHeader('Content-Type'),
+	            "cacheControl" : xhr.getResponseHeader('Cache-Control'),
+	            // 生命周期？
+	            "exprires" : xhr.getResponseHeader('Exprires'),
+	            "lastModified" : xhr.getResponseHeader('Last-Modified')
+	        };
+	        console.log(xhr.getAllResponseHeaders());
+	        console.log(wpoInfo)
+	    }
+	});
 });
