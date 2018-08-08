@@ -207,8 +207,6 @@ $(function () {
 					success:function(res){
 						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
-							//$('.v_nav').hide();
-							$('.v_nav').css({'height':'100%'})
 							$('#course_progress').show();
 							$('html').css({'height':'100%'});
 							$('.group_foot').hide();
@@ -412,7 +410,7 @@ $(function () {
 				if (remain_time > 0 && data.group.length ==2){
 					$('.group_head p').eq(0).html('还差<i>1</i>人成团');
 				}
-				if (remain_time > 0 && data.group.length <= 10) {
+				if (remain_time > 0 && data.group.length < 10) {
 					$('.group_foot p').eq(1).click(function () {
 						window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&joy_from=' + joy_from ;
 					});
