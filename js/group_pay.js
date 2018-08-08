@@ -207,7 +207,8 @@ $(function () {
 					success:function(res){
 						console.log(res);
 						if(res.code==403||res.code==404||res.code==405){
-							$('.v_nav').hide();
+							//$('.v_nav').hide();
+							$('.v_nav').css({'height':'100%'})
 							$('#course_progress').show();
 							$('html').css({'height':'100%'});
 							$('.group_foot').hide();
