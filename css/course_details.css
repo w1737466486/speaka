@@ -378,7 +378,7 @@ h4{
 	/*display: none;*/
 	top: 58%;
 	right: 2.7%;
-	height: 110px;
+	height: 115px;
 	width: 80px;
 	background: rgba(0,0,0,0.60);
     border-radius: 2px;
@@ -406,7 +406,7 @@ h4{
 }
 .v_wx b i{
 	font-style: normal;
-	font-size: 8px;
+	font-size: 10px;
 }
 .dialog{
 	display: none;

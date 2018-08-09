@@ -310,13 +310,13 @@ $(function () {
 								//alert(JSON.stringify(res))
 									//微信单人
 									if (objurl.type_id == 11) {
-								       $('.course_pay>div').remove()
-								       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
-								       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
-								       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
-								       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
-								       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
-								       $('.only_pay').show()
+								       $('.course_pay>div').remove();
+								       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png');
+								       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>');
+								       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>');
+								       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功');
+								       $('.course_progress span').eq(1).find('i').eq(1).html('  ');
+								       $('.only_pay').show();
 								       $('.only_pay span').click(function(){
 									       	if (window.webkit) {
 												window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
@@ -335,9 +335,9 @@ $(function () {
 				//通过error接口处理失败验证
 				wx.error(function (res) {
 					// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-					$('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_error.png')
-	                $('.course_progress span').eq(1).find('i').eq(0).html('支付失败')
-	                $('.wx_pay span').eq(1).find('b').html('重新支付')
+					$('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_error.png');
+	                $('.course_progress span').eq(1).find('i').eq(0).html('支付失败');
+	                $('.wx_pay span').eq(1).find('b').html('重新支付');
 					//window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id;
 					console.log(res);
 				});
@@ -356,12 +356,12 @@ $(function () {
 							//微信单人
 							if (objurl.type_id == 11) {
 						       $('.course_pay>div').remove()
-						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
-						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
-						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
-						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
-						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
-						       $('.only_pay').show()
+						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png');
+						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>');
+						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>');
+						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功');
+						       $('.course_progress span').eq(1).find('i').eq(1).html('  ');
+						       $('.only_pay').show();
 						       $('.only_pay span').click(function(){
 							       	if (window.webkit) {
 										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';

@@ -414,7 +414,7 @@ h4{
 	font-size: 18px;
 	color: #FFFFFF;
 	position: absolute;
-	top:20px;
+	top:18px;
 	left:50%;
 	transform:translate(-50%,-50%);
 }
@@ -423,7 +423,7 @@ h4{
 	font-size: 12px;
 	color: #FFFFFF;
 	position: absolute;
-	bottom:2px;
+	bottom:0px;
 	left:50%;
 	transform:translate(-50%,-50%);
 }
@@ -457,14 +457,14 @@ h4{
 	font-size: 18px;
 	color: #FFFFFF;
 	position: absolute;
-	top:20px;
+	top:18px;
 	left:50%;
 	transform:translate(-50%,-50%);
 }
 .group_foot p:nth-of-type(2) span b{
 	font-size: 12px;
 	position: absolute;
-	bottom:2px;
+	bottom:0px;
 	left:50%;
 	transform:translate(-50%,-50%);
 }
@@ -691,7 +691,7 @@ h4{
 	/*display: none;*/
 	top: 58%;
 	right: 2.7%;
-	height: 110px;
+	height: 115px;
 	width: 80px;
 	background: rgba(0,0,0,0.60);
     border-radius: 2px;
@@ -719,7 +719,7 @@ h4{
 }
 .v_wx b i{
 	font-style: normal;
-	font-size: 8px;
+	font-size: 10px;
 }
 .dialog{
 	display: none;
