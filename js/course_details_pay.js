@@ -537,7 +537,7 @@ $(function () {
 					obj_pay.timestamp = data.data.pay_config.timestamp;
 					obj_pay.sign = data.data.pay_config.sign;
 					obj_pay.order_no = data.data.order_no;
-					obj_pay.shareurl='https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';	
+					//obj_pay.shareurl='https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';	
 					if (isAndroid_ios()) {
 						//安卓  
 						androidpay.androidWechatPay(JSON.stringify(obj_pay));
@@ -552,12 +552,12 @@ $(function () {
 							//微信单人
 							if (objurl.type_id == 21) {
 						       $('.course_pay>div').remove()
-						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png')
-						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>')
-						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>')
-						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功')
-						       $('.course_progress span').eq(1).find('i').eq(1).html('  ')
-						       $('.only_pay').show()
+						       $('.course_progress span').eq(0).find('i').eq(0).find('img').attr('src','../img/pay_success.png');
+						       $('.course_progress span').eq(0).find('i').eq(1).html('<img src="../img/pay_success.png"/>');
+						       $('.course_progress span').eq(0).find('i').eq(2).html('<img src="../img/pay_click.png"/>');
+						       $('.course_progress span').eq(1).find('i').eq(0).html('支付成功');
+						       $('.course_progress span').eq(1).find('i').eq(1).html('  ');
+						       $('.only_pay').show();
 						       $('.only_pay span').click(function(){
 							       	if (window.webkit) {
 										window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
@@ -569,8 +569,7 @@ $(function () {
 						//微信团购
 						if (objurl.type_id == 22) {
 								window.location.href = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';				
-						}
-									
+						}			
 					}
 					if (data.code == 401) {
 							alert('课程状态异常！');
