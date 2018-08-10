@@ -537,6 +537,7 @@ $(function () {
 					obj_pay.timestamp = data.data.pay_config.timestamp;
 					obj_pay.sign = data.data.pay_config.sign;
 					obj_pay.order_no = data.data.order_no;
+					obj_pay.shareurl='https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + data.data.order_no + '&joy_from=' + joy_from + '&is_pay=success';	
 					if (isAndroid_ios()) {
 						//安卓  
 						androidpay.androidWechatPay(JSON.stringify(obj_pay));
