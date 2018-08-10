@@ -171,7 +171,6 @@ $(function(){
          $.ajax({
          	type:"get",
          	url:'https://api.speaka.live/api/joinablegroup/0',
-         	//url:'../json/tuijian.json',
          	async:true,
          	success:function(data){
          		console.log(data);
@@ -193,8 +192,7 @@ $(function(){
          	error:function(res){
          		console.log(res);
          	}
-         });
-				    
+         });		    
 	});
 	$('.account_zfb>p').click(function(){
 		var data={
@@ -217,7 +215,6 @@ $(function(){
         	$.ajax({
             type: "POST",
             url:"https://api.speaka.live/api/u/commision/draw",
-            //url: "http://dev.speaka.cn/api/u/commision/draw",
             data: data,
             dataType: "json",
             beforeSend: function beforeSend(request) {
