@@ -446,9 +446,9 @@ $(function () {
 
 				    menuList: ['menuItem:copyUrl'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
 				
-
+				});
 				wx.onMenuShareAppMessage({
-					title: '【每天仅需1.99】跟着美国家庭学英语，看世界!', // 分享标题    
+					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
 					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
