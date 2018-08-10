@@ -6,21 +6,17 @@ $(function () {
 	//app端业务逻辑，接收token，根据ios和android传过来的token调取get_token函数渲染界面
 	//get_token();
 	function get_token(_results) {
-		//console.log(_results)
 		token = 'Bearer ' + _results;
 		$.ajax({
 			type: 'post',
 			dataType: 'JSON',
 			async: true,
-			//url: "../json/my_order.json",
 			url: 'https://api.speaka.live/api/u/orders',
 			beforeSend: function beforeSend(request) {
 				request.setRequestHeader("Authorization", token);
 			},
 			success: function success(data) {
-				//console.log("成功获取数据",data.info);
 				for (var i = 0; i < data.info.length; i++) {
-					//console.log(data.info[i].order_no);
 					if (data.info[i].type_id == 0) {
 						if (data.info[i].state == 0) {
 							$('.single_orders').append('<li>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u7F16\u53F7\uFF1A</span>\n\t\t                        <span class="order_no">' + data.info[i].order_no + '</span>\n\t\t                        <em class="mark" style="color: #999999">\u672A\u652F\u4ED8 </em>\n\t\t                    </p>\n\t\t                    <p class="xuxian"></p>\n\t\t                    <p>\n\t\t                        <span>\u5546\u54C1\u540D\u79F0\uFF1A</span>\n\t\t                        <span class="order_name"><a href="https://h5.speaka.live/front/html/course_details.html?commodity_id='+data.info[i].commodity_id+'">' + data.info[i].name + '</a></span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u4E0B\u5355\u65F6\u95F4\uFF1A</span>\n\t\t                        <span class="order_time">' + data.info[i].created_at + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u91D1\u989D\uFF1A</span>\n\t\t                        <span class="price"><em>\uFFE5</em>' + data.info[i].price + '</span>  \n\t\t                    </p>\n\t\t                </li>');
@@ -46,9 +42,7 @@ $(function () {
 				}
 				//已成团订单是否显示分享按钮
 				for(var j=0;j<$('.group_orders li').length;j++){
-					//console.log($('.group_orders li').eq(j).attr('has_share_url'))
 					if($('.group_orders li').eq(j).attr('has_share_url')==0){
-						//console.log($('.group_orders li').eq(j).find('p').eq(6).html())
 						$('.group_orders li').eq(j).find('p').eq(6).find('b').css({
 							'display':'none'
 						});
@@ -105,7 +99,6 @@ $(function () {
 				type: 'post',
 				dataType: 'JSON',
 				async: true,
-				//url: "../json/my_order.json",
 				url: 'https://api.speaka.live/api/u/orders',
 				beforeSend: function beforeSend(request) {
 					request.setRequestHeader("Authorization", token);
@@ -113,7 +106,6 @@ $(function () {
 				success: function success(data) {
 					console.log("成功获取数据",data.info);
 					for (var i = 0; i < data.info.length; i++) {
-					//console.log(data.info[i].order_no);
 					if (data.info[i].type_id == 0) {
 						if (data.info[i].state == 0) {
 							$('.single_orders').append('<li>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u7F16\u53F7\uFF1A</span>\n\t\t                        <span class="order_no">' + data.info[i].order_no + '</span>\n\t\t                        <em class="mark" style="color: #999999">\u672A\u652F\u4ED8 </em>\n\t\t                    </p>\n\t\t                    <p class="xuxian"></p>\n\t\t                    <p>\n\t\t                        <span>\u5546\u54C1\u540D\u79F0\uFF1A</span>\n\t\t                        <span class="order_name"><a href="https://h5.speaka.live/front/html/course_details.html?commodity_id='+data.info[i].commodity_id+'">' + data.info[i].name + '</a></span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u4E0B\u5355\u65F6\u95F4\uFF1A</span>\n\t\t                        <span class="order_time">' + data.info[i].created_at + '</span>\n\t\t                    </p>\n\t\t                    <p>\n\t\t                        <span>\u8BA2\u5355\u91D1\u989D\uFF1A</span>\n\t\t                        <span class="price"><em>\uFFE5</em>' + data.info[i].price + '</span>  \n\t\t                    </p>\n\t\t                </li>');
@@ -139,9 +131,7 @@ $(function () {
 				}
 					//已成团订单是否显示分享按钮
 					for(var j=0;j<$('.group_orders li').length;j++){
-						//console.log($('.group_orders li').eq(j).attr('has_share_url'))
 						if($('.group_orders li').eq(j).attr('has_share_url')==0){
-							//console.log($('.group_orders li').eq(j).find('p').eq(6).html())
 							$('.group_orders li').eq(j).find('p').eq(6).find('b').css({
 								'display':'none'
 							});
@@ -157,7 +147,6 @@ $(function () {
 					console.log(res);
 				}
 			});
-	
 		}
 	}
 	$('.order_nav p').eq(1).click(function () {
@@ -165,13 +154,11 @@ $(function () {
 		$('.group_orders').css({ 'display': 'none' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'none' });
 		$('.single_orders').css({ 'display': 'block' });
-		//alert('num')
 	});
 	$('.order_nav p').eq(0).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'none' });
 		$('.group_orders').css({ 'display': 'block' });
 		$('.order_nav p').eq(0).find('b').css({ 'display': 'block' });
 		$('.single_orders').css({ 'display': 'none' });
-		//alert('group')
 	});
 });

@@ -49,7 +49,7 @@ $(function(){
 				if(data.code==200){
 					$('.weekly_main div').remove()
 					for(var i=0;i<data.data.length;i++){
-						if(data.data.length>=2){
+						if(data.data.length>=1){
 							$('html').css({'height':'auto'})
 						}
 						/*$('.weekly_main').append(`<div class="weekly_li">

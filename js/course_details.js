@@ -13,12 +13,12 @@ $(function () {
 	var joy_from=courseurl.joy_from;
 	var u_id=courseurl.u_id;
 	var share_dec=true;
+	var u_id_new=null;
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
 		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
-			//url:'http://dev.speaka.cn/api/u/head',
 			url:'https://api.speaka.live/api/u/head',
 			data:{
 				id:u_id
@@ -60,6 +60,7 @@ $(function () {
 			success:function(res){
 				console.log(res);
 				order_token=res.token;
+				u_id_new=res.now_uid;
 				 if(!res.token){
 				 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26u_id='+u_id+'%26joy_from='+joy_from+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 				 }else{
@@ -152,6 +153,8 @@ $(function () {
 				$('.v_nav .v_s1').html(data.eng);
 				$('.v_nav .v_s2').html(data.chn);
 				$('.v_nav .nav_video').attr('src', 'https://s.speaka.live/' + data.pic_path);
+				$('.course_nav p').eq(0).html('课程详情<b></b>');
+				$('.course_nav p').eq(1).html('常见Q&A<b></b>');
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
 						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ');
@@ -175,8 +178,8 @@ $(function () {
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
-				$('.v_footer .v_pay span').eq(0).html('<div>￥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>￥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');
+				$('.v_footer .v_pay span').eq(0).html('<div>¥' + data.price / 100 + '</div><b>单人购</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');
 				$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
@@ -186,9 +189,6 @@ $(function () {
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_footer').hide();
 							$('.buy_success').show();
-//							$('.buy_success .buy_pay p').eq(0).click(function(){
-//								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-//							});
 							$('.buy_success .buy_pay p').eq(0).click(function(){
 								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token;
 							});
@@ -225,7 +225,6 @@ $(function () {
 					//参数：1微信/单人购买     2App/团购   11微信单人  12微信团购  21App单人   22App团购
 					$('.v_pay p').eq(0).click(function () {
 						if (isWeiXin()) {
-							//https://api.speaka.live/api/buy/1?type_id=11
 							window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 11 + '&commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 						} else {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id + '&joy_from=' + joy_from;
@@ -239,7 +238,6 @@ $(function () {
     	                 $.ajax({
     	                 	type:"get",
     	                 	url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
-    	                 	//url:'../json/tuijian.json',
     	                 	async:true,
     	                 	success:function(data){
     	                 		console.log(data);
@@ -266,13 +264,6 @@ $(function () {
 				    $('.dialog').click(function(){
 				    	$('.dialog').hide();
 				    })
-/*					$('.v_pay p').eq(1).click(function () {
-						if (isWeiXin()) {
-							window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
-						} else {
-							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
-						}
-					});*/
 				}
 			} else {
 				alert('该商品不存在，请重试！');
@@ -283,7 +274,6 @@ $(function () {
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			var X=$('.course_nav').offset().top;
 			var Y=$('.nav_video').height();
-			console.log(sTop+'---------'+X+'------'+Y);
 			if(sTop>Y){
 				$('.course_nav').css({'position':'fixed'});
 				$('.v_img').css({'margin-top':'44px'});
@@ -382,30 +372,30 @@ $(function () {
 					wx.onMenuShareAppMessage({
 						title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
 						desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
-						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from, // 分享链接    
+						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 						type: '', // 分享类型,music、video或link，不填默认为link    
 						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 						success: function success() {
 							// 用户确认分享后执行的回调函数    
-							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from;
+							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 						},
 						cancel: function cancel() {
 							// 用户取消分享后执行的回调函数    
-							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from;
+							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 						}
 					});
 					wx.onMenuShareTimeline({
 						title: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享标题    
-						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from, // 分享链接    
+						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 						success: function success() {
 							// 用户确认分享后执行的回调函数    
-							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from;
+							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 						},
 						cancel: function cancel() {
 							// 用户取消分享后执行的回调函数    
-							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from;
+							window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from;
 						}
 					});
 				});
@@ -432,13 +422,11 @@ $(function () {
 		$('.v_img').css({ 'display': 'none' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
 		$('.v_QA').css({ 'display': 'block' });
-		//alert('num')
 	});
 	$('.course_nav p').eq(0).click(function () {
 		$('.course_nav p').eq(1).find('b').css({ 'display': 'none' });
 		$('.v_img').css({ 'display': 'block' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'block' });
 		$('.v_QA').css({ 'display': 'none' });
-		//alert('group')
 	});
 });
