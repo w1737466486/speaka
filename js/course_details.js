@@ -230,9 +230,15 @@ $(function () {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 						}
 					});
-					$('.v_pay p').eq(1).click(function () {
-						$('.dialog').show();
-					});
+					if (isWeiXin()) {					
+						$('.v_pay p').eq(1).click(function () {
+							$('.dialog').show();
+						});
+					}else{
+						$('.v_pay p').eq(1).click(function () {
+							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id + '&u_id='+u_id + '&joy_from=' + joy_from;
+						});
+					}
 					//推荐参团订单
 					 $('.dialog .dialog_box div').eq(1).click(function (){
     	                 $.ajax({
