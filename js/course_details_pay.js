@@ -530,7 +530,7 @@ $(function () {
 					obj_pay.noncestr = data.data.pay_config.noncestr;
 					obj_pay.timestamp = data.data.pay_config.timestamp;
 					obj_pay.sign = data.data.pay_config.sign;
-					obj_pay.order_no = data.data.order_no;
+					obj_pay.order_no = data.data.order_no.split('_')[0];
 					if (isAndroid_ios()) {
 						//安卓  
 						androidpay.androidWechatPay(JSON.stringify(obj_pay));
