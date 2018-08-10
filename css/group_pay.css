@@ -464,6 +464,7 @@ h4{
 .group_foot p:nth-of-type(2) span b{
 	font-size: 12px;
 	position: absolute;
+	width: 100%;
 	bottom:0px;
 	left:50%;
 	transform:translate(-50%,-50%);
