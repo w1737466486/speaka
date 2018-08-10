@@ -19,7 +19,6 @@ $(function () {
 		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
-			//url:'http://dev.speaka.cn/api/u/head',
 			url:'https://api.speaka.live/api/u/head',
 			data:{
 				id:u_id
@@ -190,9 +189,6 @@ $(function () {
 						if(res.code==403||res.code==404||res.code==405){
 							$('.v_footer').hide();
 							$('.buy_success').show();
-//							$('.buy_success .buy_pay p').eq(0).click(function(){
-//								window.location.href='https://h5.speaka.live/front/html/lecture_notes.html';
-//							});
 							$('.buy_success .buy_pay p').eq(0).click(function(){
 								window.location.href='https://h5.speaka.live/front/html/my_order.html?token='+order_token;
 							});
@@ -229,7 +225,6 @@ $(function () {
 					//参数：1微信/单人购买     2App/团购   11微信单人  12微信团购  21App单人   22App团购
 					$('.v_pay p').eq(0).click(function () {
 						if (isWeiXin()) {
-							//https://api.speaka.live/api/buy/1?type_id=11
 							window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 11 + '&commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 						} else {
 							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 21 + '&commodity_id=' + commodity_id + '&joy_from=' + joy_from;
@@ -243,7 +238,6 @@ $(function () {
     	                 $.ajax({
     	                 	type:"get",
     	                 	url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
-    	                 	//url:'../json/tuijian.json',
     	                 	async:true,
     	                 	success:function(data){
     	                 		console.log(data);
@@ -270,13 +264,6 @@ $(function () {
 				    $('.dialog').click(function(){
 				    	$('.dialog').hide();
 				    })
-/*					$('.v_pay p').eq(1).click(function () {
-						if (isWeiXin()) {
-							window.location.href = 'https://api.speaka.live/api/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id;
-						} else {
-							window.location.href = 'https://h5.speaka.live/front/html/course_details_pay.html?type_id=' + 22 + '&commodity_id=' + commodity_id;
-						}
-					});*/
 				}
 			} else {
 				alert('该商品不存在，请重试！');
@@ -287,7 +274,6 @@ $(function () {
 			var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 			var X=$('.course_nav').offset().top;
 			var Y=$('.nav_video').height();
-			console.log(sTop+'---------'+X+'------'+Y);
 			if(sTop>Y){
 				$('.course_nav').css({'position':'fixed'});
 				$('.v_img').css({'margin-top':'44px'});
@@ -436,13 +422,11 @@ $(function () {
 		$('.v_img').css({ 'display': 'none' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
 		$('.v_QA').css({ 'display': 'block' });
-		//alert('num')
 	});
 	$('.course_nav p').eq(0).click(function () {
 		$('.course_nav p').eq(1).find('b').css({ 'display': 'none' });
 		$('.v_img').css({ 'display': 'block' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'block' });
 		$('.v_QA').css({ 'display': 'none' });
-		//alert('group')
 	});
 });

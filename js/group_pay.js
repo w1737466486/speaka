@@ -16,7 +16,6 @@ $(function () {
 	var share_dec=true;
 	//判断是否是购买成功的回调
 	if(groupurl.is_pay){	
-		//$('.v_nav').hide();
 		$('html').css({
 			'height':'100%'
 		})
@@ -30,7 +29,6 @@ $(function () {
 		$('.share_dec').css({'right':'-80px'});
 		$.ajax({
 			type:"get",
-			//url:'http://dev.speaka.cn/api/u/head',
 			url:'https://api.speaka.live/api/u/head',
 			data:{
 				id:u_id
@@ -67,7 +65,6 @@ $(function () {
 		var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 		var X=$('.v_nav').offset().top;
 		var Y=$('.v_nav').height();
-	    console.log(sTop+'---------'+X+'------'+Y);
 		if(sTop>(X+Y)){
 			$('.course_nav').css({'position':'fixed'});
 			$('.v_img').css({'margin-top':'44px'});
@@ -98,9 +95,6 @@ $(function () {
 			})
 		}	
 	},50)
-	
-	
-	
 	if (isWeiXin()) {
 		if(isbuy_code){
 		$.ajax({
@@ -167,7 +161,6 @@ $(function () {
 	$.ajax({
 		type: "get",
 		url: "https://api.speaka.live/api/commodity/" + commodity_id,
-		//url:"../json/ocean.json",
 		async: true,
 		success: function success(data) {
 			console.log(data);
@@ -296,10 +289,8 @@ $(function () {
 			var last_time = data.limit_at;
 			curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
 			last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
-			//console.log(last_time)
 			curr_time = new Date(curr_time).valueOf();
 			last_time = new Date(last_time).valueOf();
-
 			//剩余总时间
 			var remain_time = last_time / 1000 - curr_time / 1000;
 			console.log(remain_time);
@@ -315,7 +306,6 @@ $(function () {
 			$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 			$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 			$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
-
 			if (remain_time > 0 && data.group.length >= 3 && data.group.length < 10) {
 				$('.group_head p').eq(0).html('该拼团已成团！');
 			} else if (data.group.length >= 10) {
@@ -352,7 +342,6 @@ $(function () {
 			if (remain_time > 0 && data.group.length ==2){
 				$('.group_head p').eq(0).html('还差<i>1</i>人成团');
 			}
-
 			//设置定时器
 			setInterval(function () {
 				var curr_time = getNowFormatDate();
@@ -361,18 +350,14 @@ $(function () {
 				last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
 				curr_time = new Date(curr_time).valueOf();
 				last_time = new Date(last_time).valueOf();
-
 				//剩余总时间
 				var remain_time = last_time / 1000 - curr_time / 1000;
 				//剩余时
 				var remain_hours = Math.floor(remain_time / 3600);
-				//console.log(remain_hours)
 				//剩余分
 				var remain_min = Math.floor((remain_time - remain_hours * 3600) / 60);
-				//console.log(remain_min)
 				//剩余秒
 				var remain_sec = Math.floor(remain_time - remain_hours * 3600 - remain_min * 60);
-				//console.log(remain_sec)
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
@@ -503,13 +488,11 @@ $(function () {
 		$('.v_img').css({ 'display': 'none' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
 		$('.v_QA').css({ 'display': 'block' });
-		//alert('num')
 	});
 	$('.course_nav p').eq(0).click(function () {
 		$('.course_nav p').eq(1).find('b').css({ 'display': 'none' });
 		$('.v_img').css({ 'display': 'block' });
 		$('.course_nav p').eq(0).find('b').css({ 'display': 'block' });
 		$('.v_QA').css({ 'display': 'none' });
-		//alert('group')
 	});
 });
