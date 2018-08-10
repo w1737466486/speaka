@@ -434,6 +434,12 @@ $(function () {
 					if (data.code == 423) {
 							alert('当前课程不允许开团！');
 					}
+					if (data.code == 424) {
+							alert('你已经购过该课程，请勿重复购买！');
+					}
+					if (data.code == 425) {
+							alert('该课程购买时间已过！');
+					}
 				}
 			}
 		});
@@ -624,6 +630,9 @@ $(function () {
 					}
 					if (data.code == 424) {
 							alert('你已经购过该课程，请勿重复购买！');
+					}
+					if (data.code == 425) {
+							alert('该课程购买时间已过！');
 					}
 				}
 			},
