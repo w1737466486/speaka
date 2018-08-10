@@ -398,9 +398,6 @@ $(function () {
 					if (data.code == 410) {
 							alert('您已经参团了！');
 					}
-					if (data.code == 410) {
-							alert('您已经参团了！');
-					}
 					if (data.code == 411) {
 							alert('当前url非法！');
 					}
@@ -588,9 +585,6 @@ $(function () {
 					}
 					if (data.code == 406) {
 							alert('订单类型非法！');
-					}
-					if (data.code == 410) {
-							alert('您已经参团了！');
 					}
 					if (data.code == 410) {
 							alert('您已经参团了！');
