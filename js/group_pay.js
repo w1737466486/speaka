@@ -192,7 +192,11 @@ $(function () {
 			});
 			$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
-			$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
+			var alloct_time=new Date(data.begin_time.substr(0, 10));
+			alloct_time=alloct_time.valueOf()-24*60*60*1000*3;
+			var lastbuy_time=timestampToTime(alloct_time);
+			//$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
+			$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
 			$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
 			$('.group_foot p span').eq(1).html('<div>¥ ' + data.groupon_price / 100 + '</div><b>团购省 ' + (data.price / 100-data.groupon_price / 100) + ' 元</b>');	
 			$.ajax({
@@ -233,7 +237,17 @@ $(function () {
 			console.log(_error);
 		}
 	});
-
+	//时间戳转日期格式
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate() + ' ';
+        var h = date.getHours() + ':';
+        var m = date.getMinutes() + ':';
+        var s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
 	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
 	function getNowFormatDate() {
 		var date = new Date();
