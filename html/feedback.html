@@ -227,7 +227,6 @@
 		        $.ajax({
 		            type: "POST",
 		            url: "https://api.speaka.live/api/feedback/feedback",
-		            //url:'http://dev.speaka.live/api/feedback/feedback',
 		            data: data,
 		            dataType: "json",
 		            beforeSend: function beforeSend(request) {
@@ -251,10 +250,8 @@
 		                $('.modal').click(function () {
 		                    $('.modal').css({display:'none'});
 		                })
-		
 		            }
 		        });
-		
 		    })
 			/*展示历史提交问题和系统回复*/
 		    $.ajax({
@@ -268,48 +265,20 @@
 		            request.setRequestHeader("Authorization", token);
 		        },
 		        success: function (data) {
-		            alert(JSON.stringify(data));
-		            for(let i=0;i<data.data.length;i++){
-		                console.log(data.data[i].content);
-		                console.log(data.data[i].return);
-		                for(let j=0;j<data.data[i].return.length;j++){
-		                    console.log(data.data[i].return[j].content_admin);
-		                    $('.my_feedback_list').append(`
-							<li>
-								<div>
-									<div class="my_1">已提交:</div>
-									<div class="my_2">${data.data[i].content}</div>
-								</div>
-								<div>
-									<div class="my_1" style="color: #FF7867">已回复:</div>
-									<div class="my_2">
-									${data.data[i].return[j].content_admin}
-									&nbsp;
-									<span style="color: #bbb">(${data.data[i].return[j].created_at.substr(6, 13)})</span>
-									</div>
-								</div>
-							</li>
-							`)
+		        	for (var i = 0; i < data.data.length; i++) {
+						for (var j = 0; j < data.data[i].return.length; j++) {
+							console.log(data.data[i].return[j].content_admin);
+							$('.my_feedback_list').append('\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<div class="my_1">\u5DF2\u63D0\u4EA4:</div>\n\t\t\t\t\t\t\t\t\t<div class="my_2">' + data.data[i].content + '</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<div class="my_1" style="color: #FF7867">\u5DF2\u56DE\u590D:</div>\n\t\t\t\t\t\t\t\t\t<div class="my_2">\n\t\t\t\t\t\t\t\t\t' + data.data[i].return[j].content_admin + '\n\t\t\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t\t\t\t<span style="color: #bbb">(' + data.data[i].return[j].created_at.substr(6, 13) + ')</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t');
 						}
-		                if(data.data[i].return==''){
-		                    console.log("暂无回复")
-		                    $('.my_feedback_list').append(`
-							<li>
-								<div>
-									<div class="my_1">已提交:</div>
-									<div class="my_2">${data.data[i].content}</div>
-								</div>
-								<div>
-		
-									<div class="my_2" style="color: #bbb">暂无回复</div>
-								</div>
-							</li>
-							`)
-		                }
+						if (data.data[i].return == '') {
+							console.log("暂无回复");
+							$('.my_feedback_list').append('\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<div class="my_1">\u5DF2\u63D0\u4EA4:</div>\n\t\t\t\t\t\t\t\t\t<div class="my_2">' + data.data[i].content + '</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<div class="my_2" style="color: #bbb">\u6682\u65E0\u56DE\u590D</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t');
+						}
 					}
 		        },
 		        error: function error(res) {
-		            alert(JSON.stringify(res))
+		        	alert('参数错误！请重试！')
+		            console.log(JSON.stringify(res))
 		
 		        }
 		    });
