@@ -198,8 +198,10 @@ $(function () {
 			//$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
 			$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
-			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发优惠</b>');	
+			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');	
 			$.ajax({
+				
+				
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
