@@ -268,7 +268,10 @@ h3 {
 }
 .v_QA p{
 	line-height: 30px;
-	text-indent: 20px;
+	text-indent: 12px;
+}
+.v_QA div{
+	line-height: 30px;
 }
 h4:nth-of-type(1){
 	margin: 0px 0 10px 0;
