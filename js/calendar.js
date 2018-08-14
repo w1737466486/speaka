@@ -276,8 +276,8 @@ $(function () {
 				if (curr_day - event_day >= 0) {
 					//点击跳转课程详情
 					$('.calendar_detail div').click(function () {
-						var lesson_id = $('.calendar_detail div').attr('lesson_id');
-						var comm_id = $('.calendar_detail div').attr('comm_id');
+						var lesson_id = $(this).attr('lesson_id');
+						var comm_id = $(this).attr('comm_id');
 						//console.log(lesson_id)
 						window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 					});
@@ -419,8 +419,8 @@ $(function () {
 				if (curr_day - event_day >= 0) {
 					//点击跳转课程详情
 					$('.calendar_detail div').click(function () {
-						var lesson_id = $('.calendar_detail div').attr('lesson_id');
-						var comm_id = $('.calendar_detail div').attr('comm_id');
+						var lesson_id = $(this).attr('lesson_id');
+						var comm_id = $(this).attr('comm_id');
 						//console.log(lesson_id)
 						window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 					});
@@ -666,8 +666,8 @@ $(function () {
 						if (curr_day - event_day >= 0) {
 							//点击跳转课程详情
 							$('.calendar_detail div').click(function () {
-								var lesson_id = $('.calendar_detail div').attr('lesson_id');
-								var comm_id = $('.calendar_detail div').attr('comm_id');
+								var lesson_id = $(this).attr('lesson_id');
+								var comm_id = $(this).attr('comm_id');
 								//console.log(lesson_id)
 								window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 							});
@@ -717,8 +717,8 @@ $(function () {
 		if (curr_day - event_day >= 0) {
 			//点击跳转课程详情
 			$('.calendar_detail div').click(function () {
-				var lesson_id = $('.calendar_detail div').attr('lesson_id');
-				var comm_id = $('.calendar_detail div').attr('comm_id');
+				var lesson_id = $(this).attr('lesson_id');
+				var comm_id = $(this).attr('comm_id');
 				//console.log(lesson_id)
 				window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
 			});
