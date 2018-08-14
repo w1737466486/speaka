@@ -21,7 +21,6 @@ $(function(){
 				$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/u/account",
-					//url:"http://dev.speaka.cn/api/u/account",
 					dataType: 'JSON',
 					data:{
 						page:page
