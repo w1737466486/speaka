@@ -10,9 +10,9 @@ $(function(){
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
 	};
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 1257;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
@@ -54,6 +54,11 @@ $(function(){
 																<span>预计结算时间</span>
 																<span>${data.data.orders[i].limit_at}</span>
 															</p>
+															<p>
+															    <span>佣金来源</span>
+															    <span>${data.data.orders[i].user_info.name}</span>
+															    <span><img src="https://s.speaka.live/${data.data.orders[i].user_info.head}" alt="" /></span>
+															</p>
 														</li>`)
 								}else if(data.data.orders[i].commision_status==2){
 									$('.order_list').append(`<li>
@@ -69,6 +74,11 @@ $(function(){
 															<p>
 																<span>预计结算时间</span>
 																<span>${data.data.orders[i].limit_at}</span>
+															</p>
+															<p>
+															    <span>佣金来源</span>
+															    <span>${data.data.orders[i].user_info.name}</span>
+															    <span><img src="https://s.speaka.live/${data.data.orders[i].user_info.head}" alt="" /></span>
 															</p>
 														</li>`)
 								
@@ -87,6 +97,11 @@ $(function(){
 																<span>预计结算时间</span>
 																<span>${data.data.orders[i].limit_at}</span>
 															</p>
+															<p>
+															    <span>佣金来源</span>
+															    <span>${data.data.orders[i].user_info.name}</span>
+															    <span><img src="https://s.speaka.live/${data.data.orders[i].user_info.head}" alt="" /></span>
+															</p>
 														</li>`)
 								
 								}else if(data.data.orders[i].commision_status==4){
@@ -103,6 +118,11 @@ $(function(){
 															<p>
 																<span>预计结算时间</span>
 																<span>${data.data.orders[i].limit_at}</span>
+															</p>
+															<p>
+															    <span>佣金来源</span>
+															    <span>${data.data.orders[i].user_info.name}</span>
+															    <span><img src="https://s.speaka.live/${data.data.orders[i].user_info.head}" alt="" /></span>
 															</p>
 														</li>`)
 								
@@ -121,20 +141,24 @@ $(function(){
 																<span>预计结算时间</span>
 																<span>${data.data.orders[i].limit_at}</span>
 															</p>
+															<p>
+															    <span>佣金来源</span>
+															    <span>${data.data.orders[i].user_info.name}</span>
+															    <span><img src="https://s.speaka.live/${data.data.orders[i].user_info.head}" alt="" /></span>
+															</p>
 														</li>`)
-								}*/
+								}*/	
 								if (data.data.orders[i].commision_status == 1) {
-									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"noclearing\">\u672A\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+									$('.order_list').append('<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5' + data.data.orders[i].commision_num / 100 + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="noclearing">\u672A\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class="xuxian"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].created_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].limit_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>\u4F63\u91D1\u6765\u6E90</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>' + data.data.orders[i].user_info.name + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span><img src="https://s.speaka.live/' + data.data.orders[i].user_info.head + '" alt="" /></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>');
 								} else if (data.data.orders[i].commision_status == 2) {
-									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"clearing\">\u5DF2\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+									$('.order_list').append('<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5' + data.data.orders[i].commision_num / 100 + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="clearing">\u5DF2\u7ED3\u7B97</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class="xuxian"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].created_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].limit_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>\u4F63\u91D1\u6765\u6E90</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>' + data.data.orders[i].user_info.name + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span><img src="https://s.speaka.live/' + data.data.orders[i].user_info.head + '" alt="" /></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>');
 								} else if (data.data.orders[i].commision_status == 3) {
-									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"repeating\">\u5DF2\u8F6C\u5B58</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+									$('.order_list').append('<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5' + data.data.orders[i].commision_num / 100 + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="repeating">\u5DF2\u8F6C\u5B58</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class="xuxian"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].created_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].limit_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>\u4F63\u91D1\u6765\u6E90</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>' + data.data.orders[i].user_info.name + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span><img src="https://s.speaka.live/' + data.data.orders[i].user_info.head + '" alt="" /></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>');
 								} else if (data.data.orders[i].commision_status == 4) {
-									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"refund\">\u5DF2\u9000\u6B3E</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+									$('.order_list').append('<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5' + data.data.orders[i].commision_num / 100 + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="refund">\u5DF2\u9000\u6B3E</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class="xuxian"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].created_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].limit_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>\u4F63\u91D1\u6765\u6E90</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>' + data.data.orders[i].user_info.name + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span><img src="https://s.speaka.live/' + data.data.orders[i].user_info.head + '" alt="" /></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>');
 								} else if (data.data.orders[i].commision_status == 5) {
-									$('.order_list').append("<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5" + data.data.orders[i].commision_num / 100 + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"audit\">\u63D0\u73B0\u4E2D</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"xuxian\"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].created_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>" + data.data.orders[i].limit_at + "</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>");
+									$('.order_list').append('<li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4F63\u91D1\uFF1A\uFFE5' + data.data.orders[i].commision_num / 100 + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="audit">\u63D0\u73B0\u4E2D</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class="xuxian"></p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u4E0B\u5355\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].created_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>\u9884\u8BA1\u7ED3\u7B97\u65F6\u95F4</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>' + data.data.orders[i].limit_at + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>\u4F63\u91D1\u6765\u6E90</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span>' + data.data.orders[i].user_info.name + '</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span><img src="https://s.speaka.live/' + data.data.orders[i].user_info.head + '" alt="" /></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>');
 								}
-								
 							}
 						}else{
 							bstop=false;

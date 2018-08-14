@@ -95,6 +95,10 @@ body{
 	margin-top: 13px;
 	margin-bottom: 10px;
 }
+.order_list li p:nth-of-type(4){
+	margin-top: 13px;
+	margin-bottom: 10px;
+}
 .order_list li p:nth-of-type(3) span{
 	font-family: PingFangSC-Regular;
 	font-size: 12px;
@@ -104,6 +108,43 @@ body{
 	font-family: PingFangSC-Regular;
 	font-size: 12px;
 	color: #666666;
+}
+.order_list li p:nth-of-type(5) span:nth-of-type(3){
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	border: 1px solid #EEEEEE;
+}
+.order_list li p:nth-of-type(5) span:nth-of-type(2){
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 30px;
+	width: 80px;
+	text-align: right;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.order_list li p:nth-of-type(5){
+	display: block;
+	position: relative;
+}
+.order_list li p:nth-of-type(5) span{
+	display: inline-block;
+	font-size: 12px;
+	color: #666666;
+	line-height: 26px;
+	height: 26px;
+}
+.order_list li p:nth-of-type(5) span:nth-of-type(3) img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 }
 /*已转存*/
 .repeating{
@@ -212,6 +253,9 @@ body{
 }
 .account_rule ul b{
 	color: #2FBBA9;
+}
+.account_rule ul li{
+	margin-bottom: 10px;
 }
 .account_rule_top{
 	padding-bottom: 20px;
