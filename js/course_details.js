@@ -165,7 +165,7 @@ $(function () {
 				$('.v_nav .v_s2').html(data.chn);
 				$('.v_nav .nav_video').attr('src', 'https://s.speaka.live/' + data.pic_path);
 				$('.course_nav p').eq(0).html('课程详情<b></b>');
-				$('.course_nav p').eq(1).html('常见Q&A<b></b>');
+				$('.course_nav p').eq(1).html('团购须知<b></b>');
 				for (var i = 0; i < data.pages.length; i++) {
 					if(data.pages[i].type==1){
 						$('.v_img').append('<div class="img_video" width="100%"><video controls="true" poster="https://s.speaka.live/' + data.pages[i].pic_path+'" controlslist="nodownload" width="100%" src="https://s.speaka.live/'+data.pages[i].video_path+'"></video><img src="../img/Play.png"/></div> ');

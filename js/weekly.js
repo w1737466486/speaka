@@ -121,6 +121,7 @@ $(function(){
 			$('.weekly_bg .weekly_box').css({
 				'height':'80%'
 			});
+			$('.weekly_main ul li').eq(0).find('p').eq(2).html('本月学习词汇量');
 			$.ajax({
 				type:"get",
 				url:"https://api.speaka.live/api/file/getMonthly",

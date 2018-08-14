@@ -67,8 +67,8 @@ $(function () {
 			//url:"../json/speaka.json", 
 			url: comm_url,
 			success: function success(data) {
-	           console.log(data);
-				console.log(data.lessons[0].id);
+	           //console.log(data);
+				//console.log(data.lessons[0].id);
 				for (var k = 0; k < data.lessons.length; k++) {
 					//判断是第几天的课程
 					if (lessonId==(k+1) ) {
@@ -98,7 +98,7 @@ $(function () {
 						});
 						//判断有几个课时，就添加几个课程盒子
 						var arrlessons = Object.keys(data.lessons[k].items);
-						console.log(arrlessons);
+						//console.log(arrlessons);
 						for (var i = 1; i <= arrlessons.length; i++) {
 							$('.main').append("<div class='main_d" + i + "'><span></span></div>");
 							$('.main_d' + i + '>span').html('Day' + ' ' + i);
@@ -116,7 +116,7 @@ $(function () {
 								'margin-top': '15px',
 								'margin-bottom': '15px'
 							});
-							console.log(arrlessons[i - 1]);
+							//console.log(arrlessons[i - 1]);
 							for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
 								$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
 								$('.main_d' + i + '>div').addClass('y1');
@@ -185,15 +185,14 @@ $(function () {
 	}
 	if(comm_id){
 		comm_url="https://api.speaka.live/api/comm/"+comm_id;
-		
 		$.ajax({
 			type: "get",
 			async: true,
 			//url:"../json/speaka.json", 
 			url: comm_url,
 			success: function success(data) {
-	           console.log(data);
-				console.log(data.lessons[0].id);
+	          //console.log(data);
+				//console.log(data.lessons[0].id);
 				for(var j = 0; j < data.lessons.length; j++){
 					if(data.lessons[j].id==lessonId){
 						lessonId=j+1;
@@ -229,7 +228,7 @@ $(function () {
 						});
 						//判断有几个课时，就添加几个课程盒子
 						var arrlessons = Object.keys(data.lessons[k].items);
-						console.log(arrlessons);
+						//console.log(arrlessons);
 						for (var i = 1; i <= arrlessons.length; i++) {
 							$('.main').append("<div class='main_d" + i + "'><span></span></div>");
 							$('.main_d' + i + '>span').html('Day' + ' ' + i);
@@ -247,7 +246,7 @@ $(function () {
 								'margin-top': '15px',
 								'margin-bottom': '15px'
 							});
-							console.log(arrlessons[i - 1]);
+							//console.log(arrlessons[i - 1]);
 							for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
 								$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
 								$('.main_d' + i + '>div').addClass('y1');
