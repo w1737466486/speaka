@@ -258,27 +258,30 @@ video{
 	/*width: 92%;
 	position: relative;
 	left: 4%;*/
-	padding-left: 4%;
+	padding: 8%;
 	margin-bottom: 20px;
-	background:#00B7EE;
+	background:#EDF8FD;
+	color: #5384A8;
 	
 }
-
 .v_QA span{
 	display: block;
 }
 .v_QA p{
 	line-height: 30px;
-/*	text-indent: 12px;*/
+	margin-left: 18px;
+	text-indent: -18px;
 }
-.v_QA div{
+.v_QA li{
+	list-style-type: decimal;
 	line-height: 30px;
+	margin-left: 18px;
 }
 h3 {
-    padding: 30px 0 10px 0;
+    padding: 30px 0 20px 0;
 }
 h4:nth-of-type(1){
-	margin: 0px 0 10px 0;
+	padding: 0px 0 10px 0;
 }
 h3{
 	color: #FD9823 ;

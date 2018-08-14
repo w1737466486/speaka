@@ -183,6 +183,8 @@ $(function () {
 			}
 		});
 	}
+	
+	//课表进来的不是0-8lesson，需要进行id匹配重新获取lessonId
 	if(comm_id){
 		comm_url="https://api.speaka.live/api/comm/"+comm_id;
 		$.ajax({
