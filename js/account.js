@@ -10,9 +10,9 @@ $(function(){
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
 	};
-	get_token();
+	//get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + 1257;
+		token = 'Bearer ' + _results;
 		//控制循环开关
 		var bstop=true;
 		for(var j=1;j<999;j++){
