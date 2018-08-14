@@ -195,8 +195,9 @@
         phone_type:'',
         contect:''
     };
+    get_token();
     function get_token(_results) {
-        token = 'Bearer ' + _results;
+        token = 'Bearer ' + '4ef6oKe1SSYIlFOdw0AYxawLApsMEhpGeGSAnOt8f60y';
 
     }
     $('.submit').click(function () {
@@ -224,7 +225,7 @@
         }
         $('.info').text('');
         //get_token();
-        //console.log(data);
+        console.log(data);
         $.ajax({
             type: "POST",
             url: "https://api.speaka.live/api/feedback/feedback",
@@ -269,12 +270,13 @@
             request.setRequestHeader("Authorization", token);
         },
         success: function (data) {
+            console.log(data);
             for(let i=0;i<data.data.length;i++){
-                //console.log(data.data[i].content);
-                //console.log(data.data[i].return);
-
+                console.log(data.data[i].content);
+                console.log(data.data[i].return);
+/**/
                 for(let j=0;j<data.data[i].return.length;j++){
-                    //console.log(data.data[i].return[j].content_admin);
+                    console.log(data.data[i].return[j].content_admin);
                     $('.my_feedback_list').append(`
 					<li>
 						<div>
@@ -293,6 +295,7 @@
 					`)
 				}
                 if(data.data[i].return==''){
+                    console.log("暂无回复")
                     $('.my_feedback_list').append(`
 					<li>
 						<div>
