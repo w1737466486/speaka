@@ -222,8 +222,7 @@ $(function () {
 							});
 						}else{
 							$('#course_progress').hide();
-						}
-						
+						}	
 					},
 					error:function(res){
 						console.log(res);
@@ -292,7 +291,6 @@ $(function () {
 					}else{
 						$('.group_member li').eq(i).find('img').eq(1).attr('src',data.group[i].user_info.head_wx);
 					}
-					
 					$('.group_member li').eq(i).find('b').html(data.group[i].user_info.name);
 				}
 				if(!u_id||u_id=='undefined'){
