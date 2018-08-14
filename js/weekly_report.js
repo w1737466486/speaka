@@ -1,5 +1,4 @@
 $(function(){
-	console.log(dns_url);
 	window.get_token = get_token;
 	var token = null;
 	var token_code=null;

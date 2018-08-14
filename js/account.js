@@ -30,7 +30,6 @@ $(function(){
 						request.setRequestHeader("Authorization", token);
 					},
 					success:function(data){
-						console.log(typeof data.data.drawableMoney);
 						if(data.code==200&&j==1){
 							$('.account_head p').eq(0).find('span').eq(1).html('￥'+data.data.drawableMoney/100+'元');
 							$('.account_head p').eq(1).find('span').eq(1).html('￥'+data.data.waitedMoney/100+'元');
@@ -161,9 +160,7 @@ $(function(){
 							}
 						}else{
 							bstop=false;
-						}
-						
-						
+						}	
 					},
 					error:function(res){
 						
@@ -178,7 +175,6 @@ $(function(){
 	}
 	//客户端点击规则说明，显示规则说明弹窗
 	window.rulebooks=rulebooks;
-	// rulebooks()
 	function rulebooks(res){
 		$('.account_rule_box').show();
 	}
@@ -255,10 +251,9 @@ $(function(){
             		$('.account_zfb_name input').val('');
             	    alert(data.msg);
             	}
-            	
             },
             error: function (res) {
-            	
+            	console.log(res)
             }
         });
         }

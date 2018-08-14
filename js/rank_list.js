@@ -3,9 +3,9 @@
 $(function () {
 	window.get_token = get_token;
 	var token = null;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 1257;
 		$.ajax({
 			type: "get",
 			url: "https://api.speaka.live/api/top100 ",
