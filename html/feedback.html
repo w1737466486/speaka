@@ -270,7 +270,7 @@
             request.setRequestHeader("Authorization", token);
         },
         success: function (data) {
-            console.log(data);
+            alert(data);
             for(let i=0;i<data.data.length;i++){
                 console.log(data.data[i].content);
                 console.log(data.data[i].return);
@@ -312,7 +312,7 @@
 			}
         },
         error: function error(res) {
-            console.log(res)
+            alert(res)
 
         }
     });
