@@ -363,11 +363,11 @@ $(function () {
 			}
 			if (remain_time > 0 && data.group.length ==1){
 				$('.group_head p').eq(0).html('还差<i>2</i>人成团');
-				need_num='【还差2人成团】';
+				need_num='【差2人成团】';
 			}
 			if (remain_time > 0 && data.group.length ==2){
 				$('.group_head p').eq(0).html('还差<i>1</i>人成团');
-				need_num='【还差1人成团】';
+				need_num='【差1人成团】';
 			}
 			//设置定时器
 			setInterval(function () {
