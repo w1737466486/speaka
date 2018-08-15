@@ -100,33 +100,36 @@ $(function () {
 						var arrlessons = Object.keys(data.lessons[k].items);
 						//console.log(arrlessons);
 						for (var i = 1; i <= arrlessons.length; i++) {
-							$('.main').append("<div class='main_d" + i + "'><span></span></div>");
-							$('.main_d' + i + '>span').html('Day' + ' ' + i);
-							$('.main_d' + i + '>span').attr('data_day', arrlessons[i - 1]);
-							$('.main_d' + i + '>span').css({
-								'width': '50px',
-								'height': '21px',
-								'font-size': '16px',
-								'color': ' #333333'
-							});
-							$('.main_d' + i).css({
-								'position': 'relative',
-								'width': '92%',
-								'left': '3.7%',
-								'margin-top': '15px',
-								'margin-bottom': '15px'
-							});
-							//console.log(arrlessons[i - 1]);
-							for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
-								$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
-								$('.main_d' + i + '>div').addClass('y1');
-								console.log(data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
-								$('.main_d' + i + '>div').attr('learn_at',data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
-								//console.log($('.main_d'+i).find('p').length)
-								$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).html(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
-								$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).attr('chnId', data.lessons[k].items[arrlessons[i - 1]][j - 1].id);
-								console.log(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
+							if(data.lessons[k].items[arrlessons[i - 1]].length>0){
+								$('.main').append("<div class='main_d" + i + "'><span></span></div>");
+								$('.main_d' + i + '>span').html('Day' + ' ' + i);
+								$('.main_d' + i + '>span').attr('data_day', arrlessons[i - 1]);
+								$('.main_d' + i + '>span').css({
+									'width': '50px',
+									'height': '21px',
+									'font-size': '16px',
+									'color': ' #333333'
+								});
+								$('.main_d' + i).css({
+									'position': 'relative',
+									'width': '92%',
+									'left': '3.7%',
+									'margin-top': '15px',
+									'margin-bottom': '15px'
+								});
+								//console.log(arrlessons[i - 1]);
+								for (var j = 1; j <= data.lessons[k].items[arrlessons[i - 1]].length; j++) {
+									$('.main .main_d' + i).append("<div class='main_f" + j + "'><span class='d1'></span><p></p></div>");
+									$('.main_d' + i + '>div').addClass('y1');
+									console.log(data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
+									$('.main_d' + i + '>div').attr('learn_at',data.lessons[k].items[arrlessons[i - 1]][j-1].learn_at);
+									//console.log($('.main_d'+i).find('p').length)
+									$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).html(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
+									$('.main_d' + i).find('p').eq($('.main_d' + i).find('p').length - 1).attr('chnId', data.lessons[k].items[arrlessons[i - 1]][j - 1].id);
+									console.log(data.lessons[k].items[arrlessons[i - 1]][j - 1].chn);
+								}
 							}
+							
 						}
 						$('.main .y1').click(function () {
 							obj={};

@@ -93,7 +93,7 @@ $(function () {
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
-		_obj.title = '【每天仅需2.95】跟着美国家庭学英语，看世界!';
+		_obj.title = '【三人同行一人免单】跟着美国家庭学英语，看世界!';
 		_obj.desc = 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。';
 		_obj.share_url =location.href;
 		if (window.webkit) {
@@ -248,7 +248,8 @@ $(function () {
 					});
 					if (isWeiXin()) {					
 						$('.v_pay p').eq(1).click(function () {
-							$('.dialog').show();
+							//$('.dialog').show();
+								window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&u_id='+u_id + '&joy_from=' + joy_from;
 						});
 					}else{
 						$('.v_pay p').eq(1).click(function () {
@@ -256,7 +257,7 @@ $(function () {
 						});
 					}
 					//推荐参团订单
-					 $('.dialog .dialog_box div').eq(1).click(function (){
+				/*	 $('.dialog .dialog_box div').eq(1).click(function (){
     	                 $.ajax({
     	                 	type:"get",
     	                 	url:'https://api.speaka.live/api/joinablegroup/'+commodity_id,
@@ -273,9 +274,9 @@ $(function () {
     	                 		console.log(res);
     	                 	}
     	                 });
-				    });
+				    });*/
 				    //开团订单，跳转到支付页
-				    $('.dialog .dialog_box div').eq(0).click(function (){
+				   /* $('.dialog .dialog_box div').eq(0).click(function (){
 				    	if (isWeiXin()) {
 							window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&u_id='+u_id + '&joy_from=' + joy_from;
 						} else {
@@ -285,7 +286,7 @@ $(function () {
 				    //点击其他地方隐藏弹窗
 				    $('.dialog').click(function(){
 				    	$('.dialog').hide();
-				    })
+				    })*/
 				}
 			} else {
 				alert('该商品不存在，请重试！');
@@ -392,7 +393,7 @@ $(function () {
 				wx.ready(function () {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 					wx.onMenuShareAppMessage({
-						title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
+						title: '【三人同行一人免单】跟着美国家庭学英语，看世界！', // 分享标题    
 						desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    

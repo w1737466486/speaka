@@ -51,7 +51,7 @@ $(function () {
 				$('.share_order b').click(function () {
 					var order_no = $(this).parent().parent().find('p').eq(0).children('span').eq(1).html();
 					var obj = {};
-					obj.title = '【每天仅需2.95】跟着美国家庭学英语，看世界！';
+					obj.title = '【三人同行一人免单】跟着美国家庭学英语，看世界！';
 					obj.desc = 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。';
 					obj.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + $(this).attr('commodity_id') + '&order_no=' + order_no;
 					console.log(obj);

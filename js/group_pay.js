@@ -14,15 +14,16 @@ $(function () {
 	var commodity_id = groupurl.commodity_id;
 	var joy_from=groupurl.joy_from;
 	var share_dec=true;
+	var need_num='【三人同行一人免单】';
 	//判断是否是购买成功的回调
 	if(groupurl.is_pay){	
 		$('html').css({
 			'height':'100%'
 		})
-		$('title').html('团购详情')
+		$('title').html('speaka少儿英语微课首发优惠')
 	}else{
 		$('#course_progress').hide();
-		$('title').html('课程详情')
+		$('title').html('speaka少儿英语微课首发优惠')
 	}
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
@@ -197,7 +198,8 @@ $(function () {
 			var lastbuy_time=timestampToTime(alloct_time);
 			//$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 			$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
-			$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
+			//$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
+			$('.group_foot p span').eq(0).html('开团');
 			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');	
 			$.ajax({
 					type:"get",
@@ -323,9 +325,7 @@ $(function () {
 			$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 			$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 			$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
-			if (remain_time > 0 && data.group.length >= 3 && data.group.length < 10) {
-				$('.group_head p').eq(0).html('该拼团已成团！');
-			} else if (data.group.length >= 10) {
+			/* else if (data.group.length >= 10) {
 				$('.group_head p').eq(0).html('该拼团人数已满！');
 				$('.group_head p').eq(1).find('span').eq(0).html('00');
 				$('.group_head p').eq(1).find('span').eq(1).html('00');
@@ -333,6 +333,14 @@ $(function () {
 				$('.group_foot p').eq(1).css({
 					'cursor': 'default',
 					'opacity': '0.2'
+				});
+			}*/
+			if (remain_time > 0 && data.group.length == 3) {
+				$('.group_head p').eq(0).html('该拼团已成团！');
+				$('.group_head p').eq(1).html('剩余分班时间<span></span>时<span></span>分<span></span>秒！');
+				$('.group_foot p').eq(1).click(function () {
+					alert('该团人数已满！去开团')
+					window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&joy_from=' + joy_from ;
 				});
 			} else if (remain_time <= 0 && data.group.length < 3) {
 				$('.group_head p').eq(0).html('拼团失败！');
@@ -355,9 +363,11 @@ $(function () {
 			}
 			if (remain_time > 0 && data.group.length ==1){
 				$('.group_head p').eq(0).html('还差<i>2</i>人成团');
+				need_num='【还差2人成团】';
 			}
 			if (remain_time > 0 && data.group.length ==2){
 				$('.group_head p').eq(0).html('还差<i>1</i>人成团');
+				need_num='【还差1人成团】';
 			}
 			//设置定时器
 			setInterval(function () {
@@ -378,17 +388,8 @@ $(function () {
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
-				if (remain_time > 0 && data.group.length >= 3 && data.group.length <= 10) {
+				if (remain_time > 0 && data.group.length == 3) {
 					$('.group_head p').eq(0).html('该拼团已成团！');
-				} else if (data.group.length > 10) {
-					$('.group_head p').eq(0).html('该拼团人数已满！');
-					$('.group_head p').eq(1).find('span').eq(0).html('00');
-					$('.group_head p').eq(1).find('span').eq(1).html('00');
-					$('.group_head p').eq(1).find('span').eq(2).html('00');
-					$('.group_foot p').eq(1).css({
-						'cursor': 'default',
-						'opacity': '0.2'
-					});
 				} else if (remain_time <= 0 && data.group.length < 3) {
 					$('.group_head p').eq(0).html('拼团失败！');
 					$('.group_head p').eq(1).find('span').eq(0).html('00');
@@ -414,7 +415,7 @@ $(function () {
 				if (remain_time > 0 && data.group.length ==2){
 					$('.group_head p').eq(0).html('还差<i>1</i>人成团');
 				}
-				if (remain_time > 0 && data.group.length < 10) {
+				if (remain_time > 0 && data.group.length < 3) {
 					$('.group_foot p').eq(1).click(function () {
 						window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&joy_from=' + joy_from ;
 					});
@@ -450,7 +451,7 @@ $(function () {
 				
 				});
 				wx.onMenuShareAppMessage({
-					title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
+					title: need_num+'跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
@@ -466,7 +467,7 @@ $(function () {
 					}
 				});
 				wx.onMenuShareTimeline({
-					title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
+					title: need_num+'跟着美国家庭学英语，看世界！', // 分享标题    
 					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
@@ -498,7 +499,8 @@ $(function () {
 	}, 'json');
     //添加提示框
     $('.group_foot p').eq(0).click(function () {
-    	window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
+    	//window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
+        window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&u_id='+u_id + '&joy_from=' + joy_from;					
     });
     	$('.course_nav p').eq(1).click(function () {
 		$('.course_nav p').eq(1).find('b').css({ 'display': 'block' });

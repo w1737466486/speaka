@@ -278,9 +278,12 @@ $(function () {
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $(this).attr('lesson_id');
 						var comm_id = $(this).attr('comm_id');
+						var typeId = $(this).attr('type');
+						if(typeId==0){
+							window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
+						}
 						//console.log(lesson_id)
-						window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
-					});
+						});
 				} else {
 					$('.calendar_detail div').click(function () {
 						//alert('亲，该课程还没到上课时间哦！');
@@ -421,9 +424,12 @@ $(function () {
 					$('.calendar_detail div').click(function () {
 						var lesson_id = $(this).attr('lesson_id');
 						var comm_id = $(this).attr('comm_id');
+						var typeId=$(this).attr('type');
+						if(typeId==0){
+							window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
+						}
 						//console.log(lesson_id)
-						window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
-					});
+						});
 				} else {
 					$('.calendar_detail div').click(function () {
 						//alert('亲，该课程还没到上课时间哦！');
@@ -496,13 +502,9 @@ $(function () {
 	//接收token
 	window.get_token = get_token;
 	var token = null;
-	//var token = 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjF9.j9BQTyq8bNjnU9PAp5iGFESksWxSv8KNWKKqI1AFweg';
 	//get_token();
 	function get_token(_results) {
-		//console.log(_results)
 		token = 'Bearer ' + _results;
-
-		//console.log(token)
 		function current_course() {
 			//当天课程默认显示  获取当前日期，日期格式为YYYY-MM-DD
 			var currentdate = new Date();
@@ -523,7 +525,6 @@ $(function () {
 				'position': 'relative',
 				'color': '#000000'
 			});
-
 			$('#calendarTable .currentDay').css({
 				'text-align': 'center',
 				'background': '#EF5064',
@@ -538,10 +539,8 @@ $(function () {
 				'line-height': '35px',
 				'transform': 'translate(-50%,-50%)'
 			});
-
 			$.ajax({
 				type: "get",
-				//url:"../json/calendar.json",
 				url: 'https://api.speaka.live/api/lesson/day?day=' + current_day,
 				beforeSend: function beforeSend(request) {
 					request.setRequestHeader("Authorization", token);
@@ -555,6 +554,7 @@ $(function () {
 						$('.calendar_detail').append('<div lesson_id=' + data.info.lessons[i].lesson_id + '><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 						$('.calendar_detail div').eq(i).attr('lesson_id', data.info.lessons[i].lesson_id);
 						$('.calendar_detail div').eq(i).attr('comm_id', data.info.lessons[i].comm_id);
+						$('.calendar_detail div').eq(i).attr('type', data.info.lessons[i].type);
 					}
 					$('.calendar_detail div').css({
 						'position': 'relative',
@@ -566,14 +566,11 @@ $(function () {
 					var less_days = data.info.has_lesson_days;
 					console.log(less_days);
 					var arr_days = $('.calendar-table span');
-					//console.log(arr_days)
 					for (var _i7 = 0; _i7 < arr_days.length; _i7++) {
 						for (var j = 0; j < less_days.length; j++) {
 							var has_days = arr_days[_i7].innerHTML > 9 ? "" + arr_days[_i7].innerHTML : "0" + arr_days[_i7].innerHTML;
 
 							if (has_days == less_days[j]) {
-								//console.log(has_days,arr_days[i])
-								//console.log($('.calendar-table span').eq(i).parent())
 								$('.calendar-table span').eq(_i7).parent().css({
 									'position': 'relative',
 									'color': '#000000'
@@ -653,6 +650,7 @@ $(function () {
 							$('.calendar_detail').append('<div><span></span><p>' + data.info.lessons[i].name + '</p><p>' + data.info.lessons[i].begin_at + '~' + data.info.lessons[i].end_at + '</p><span></span></div>');
 							$('.calendar_detail div').eq(i).attr('lesson_id', data.info.lessons[i].lesson_id);
 							$('.calendar_detail div').eq(i).attr('comm_id', data.info.lessons[i].comm_id);
+							$('.calendar_detail div').eq(i).attr('type', data.info.lessons[i].type);
 						}
 						$('.calendar_detail div').css({
 							'position': 'relative',
@@ -667,9 +665,12 @@ $(function () {
 							$('.calendar_detail div').click(function () {
 								var lesson_id = $(this).attr('lesson_id');
 								var comm_id = $(this).attr('comm_id');
+								var typeId = $(this).attr('type');
+								if(typeId==0){
+									window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
+								}
 								//console.log(lesson_id)
-								window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
-							});
+								});
 						} else {
 							$('.calendar_detail div').click(function () {
 								//alert('亲，该课程还没到上课时间哦！');
@@ -718,9 +719,12 @@ $(function () {
 			$('.calendar_detail div').click(function () {
 				var lesson_id = $(this).attr('lesson_id');
 				var comm_id = $(this).attr('comm_id');
+				var typeId=$(this).attr('type');
+				if(typeId==0){
+					window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
+				}
 				//console.log(lesson_id)
-				window.location.href = 'https://h5.speaka.live/front/html/course.html?lessonId=' + lesson_id+'&comm_id='+comm_id;
-			});
+				});
 		} else {
 			$('.calendar_detail div').click(function () {
 				//alert('亲，该课程还没到上课时间哦！');
