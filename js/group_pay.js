@@ -335,7 +335,7 @@ $(function () {
 					'opacity': '0.2'
 				});
 			}*/
-			if (remain_time > 0 && data.group.length == 3) {
+			if (remain_time > 0 && data.group.length >= 3) {
 				$('.group_head p').eq(0).html('该拼团已成团！');
 				$('.group_head p').eq(1).html('剩余分班时间<span></span>时<span></span>分<span></span>秒！');
 				$('.group_foot p').eq(1).click(function () {
@@ -388,7 +388,7 @@ $(function () {
 				$('.group_head p').eq(1).find('span').eq(0).html(remain_hours);
 				$('.group_head p').eq(1).find('span').eq(1).html(remain_min);
 				$('.group_head p').eq(1).find('span').eq(2).html(remain_sec);
-				if (remain_time > 0 && data.group.length == 3) {
+				if (remain_time > 0 && data.group.length >= 3) {
 					$('.group_head p').eq(0).html('该拼团已成团！');
 				} else if (remain_time <= 0 && data.group.length < 3) {
 					$('.group_head p').eq(0).html('拼团失败！');
