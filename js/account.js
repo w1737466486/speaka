@@ -195,8 +195,8 @@ $(function(){
          		console.log(data);
          		if(data.code==200&&data.data.length>0){
          			var obj = {};
-					obj.title = '【每天仅需1.99】跟着美国家庭学英语，看世界！';
-					obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
+					obj.title = '【每天仅需2.95】跟着美国家庭学英语，看世界！';
+					obj.desc = 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。';
 					obj.share_url = 'https://h5.speaka.live/front/html/group_pay.html?commodity_id='+data.data[0].commodity_id+'&order_no='+data.data[0].order_no;
 					console.log(obj);
 					if (window.webkit) {

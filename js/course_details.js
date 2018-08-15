@@ -93,8 +93,8 @@ $(function () {
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
-		_obj.title = '【每天仅需1.99】跟着美国家庭学英语，看世界!';
-		_obj.desc = 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活';
+		_obj.title = '【每天仅需2.95】跟着美国家庭学英语，看世界!';
+		_obj.desc = 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。';
 		_obj.share_url =location.href;
 		if (window.webkit) {
 			window.webkit.messageHandlers.shareClick.postMessage(JSON.stringify(_obj));
@@ -392,8 +392,8 @@ $(function () {
 				wx.ready(function () {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 					wx.onMenuShareAppMessage({
-						title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
-						desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
+						title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
+						desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 						type: '', // 分享类型,music、video或link，不填默认为link    
@@ -408,7 +408,7 @@ $(function () {
 						}
 					});
 					wx.onMenuShareTimeline({
-						title: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享标题    
+						title: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享标题    
 						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 						success: function success() {

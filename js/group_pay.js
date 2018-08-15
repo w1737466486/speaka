@@ -200,9 +200,6 @@ $(function () {
 			$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
 			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');	
 			$.ajax({
-				
-				 
-				 
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
@@ -453,8 +450,8 @@ $(function () {
 				
 				});
 				wx.onMenuShareAppMessage({
-					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
-					desc: 'Youtube英文教育红人家庭中国首秀，台湾帅气老师Lyle担当讲解。欢乐体验美国地道家庭生活', // 分享描述    
+					title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
+					desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
@@ -469,7 +466,7 @@ $(function () {
 					}
 				});
 				wx.onMenuShareTimeline({
-					title: '【每天仅需1.99】跟着美国家庭学英语，看世界！', // 分享标题    
+					title: '【每天仅需2.95】跟着美国家庭学英语，看世界！', // 分享标题    
 					link: 'https://h5.speaka.live/front/html/group_pay.html?commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
