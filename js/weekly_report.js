@@ -14,7 +14,6 @@ $(function(){
 		$.ajax({
 			type:"get",
 			url:"https://api.speaka.live/api/file/myFile",
-			//url:'http://dev.speaka.cn/api/file/myFile',
 			dataType: 'JSON',
 			async:true,
 			beforeSend: function beforeSend(request) {
@@ -26,7 +25,7 @@ $(function(){
 					$('.weekly_main>ul li').eq(0).find('p').eq(1).html(data.data.wordWeek);
 					$('.weekly_main>ul li').eq(1).find('p').eq(1).html(data.data.wordTotal);
 					$('.weekly_main>ul li').eq(2).find('p').eq(1).html(data.data.workTotal);
-					$('.weekly_main>ul li').eq(3).find('p').eq(1).html((data.data.successWork*100).toFixed(2)+'%');
+					$('.weekly_main>ul li').eq(3).find('p').eq(1).html(data.data.successWork);
 				}
 				
 			},
