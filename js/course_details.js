@@ -187,6 +187,7 @@ $(function () {
 					}
 				});
 				
+				
 				$('.v_det .v_det_s1').html('开课时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s2').html('课程时长：' + data.last_days + '天');
 				var alloct_time=new Date(data.begin_time.substr(0, 10));

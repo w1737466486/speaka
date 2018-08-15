@@ -201,7 +201,8 @@ $(function () {
 			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');	
 			$.ajax({
 				
-				
+				 
+				 
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
 					async:false,
