@@ -343,7 +343,7 @@ $(function () {
 					window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&u_id=' + u_id + '&joy_from=' + joy_from ;
 				});
 			} else if (remain_time <= 0 && data.group.length < 3) {
-				$('.group_head p').eq(0).html('拼团失败！');
+				$('.group_head p').eq(0).html('拼团已结束！');
 				$('.group_head p').eq(1).find('span').eq(0).html('00');
 				$('.group_head p').eq(1).find('span').eq(1).html('00');
 				$('.group_head p').eq(1).find('span').eq(2).html('00');
@@ -391,7 +391,7 @@ $(function () {
 				if (remain_time > 0 && data.group.length >= 3) {
 					$('.group_head p').eq(0).html('该拼团已成团！');
 				} else if (remain_time <= 0 && data.group.length < 3) {
-					$('.group_head p').eq(0).html('拼团失败！');
+					$('.group_head p').eq(0).html('该拼团已结束！');
 					$('.group_head p').eq(1).find('span').eq(0).html('00');
 					$('.group_head p').eq(1).find('span').eq(1).html('00');
 					$('.group_head p').eq(1).find('span').eq(2).html('00');
