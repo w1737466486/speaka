@@ -34,11 +34,11 @@ $(function () {
 						$('.rank_ul_two').append("<li><b>No." + (i + 1) + "</b><span><img src=\"" + _head + "\"/></span><span>" + data.info.top[i].name + "</span><span><em>" + data.info.top[i].score + "</em><img src=\"../img/\u5B9D\u77F3.png\"/></span></li>");
 					}
 				}
-                $('.rank').append('<ul class="rank_ul_three"><li><b>No.' + data.info.mine.rank + '</b><span><img src="https://s.speaka.live/' + data.info.mine.head + '?x-oss-process=style/w60"></span><span>' + data.info.mine.name + '</span><span><em>' + data.info.mine.score + '</em><img src="../img/\u5B9D\u77F3.png"></span></li></ul>');
-				/*$('.rank_ul_three li b').html('No.' + data.info.mine.rank);
+                //$('.rank').append('<ul class="rank_ul_three"><li><b>No.' + data.info.mine.rank + '</b><span><img src="https://s.speaka.live/' + data.info.mine.head + '?x-oss-process=style/w60"></span><span>' + data.info.mine.name + '</span><span><em>' + data.info.mine.score + '</em><img src="../img/\u5B9D\u77F3.png"></span></li></ul>');
+				$('.rank_ul_three li b').html('No.' + data.info.mine.rank);
 				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'https://s.speaka.live/' + data.info.mine.head+'?x-oss-process=style/w60');
 				$('.rank_ul_three li').find('span').eq(1).html(data.info.mine.name);
-				$('.rank_ul_three li').find('span').eq(2).find('em').html(data.info.mine.score);*/
+				$('.rank_ul_three li').find('span').eq(2).find('em').html(data.info.mine.score);
 			},
 			error: function error(res) {
 				console.log(res);
