@@ -14,16 +14,16 @@ $(function () {
 	var commodity_id = groupurl.commodity_id;
 	var joy_from=groupurl.joy_from;
 	var share_dec=true;
-	var need_num='【三人同行一人免单】';
+	var need_num='【推荐2人免费学】';
 	//判断是否是购买成功的回调
 	if(groupurl.is_pay){	
 		$('html').css({
 			'height':'100%'
 		})
-		$('title').html('speaka少儿英语微课首发优惠')
+		$('title').html('少儿英语微课首发优惠')
 	}else{
 		$('#course_progress').hide();
-		$('title').html('speaka少儿英语微课首发优惠')
+		$('title').html('少儿英语微课首发优惠')
 	}
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
@@ -200,7 +200,7 @@ $(function () {
 			$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
 			//$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
 			$('.group_foot p span').eq(0).html('开团');
-			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');	
+			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>开团</b>');	
 			$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,

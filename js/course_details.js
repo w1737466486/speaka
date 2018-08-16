@@ -93,7 +93,7 @@ $(function () {
     //get_share();
 	function get_share(_results) {
 		var _obj = {};
-		_obj.title = '【三人同行一人免单】跟着美国家庭学英语，看世界!';
+		_obj.title = '【推荐2人免费学】跟着美国家庭学英语，看世界!';
 		_obj.desc = 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。';
 		_obj.share_url =location.href;
 		if (window.webkit) {
@@ -194,7 +194,7 @@ $(function () {
 				//$('.v_det .v_det_s3').html('购买截止时间：' + data.begin_time.substr(0, 10));
 				$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
 				$('.v_footer .v_pay span').eq(0).html('<div>¥' + data.price / 100 + '</div><b>单人购</b>');
-				$('.v_footer .v_pay span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>首发团购优惠</b>');
+				$('.v_footer .v_pay span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>开团</b>');
 				$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
@@ -320,17 +320,17 @@ $(function () {
 			}
 			if(sTop>450){
 				$(".v_wx").css({
-				'opacity':'0.6'
+				'opacity':'0.5'
 				})
 			}
 			if(sTop>750){
 				$(".v_wx").css({
-				'opacity':'0.4'
+				'opacity':'0.3'
 				})
 			}
 			if(sTop>900){
 				$(".v_wx").css({
-				'opacity':'0.2'
+				'opacity':'0'
 				})
 			}
 			if(sTop<750){
@@ -393,7 +393,7 @@ $(function () {
 				wx.ready(function () {
 					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 					wx.onMenuShareAppMessage({
-						title: '【三人同行一人免单】跟着美国家庭学英语，看世界！', // 分享标题    
+						title: '【推荐2人免费学】跟着美国家庭学英语，看世界！', // 分享标题    
 						desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
