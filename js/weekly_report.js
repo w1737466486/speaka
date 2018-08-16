@@ -84,7 +84,7 @@ $(function(){
 				for(var i=0;i<$('.week').length;i++){
 					console.log(i);
 					//console.log($('.weeks').eq(i).attr('weeks'))
-					if($('.week').eq(i).attr('weeks')==0){
+					if($('.week').eq(i).attr('weeks')==0||$('.week').eq(i).attr('weeks')=='undefined'){
 						console.log($('.week').eq(i).attr('weeks'));
 					}else{
 						$('.week').eq(i).addClass('weeks');
