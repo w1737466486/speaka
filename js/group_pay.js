@@ -200,7 +200,7 @@ $(function () {
 			$('.v_det .v_det_s3').html('购买截止时间：' + lastbuy_time.substr(0, 10));
 			//$('.group_foot p span').eq(0).html('<div>¥ ' + data.price / 100 + '</div><b>单人购</b>');
 			$('.group_foot p span').eq(0).html('开团');
-			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>开团</b>');	
+			$('.group_foot p span').eq(1).html('<div>¥' + data.groupon_price / 100 + '</div><b>参团</b>');	
 			$.ajax({
 					type:"get",
 					url:"https://api.speaka.live/api/commoditybuy/" + commodity_id+'?token='+'Bearer ' +isbuy_token,
