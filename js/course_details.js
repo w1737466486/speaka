@@ -179,6 +179,12 @@ $(function () {
 						$('.v_img').append('<img src="https://s.speaka.live/' + data.pages[i].pic_path+'"/>');
 					}
 				}
+				$('.v_img img').eq(0).click(function(){
+					$('.course_nav p').eq(1).find('b').css({ 'display': 'block' });
+					$('.v_img').css({ 'display': 'none' });
+					$('.course_nav p').eq(0).find('b').css({ 'display': 'none' });
+					$('.v_QA').css({ 'display': 'block' });
+				})
 				var _stop=true;
 				$('.img_video').click(function(){
 					if(_stop){

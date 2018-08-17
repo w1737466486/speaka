@@ -56,20 +56,23 @@ img{
 }
 .exam_head_title p{
 	font-family: HanziPenSC-W5;
-	font-size: 28px;
+	font-size: 26px;
 	color: #4E4E4E;
 	letter-spacing: 2.14px;
-	line-height: 42px;
+	line-height: 40px;
+	position: relative;
 }
 .exam_head_title p img{
 	width: 19px;
 	height: 18px;
-	position: relative;
-	top: 50%;
+	margin-left: 30px;
 }
-.exam_head_title p span{
-	position: relative;
-	display: inline-block;
-	font-size: 28px;
-	line-height: 42px;
+.exam_head_title p .title_img{
+	width: 19px;
+	height: 18px;
+	position: absolute;
+	top: -50%;
+	right: 15%;
+	transform:translate(-50%,-50%);
+	margin-left: 0px;
 }
