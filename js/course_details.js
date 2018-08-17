@@ -27,10 +27,15 @@ $(function () {
 			success:function(data){
 				console.log(data);
 				if(data.code==200){
-					if(data.data[u_id].head_wx==null){
+					if(data.data[u_id].head_wx==null&&data.data[u_id].head!=''){
+						//选择head头像
 						$('.share_wxhead img').attr('src','https://s.speaka.live/' +data.data[u_id].head);
-					}else{
+					}else if(data.data[u_id].head_wx!=null){
+						//选择微信头像
 						$('.share_wxhead img').attr('src',data.data[u_id].head_wx);
+					}else{
+						//head和微信头像都为null，给默认头像
+						$('.share_wxhead img').attr('src','../img/mr.png');
 					}
 					$('.share_dec p b').eq(1).html(data.data[u_id].name);
 				}else{
