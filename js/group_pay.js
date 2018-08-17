@@ -27,7 +27,7 @@ $(function () {
 	}
 	//显示推荐人信息
 	if(u_id&&u_id!='undefined'){
-		$('.share_dec').css({'right':'-80px'});
+		$('.share_dec').css({'right':'0px'});
 		$.ajax({
 			type:"get",
 			url:'https://api.speaka.live/api/u/head',
@@ -60,10 +60,10 @@ $(function () {
 	}
 	$('.share_dec').click(function(){
 		if(share_dec){
-			$('.share_dec').css({'right':'0px'});
+			$('.share_dec').css({'right':'-80px'});
 			share_dec=false;
 		}else{
-			$('.share_dec').css({'right':'-80px'});
+			$('.share_dec').css({'right':'0px'});
 			share_dec=true;
 		}
 	});
@@ -82,17 +82,17 @@ $(function () {
 		}
 		if(sTop>450){
 			$(".v_wx").css({
-			'opacity':'0.6'
+			'opacity':'0.5'
 			})
 		}
 		if(sTop>750){
 			$(".v_wx").css({
-			'opacity':'0.4'
+			'opacity':'0.3'
 			})
 		}
 		if(sTop>900){
 			$(".v_wx").css({
-			'opacity':'0.2'
+			'opacity':'0'
 			})
 		}
 		if(sTop<750){

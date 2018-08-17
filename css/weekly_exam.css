@@ -1,0 +1,75 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	width: 100%;
+	height: auto;
+}
+img{
+	outline-width:0px;  
+    vertical-align:top; 
+}
+.exam_main{
+	width: 100%;
+	height: auto;
+	background: url(../img/背景.png) repeat;
+	background-size:70%
+}
+.exam_head{
+	width: 100%;
+	height: 160px;
+	position: relative;
+}
+.logo_top_left{
+	display: inline-block;
+	width: 62px;
+	height: 16px;
+	position: absolute;
+	top: 12px;
+	left: 12px;
+}
+.logo_top_left img{
+	width: 100%;
+	height: 100%;
+}
+.top-right{
+	display: inline-block;
+	width: 39px;
+	height: 42px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.top-right img{
+	width: 100%;
+	height: 100%;
+}
+.exam_head_title{
+	position: absolute;
+	width: 100%;
+	height: 84px;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	text-align: center;
+}
+.exam_head_title p{
+	font-family: HanziPenSC-W5;
+	font-size: 28px;
+	color: #4E4E4E;
+	letter-spacing: 2.14px;
+	line-height: 42px;
+}
+.exam_head_title p img{
+	width: 19px;
+	height: 18px;
+	position: relative;
+	top: 50%;
+}
+.exam_head_title p span{
+	position: relative;
+	display: inline-block;
+	font-size: 28px;
+	line-height: 42px;
+}
