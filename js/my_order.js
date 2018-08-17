@@ -90,10 +90,28 @@ $(function () {
 		return obj;
 	}
 	var orderurl = queryURL(location.href);
+	var isbuy_code=orderurl.code;
 	//调用isWeiXin()方法判断是微信浏览器端，无app传递token，执行业务逻辑
 	if (isWeiXin()) {
-		if(orderurl.token){
-			token = 'Bearer ' + orderurl.token;
+		if(isbuy_code){
+			$.ajax({
+				type:"get",
+				url:"https://api.speaka.live/api/commoditybuy/1"+'?code='+isbuy_code,
+				async:false,
+				success:function(res){
+					console.log(res);
+					token=res.token;
+					 if(!res.token){
+					 	window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+					 }else{
+					 	token=res.token;
+					 }
+				},
+				error:function(res){
+					console.log(res);
+				}
+		  });
+			var wx_token = 'Bearer ' + token;
 			console.log(token);
 			$.ajax({
 				type: 'post',
@@ -101,7 +119,7 @@ $(function () {
 				async: true,
 				url: 'https://api.speaka.live/api/u/orders',
 				beforeSend: function beforeSend(request) {
-					request.setRequestHeader("Authorization", token);
+					request.setRequestHeader("Authorization", wx_token);
 				},
 				success: function success(data) {
 					console.log("成功获取数据",data.info);
@@ -147,8 +165,9 @@ $(function () {
 					console.log(res);
 				}
 			});
-		}
-	}
+	}else{
+		  window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href)+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+	  }
 	$('.order_nav p').eq(1).click(function () {
 		$('.order_nav p').eq(1).find('b').css({ 'display': 'block' });
 		$('.group_orders').css({ 'display': 'none' });

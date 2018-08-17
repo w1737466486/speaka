@@ -164,6 +164,9 @@ body{
 	font-size: 14px;
 	color: #2FBBA9;
 }
+.nomoney{
+	color: #CCCCCC!important;
+}
 /*已结算*/
 .clearing{
 	font-family: PingFangSC-Medium;
