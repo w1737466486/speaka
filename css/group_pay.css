@@ -378,7 +378,7 @@ h4:nth-of-type(1){
 }
 .course_nav p:nth-of-type(1){
 	box-sizing: border-box;
-	border-right: 1px solid #CCCCCC;
+	/*border-right: 1px solid #CCCCCC;*/
 }
 .course_nav p{
 	width: 50%;
@@ -387,7 +387,7 @@ h4:nth-of-type(1){
 	line-height: 44px;
 	position: relative;
 	box-sizing: border-box;
-	border-bottom: 1px solid #CCCCCC;
+	/*border-bottom: 1px solid #CCCCCC;*/
 }
 .course_nav p:nth-of-type(2) b{
 	display: none;
@@ -395,12 +395,13 @@ h4:nth-of-type(1){
 .course_nav p b{
 	display: block;
 	position: absolute;
-	width: 100%;
+	width: 16%;
 	height: 4px;
-	left: 0;
-	bottom: -1px;
+	left: 50%;
+	bottom: 4px;
 	background: #2FBBA9;
-   /* border-radius: 2px;*/
+    border-radius: 2px;
+    transform: translate(-50%,-50%);
 }
 .group_foot{
 	position: fixed;
