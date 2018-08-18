@@ -420,7 +420,7 @@ $(function () {
 						}
 					});
 					wx.onMenuShareTimeline({
-						title: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享标题    
+						title: '【6~12岁英文微课】跟着美国家庭学英语，看世界！', // 分享标题    
 						link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&u_id=' + u_id_new + '&joy_from=' + joy_from, // 分享链接    
 						imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 						success: function success() {
