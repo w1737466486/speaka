@@ -404,6 +404,9 @@ $(function () {
 					if (data.code == 412) {
 							alert('优惠券id错误！');
 					}
+					if (data.code == 413) {
+							alert('推荐人非法！');
+					}
 					if (data.code == 414) {
 							alert('当前课程不能使用该优惠券！');
 					}
@@ -594,6 +597,9 @@ $(function () {
 					}
 					if (data.code == 412) {
 							alert('优惠券id错误！');
+					}
+					if (data.code == 413) {
+							alert('推荐人非法！');
 					}
 					if (data.code == 414) {
 							alert('当前课程不能使用该优惠券！');
