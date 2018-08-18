@@ -115,6 +115,7 @@ video{
 	border-radius: 10px;
 }
 .img_video img{
+	display: none;
 	position: absolute;
 	width: 100px;
 	height: 100px;
