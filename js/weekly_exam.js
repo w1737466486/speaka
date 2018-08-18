@@ -38,66 +38,6 @@ function initAudioEvent() {
             // $('#progressBarBg').css('cursor', 'default');
         }
     });
-
-    // 点击进度条跳到指定点播放
-    // PS：此处不要用click，否则下面的拖动进度点事件有可能在此处触发，此时e.offsetX的值非常小，会导致进度条弹回开始处（简直不能忍！！）
-    /*$('#progressBarBg').on('mousedown', function (e) {
-        // 只有音乐开始播放后才可以调节，已经播放过但暂停了的也可以
-        if (!audio.paused || audio.currentTime != 0) {
-            var pgsWidth = $('.progress-bar-bg').width();
-            var rate = e.offsetX / pgsWidth;
-            audio.currentTime = audio.duration * rate;
-            updateProgress(audio);
-        }
-    });
-
-    var dot = document.getElementById('progressDot');
-
-    // 鼠标拖动进度点时可以调节进度
-    // 只有音乐开始播放后才可以调节，已经播放过但暂停了的也可以
-    // 鼠标按下时
-    dot.onmousedown = function (event) {
-        if (!audio.paused || audio.currentTime != 0) {
-            var oriLeft = dot.offsetLeft;
-            var mouseX = event.clientX;
-            var maxLeft = oriLeft; // 向左最大可拖动距离
-            var maxRight = document.getElementById('progressBarBg').offsetWidth - oriLeft; // 向右最大可拖动距离
-
-            // 禁止默认的选中事件（避免鼠标拖拽进度点的时候选中文字）
-            if (event && event.preventDefault) {
-                event.preventDefault();
-            } else {
-                event.returnValue = false;
-            }
-
-            // 禁止事件冒泡
-            if (event && event.stopPropagation) {
-                event.stopPropagation();
-            } else {
-                window.event.cancelBubble = true;
-            }
-
-            // 开始拖动
-            document.onmousemove = function (event) {
-                var length = event.clientX - mouseX;
-                if (length > maxRight) {
-                    length = maxRight;
-                } else if (length < -maxLeft) {
-                    length = -maxLeft;
-                }
-                var pgsWidth = $('.progress-bar-bg').width();
-                var rate = (oriLeft + length) / pgsWidth;
-                audio.currentTime = audio.duration * rate;
-                updateProgress(audio);
-            };
-
-            // 拖动结束
-            document.onmouseup = function () {
-                document.onmousemove = null;
-                document.onmouseup = null;
-            };
-        }
-    };*/
 }
 
 /**
@@ -136,10 +76,9 @@ function transTime(value) {
     } else {
         time = formatTime(m + ":" + s);
     }
-
     return time;
 }
-
+ 
 /**
  * 格式化时间显示，补零对齐
  * eg：2:4  -->  02:04

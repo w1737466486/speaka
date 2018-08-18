@@ -200,6 +200,7 @@ li{
 	top: 50%;
 	left: 50%;
 	transform:translate(-50%,-50%);
+	text-indent: 36px;
 }
 .audio-wrapper {
     margin: 10px auto;
@@ -213,7 +214,7 @@ li{
     height: 100%;
 }
 .audio-left img {
-    width: 50px;
+    width: 65px;
     position: relative;
     top: 15px;
     margin: 0;
@@ -261,17 +262,16 @@ li{
 .progress-bar-bg span {
 	display: none;
     content: " ";
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    background-color: #3e87e8;
+    background-color: #98CCD1;
     position: absolute;
     left: 0;
-    top: 50%;
-    margin-top: -5px;
-    margin-left: -5px;
+    top:0;
+    margin-left: -10px;
     cursor: pointer;
 }
 
@@ -289,4 +289,20 @@ li{
 .audio-length-current {
     float: left;
     font-size: 12px;
+}
+.exam_envelope{
+	width: 84%;
+	margin-left: 8%;
+	font-size: 24px;
+	line-height: 36px;
+}
+.exam_envelope p{
+	text-indent: 48px;
+}
+.exam_envelope span{
+	display: block;
+	text-align: right;
+}
+.exam_envelope span:nth-of-type(1){
+	text-align: left;
 }
