@@ -82,22 +82,82 @@ li{
 	transform:translate(-50%,-50%);
 	margin-left: 0px;
 }
+.exam_content{
+	position: relative;
+}
+.exam_content .rain{
+	position: absolute;
+	top: -10px;
+	right: 82px;
+	width: 21px;
+	height: 41px;
+}
+
+.exam_content ul li{
+	margin-bottom: 40px;
+	position: relative;
+}
+.exam_content ul li:nth-of-type(4){
+	margin-bottom:0px;
+}
+.exam_content ul li:nth-of-type(1) .curve{
+	position: absolute;
+	width: 44px;
+	height: 43px;
+	right: 43px;
+	bottom: 0px;
+}
+.exam_content ul li:nth-of-type(2) .start{
+	position: absolute;
+	width: 27px;
+	height: 21px;
+	top: 0px;
+	left: 60px;
+}
+.exam_content ul li:nth-of-type(2) .helical_curve{
+	position: absolute;
+	width: 25px;
+	height: 67px;
+	bottom: -20px;
+	left: 28px;
+}
+.exam_content ul li:nth-of-type(3) .doublet{
+	position: absolute;
+	width: 22px;
+	height: 15px;
+	top: 0;
+	right: -30px;
+}
+.exam_content ul li:nth-of-type(3) .start{
+	position: absolute;
+	width: 27px;
+	height: 21px;
+	bottom: 0px;
+	right: 63px;
+}
+.exam_content ul li:nth-of-type(4) .doublet{
+	position: absolute;
+	width: 22px;
+	height: 15px;
+	bottom: 30px;
+	left: -34px;
+}
 .exam_content_left{
 	height: 220px;
 	display: flex;
 }
-
 .exam_left_img{
 	width: 220px;
 	height: 220px;
-
+    position: relative;
 }
+
 .exam_left_img span {
 	display: inline-block;
 	position: relative;
-	height: 190px;
-	width: 190px;
-	margin: 15px;
+	height: 180px;
+	width: 180px;
+	margin: 20px;
 }
 .exam_left_img span img{
 	width: 58px;
@@ -112,8 +172,8 @@ li{
 	top: 0;
 	left: 0;
 	display: inline-block;
-	width: 188px;
-	height: 188px;
+	width: 178px;
+	height: 178px;
 	border: 1px solid #4E4E4E;
 	border-radius: 1px;
 }
@@ -140,4 +200,93 @@ li{
 	top: 50%;
 	left: 50%;
 	transform:translate(-50%,-50%);
+}
+.audio-wrapper {
+    margin: 10px auto;
+    max-width: 670px;
+    height: 70px;
+}
+.audio-left {
+    float: left;
+    text-align: center;
+    width: 24%;
+    height: 100%;
+}
+.audio-left img {
+    width: 50px;
+    position: relative;
+    top: 15px;
+    margin: 0;
+    display: initial;   /* 解除与app的样式冲突 */
+    cursor: pointer;
+}
+.audio-right {
+    float: right;
+    width: 76%;
+    height: 100%;
+}
+.audio-right p {
+	font-family: HYQiHei-EZS;
+	font-size: 18px;
+	color: #4E4E4E;
+    font-size: 15px;
+    height: 35%;
+    margin: 8px 10px;
+    line-height: 25px;
+    /* 歌曲名称只显示在一行，超出部分显示为省略号 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 243px;   /* 要适配小屏幕手机，所以最大宽度先设小一点，后面js根据屏幕大小重新设置 */    
+}
+
+.progress-bar-bg {
+    /*background-color: #d9d9d9;*/
+    position: relative;
+    height: 16px;
+    width: 265px;
+    background: #D6EBED;
+	border: 4px solid #D6EBED;
+	border-radius: 8px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    background: #98CCD1;
+    border-radius: 8px;
+    width: 0;
+    height: 16px;
+}
+
+.progress-bar-bg span {
+	display: none;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: #3e87e8;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+    cursor: pointer;
+}
+
+.audio-time {
+	display: none;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.audio-length-total {
+    float: right;
+    font-size: 12px;
+}
+
+.audio-length-current {
+    float: left;
+    font-size: 12px;
 }
