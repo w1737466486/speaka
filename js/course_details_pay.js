@@ -19,6 +19,9 @@ $(function () {
 	console.log(objurl);
 	var commodity_id = objurl.commodity_id;
 	var u_id=objurl.u_id;
+	if(u_id=="undefined"){
+		u_id='';
+	}
 	var joy_from=objurl.joy_from;
 	coupon_no=objurl.coupon_no;
 	window.get_token = get_token;
