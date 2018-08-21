@@ -163,13 +163,17 @@ b,em{
 	width: 180px;
 	margin: 20px;
 }
-.exam_left_img span img{
+.exam_left_img span>img{
 	width: 58px;
 	height: 53px;
 	position: absolute;
 	top: -43px;
 	left: 43px;
 	z-index: 2;
+}
+.exam_left_img span .pic img{
+	width: 100%;
+	height: 100%;
 }
 .exam_left_img span b{
 	position: absolute;
@@ -187,7 +191,6 @@ b,em{
 }
 .exam_left_img span b:nth-of-type(2){
 	transform: rotate(7deg);
-	background: #E74240;
 }
 .exam_left_text{
 	flex: 1;
@@ -224,6 +227,9 @@ b,em{
     margin: 0;
     display: initial;   /* 解除与app的样式冲突 */
     cursor: pointer;
+}
+.audio-right b{
+	margin: 0px 2px;
 }
 .audio-right {
     float: right;
