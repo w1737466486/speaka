@@ -65,7 +65,7 @@ b,em{
 	text-align: center;
 }
 .exam_head_title p{
-	font-family: HanziPenSC-W5;
+	font-family: PingFangSC-Medium;
 	font-size: 3rem;
 	color: #4E4E4E;
 	letter-spacing: 2.14px;
@@ -236,7 +236,7 @@ b,em{
 	color: #4E4E4E;
     font-size: 15px;
     height: 25px;
-    margin: 16px 10px 5px;
+    margin: 16px 10px 3px;
     line-height: 25px;
     /* 歌曲名称只显示在一行，超出部分显示为省略号 */
     overflow: hidden;
@@ -252,7 +252,7 @@ b,em{
     width: 265px;
     background: #D6EBED;
 	border: 4px solid #D6EBED;
-	border-radius: 8px;
+	border-radius: 12px;
     cursor: pointer;
 }
 
