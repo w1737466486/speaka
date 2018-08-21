@@ -157,6 +157,8 @@ $(function(){
 					for(var i=0;i<data.data.teacher_comment.length;i++){
 						$('.exam_envelope_text').append('<p>' + data.data.teacher_comment[i] + '</p>');
 					}
+				}else if(data.code==404){
+					alert(data.msg)
 				}
 			},
 			error:function(res){
