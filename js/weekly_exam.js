@@ -162,7 +162,9 @@ $(function(){
 				}
 			},
 			error:function(res){
-				console.log(res);
+				alert('请求过于频繁请重新刷新页面或返回重试！')
+				console.log(JSON.stringify(res));
+			       
 			}
 		});
 	}
