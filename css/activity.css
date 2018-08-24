@@ -1,0 +1,199 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 13.33vw;
+	background-color: #1EA866;
+}
+
+body {
+	font: 16px "微软雅黑";
+}
+.banner_wrapper{
+	position: relative;
+	font-size: 0;
+}
+.banner_wrapper img{
+	width: 100%;
+}
+.banner_wrapper .viewVideo{
+	position: absolute;
+	top:80vw;
+	left:45vw;
+    background-size: 56px 56px;
+    background-image: url('../img/play.png');
+    background-color: rgba(255, 215, 4, 0.85);
+    width: 56px;
+    height: 56px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 5px 0px 6px 6px rgba(255, 215, 4, 0.1),-5px 0px 6px 6px rgba(255, 215, 4, 0.1),0px 5px 6px 6px rgba(255, 215, 4, 0.1),0px -5px 6px 6px rgba(255, 215, 4, 0.1);
+}
+.playVideo{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 3;
+}
+.playVideo video{
+	height: 80%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.close{
+	width: 48px;
+	height: 48px;
+	background-size: 48px 48px;
+	background-image: url(../img/close.svg);
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	top: 2%;
+	left: calc(50% - 24px);
+	z-index: 4;
+}
+.fixed-btns {
+    position: fixed;
+    bottom: -1px;
+    width: 100%;
+    z-index: 9;
+    height: 50px;
+}
+.buyAlone_btn {
+    position: absolute;
+    left: 2.4%;
+    width: 27.73%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+    font-family: PingFangSC-Regular;
+    color: #7D7D7D;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 rgba(0,0,0,0.05);
+    border-radius: 8px 8px 0 0;
+    bottom: 0;
+}
+.group_btn {
+    position: absolute;
+    left: 32.6%;
+    height: 50px;
+    line-height: 50px;
+    background: linear-gradient(120.5deg,rgba(255,221,5,1),rgba(255,185,2,1));
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.05);
+    border-radius: 8px 8px 0px 0px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    font-family: PingFangSC-Medium;
+    width: 65%;
+    bottom: 0;
+}
+.login_mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,.8);
+    z-index: 10;
+    overflow: hidden;
+    display: none;
+    font-family: VarelaRound-Regular,PingFangSC-Light,Microsoft YaHei;
+}
+.login_mask * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.login_mask .login_box {
+    width: 78.667vw;
+    margin: 42% auto;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 3.2vw;
+    position: relative;
+    padding: 0;
+    content: "viewport-units-buggyfill; width: 78.667vw; border-radius: 3.2vw";
+}
+.login_mask form {
+    margin: 13.533vw auto;
+    content: "viewport-units-buggyfill; margin: 8.533vw auto";
+}
+.login_mask .login_title {
+    height: 7.467vw;
+    margin-bottom: 6.4vw;
+    line-height: 7.467vw;
+    font-size: 5.333vw;
+    font-family: PingFangSC-Medium;
+    color: #4b5058;
+    text-align: center;
+    content: "viewport-units-buggyfill; height: 7.467vw; margin-bottom: 6.4vw; line-height: 7.467vw; font-size: 5.333vw";
+}
+.login_mask input {
+    margin: 2.133vw auto 0;
+    display: block;
+    width: 68vw;
+    height: 12.267vw;
+    line-height: normal;
+    font-size: 3.733vw;
+    font-family: VarelaRound-Regular;
+    text-indent: 5.333vw;
+    outline: none;
+    color: #4b5058;
+    background: #fff;
+    border-radius: 6.133vw;
+    border: .267vw solid #f2f2f2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    content: "viewport-units-buggyfill; margin: 2.133vw auto 0 auto; width: 68vw; height: 12.267vw; font-size: 3.733vw; text-indent: 5.333vw; border-radius: 6.133vw; border: 0.267vw solid #f2f2f2";
+}
+.login_mask .send_btn {
+    display: inline-block;
+    width: 24vw;
+    height: 12.8vw;
+    line-height: 12.8vw;
+    font-size: 3.733vw;
+    font-weight: 300;
+    font-family: PingFangSC-Light;
+    color: #4b5058;
+    position: absolute;
+    text-align: center;
+    top: 41.8vw;
+    right: 5.067vw;
+    content: "viewport-units-buggyfill; width: 24vw; height: 12.8vw; line-height: 12.8vw; font-size: 3.733vw; top: 36.8vw; right: 5.067vw";
+}
+.login_mask .submit_btn {
+    display: block;
+    margin: 2.133vw auto 0;
+    width: 68vw;
+    height: 12.8vw;
+    line-height: 12.8vw;
+    background: hsla(216,8%,63%,.6);
+    border-radius: 6.4vw;
+    font-size: 4.267vw;
+    font-family: PingFangSC-Medium;
+    color: #e5e6e9;
+    text-align: center;
+    content: "viewport-units-buggyfill; margin: 2.133vw auto 0 auto; width: 68vw; height: 12.8vw; line-height: 12.8vw; border-radius: 6.4vw; font-size: 4.267vw";
+}
+.close_phone {
+    width: 48px;
+    height: 48px;
+    background-size: 48px 48px;
+    background-image: url(../img/close.svg);
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    top: 16%;
+    left: calc(50% - 24px);
+    z-index: 4;
+}
