@@ -1,6 +1,8 @@
 $(function(){
 	var activity_url = queryURL(location.href);
 	var commodity_id=activity_url.commodity_id;
+	var order_no=activity_url.order_no;
+	var joy_from=activity_url.joy_from;
 	var token=null;
 	var has_mobile=true;
 	//通过code判断用户是否绑定过手机号
@@ -15,7 +17,7 @@ $(function(){
 				success:function(data){
 					console.log(data);
 					if(data.status==-1){
-						window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+activity_url.joy_from+'%26order_no='+activity_url.group_order+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+						window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 					}
 					if(data.code==200){
 						token='Bearer '+data.data.token;
@@ -31,7 +33,7 @@ $(function(){
 				}
 			})
 	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+activity_url.joy_from+'%26order_no='+activity_url.group_order+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 	 }
 	 //判断用户是否购买过改商品
 	$.ajax({
@@ -90,8 +92,8 @@ $(function(){
 				type_id: typeId,
 				pay_type:0,
 				from_type:0,
-				order_no: activity_url.order_no,
-				joy_from:activity_url.joy_from,
+				order_no: order_no,
+				joy_from:joy_from,
 				location: window.location.href
 			},
 			beforeSend: function beforeSend(request) {
@@ -130,7 +132,7 @@ $(function(){
 	
 							success: function success(data) {
 								// 支付成功后的回调函数
-							    window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+activity_url.joy_from+'%26order_no='+ data.data.order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+							    window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+ data.data.order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 							}
 						});
 				});
@@ -204,30 +206,30 @@ $(function(){
 				wx.onMenuShareAppMessage({
 					title: '【推荐2人免费学】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
-					link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + activity_url.joy_from, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + activity_url.joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id + '&joy_from=' + activity_url.joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
 					}
 				});
 				wx.onMenuShareTimeline({
 					title: '【6~12岁英文微课】跟着美国家庭学英语，看世界！', // 分享标题    
-					link: 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id  + '&joy_from=' + activity_url.joy_from, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id  + '&joy_from=' + activity_url.joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/course_details.html?commodity_id=' + commodity_id  + '&joy_from=' + activity_url.joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from;
 					}
 				});
 			});
