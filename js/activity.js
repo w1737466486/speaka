@@ -5,6 +5,12 @@ $(function(){
 	var joy_from=activity_url.joy_from;
 	var token=null;
 	var has_mobile=true;
+	if(order_no=="undefined"){
+		order_no='';
+	}
+	if(joy_from=="undefined"){
+		joy_from='';
+	}
 	//通过code判断用户是否绑定过手机号
 	if(activity_url.code){
 			$.ajax({
