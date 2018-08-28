@@ -70,7 +70,7 @@ $(function(){
 			console.log(res);
 			if(res.code==403||res.code==404||res.code==405){
 				isbuy=true;
-				if(data.order_type==1){
+				if(res.order_type==1){
 					order_no=res.order_no;
 				}
 				$('.purchased').show();
@@ -351,30 +351,30 @@ $(function(){
 				wx.onMenuShareAppMessage({
 					title: '【推荐2人免费学】跟着美国家庭学英语，看世界！', // 分享标题    
 					desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
-					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from + '&order_no=' + order_no, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					type: '', // 分享类型,music、video或link，不填默认为link    
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from + '&order_no=' + order_no;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from + '&order_no=' + order_no;
 					}
 				});
 				wx.onMenuShareTimeline({
 					title: '【6~12岁英文微课】跟着美国家庭学英语，看世界！', // 分享标题    
-					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from, // 分享链接    
+					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from + '&order_no=' + order_no, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
 						// 用户确认分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from + '&order_no=' + order_no;
 					},
 					cancel: function cancel() {
 						// 用户取消分享后执行的回调函数    
-						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from;
+						window.location.href = 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from + '&order_no=' + order_no;
 					}
 				});
 			});
@@ -427,8 +427,7 @@ $(function(){
 							clearInterval(stopTime);
 							$('.send_btn').addClass('get_code');
 							$('.send_btn').html('发送验证码');
-						  }
-						 
+						 }
 						},1000)
 					}
 					if(data.status==0){
