@@ -404,7 +404,8 @@ $(function(){
 		$('.get_code').click(function(e){
 			e.stopPropagation();
 			var phone=$('.phone').val()	;
-			var num=59;
+			var num=60;
+			$('.send_btn').html(num+'s');
 			$.ajax({
 				type:"get",
 				url:"https://api.speaka.live/api/sms",
@@ -420,13 +421,14 @@ $(function(){
 						console.log(data);
 						$('.send_btn').removeClass('get_code');
 						var stopTime=setInterval(function(){
+					    num--;
 						$('.send_btn').html(num+'s');
-						 if(num==-1){
+						 if(num==0){
 							clearInterval(stopTime);
 							$('.send_btn').addClass('get_code');
 							$('.send_btn').html('发送验证码');
 						  }
-						 num--;
+						 
 						},1000)
 					}
 					if(data.status==0){
