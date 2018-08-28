@@ -178,7 +178,16 @@ $(function(){
 					} else if (remain_time <= 0) {
 						$('.notice').html('该拼团已结束');
 					}
-					
+					if (remain_time > 0 && data.group.length < 3) {
+						//点击开团按钮
+						$('.group_btn').click(function(){
+							if(has_mobile){
+								pay(1,order_no);	
+							}else{
+								$('.login_mask').show();	
+							}
+						})
+					}
 					//设置定时器
 					setInterval(function () {
 						var curr_time = getNowFormatDate();
@@ -204,17 +213,7 @@ $(function(){
 			                $('.notice').html('该拼团已结束');
 						} else if (remain_time <= 0) {
 							$('.notice').html('该拼团已结束');
-						}else if (remain_time > 0 && data.group.length < 3) {
-						//点击开团按钮
-						$('.group_btn').click(function(){
-							if(has_mobile){
-								pay(1,order_no);	
-							}else{
-								alert(123)
-								$('.login_mask').show();	
-							}
-						})
-					}
+						}
 						
 					}, 1000);
 				}
