@@ -165,11 +165,29 @@ $(function(){
 					} 
 					if (remain_time > 0 && data.group.length >= 3) {
 						$('.notice').html('该拼团已成团！');
+						$('.group_btn').click(function () {
+							alert('该团人数已满！去开团')
+							if(has_mobile){
+								pay(1,null);	
+							}else{
+								$('.login_mask').show();
+							}
+						});
 					} else if (remain_time <= 0 && data.group.length < 3) {
 		                $('.notice').html('该拼团已结束');
 					} else if (remain_time <= 0) {
 						$('.notice').html('该拼团已结束');
-					} 
+					}
+					if (remain_time > 0 && data.group.length < 3) {
+						//点击开团按钮
+						$('.group_btn').click(function(){
+							if(has_mobile){
+								pay(1,order_no);	
+							}else{
+								$('.login_mask').show();	
+							}
+						})
+					}
 					//设置定时器
 					setInterval(function () {
 						var curr_time = getNowFormatDate();
@@ -191,29 +209,12 @@ $(function(){
 						$('.notice span').eq(2).html(remain_sec);
 						if (remain_time > 0 && data.group.length >= 3) {
 							$('.notice').html('已成团！');
-							$('.group_btn').click(function () {
-								alert('该团人数已满！去开团')
-								if(has_mobile){
-									pay(1,null);	
-								}else{
-									$('.login_mask').show();
-								}
-							});
 						} else if (remain_time <= 0 && data.group.length < 3) {
 			                $('.notice').html('该拼团已结束');
 						} else if (remain_time <= 0) {
 							$('.notice').html('该拼团已结束');
 						}
-						if (remain_time > 0 && data.group.length < 3) {
-							//点击开团按钮
-							$('.group_btn').click(function(){
-								if(has_mobile){
-									pay(1,order_no);	
-								}else{
-									$('.login_mask').show();	
-								}
-							})
-						}
+						
 					}, 1000);
 				}
 				
