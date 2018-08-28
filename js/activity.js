@@ -445,8 +445,13 @@ $(function(){
 	})
 	//点击确定绑定手机号
 	$('.submit_btn').click(function(){
+		var myphonereg=/^1[34578]{1}\d{9}$/;
 		var phone=$('.phone').val()	;
 		var verifyCode=$('.phone_code').val();
+		if(!myphonereg.test(phone)){
+            alert('请填写正确的手机号！')
+            return;
+        }
 		$.ajax({
 			type:"post",
 			url:"https://api.speaka.live/api/u/update",
