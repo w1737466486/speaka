@@ -105,15 +105,7 @@ $(function(){
 			
 		}
 	})
-	//点击开团按钮
-	$('.group_btn').click(function(){
-		if(has_mobile){
-			pay(1,order_no);	
-		}else{
-			$('.login_mask').show();
-			
-		}
-	})
+
 	/**
 	 * 团购详情
 	 */
@@ -223,6 +215,15 @@ $(function(){
 			}
 		});
 	}else{
+		//点击开团按钮
+		$('.group_btn').click(function(){
+			if(has_mobile){
+				pay(1,order_no);	
+			}else{
+				$('.login_mask').show();
+				
+			}
+		})
 		$('.group-buy-step1').addClass('active');
 	}
 	/**
