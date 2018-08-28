@@ -434,6 +434,8 @@ $(function(){
 					console.log(data);
 					if(data.status==1){
 						$('.login_mask').hide();
+						$('.phone').val('');
+		                $('.phone_code').val('');
 						pay(res,order_no);
 					}else{
 						alert(data.info);
