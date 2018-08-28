@@ -101,7 +101,6 @@ $(function(){
 		if(has_mobile){
 			pay(0,null);	
 		}else{
-			var typeId=0;
 			$('.login_mask').show();
 			
 		}
@@ -111,7 +110,6 @@ $(function(){
 		if(has_mobile){
 			pay(1,order_no);	
 		}else{
-			var typeId=1;
 			$('.login_mask').show();
 			
 		}
@@ -224,6 +222,8 @@ $(function(){
 				console.log(_error2);
 			}
 		});
+	}else{
+		$('.group-buy-step1').addClass('active');
 	}
 	/**
 	 * 调取支付,typeId订单类型   0普通订单    1团购订单
@@ -469,7 +469,7 @@ $(function(){
 					$('.login_mask').hide();
 					$('.phone').val('');
 	                $('.phone_code').val('');
-					pay(typeId,order_no);
+					has_mobile=true;
 				}else{
 					alert(data.info);
 				}
