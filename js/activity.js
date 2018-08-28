@@ -101,8 +101,9 @@ $(function(){
 		if(has_mobile){
 			pay(0,null);	
 		}else{
-			$('.login_mask').show();
 			var typeId=0;
+			$('.login_mask').show();
+			
 		}
 	})
 	//点击开团按钮
@@ -110,8 +111,9 @@ $(function(){
 		if(has_mobile){
 			pay(1,order_no);	
 		}else{
-			$('.login_mask').show();
 			var typeId=1;
+			$('.login_mask').show();
+			
 		}
 	})
 	/**
