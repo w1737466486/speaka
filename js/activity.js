@@ -5,6 +5,7 @@ $(function(){
 	var joy_from=activity_url.joy_from;
 	var token=null;
 	var has_mobile=true;
+	var isbuy=false;
 	if(order_no=="undefined"){
 		order_no='';
 	}
@@ -68,20 +69,33 @@ $(function(){
 		success:function(res){
 			console.log(res);
 			if(res.code==403||res.code==404||res.code==405){
-                alert('已购买过该产品');
-				$('.buy_success .buy_pay p').eq(1).click(function(){
-					if (window.webkit) {
-						window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
-					} else {
-						window.location.href='https://www.pgyer.com/q8oQ';
-					}
-				});
+				isbuy=true;
+				if(data.order_type==1){
+					order_no=res.order_no;
+				}
+				$('.purchased').show();
+				$('.fixed_btns').hide();
 			}
 		},
 		error:function(res){
 			console.log(res);
 		}
 	});
+	//已购买用户下载APP
+	$('.download').click(function(){
+		if (window.webkit) {
+			window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
+		} else {
+			window.location.href='https://www.pgyer.com/q8oQ';
+		}
+	})
+	//已购买用户分享邀请好友
+	$('.invite').click(function(){
+		$('.share-mask').show();
+	})
+	$('.share-mask').click(function(){
+		$('.share-mask').hide();
+	})
 	//点击单人购
 	$('.buyAlone_btn').click(function(){
 		if(has_mobile){
@@ -100,7 +114,6 @@ $(function(){
 			register(1,order_no);
 		}
 	})
-	
 	/**
 	 * 团购详情
 	 */
@@ -108,55 +121,26 @@ $(function(){
 			$.ajax({
 			type: "get",
 			url: "https://api.speaka.live/api/order_group/" + order_no,
-			async: true,
+			async: false,
 			success: function success(data) {
 				console.log(data);
-				if (data.group.length > 0) {
-					var group_member = $('.group-buy-list div');
-					for (var i = 0; i < data.group.length; i++) {
-						if(data.group[i].user_info.head_wx==null&&data.group[i].user_info.head!=''){
-							//选择head头像
-							$('.group-buy-list div').eq(i).find('img').attr('src','https://s.speaka.live/' +data.group[i].user_info.head);
-						}else if(data.group[i].user_info.head_wx!=null){
-							//选择微信头像
-							$('.group-buy-list div').eq(i).find('img').attr('src',data.group[i].user_info.head_wx);
-						}else{
-							//head和微信头像都为null，给默认头像
-							$('.group-buy-list div').eq(i).find('img').attr('src','../img/mr.png');
+				if(data.type_id==1){
+					if (data.group.length > 0) {
+						var group_member = $('.group-buy-list div');
+						for (var i = 0; i < data.group.length; i++) {
+							if(data.group[i].user_info.head_wx==null&&data.group[i].user_info.head!=''){
+								//选择head头像
+								$('.group-buy-list div').eq(i).find('img').attr('src','https://s.speaka.live/' +data.group[i].user_info.head);
+							}else if(data.group[i].user_info.head_wx!=null){
+								//选择微信头像
+								$('.group-buy-list div').eq(i).find('img').attr('src',data.group[i].user_info.head_wx);
+							}else{
+								//head和微信头像都为null，给默认头像
+								$('.group-buy-list div').eq(i).find('img').attr('src','../img/mr.png');
+							}
+							$('.group-buy-list div').eq(i).find('span').html(data.group[i].user_info.name);
 						}
-						$('.group-buy-list div').eq(i).find('span').html(data.group[i].user_info.name);
 					}
-				}
-				var curr_time = getNowFormatDate();
-				var last_time = data.limit_at;
-				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
-				last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
-				curr_time = new Date(curr_time).valueOf();
-				last_time = new Date(last_time).valueOf();
-				//剩余总时间
-				var remain_time = last_time / 1000 - curr_time / 1000;
-				console.log(remain_time);
-				//剩余时
-				var remain_hours = Math.floor(remain_time / 3600);
-				console.log(remain_hours);
-				//剩余分
-				var remain_min = Math.floor((remain_time - remain_hours * 3600) / 60);
-				console.log(remain_min);
-				//剩余秒
-				var remain_sec = Math.floor(remain_time - remain_hours * 3600 - remain_min * 60);
-				console.log(remain_sec);
-				$('.notice span').eq(0).html(remain_hours);
-				$('.notice span').eq(1).html(remain_min);
-				$('.notice span').eq(2).html(remain_sec);
-				if (remain_time > 0 && data.group.length >= 3) {
-					$('.notice').html('该拼团已成团！');
-				} else if (remain_time <= 0 && data.group.length < 3) {
-	                $('.notice').html('该拼团已结束');
-				} else if (remain_time <= 0) {
-					$('.notice').html('该拼团已结束');
-				}
-				//设置定时器
-				setInterval(function () {
 					var curr_time = getNowFormatDate();
 					var last_time = data.limit_at;
 					curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
@@ -174,23 +158,64 @@ $(function(){
 					$('.notice span').eq(0).html(remain_hours);
 					$('.notice span').eq(1).html(remain_min);
 					$('.notice span').eq(2).html(remain_sec);
+				    //活动进程
+				    //已购买商品邀请参团
+				    if (remain_time > 0 && data.group.length < 3 && isbuy==true) {
+						$('.group-buy-step3').addClass('active');
+					}
+				    //未购买商品参团支付
+				    if (remain_time > 0 && data.group.length < 3 && isbuy==false) {
+						$('.group-buy-step2').addClass('active');
+					}
+				    //团购完成
+					if (remain_time > 0 && data.group.length >= 3 && isbuy==true) {
+						$('.group-buy-step4').addClass('active');
+					} 
 					if (remain_time > 0 && data.group.length >= 3) {
 						$('.notice').html('该拼团已成团！');
-						$('.group_btn').click(function () {
-							alert('该团人数已满！去开团')
-							pay(1,null);
-						});
 					} else if (remain_time <= 0 && data.group.length < 3) {
 		                $('.notice').html('该拼团已结束');
 					} else if (remain_time <= 0) {
 						$('.notice').html('该拼团已结束');
-					}
-					if (remain_time > 0 && data.group.length < 3) {
-						$('.group_btn').click(function () {
-							pay(1,order_no)
-						});
-					}
-				}, 1000);
+					} 
+					//设置定时器
+					setInterval(function () {
+						var curr_time = getNowFormatDate();
+						var last_time = data.limit_at;
+						curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
+						last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+						curr_time = new Date(curr_time).valueOf();
+						last_time = new Date(last_time).valueOf();
+						//剩余总时间
+						var remain_time = last_time / 1000 - curr_time / 1000;
+						//剩余时
+						var remain_hours = Math.floor(remain_time / 3600);
+						//剩余分
+						var remain_min = Math.floor((remain_time - remain_hours * 3600) / 60);
+						//剩余秒
+						var remain_sec = Math.floor(remain_time - remain_hours * 3600 - remain_min * 60);
+						$('.notice span').eq(0).html(remain_hours);
+						$('.notice span').eq(1).html(remain_min);
+						$('.notice span').eq(2).html(remain_sec);
+						if (remain_time > 0 && data.group.length >= 3) {
+							$('.notice').html('已成团！');
+							$('.group_btn').click(function () {
+								alert('该团人数已满！去开团')
+								pay(1,null);
+							});
+						} else if (remain_time <= 0 && data.group.length < 3) {
+			                $('.notice').html('该拼团已结束');
+						} else if (remain_time <= 0) {
+							$('.notice').html('该拼团已结束');
+						}
+						if (remain_time > 0 && data.group.length < 3) {
+							$('.group_btn').click(function () {
+								pay(1,order_no)
+							});
+						}
+					}, 1000);
+				}
+				
 				
 			},
 			error: function error(_error2) {
