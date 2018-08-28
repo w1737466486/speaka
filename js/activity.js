@@ -43,7 +43,6 @@ $(function(){
 			window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 		 }
 	}
-    token='Bearer '+1257;
 	 //判断用户是否购买过该商品
 	$.ajax({
 		type:"get",
