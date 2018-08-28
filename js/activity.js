@@ -423,7 +423,7 @@ $(function(){
 						$('.login_mask').hide();
 						pay(res,order_no);
 					}else{
-						alert(data.user);
+						alert(data.info);
 					}
 				},
 				error:function(res){
