@@ -43,6 +43,20 @@ $(function(){
 			window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 		 }
 	}
+	//商品详情
+		$.ajax({
+		type: "get",
+		url: "https://api.speaka.live/api/commodity/" + commodity_id,
+		async: true,
+		success: function success(data) {
+			console.log(data)
+		},
+		error: function error(_error) {
+			console.log(_error);
+		}
+	});
+	
+	
 	 //判断用户是否购买过该商品
 	$.ajax({
 		type:"get",
@@ -177,7 +191,6 @@ $(function(){
 						});
 					}
 				}, 1000);
-				
 				
 			},
 			error: function error(_error2) {
