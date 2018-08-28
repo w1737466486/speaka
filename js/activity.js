@@ -12,36 +12,39 @@ $(function(){
 		joy_from='';
 	}
 	//通过code判断用户是否绑定过手机号
-	if(activity_url.code){
-			$.ajax({
-				type:'post',
-				url:'https://api.speaka.live/api/u/wxinfo',
-				data:{
-					code:activity_url.code
-				},
-				async:false,
-				success:function(data){
-					console.log(data);
-					if(data.status==-1){
-						window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
-					}
-					if(data.code==200){
-						token='Bearer '+data.data.token;
-						if(data.data.has_mobile==1){
-							has_mobile=true;
-						}else{
-							has_mobile=false;
+	if(isWeiXin()){
+		if(activity_url.code){
+				$.ajax({
+					type:'post',
+					url:'https://api.speaka.live/api/u/wxinfo',
+					data:{
+						code:activity_url.code
+					},
+					async:false,
+					success:function(data){
+						console.log(data);
+						if(data.status==-1){
+							window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
 						}
+						if(data.code==200){
+							token='Bearer '+data.data.token;
+							if(data.data.has_mobile==1){
+								has_mobile=true;
+							}else{
+								has_mobile=false;
+							}
+						}
+					},
+					error:function(res){
+						console.log(JSON.stringify(res));
 					}
-				},
-				error:function(res){
-					console.log(JSON.stringify(res))
-				}
-			})
-	 }else{
-		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
-	 }
-	 //判断用户是否购买过改商品
+				});
+		 }else{
+			window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0b778a82184cf52f&redirect_uri='+encodeURI(location.href.split("?")[0]+'?commodity_id='+commodity_id)+'%26joy_from='+joy_from+'%26order_no='+order_no+'&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+		 }
+	}
+    token='Bearer '+1257;
+	 //判断用户是否购买过该商品
 	$.ajax({
 		type:"get",
 		url:"https://api.speaka.live/api/commoditybuy/" + commodity_id,
@@ -52,7 +55,7 @@ $(function(){
 		success:function(res){
 			console.log(res);
 			if(res.code==403||res.code==404||res.code==405){
-                alert('已购买过该产品')
+                alert('已购买过该产品');
 				$('.buy_success .buy_pay p').eq(1).click(function(){
 					if (window.webkit) {
 						window.location.href='https://itunes.apple.com/cn/app/speak-a/id1345905287';
@@ -69,25 +72,125 @@ $(function(){
 	//点击单人购
 	$('.buyAlone_btn').click(function(){
 		if(has_mobile){
-			pay(0);	
+			pay(0,null);	
 		}else{
 			$('.login_mask').show();
-			register(0);
+			register(0,null);
 		}
 	})
 	//点击开团按钮
 	$('.group_btn').click(function(){
 		if(has_mobile){
-			pay(1);	
+			pay(1,order_no);	
 		}else{
 			$('.login_mask').show();
-			register(1);
+			register(1,order_no);
 		}
 	})
+	
+	/**
+	 * 团购详情
+	 */
+		$.ajax({
+		type: "get",
+		url: "https://api.speaka.live/api/order_group/" + order_no,
+		async: true,
+		success: function success(data) {
+			console.log(data);
+			if (data.group.length > 0) {
+				var group_member = $('.group-buy-list div');
+				for (var i = 0; i < data.group.length; i++) {
+					if(data.group[i].user_info.head_wx==null&&data.group[i].user_info.head!=''){
+						//选择head头像
+						$('.group-buy-list div').eq(i).find('img').attr('src','https://s.speaka.live/' +data.group[i].user_info.head);
+					}else if(data.group[i].user_info.head_wx!=null){
+						//选择微信头像
+						$('.group-buy-list div').eq(i).find('img').attr('src',data.group[i].user_info.head_wx);
+					}else{
+						//head和微信头像都为null，给默认头像
+						$('.group-buy-list div').eq(i).find('img').attr('src','../img/mr.png');
+					}
+					$('.group-buy-list div').eq(i).find('span').html(data.group[i].user_info.name);
+				}
+			}
+			var curr_time = getNowFormatDate();
+			var last_time = data.limit_at;
+			curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
+			last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+			curr_time = new Date(curr_time).valueOf();
+			last_time = new Date(last_time).valueOf();
+			//剩余总时间
+			var remain_time = last_time / 1000 - curr_time / 1000;
+			console.log(remain_time);
+			//剩余时
+			var remain_hours = Math.floor(remain_time / 3600);
+			console.log(remain_hours);
+			//剩余分
+			var remain_min = Math.floor((remain_time - remain_hours * 3600) / 60);
+			console.log(remain_min);
+			//剩余秒
+			var remain_sec = Math.floor(remain_time - remain_hours * 3600 - remain_min * 60);
+			console.log(remain_sec);
+			$('.notice span').eq(0).html(remain_hours);
+			$('.notice span').eq(1).html(remain_min);
+			$('.notice span').eq(2).html(remain_sec);
+			if (remain_time > 0 && data.group.length >= 3) {
+				$('.notice').html('该拼团已成团！');
+			} else if (remain_time <= 0 && data.group.length < 3) {
+                $('.notice').html('该拼团已结束');
+			} else if (remain_time <= 0) {
+				$('.notice').html('该拼团已结束');
+			}
+			//设置定时器
+			setInterval(function () {
+				var curr_time = getNowFormatDate();
+				var last_time = data.limit_at;
+				curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
+				last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+				curr_time = new Date(curr_time).valueOf();
+				last_time = new Date(last_time).valueOf();
+				//剩余总时间
+				var remain_time = last_time / 1000 - curr_time / 1000;
+				//剩余时
+				var remain_hours = Math.floor(remain_time / 3600);
+				//剩余分
+				var remain_min = Math.floor((remain_time - remain_hours * 3600) / 60);
+				//剩余秒
+				var remain_sec = Math.floor(remain_time - remain_hours * 3600 - remain_min * 60);
+				$('.notice span').eq(0).html(remain_hours);
+				$('.notice span').eq(1).html(remain_min);
+				$('.notice span').eq(2).html(remain_sec);
+				if (remain_time > 0 && data.group.length >= 3) {
+					$('.notice').html('该拼团已成团！');
+					$('.group_btn').click(function () {
+						alert('该团人数已满！去开团')
+						pay(1,null);
+					});
+				} else if (remain_time <= 0 && data.group.length < 3) {
+	                $('.notice').html('该拼团已结束');
+				} else if (remain_time <= 0) {
+					$('.notice').html('该拼团已结束');
+				}
+				if (remain_time > 0 && data.group.length < 3) {
+					$('.group_btn').click(function () {
+						window.location.href = 'https://api.speaka.live/api/order/buy/'+commodity_id+'?type_id=' + 12 + '&commodity_id=' + commodity_id + '&order_no=' + groupurl.order_no + '&u_id=' + u_id + '&joy_from=' + joy_from ;
+					});
+				}
+			}, 1000);
+			
+			
+		},
+		error: function error(_error2) {
+			console.log(_error2);
+		}
+	});
+	
+	
+	
 	/**
 	 * 调取支付,typeId订单类型   0普通订单    1团购订单
 	 */
-	function pay(typeId){
+	function pay(typeId,order_no){
 		$.ajax({
 			type:"post",
 			url:"https://api.speaka.live/api/order/insertOrder",
@@ -107,7 +210,7 @@ $(function(){
 			},
 			success:function(data){
 				if(data.status==-1){
-					alert('请登录后重试！')
+					alert('请登录后重试！');
 				}
 			   if (data.code == 200) {
 	            console.log(data.data.config);
@@ -256,82 +359,85 @@ $(function(){
 			alert('验证信息已失效，请重新获取订单信息！');
 		}
 	}, 'json');
-	function register(res){
-		    //新用户绑定手机号发送验证码
-			$('.get_code').click(function(e){
-				e.stopPropagation();
-				var phone=$('.phone').val()	;
-				var num=59;
-				$.ajax({
-					type:"get",
-					url:"https://api.speaka.live/api/sms",
-					data:{
-		              mobile:phone				
-					},
-					async:false,
-					beforeSend: function beforeSend(request) {
-						request.setRequestHeader("Authorization", token);
-					},
-					success:function(data){
-						if(data.status==1){
-							console.log(data);
-							$('.send_btn').removeClass('get_code');
-							var stopTime=setInterval(function(){
-							$('.send_btn').html(num+'s');
-							 if(num==-1){
-								clearInterval(stopTime);
-								$('.send_btn').addClass('get_code');
-								$('.send_btn').html('发送验证码');
-							  }
-							 num--;
-							},1000)
-						}
-						if(data.status==0){
-							alert(data.info)
-						}
-					},
-					error:function(res){
-						console.log(JSON.stringify(res))
+	/**
+	 * 绑定手机号 
+	 * res 支付类型 0 单人购 1 团购
+	 */
+	function register(res,order_no){
+	    //新用户绑定手机号发送验证码
+		$('.get_code').click(function(e){
+			e.stopPropagation();
+			var phone=$('.phone').val()	;
+			var num=59;
+			$.ajax({
+				type:"get",
+				url:"https://api.speaka.live/api/sms",
+				data:{
+	              mobile:phone				
+				},
+				async:false,
+				beforeSend: function beforeSend(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				success:function(data){
+					if(data.status==1){
+						console.log(data);
+						$('.send_btn').removeClass('get_code');
+						var stopTime=setInterval(function(){
+						$('.send_btn').html(num+'s');
+						 if(num==-1){
+							clearInterval(stopTime);
+							$('.send_btn').addClass('get_code');
+							$('.send_btn').html('发送验证码');
+						  }
+						 num--;
+						},1000)
 					}
-				});
-				console.log(phone)
-				return false;
-			})
-			//点击确定绑定手机号
-			$('.submit_btn').click(function(){
-				var phone=$('.phone').val()	;
-				var verifyCode=$('.phone_code').val();
-				$.ajax({
-					type:"post",
-					url:"https://api.speaka.live/api/u/update",
-					data:{
-		              mobile:phone,
-		              verifyCode:verifyCode
-					},
-					async:false,
-					beforeSend: function beforeSend(request) {
-						request.setRequestHeader("Authorization", token);
-					},
-					success:function(data){
-						console.log(data)
-						if(data.status==1){
-							pay(res)
-						}else{
-							alert(data.info)
-						}
-					},
-					error:function(res){
-						alert('验证信息错误请返回重试！')
-						console.log(JSON.stringify(res))
+					if(data.status==0){
+						alert(data.info);
 					}
-				});
-			})
+				},
+				error:function(res){
+					console.log(JSON.stringify(res));
+				}
+			});
+			console.log(phone)
+			return false;
+		})
+		//点击确定绑定手机号
+		$('.submit_btn').click(function(){
+			var phone=$('.phone').val()	;
+			var verifyCode=$('.phone_code').val();
+			$.ajax({
+				type:"post",
+				url:"https://api.speaka.live/api/u/update",
+				data:{
+	              mobile:phone,
+	              verifyCode:verifyCode
+				},
+				async:false,
+				beforeSend: function beforeSend(request) {
+					request.setRequestHeader("Authorization", token);
+				},
+				success:function(data){
+					console.log(data);
+					if(data.status==1){
+						$('.login_mask').hide();
+						pay(res,order_no);
+					}else{
+						alert(data.info);
+					}
+				},
+				error:function(res){
+					alert('验证信息错误请返回重试！');
+					console.log(JSON.stringify(res));
+				}
+			});
+		})
 	}
-	
-
 	//关闭手机号绑定窗口
 	$('.close_phone').on('click',function(){
-		$('.login_mask').hide()
+		$('.login_mask').hide();
 		$('.phone').val('');
 		$('.phone_code').val('');
 	})
@@ -346,7 +452,16 @@ $(function(){
 		}
 		return obj;
 	}
-		//去掉alert显示网页
+	//判断是否是微信浏览器
+	function isWeiXin() {
+		var ua = window.navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	//去掉alert显示网页
 	window.alert = function(name) {
 		var iframe = document.createElement("IFRAME");
 		iframe.style.display = "none";
@@ -355,4 +470,44 @@ $(function(){
 		window.frames[0].window.alert(name);
 		iframe.parentNode.removeChild(iframe);
 	};
+	//时间戳转日期格式
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate() + ' ';
+        var h = date.getHours() + ':';
+        var m = date.getMinutes() + ':';
+        var s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+	//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
+	function getNowFormatDate() {
+		var date = new Date();
+		var seperator1 = "-";
+		var seperator2 = ":";
+		var month = date.getMonth() + 1;
+		var strDate = date.getDate();
+		var _hours = date.getHours();
+		var _minutes = date.getMinutes();
+		var _seconds = date.getSeconds();
+		if (month >= 1 && month <= 9) {
+			month = "0" + month;
+		}
+		if (strDate >= 0 && strDate <= 9) {
+			strDate = "0" + strDate;
+		}
+		if (_hours >= 0 && _hours <= 9) {
+			_hours = "0" + _hours;
+		}
+		if (_minutes >= 0 && _minutes <= 9) {
+			_minutes = "0" + _minutes;
+		}
+		if (_seconds >= 0 && _seconds <= 9) {
+			_seconds = "0" + _seconds;
+		}
+
+		var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + _hours + seperator2 + _minutes + seperator2 + _seconds;
+		return currentdate;
+	}
 })
