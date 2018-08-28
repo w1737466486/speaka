@@ -4,7 +4,7 @@ $(function(){
 	var order_no=activity_url.order_no;
 	var joy_from=activity_url.joy_from;
 	var token=null;
-	var has_mobile=true;
+	var has_mobile=false;
 	var isbuy=false;
 	if(order_no=="undefined"){
 		order_no='';
