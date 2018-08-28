@@ -30,7 +30,7 @@ $(function(){
 						if(data.code==200){
 							token='Bearer '+data.data.token;
 							if(data.data.has_mobile==1){
-								//has_mobile=true;
+								has_mobile=true;
 							}else{
 								has_mobile=false;
 							}
