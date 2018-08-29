@@ -101,11 +101,10 @@ $(function(){
 		if(has_mobile){
 			pay(0,null);	
 		}else{
+			var typeId=0;
 			$('.login_mask').show();
-			
 		}
 	})
-
 	/**
 	 * 团购详情
 	 */
@@ -158,6 +157,7 @@ $(function(){
 				    //未购买商品参团支付
 				    if (remain_time > 0 && data.group.length < 3 && isbuy==false) {
 						$('.group-buy-step2').addClass('active');
+						$('.group_btn').html('立即参团');
 					}
 				    //团购完成
 					if (remain_time > 0 && data.group.length >= 3 && isbuy==true) {
@@ -166,10 +166,12 @@ $(function(){
 					if (remain_time > 0 && data.group.length >= 3) {
 						$('.notice').html('该拼团已成团！');
 						$('.group_btn').click(function () {
-							alert('该团人数已满！去开团')
+							alert('该团人数已满！去开团');
 							if(has_mobile){
-								pay(1,null);	
+								pay(1,null);
 							}else{
+								var typeId=1;
+								order_no=null;
 								$('.login_mask').show();
 							}
 						});
@@ -184,6 +186,7 @@ $(function(){
 							if(has_mobile){
 								pay(1,order_no);	
 							}else{
+								var typeId=1;
 								$('.login_mask').show();	
 							}
 						})
@@ -230,6 +233,7 @@ $(function(){
 			if(has_mobile){
 				pay(1,order_no);	
 			}else{
+				var typeId=1;
 				$('.login_mask').show();
 			}
 		})
@@ -339,9 +343,103 @@ $(function(){
 						alert('该课程购买时间已过！');
 					}
 				}
+			},
+			error:function(e){
+				console.log(JSON.stringify(e));
 			}
 		});
 	}
+
+	
+	/**
+	 * 绑定手机号 
+	 * res 支付类型 0 单人购 1 团购
+	 */
+    //新用户绑定手机号发送验证码
+	$('.get_code').click(function(e){
+		e.stopPropagation();
+		var phone=$('.phone').val()	;
+		var num=60;
+		$('.send_btn').html(num+'s');
+		$.ajax({
+			type:"get",
+			url:"https://api.speaka.live/api/sms",
+			data:{
+              mobile:phone				
+			},
+			async:false,
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			success:function(data){
+				if(data.status==1){
+					console.log(data);
+					$('.send_btn').removeClass('get_code');
+					var stopTime=setInterval(function(){
+				    num--;
+					$('.send_btn').html(num+'s');
+					 if(num==0){
+						clearInterval(stopTime);
+						$('.send_btn').addClass('get_code');
+						$('.send_btn').html('发送验证码');
+					 }
+					},1000)
+				}
+				if(data.status==0){
+					alert(data.info);
+				}
+			},
+			error:function(res){
+				console.log(JSON.stringify(res));
+			}
+		});
+		console.log(phone)
+		return false;
+	})
+	//点击确定绑定手机号
+	$('.submit_btn').click(function(){
+		var myphonereg=/^1[34578]{1}\d{9}$/;
+		var phone=$('.phone').val()	;
+		var verifyCode=$('.phone_code').val();
+		if(!myphonereg.test(phone)){
+            alert('请填写正确的手机号！')
+            return;
+       }
+		$.ajax({
+			type:"post",
+			url:"https://api.speaka.live/api/u/update",
+			data:{
+              mobile:phone,
+              verifyCode:verifyCode
+			},
+			async:false,
+			beforeSend: function beforeSend(request) {
+				request.setRequestHeader("Authorization", token);
+			},
+			success:function(data){
+				console.log(data);
+				if(data.status==1){
+					$('.login_mask').hide();
+					$('.phone').val('');
+	                $('.phone_code').val('');
+					has_mobile=true;
+					pay(typeId,order_no);
+				}else{
+					alert(data.info);
+				}
+			},
+			error:function(res){
+				alert('验证信息错误请返回重试！');
+				console.log(JSON.stringify(res));
+			}
+		});
+	})
+	//关闭手机号绑定窗口
+	$('.close_phone').on('click',function(){
+		$('.login_mask').hide();
+		$('.phone').val('');
+		$('.phone_code').val('');
+	})
 	//分享设置
 	$.post("https://api.speaka.live/api/weChat/wxconfig", {
 		location: window.location.href
@@ -407,95 +505,6 @@ $(function(){
 			alert('验证信息已失效，请重新获取订单信息！');
 		}
 	}, 'json');
-	/**
-	 * 绑定手机号 
-	 * res 支付类型 0 单人购 1 团购
-	 */
-
-    //新用户绑定手机号发送验证码
-	$('.get_code').click(function(e){
-		e.stopPropagation();
-		var phone=$('.phone').val()	;
-		var num=60;
-		$('.send_btn').html(num+'s');
-		$.ajax({
-			type:"get",
-			url:"https://api.speaka.live/api/sms",
-			data:{
-              mobile:phone				
-			},
-			async:false,
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", token);
-			},
-			success:function(data){
-				if(data.status==1){
-					console.log(data);
-					$('.send_btn').removeClass('get_code');
-					var stopTime=setInterval(function(){
-				    num--;
-					$('.send_btn').html(num+'s');
-					 if(num==0){
-						clearInterval(stopTime);
-						$('.send_btn').addClass('get_code');
-						$('.send_btn').html('发送验证码');
-					 }
-					},1000)
-				}
-				if(data.status==0){
-					alert(data.info);
-				}
-			},
-			error:function(res){
-				console.log(JSON.stringify(res));
-			}
-		});
-		console.log(phone)
-		return false;
-	})
-	//点击确定绑定手机号
-	$('.submit_btn').click(function(){
-		var myphonereg=/^1[34578]{1}\d{9}$/;
-		var phone=$('.phone').val()	;
-		var verifyCode=$('.phone_code').val();
-		if(!myphonereg.test(phone)){
-            alert('请填写正确的手机号！')
-            return;
-        }
-		$.ajax({
-			type:"post",
-			url:"https://api.speaka.live/api/u/update",
-			data:{
-              mobile:phone,
-              verifyCode:verifyCode
-			},
-			async:false,
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", token);
-			},
-			success:function(data){
-				console.log(data);
-				if(data.status==1){
-					$('.login_mask').hide();
-					$('.phone').val('');
-	                $('.phone_code').val('');
-					has_mobile=true;
-				}else{
-					alert(data.info);
-				}
-			},
-			error:function(res){
-				alert('验证信息错误请返回重试！');
-				console.log(JSON.stringify(res));
-			}
-		});
-	})
-	//关闭手机号绑定窗口
-	$('.close_phone').on('click',function(){
-		$('.login_mask').hide();
-		$('.phone').val('');
-		$('.phone_code').val('');
-	})
 	//将url参数转对象
 	function queryURL(url) {
 		var arr1 = url.split("?");
