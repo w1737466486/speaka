@@ -243,7 +243,6 @@ b,em{
 	font-family: HYQiHei-EZS;
 	font-size: 18px;
 	color: #4E4E4E;
-    font-size: 15px;
     height: 25px;
     margin: 16px 10px 3px;
     line-height: 25px;
@@ -306,13 +305,13 @@ b,em{
 .exam_envelope{
 	width: 84%;
 	margin-left: 8%;
-	font-size: 24px;
-	line-height: 36px;
-	letter-spacing: 4px;
+	font-size: 2.8rem;
+	line-height: 3.2rem;
+	letter-spacing: 0.04rem;
 	padding-bottom: 40px;
 }
 .exam_envelope p{
-	text-indent: 48px;
+	text-indent: 4rem;
 	text-align: justify;
 	font-family: FZMWJW--GB1-0;
     color: #DD8707;
