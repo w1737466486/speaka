@@ -129,7 +129,7 @@ $(function(){
 								$('.group-buy-list div').eq(i).find('img').attr('src',data.group[i].user_info.head_wx);
 							}else{
 								//head和微信头像都为null，给默认头像
-								$('.group-buy-list div').eq(i).find('img').attr('src','../img/mr.png');
+								$('.group-buy-list div').eq(i).find('img').attr('src','../img/mr_head.png');
 							}
 							$('.group-buy-list div').eq(i).find('span').html(data.group[i].user_info.name);
 						}

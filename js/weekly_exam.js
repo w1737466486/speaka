@@ -132,7 +132,6 @@ $(function(){
 			success:function(data){
 				console.log(data);
 				if(data.code==200){
-					
 					$('.exam_head_title p').eq(0).find('b').html(data.data.commodity_name)
 					if(data.data.weekly_id==1){
 						$('.exam_head_title p').eq(1).html('First weekly report');
