@@ -4,6 +4,7 @@ $(function(){
 	var order_no=activity_url.order_no;
 	var joy_from=activity_url.joy_from;
 	var token=null;
+	var typeId=null;
 	var has_mobile=false;
 	var isbuy=false;
 	if(order_no=="undefined"){
@@ -101,7 +102,7 @@ $(function(){
 		if(has_mobile){
 			pay(0,null);	
 		}else{
-			var typeId=0;
+			typeId=0;
 			$('.login_mask').show();
 		}
 	})
@@ -165,12 +166,12 @@ $(function(){
 					} 
 					if (remain_time > 0 && data.group.length >= 3) {
 						$('.notice').html('该拼团已成团！');
+						$('.group_btn').html('该团人数已满！去开团');
 						$('.group_btn').click(function () {
-							alert('该团人数已满！去开团');
 							if(has_mobile){
 								pay(1,null);
 							}else{
-								var typeId=1;
+								typeId=1;
 								order_no=null;
 								$('.login_mask').show();
 							}
@@ -186,7 +187,7 @@ $(function(){
 							if(has_mobile){
 								pay(1,order_no);	
 							}else{
-								var typeId=1;
+								typeId=1;
 								$('.login_mask').show();	
 							}
 						})
@@ -233,7 +234,7 @@ $(function(){
 			if(has_mobile){
 				pay(1,order_no);	
 			}else{
-				var typeId=1;
+				typeId=1;
 				$('.login_mask').show();
 			}
 		})
