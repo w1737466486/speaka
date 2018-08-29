@@ -46,7 +46,7 @@ $(function(){
 		 }
 	}
 	//商品详情
-		$.ajax({
+/*		$.ajax({
 		type: "get",
 		url: "https://api.speaka.live/api/commodity/" + commodity_id,
 		async: true,
@@ -56,7 +56,7 @@ $(function(){
 		error: function error(_error) {
 			console.log(_error);
 		}
-	});
+	});*/
 	
 	
 	 //判断用户是否购买过该商品
@@ -69,6 +69,7 @@ $(function(){
 		},
 		success:function(res){
 			console.log(res);
+			$('.buyAlone_btn').html('￥'+res.price/100+'单独购')
 			if(res.code==403||res.code==404||res.code==405){
 				isbuy=true;
 				if(res.order_type==1){
@@ -229,6 +230,7 @@ $(function(){
 			}
 		});
 	}else{
+		$('.group-buy-step1').addClass('active');
 		//点击开团按钮
 		$('.group_btn').click(function(){
 			if(has_mobile){
@@ -434,6 +436,15 @@ $(function(){
 				console.log(JSON.stringify(res));
 			}
 		});
+	})
+	//输入验证码时改变按钮颜色
+	$('.phone_code').on("input propertychange",function(){
+		if($('.phone_code').val()!=''){
+			console.log($('.phone_code').val())
+			$('.submit_btn').css({'background':'#1e88e5'})
+		}else{
+			$('.submit_btn').css({'background':'#c2c5cb'})
+		}
 	})
 	//关闭手机号绑定窗口
 	$('.close_phone').on('click',function(){

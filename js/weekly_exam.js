@@ -132,24 +132,29 @@ $(function(){
 			success:function(data){
 				console.log(data);
 				if(data.code==200){
+					
 					$('.exam_head_title p').eq(0).find('b').html(data.data.commodity_name)
 					if(data.data.weekly_id==1){
 						$('.exam_head_title p').eq(1).html('First weekly report');
+						$('title').html(data.data.commodity_name+' '+'第一周报告')
 					}else if(data.data.weekly_id==2){
 						$('.exam_head_title p').eq(1).html('Second weekly report');
+						$('title').html(data.data.commodity_name+' '+'第二周报告')
 					}else if(data.data.weekly_id==3){
 						$('.exam_head_title p').eq(1).html('Third weekly report');
+						$('title').html(data.data.commodity_name+' '+'第三周报告')
 					}else if(data.data.weekly_id==4){
 						$('.exam_head_title p').eq(1).html('Fourth weekly report');
+						$('title').html(data.data.commodity_name+' '+'第四周报告')
 					}
 					$('.exam_content .pic1').append('<img src="https://s.speaka.live/' + data.data.pics[0].pic + '"/>');
 					$('.exam_content .pic2').append('<img src="https://s.speaka.live/' + data.data.pics[1].pic + '"/>');
 					$('.exam_content .pic3').append('<img src="https://s.speaka.live/' + data.data.pics[2].pic + '"/>');
 					$('.exam_content .pic4').append('<img src="https://s.speaka.live/' + data.data.pics[3].pic + '"/>');
-					$('.exam_content .exam_left_text').eq(0).html('<span>'+data.data.pics[0].share_desc+'</span>>');
-					$('.exam_content .exam_left_text').eq(1).html('<span>'+data.data.pics[1].share_desc+'</span>>');
-					$('.exam_content .exam_left_text').eq(2).html('<span>'+data.data.pics[2].share_desc+'</span>>');
-					$('.exam_content .exam_left_text').eq(3).html('<span>'+data.data.pics[3].share_desc+'</span>>');
+					$('.exam_content .exam_left_text').eq(0).html('<span>'+data.data.pics[0].share_desc+'</span>');
+					$('.exam_content .exam_left_text').eq(1).html('<span>'+data.data.pics[1].share_desc+'</span>');
+					$('.exam_content .exam_left_text').eq(2).html('<span>'+data.data.pics[2].share_desc+'</span>');
+					$('.exam_content .exam_left_text').eq(3).html('<span>'+data.data.pics[3].share_desc+'</span>');
 					$('.audio-right b').html(data.data.user_name);
 					$('.audio-wrapper audio').attr('src','https://s.speaka.live/'+data.data.whole_voice);
 					$('.exam_envelope span').eq(0).find('b').html(data.data.user_name+'<em></em>');

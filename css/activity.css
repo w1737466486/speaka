@@ -431,7 +431,7 @@ em,b,i,strong{
     position: absolute;
     cursor: pointer;
     overflow: hidden;
-    top: 16%;
+    top: 26vw;
     left: calc(50% - 24px);
     z-index: 4;
 }
