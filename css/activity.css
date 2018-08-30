@@ -14,6 +14,10 @@ em,b,i,strong{
 	font-weight: normal;
 	font-style: normal;
 }
+img{
+	outline-width:0px;  
+    vertical-align:top; 
+}
 .banner_wrapper{
 	position: relative;
 	font-size: 0;
@@ -65,7 +69,9 @@ em,b,i,strong{
 	left: calc(50% - 24px);
 	z-index: 4;
 }
-
+.main{
+	background: #1763c5;
+}
 .section {
     padding: 40px 0;
     text-align: center;
@@ -201,6 +207,7 @@ em,b,i,strong{
     display: block;
     margin: 0 auto;
 }
+
 .group-buy-step2 {
     background-image: url(../img/ic_group_buy_step2.png);
     background-size: 16px 16px;
@@ -258,6 +265,35 @@ em,b,i,strong{
 }
 .connect-line:nth-child(3) {
     left: 72% !important;
+}
+/*课程介绍*/
+.act_main img{
+	width: 100%;
+}
+.act_txt{
+	text-align: center;
+	position: relative;
+}
+.act_txt_img{
+	text-align: center;
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    font-size: 16px;
+    color: #223358;
+    width: 40.53vw;
+    margin-top: 0px;
+}
+.act_txt_img img{
+	width: 100%;
+    margin: 16px auto 12px auto;
+}
+.bottom_wx img{
+	width: 100%;
+}
+.act_txt_con img{
+	width: 100%;
 }
 /*购买*/
 .fixed_btns {
