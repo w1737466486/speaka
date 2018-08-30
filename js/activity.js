@@ -440,7 +440,6 @@ $(function(){
 	//输入验证码时改变按钮颜色
 	$('.phone_code').on("input propertychange",function(){
 		if($('.phone_code').val()!=''){
-			console.log($('.phone_code').val())
 			$('.submit_btn').css({'background':'#1e88e5'})
 		}else{
 			$('.submit_btn').css({'background':'#c2c5cb'})
@@ -471,7 +470,7 @@ $(function(){
 			wx.ready(function () {
 				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 				wx.onMenuShareAppMessage({
-					title: '【推荐2人免费学】跟着美国家庭学英语，看世界！', // 分享标题    
+					title: '【59元20节】跟着美国家庭学英语，探索神秘海洋！', // 分享标题    
 					desc: 'Youtube网红家庭中国首秀，台湾帅气老师Lyle实时互动讲解，趣味练习巩固效果。', // 分享描述    
 					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id + '&joy_from=' + joy_from + '&order_no=' + order_no, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
@@ -487,7 +486,7 @@ $(function(){
 					}
 				});
 				wx.onMenuShareTimeline({
-					title: '【6~12岁英文微课】跟着美国家庭学英语，看世界！', // 分享标题    
+					title: '【59元20节】跟着美国家庭学英语，探索神秘海洋！', // 分享标题    
 					link: 'https://h5.speaka.live/front/html/activity.html?commodity_id=' + commodity_id  + '&joy_from=' + joy_from + '&order_no=' + order_no, // 分享链接    
 					imgUrl: 'https://s.speaka.live/static/logo-white.png', // 分享图标    
 					success: function success() {
