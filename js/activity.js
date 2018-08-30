@@ -181,6 +181,15 @@ $(function(){
 		                $('.notice').html('该拼团已结束');
 					} else if (remain_time <= 0) {
 						$('.notice').html('该拼团已结束');
+						//点击开团按钮
+						$('.group_btn').click(function(){
+							if(has_mobile){
+								pay(1,order_no);	
+							}else{
+								typeId=1;
+								$('.login_mask').show();	
+							}
+						})
 					}
 					if (remain_time > 0 && data.group.length < 3) {
 						//点击开团按钮
