@@ -179,19 +179,31 @@ $(function(){
 						});
 					} else if (remain_time <= 0 && data.group.length < 3) {
 		                $('.notice').html('该拼团已结束');
+		                //点击开团按钮
+						$('.group_btn').click(function(){
+							if(has_mobile){
+								pay(1,null);	
+							}else{
+								typeId=1;
+								order_no=null;
+								$('.login_mask').show();	
+							}
+						})
 					} else if (remain_time <= 0) {
 						$('.notice').html('该拼团已结束');
 						//点击开团按钮
 						$('.group_btn').click(function(){
 							if(has_mobile){
-								pay(1,order_no);	
+								pay(1,null);	
 							}else{
 								typeId=1;
+								order_no=null;
 								$('.login_mask').show();	
 							}
 						})
 					}
 					if (remain_time > 0 && data.group.length < 3) {
+						$('.notice').html('已成团！');
 						//点击开团按钮
 						$('.group_btn').click(function(){
 							if(has_mobile){
