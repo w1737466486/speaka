@@ -203,7 +203,6 @@ $(function(){
 						})
 					}
 					if (remain_time > 0 && data.group.length < 3) {
-						$('.notice').html('已成团！');
 						//点击开团按钮
 						$('.group_btn').click(function(){
 							if(has_mobile){
