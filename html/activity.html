@@ -137,5 +137,24 @@
 			<script src="https://s13.cnzz.com/z_stat.php?id=1274108748&web_id=1274108748"  language="JavaScript"></script>
 		</div>
 	</body>
+	<script type="text/javascript">
+		// 接口调用代码（JavaScript） --- from 微信公众平台-企业微信开发文档
+		function onBridgeReady(){
+		   WeixinJSBridge.call('hideToolbar');
+		}
+		
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+		        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		    }
+		}else{
+		    onBridgeReady();
+		}
+		// 返回说明
+		// 隐藏底部导航栏没有返回值。（需要显示顶部导航栏，请把hideToolbar换成showToolbar） 
+	</script>
 	<script type="text/javascript">document.write('<script src="../js/activity.js?timestamp='+new Date().getTime()+'" type="text/javascript" charset="utf-8"><\/script>');</script>
 </html>
