@@ -21,11 +21,11 @@
 			<script type="text/javascript">
 				var v1=document.getElementsByClassName('viewVideo')[0];
 					var count = true;
-				    v1.style.transition = 'transform 0.7s linear 0s';
+				    v1.style.transition = 'transform 0.5s linear 0s';
 				    setInterval(function () {
-				      v1.style.transform = 'scale(' + (count ? '1.2' : '1') + ')';
+				      v1.style.transform = 'scale(' + (count ? '1.4' : '1') + ')';
 				      count = !count;
-				    }, 700);
+				    }, 500);
 				    $('.viewVideo').click(function(){
 				    	$('.playVideo').show()
 				    	$('.playVideo video').trigger('play');	
