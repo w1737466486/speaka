@@ -216,6 +216,7 @@ b,em{
     margin: 10px auto;
     max-width: 670px;
     height: 88px;
+    display: none;
 }
 .audio-left {
     float: left;

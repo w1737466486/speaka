@@ -142,7 +142,8 @@ $(function () {
 							var curr_time = getNowFormatDate();
 							var last_time = $(this).attr('learn_at');
 							curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
-							last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+							last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + '00:00:00';
+							console.log(last_time)
 							curr_time = new Date(curr_time).valueOf();
 							last_time = new Date(last_time).valueOf();
 							//剩余总时间
@@ -174,7 +175,7 @@ $(function () {
 								}
 							}else{
 								$('.dialog').show();
-								$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>");
+								$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>解锁时间："+$(this).attr('learn_at').substr(5,5)+" "+"00:00:00"+"</p>");
 								$('.dialog').click(function(){
 									$('.dialog').hide();
 								});
@@ -274,7 +275,8 @@ $(function () {
 							var curr_time = getNowFormatDate();
 							var last_time = $(this).attr('learn_at');
 							curr_time = curr_time.substr(0, 4) + '/' + curr_time.substr(5, 2) + '/' + curr_time.substr(8, 2) + ' ' + curr_time.substr(11);
-							last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + last_time.substr(11);
+							last_time = last_time.substr(0, 4) + '/' + last_time.substr(5, 2) + '/' + last_time.substr(8, 2) + ' ' + '00:00:00';
+							console.log(last_time)
 							curr_time = new Date(curr_time).valueOf();
 							last_time = new Date(last_time).valueOf();
 							//剩余总时间
@@ -306,7 +308,7 @@ $(function () {
 								}
 							}else{
 								$('.dialog').show();
-								$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>上课时间："+$(this).attr('learn_at').substr(5)+"</p>");
+								$('.dialog .dialog_box').html("<p>未到上课时间，该视频暂时无法播放!</br>解锁时间："+$(this).attr('learn_at').substr(5,5)+" "+"00:00:00"+"</p>");
 								$('.dialog').click(function(){
 									$('.dialog').hide();
 								});
