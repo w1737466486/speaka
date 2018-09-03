@@ -19,6 +19,32 @@ em{
 li{
 	list-style: none;
 }
+.loading{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+	z-index: 999;
+}
+.loading img{
+	width: 80%;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%,-50%);
+}
+.loading p{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 65%;
+	font-size: 24px;
+	color: #ccc;
+	transform: translate(-50%,-50%);
+}
 .rank_top{
 	width: 100%;
 	height: 120px;

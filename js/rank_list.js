@@ -3,9 +3,9 @@
 $(function () {
 	window.get_token = get_token;
 	var token = null;
-	//get_token();
+	get_token();
 	function get_token(_results) {
-		token = 'Bearer ' + _results;
+		token = 'Bearer ' + 1257;
 		$.ajax({
 			type: "get",
 			url: "https://api.speaka.live/api/top100 ",
@@ -39,6 +39,7 @@ $(function () {
 				$('.rank_ul_three li').find('span').eq(0).find('img').attr('src', 'https://s.speaka.live/' + data.info.mine.head+'?x-oss-process=style/w60');
 				$('.rank_ul_three li').find('span').eq(1).html(data.info.mine.name);
 				$('.rank_ul_three li').find('span').eq(2).find('em').html(data.info.mine.score);
+				$('.loading').hide();
 			},
 			error: function error(res) {
 				console.log(res);
