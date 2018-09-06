@@ -113,7 +113,18 @@ $(function(){
 	var weekly_url=queryURL(location.href);
 	var weekly_id=weekly_url.weekly_id;
 	var token=weekly_url.stamp;
+	var u_id=weekly_url.u_id;
+	var data={};
 	window.get_token = get_token;
+	if(token){
+		data.commodity_lesson_video_id=weekly_id;
+		data.token=token='Bearer ' + token;
+	}
+	if(u_id){
+		data.commodity_lesson_video_id=weekly_id;
+		data.u=u_id;
+	}
+	console.log(data)
 	get_token(token);
 	console.log(token);
 	function get_token(_results) {
@@ -122,10 +133,7 @@ $(function(){
 			url:"https://api.speaka.live/api/weektest-report",
 			dataType: 'JSON',
 			async:true,
-			data:{
-				commodity_lesson_video_id:weekly_id,
-				u:token
-			},
+			data:data,
 			success:function(data){
 				console.log(data);
 				if(data.code==200){
