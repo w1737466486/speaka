@@ -117,17 +117,14 @@ $(function(){
 	get_token(token);
 	console.log(token);
 	function get_token(_results) {
-		token='Bearer ' + _results;
 		$.ajax({
 			type:"post",
 			url:"https://api.speaka.live/api/weektest-report",
 			dataType: 'JSON',
 			async:true,
 			data:{
-				commodity_lesson_video_id:weekly_id
-			},
-			beforeSend: function beforeSend(request) {
-				request.setRequestHeader("Authorization", token);
+				commodity_lesson_video_id:weekly_id,
+				u:token
 			},
 			success:function(data){
 				console.log(data);
