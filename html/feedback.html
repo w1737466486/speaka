@@ -242,6 +242,9 @@
 		                    $('.phone input').val('');
 		                    $('.contect input').val('');
 		                })
+		                setTimeout(function(){
+		                	window.location.reload()
+		                },1000);
 		            },
 		            error: function error(res) {
 		                $('.modal').css({display:'block'});
